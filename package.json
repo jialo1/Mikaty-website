@@ -5,9 +5,13 @@
   "scripts": {
     "build": "cd mikaty-vitrine && npm install && npm run build",
     "start": "cd mikaty-vitrine && npm start",
-    "dev": "cd mikaty-vitrine && npm start"
+    "dev": "cd mikaty-vitrine && npm start",
+    "vercel-build": "cd mikaty-vitrine && npm install && npm run build"
   },
   "engines": {
     "node": ">=16.0.0"
-  }
+  },
+  "workspaces": [
+    "mikaty-vitrine"
+  ]
 }
