@@ -1,22 +1,11 @@
 {
-  "version": 2,
-  "builds": [
+  "buildCommand": "cd mikaty-vitrine && npm install && npm run build",
+  "outputDirectory": "mikaty-vitrine/build",
+  "framework": "create-react-app",
+  "rewrites": [
     {
-      "src": "mikaty-vitrine/package.json",
-      "use": "@vercel/static-build",
-      "config": {
-        "distDir": "build"
-      }
-    }
-  ],
-  "routes": [
-    {
-      "src": "/static/(.*)",
-      "dest": "/mikaty-vitrine/build/static/$1"
-    },
-    {
-      "src": "/(.*)",
-      "dest": "/mikaty-vitrine/build/index.html"
+      "source": "/(.*)",
+      "destination": "/index.html"
     }
   ]
 } 
