@@ -1,116 +1,70 @@
-# 🚀 MIikaty - Application de Paiement Mobile
+# Getting Started with Create React App
 
-Site vitrine moderne pour MIikaty, une application révolutionnaire de paiement mobile qui simplifie les transactions financières pour tous.
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## ✨ Fonctionnalités
+## Available Scripts
 
-- **Paiements instantanés** : Transferts d'argent en 2 clics
-- **Sans compte bancaire** : Fonctionne avec votre numéro de téléphone
-- **Multi-opérateurs** : Compatible avec tous les opérateurs mobiles
-- **Sécurité renforcée** : Chiffrement de bout en bout
-- **Interface intuitive** : Design moderne et accessible
+In the project directory, you can run:
 
-## 🛠️ Technologies Utilisées
+### `npm start`
 
-- **Frontend** : React.js
-- **Styling** : Tailwind CSS
-- **Animations** : Framer Motion
-- **Responsive** : Design mobile-first
+Runs the app in the development mode.\
+Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
-## 🚀 Installation et Démarrage
+The page will reload when you make changes.\
+You may also see any lint errors in the console.
 
-1. **Cloner le repository**
-   ```bash
-   git clone https://github.com/jialo1/Mikaty-website.git
-   cd Mikaty-website/mikaty-vitrine
-   ```
+### `npm test`
 
-2. **Installer les dépendances**
-   ```bash
-   npm install
-   ```
+Launches the test runner in the interactive watch mode.\
+See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-3. **Lancer le serveur de développement**
-   ```bash
-   npm start
-   ```
+### `npm run build`
 
-4. **Ouvrir dans le navigateur**
-   ```
-   http://localhost:3000
-   ```
+Builds the app for production to the `build` folder.\
+It correctly bundles React in production mode and optimizes the build for the best performance.
 
-## 📱 Pages Disponibles
+The build is minified and the filenames include the hashes.\
+Your app is ready to be deployed!
 
-- **Accueil** : Présentation de l'application et témoignages
-- **Services** : Fonctionnalités avancées et roadmap
-- **À propos** : Notre mission et équipe
-- **Contact** : Formulaire de contact
+See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-## 🎨 Design
+### `npm run eject`
 
-- **Thème** : Mode clair/sombre
-- **Couleurs** : Violet MIikaty (#563491) et dégradés
-- **Typographie** : Moderne et lisible
-- **Animations** : Transitions fluides et micro-interactions
+**Note: this is a one-way operation. Once you `eject`, you can't go back!**
 
-## 📦 Structure du Projet
+If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
 
-```
-mikaty-vitrine/
-├── public/
-│   ├── images/          # Images et assets
-│   └── index.html
-├── src/
-│   ├── pages/           # Pages principales
-│   ├── components/      # Composants réutilisables
-│   └── assets/          # Assets internes
-└── package.json
-```
+Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
 
-## 🌟 Fonctionnalités Clés
+You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
 
-### Témoignages Utilisateurs
-- Cartes avec photos en arrière-plan
-- Dégradé violet en mode clair
-- Design responsive et moderne
+## Learn More
 
-### Section Services
-- Fonctionnalités avancées
-- Roadmap des futures fonctionnalités
-- Design en grille responsive
+You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
-### Navigation
-- Menu responsive
-- Transitions fluides
-- Mode sombre/clair
+To learn React, check out the [React documentation](https://reactjs.org/).
 
-## 🔧 Scripts Disponibles
+### Code Splitting
 
-- `npm start` : Lance le serveur de développement
-- `npm build` : Crée une version de production
-- `npm test` : Lance les tests
-- `npm eject` : Éjecte la configuration (irréversible)
+This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
 
-## 📄 Licence
+### Analyzing the Bundle Size
 
-Ce projet est sous licence MIT. Voir le fichier `LICENSE` pour plus de détails.
+This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
 
-## 🤝 Contribution
+### Making a Progressive Web App
 
-Les contributions sont les bienvenues ! N'hésitez pas à :
-1. Fork le projet
-2. Créer une branche pour votre fonctionnalité
-3. Commiter vos changements
-4. Pousser vers la branche
-5. Ouvrir une Pull Request
+This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
 
-## 📞 Contact
+### Advanced Configuration
 
-- **Site web** : [MIikaty](https://mikaty.com)
-- **Email** : contact@mikaty.com
-- **GitHub** : [@jialo1](https://github.com/jialo1)
+This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
 
----
+### Deployment
 
-**MIikaty** - La finance, simple et accessible. 💜 
+This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+
+### `npm run build` fails to minify
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)

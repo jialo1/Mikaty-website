@@ -1,23 +1,8 @@
 {
-  "version": 2,
-  "builds": [
+  "rewrites": [
     {
-      "src": "mikaty-vitrine/package.json",
-      "use": "@vercel/static-build",
-      "config": {
-        "distDir": "build",
-        "installCommand": "cd mikaty-vitrine && npm install"
-      }
-    }
-  ],
-  "routes": [
-    {
-      "src": "/static/(.*)",
-      "dest": "/mikaty-vitrine/build/static/$1"
-    },
-    {
-      "src": "/(.*)",
-      "dest": "/mikaty-vitrine/build/index.html"
+      "source": "/(.*)",
+      "destination": "/index.html"
     }
   ]
 } 

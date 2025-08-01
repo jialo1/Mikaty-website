@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 371.63 371.63">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: none;
+      }
+
+      .cls-2 {
+        filter: url(#drop-shadow-1);
+      }
+
+      .cls-3 {
+        isolation: isolate;
+      }
+
+      .cls-4 {
+        fill: #fff;
+      }
+
+      .cls-5 {
+        fill: url(#Degradado_sin_nombre_37);
+        mix-blend-mode: screen;
+        opacity: .5;
+      }
+
+      .cls-6 {
+        fill: #1b1b90;
+      }
+
+      .cls-7 {
+        fill: #a20000;
+      }
+
+      .cls-8 {
+        fill: #ccc;
+        mix-blend-mode: multiply;
+      }
+
+      .cls-9 {
+        clip-path: url(#clippath);
+      }
+    </style>
+    <filter id="drop-shadow-1" x="-10.93" y="-10.8" width="403" height="403" filterUnits="userSpaceOnUse">
+      <feOffset dx="5" dy="5"/>
+      <feGaussianBlur result="blur" stdDeviation="5"/>
+      <feFlood flood-color="#000" flood-opacity=".4"/>
+      <feComposite in2="blur" operator="in"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+    <clipPath id="clippath">
+      <circle class="cls-1" cx="185.82" cy="185.82" r="185.82"/>
+    </clipPath>
+    <linearGradient id="Degradado_sin_nombre_37" data-name="Degradado sin nombre 37" x1="349.2" y1="-227.66" x2="349.2" y2="-428.36" gradientTransform="translate(120.84 613.3) rotate(-45)" gradientUnits="userSpaceOnUse">
+      <stop offset=".17" stop-color="#fff" stop-opacity="0"/>
+      <stop offset="1" stop-color="#fff"/>
+    </linearGradient>
+  </defs>
+  <g class="cls-3">
+    <g id="Calque_2" data-name="Calque 2">
+      <g id="OBJECTS">
+        <g>
+          <g class="cls-2">
+            <g class="cls-9">
+              <g>
+                <rect class="cls-6" x=".67" width="124.53" height="371.63"/>
+                <rect class="cls-4" x="123.55" width="124.53" height="371.63"/>
+                <rect class="cls-7" x="246.43" width="124.53" height="371.63"/>
+              </g>
+            </g>
+          </g>
+          <path class="cls-8" d="M349.55,97.9c4.45,15.93,6.84,32.73,6.84,50.08,0,102.62-83.19,185.82-185.82,185.82-70.82,0-132.37-39.62-163.73-97.9,21.86,78.3,93.71,135.74,178.98,135.74,102.62,0,185.82-83.19,185.82-185.82,0-31.81-8-61.75-22.08-87.92Z"/>
+          <path class="cls-5" d="M134.62,133.24c60.19-60.19,141.36-78.96,192.01-47.69-5.5-7.74-11.71-15.13-18.65-22.07C240.84-3.65,131.99-3.65,64.86,63.49-2.27,130.62-2.27,239.46,64.86,306.59c6.94,6.94,14.33,13.15,22.07,18.65-31.27-50.64-12.51-131.81,47.69-192.01Z"/>
+        </g>
+      </g>
+    </g>
+  </g>
+</svg>
