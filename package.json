@@ -3,7 +3,6 @@
   "version": "1.0.0",
   "description": "Mikaty website with React app",
   "scripts": {
-    "build": "cd mikaty-vitrine && npm install && npm run build",
     "start": "cd mikaty-vitrine && npm start",
     "dev": "cd mikaty-vitrine && npm start"
   },
