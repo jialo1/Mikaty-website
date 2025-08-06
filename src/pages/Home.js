@@ -3,66 +3,7 @@ import { motion } from "framer-motion";
 import { AnimatePresence } from "framer-motion";
 import { Link } from "react-router-dom";
 
-// Composant typewriter corrigé
-function Typewriter({ text, speed = 35, className = "", textLines }) {
-  const [index, setIndex] = useState(0);
-  useEffect(() => {
-    setIndex(0);
-    if (textLines && Array.isArray(textLines) && textLines.length > 0) {
-      // Animation ligne par ligne
-      let line = 0;
-      let char = 0;
-      let interval;
-      function nextChar() {
-        if (char < textLines[line].length) {
-          char++;
-          setIndex((prev) => prev + 1);
-        } else if (line < textLines.length - 1) {
-          line++;
-          char = 0;
-          setIndex((prev) => prev + 1); // Pour passer à la ligne suivante
-        } else {
-          clearInterval(interval);
-        }
-      }
-      interval = setInterval(nextChar, speed);
-      return () => clearInterval(interval);
-    } else if (text) {
-      // Animation texte simple
-      const interval = setInterval(() => {
-        setIndex((prev) => {
-          if (prev < text.length) {
-            return prev + 1;
-          } else {
-            clearInterval(interval);
-            return prev;
-          }
-        });
-      }, speed);
-      return () => clearInterval(interval);
-    }
-  }, [text, textLines, speed]);
 
-  if (textLines && Array.isArray(textLines) && textLines.length > 0) {
-    // Affiche chaque ligne animée
-    let total = 0;
-    const linesToShow = textLines.map((line, i) => {
-      const start = total;
-      const end = total + line.length;
-      total = end + 1; // +1 pour le saut de ligne
-      if (index >= end) {
-        return <React.Fragment key={i}>{line}<br /></React.Fragment>;
-      } else if (index > start) {
-        return <React.Fragment key={i}>{line.slice(0, index - start)}<br /></React.Fragment>;
-      } else {
-        return null;
-      }
-    });
-    return <span className={className}>{linesToShow}</span>;
-  }
-  // Fallback texte simple
-  return <span className={className}>{text ? text.slice(0, index) : null}</span>;
-}
 
 // Composant QR Code Flottant
 function FloatingQRCode() {
@@ -348,7 +289,7 @@ export default function Home() {
 
 
       {/* Section Innovation */}
-      <section className="py-20 px-4 bg-gray-50 dark:bg-gray-800">
+      <section className="py-20 px-4 bg-[linear-gradient(90deg,#fefefe_0%,#f8f7ff_50%,#f8f7ff_100%)] dark:bg-gradient-to-b dark:from-miikaty-dark dark:to-[#2d1a4d]">
         <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-center gap-12">
           {/* Espace pour image à gauche */}
           <div className="md:w-1/2 flex justify-center order-2 md:order-1">
@@ -364,9 +305,9 @@ export default function Home() {
           
           {/* Contenu à droite */}
           <div className="md:w-1/2 text-left order-1 md:order-2">
-            <h2 className="text-3xl md:text-5xl font-bold mb-6 text-[#563491] dark:text-[#d8a5ff]">
-              Innovation au service de votre quotidien
-            </h2>
+                      <h2 className="text-3xl md:text-5xl font-bold mb-6 bg-gradient-to-r from-[#563491] to-black dark:from-[#d8a5ff] dark:to-[#d8a5ff] bg-clip-text text-transparent">
+            Innovation au service de votre quotidien
+          </h2>
             <p className="text-lg text-gray-700 dark:text-gray-300 mb-8">
               Découvrez comment Mikaty révolutionne vos transactions financières avec des technologies de pointe et une expérience utilisateur exceptionnelle.
             </p>
@@ -399,11 +340,11 @@ export default function Home() {
       </section>
 
       {/* Section Sécurité */}
-      <section className="py-20 px-4 bg-white dark:bg-gray-900">
+      <section className="py-20 px-4 bg-white dark:bg-gradient-to-b dark:from-[#2d1a4d] dark:to-miikaty-dark">
         <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-center gap-12">
           {/* Contenu à gauche */}
           <div className="md:w-1/2 text-left">
-            <h2 className="text-3xl md:text-5xl font-bold mb-6 text-[#563491] dark:text-[#d8a5ff]">
+            <h2 className="text-3xl md:text-5xl font-bold mb-6 bg-gradient-to-r from-[#563491] to-black dark:from-[#d8a5ff] dark:to-[#d8a5ff] bg-clip-text text-transparent">
               Votre sécurité, notre priorité
             </h2>
             <p className="text-lg text-gray-700 dark:text-gray-300 mb-8">
@@ -450,13 +391,14 @@ export default function Home() {
       </section>
 
       {/* Ils utilisent Mikaty au quotidien */}
-      <section className="py-24 bg-white dark:bg-[#1a1a1a]">
+      <section className="py-24 bg-[linear-gradient(90deg,#fefefe_0%,#f8f7ff_50%,#f8f7ff_100%)] dark:bg-gradient-to-b dark:from-miikaty-dark dark:to-[#2d1a4d]">
         <div className="text-center mb-16 max-w-7xl mx-auto px-6">
-          <h2 className="text-3xl lg:text-4xl font-bold text-miikaty-dark dark:text-white mb-4">
+          <h2 className="text-3xl lg:text-4xl font-bold bg-gradient-to-r from-[#563491] to-black dark:from-white dark:to-white bg-clip-text text-transparent mb-4">
             Ils utilisent Mikaty au quotidien
           </h2>
           <p className="text-gray-600 dark:text-gray-300 text-lg max-w-2xl mx-auto">
-            Découvrez comment nos utilisateurs transforment leur expérience financière avec Mikaty
+            Découvrez comment nos utilisateurs transforment<br />
+            leur expérience financière avec Mikaty
           </p>
         </div>
 
@@ -464,8 +406,12 @@ export default function Home() {
         <div className="relative w-screen left-1/2 right-1/2 -mx-[50vw]">
           <div className="flex animate-scroll space-x-6 px-12 md:px-20 lg:px-32 xl:px-48 2xl:px-64">
               {/* Bloc 1 */}
-              <div className="flex-shrink-0 w-80 h-96 bg-gradient-to-br from-purple-100 to-pink-100 dark:from-purple-900/20 dark:to-pink-900/20 rounded-2xl border border-gray-200 dark:border-gray-700 shadow-lg flex items-center justify-center">
-                <span className="text-gray-500 dark:text-gray-400 text-sm">Votre image ici</span>
+              <div className="flex-shrink-0 w-80 h-96 bg-gradient-to-br from-purple-100 to-pink-100 dark:from-purple-900/20 dark:to-pink-900/20 rounded-2xl border border-gray-200 dark:border-gray-700 shadow-lg flex items-center justify-center overflow-hidden">
+                <img 
+                  src="/images/femmecard.png" 
+                  alt="Femme card" 
+                  className="w-full h-full object-cover rounded-2xl"
+                />
               </div>
               {/* Bloc 2 */}
               <div className="flex-shrink-0 w-80 h-96 bg-gradient-to-br from-blue-100 to-cyan-100 dark:from-blue-900/20 dark:to-cyan-900/20 rounded-2xl border border-gray-200 dark:border-gray-700 shadow-lg flex items-center justify-center">
@@ -489,8 +435,12 @@ export default function Home() {
               </div>
               {/* Répéter les blocs pour un défilement continu */}
               {/* Bloc 1 (dupliqué) */}
-              <div className="flex-shrink-0 w-80 h-96 bg-gradient-to-br from-purple-100 to-pink-100 dark:from-purple-900/20 dark:to-pink-900/20 rounded-2xl border border-gray-200 dark:border-gray-700 shadow-lg flex items-center justify-center">
-                <span className="text-gray-500 dark:text-gray-400 text-sm">Votre image ici</span>
+              <div className="flex-shrink-0 w-80 h-96 bg-gradient-to-br from-purple-100 to-pink-100 dark:from-purple-900/20 dark:to-pink-900/20 rounded-2xl border border-gray-200 dark:border-gray-700 shadow-lg flex items-center justify-center overflow-hidden">
+                <img 
+                  src="/images/femmecard.png" 
+                  alt="Femme card" 
+                  className="w-full h-full object-cover rounded-2xl"
+                />
               </div>
               {/* Bloc 2 (dupliqué) */}
               <div className="flex-shrink-0 w-80 h-96 bg-gradient-to-br from-blue-100 to-cyan-100 dark:from-blue-900/20 dark:to-cyan-900/20 rounded-2xl border border-gray-200 dark:border-gray-700 shadow-lg flex items-center justify-center">
@@ -501,7 +451,7 @@ export default function Home() {
       </section>
 
       {/* Section Partenaires */}
-      <section className="py-16 bg-white dark:bg-gradient-to-b dark:from-[#2d1a4d] dark:to-miikaty-dark">
+      <section className="py-16 bg-white dark:bg-gradient-to-b dark:from-miikaty-dark dark:to-[#2d1a4d]">
         <div className="container mx-auto px-6">
           <h2 className="text-2xl md:text-3xl font-extrabold mb-10 text-center bg-gradient-to-r from-[#563491] to-[#1a1a1a] dark:from-white dark:to-[#563491] bg-clip-text text-transparent">
             Nos partenaires
@@ -538,7 +488,7 @@ export default function Home() {
       </section>
 
       {/* Mini FAQ */}
-      <section className="pt-12 pb-8 bg-[linear-gradient(90deg,#f6f3ff_0%,#e5e5f7_50%,#e5e5f7_100%)] dark:bg-gradient-to-b dark:from-miikaty-dark dark:to-[#2d1a4d]">
+      <section className="pt-12 pb-8 bg-[linear-gradient(90deg,#fefefe_0%,#f8f7ff_50%,#f8f7ff_100%)] dark:bg-gradient-to-b dark:from-miikaty-dark dark:to-[#2d1a4d]">
         <div className="max-w-3xl mx-auto px-4">
           <h2 className="text-2xl md:text-3xl font-bold mb-8 text-center bg-gradient-to-r from-[#563491] to-[#1a1a1a] dark:from-white dark:to-[#563491] bg-clip-text text-transparent">
             Questions fréquentes
@@ -561,12 +511,12 @@ export default function Home() {
       </section>
 
       {/* Appel à l'action mobile */}
-      <section className="py-16 text-center" style={{background: 'radial-gradient(ellipse at 60% 40%, #7C3AED 0%, #1a1a1a 100%)'}}>
+      <section className="py-16 text-center bg-[linear-gradient(90deg,#fefefe_0%,#f8f7ff_50%,#f8f7ff_100%)] dark:bg-gradient-to-b dark:from-[#2d1a4d] dark:to-miikaty-dark">
         <div className="max-w-2xl mx-auto px-4">
-          <h2 className="text-2xl md:text-3xl font-bold mb-4 text-white">
+          <h2 className="text-2xl md:text-3xl font-bold mb-4 bg-gradient-to-r from-[#563491] to-black dark:from-white dark:to-white bg-clip-text text-transparent">
             Essayez MIikaty dès maintenant
           </h2>
-          <p className="text-miikaty-light mb-6">Rejoignez la révolution du paiement mobile. Gratuit, sans engagement, pour tous.</p>
+          <p className="text-gray-600 dark:text-gray-300 mb-6">Rejoignez la révolution du paiement mobile. Gratuit, sans engagement, pour tous.</p>
           <div className="flex flex-col md:flex-row justify-center gap-4 mt-4">
             <motion.a
               href="https://play.google.com/store/apps/details?id=ton.app"

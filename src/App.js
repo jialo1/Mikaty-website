@@ -130,7 +130,7 @@ function Navbar({ isScrolled, isAfterHero, isDark, setIsDark, LanguageSwitch }) 
           <li><Link to="/entreprise" className={`relative font-medium text-shadow-md after:content-[''] after:block after:w-0 after:h-0.5 after:bg-miikaty after:transition-all after:duration-300 hover:after:w-full ${window.location.pathname === '/hero-section-2' ? 'text-miikaty' : 'text-white'}`}>Entreprise</Link></li>
           <li><Link to="/contact" className={`relative font-medium text-shadow-md after:content-[''] after:block after:w-0 after:h-0.5 after:bg-miikaty after:transition-all after:duration-300 hover:after:w-full ${window.location.pathname === '/hero-section-2' ? 'text-miikaty' : 'text-white'}`}>Contact</Link></li>
           <li>
-            <Link to="/signup" className={`ml-4 bg-gray-900 border border-gray-400 px-5 py-2 rounded-xl font-semibold text-base hover:bg-gray-800 hover:border-miikaty transition ${window.location.pathname === '/hero-section-2' ? 'text-miikaty' : 'text-white'}`}>
+            <Link to="/contact" className={`ml-4 bg-gray-900 border border-gray-400 px-5 py-2 rounded-xl font-semibold text-base hover:bg-gray-800 hover:border-miikaty transition ${window.location.pathname === '/hero-section-2' ? 'text-miikaty' : 'text-white'}`}>
               S'inscrire
             </Link>
           </li>
@@ -201,7 +201,7 @@ function Navbar({ isScrolled, isAfterHero, isDark, setIsDark, LanguageSwitch }) 
               {/* Bouton S'inscrire */}
               <div className="pt-2">
                 <Link 
-                  to="/signup" 
+                  to="/contact" 
                   className="block w-full bg-miikaty text-white text-center py-3 px-4 rounded-xl font-semibold hover:bg-miikaty-dark transition-colors"
                 >
                   S'inscrire
