@@ -150,679 +150,595 @@ export default function Services() {
       </section>
       
       <div className="max-w-7xl mx-auto py-16 px-6">
-        {/* Section détaillée - Paiement de facture */}
-        <section className="mb-12 lg:mb-16">
-          <div className="bg-gradient-to-r from-blue-50 to-indigo-100 dark:from-[#1a1a1a] dark:to-[#2d1a4d] rounded-2xl lg:rounded-3xl p-4 lg:p-12 shadow-lg">
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 lg:gap-12 items-center">
-              {/* Détails du service à gauche */}
-              <div className="text-left">
-                <div className="flex items-center justify-start mb-3 lg:mb-6">
-                  <div className="w-10 h-10 lg:w-16 lg:h-16 bg-blue-200 rounded-full flex items-center justify-center mr-2 lg:mr-4">
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-5 h-5 lg:w-8 lg:h-8 text-blue-600">
-                      <path strokeLinecap="round" strokeLinejoin="round" d="M9 12h3.75M9 15h3.75M9 18h3.75m3 .75H18a2.25 2.25 0 0 0 2.25-2.25V6.108c0-1.135-.845-2.098-1.976-2.192a48.424 48.424 0 0 0-1.123-.08m-5.801 0c-.065.21-.1.433-.1.664 0 .414.336.75.75.75h4.5a.75.75 0 0 0 .75-.75 2.25 2.25 0 0 0-.1-.664m-5.8 0A2.251 2.251 0 0 1 13.5 2.25H15c1.012 0 1.867.668 2.15 1.586m-5.8 0c-.376.023-.75.05-1.124.08C9.095 4.01 8.25 4.973 8.25 6.108V19.5a2.25 2.25 0 0 0 2.25 2.25h.75m0-3H21" />
-                    </svg>
-                  </div>
-                  <h2 className="text-xl lg:text-3xl font-bold text-miikaty-dark dark:text-white">Paiement de facture</h2>
-                </div>
-                
-                <p className="text-gray-700 dark:text-gray-300 text-sm lg:text-lg mb-4 lg:mb-8 leading-relaxed">
-                  Payez toutes vos factures en un seul endroit. Plus besoin de faire la queue ou de vous déplacer. Notre plateforme vous connecte directement aux fournisseurs de services.
-                </p>
-                
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-2 lg:gap-4 mb-4 lg:mb-8 justify-items-start">
-                  <div className="flex items-center">
-                    <svg className="w-5 h-5 lg:w-6 lg:h-6 text-miikaty mr-2 lg:mr-3" fill="currentColor" viewBox="0 0 20 20">
-                      <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
-                    </svg>
-                    <span className="text-gray-700 dark:text-gray-300 text-xs lg:text-base">Électricité, eau, internet et téléphonie</span>
-                  </div>
-                  <div className="flex items-center">
-                    <svg className="w-5 h-5 lg:w-6 lg:h-6 text-miikaty mr-2 lg:mr-3" fill="currentColor" viewBox="0 0 20 20">
-                      <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
-                    </svg>
-                    <span className="text-gray-700 dark:text-gray-300 text-xs lg:text-base">Paiement sécurisé 24h/24 et 7j/7</span>
-                  </div>
-                  <div className="flex items-center">
-                    <svg className="w-5 h-5 lg:w-6 lg:h-6 text-miikaty mr-2 lg:mr-3" fill="currentColor" viewBox="0 0 20 20">
-                      <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
-                    </svg>
-                    <span className="text-gray-700 dark:text-gray-300 text-xs lg:text-base">Reçus instantanés par email/SMS</span>
-                  </div>
-                  <div className="flex items-center">
-                    <svg className="w-5 h-5 lg:w-6 lg:h-6 text-miikaty mr-2 lg:mr-3" fill="currentColor" viewBox="0 0 20 20">
-                      <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
-                    </svg>
-                    <span className="text-gray-700 dark:text-gray-300 text-xs lg:text-base">Historique complet de vos paiements</span>
-                  </div>
-                </div>
+        {/* Cartes de services compactes */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-16">
+          {/* Carte 1 - Paiement de factures */}
+          <div className="bg-white dark:bg-[#1a1a1a] border-2 border-blue-200 dark:border-blue-800 rounded-3xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105">
+            <div className="flex items-center mb-6">
+              <div className="w-12 h-12 bg-blue-200 rounded-full flex items-center justify-center mr-4">
+                <svg className="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12h3.75M9 15h3.75M9 18h3.75m3 .75H18a2.25 2.25 0 0 0 2.25-2.25V6.108c0-1.135-.845-2.098-1.976-2.192a48.424 48.424 0 0 0-1.123-.08m-5.801 0c-.065.21-.1.433-.1.664 0 .414.336.75.75.75h4.5a.75.75 0 0 0 .75-.75 2.25 2.25 0 0 0-.1-.664m-5.8 0A2.251 2.251 0 0 1 13.5 2.25H15c1.012 0 1.867.668 2.15 1.586m-5.8 0c-.376.023-.75.05-1.124.08C9.095 4.01 8.25 4.973 8.25 6.108V19.5a2.25 2.25 0 0 0 2.25 2.25h.75m0-3H21" />
+                </svg>
               </div>
-              
-              {/* Logos des partenaires à droite */}
-              <div className="max-w-xs lg:max-w-none mx-auto lg:mx-0">
-                <h3 className="text-base lg:text-xl font-semibold text-miikaty-dark dark:text-white mb-3 lg:mb-6 text-left">Nos partenaires</h3>
-                <div className="grid grid-cols-4 gap-1 lg:gap-4">
-                  {/* SENELEC */}
-                  <div className="bg-white dark:bg-[#563491] rounded-lg lg:rounded-2xl p-1 lg:p-4 shadow-md hover:shadow-lg transition-shadow duration-300 flex items-center justify-center">
-                    <div className="text-center">
-                      <div className="w-6 h-6 lg:w-12 lg:h-12 bg-yellow-500 rounded-full flex items-center justify-center mx-auto mb-1 lg:mb-2">
-                        <span className="text-white font-bold text-xs lg:text-lg">⚡</span>
-                      </div>
-                      <span className="text-gray-800 dark:text-white font-semibold text-xs lg:text-sm">SENELEC</span>
-                    </div>
-                  </div>
-                  
-                  {/* SDE */}
-                  <div className="bg-white dark:bg-[#563491] rounded-lg lg:rounded-2xl p-1 lg:p-4 shadow-md hover:shadow-lg transition-shadow duration-300 flex items-center justify-center">
-                    <div className="text-center">
-                      <div className="w-6 h-6 lg:w-12 lg:h-12 bg-blue-500 rounded-full flex items-center justify-center mx-auto mb-1 lg:mb-2">
-                        <span className="text-white font-bold text-xs lg:text-lg">💧</span>
-                      </div>
-                      <span className="text-gray-800 dark:text-white font-semibold text-xs lg:text-sm">SDE</span>
-                    </div>
-                  </div>
-                  
-                  {/* Orange */}
-                  <div className="bg-white dark:bg-[#563491] rounded-lg lg:rounded-2xl p-1 lg:p-4 shadow-md hover:shadow-lg transition-shadow duration-300 flex items-center justify-center">
-                    <div className="text-center">
-                      <div className="w-6 h-6 lg:w-12 lg:h-12 bg-orange-500 rounded-full flex items-center justify-center mx-auto mb-1 lg:mb-2">
-                        <span className="text-white font-bold text-xs lg:text-lg">📱</span>
-                      </div>
-                      <span className="text-gray-800 dark:text-white font-semibold text-xs lg:text-sm">Orange</span>
-                    </div>
-                  </div>
-                  
-                  {/* Free */}
-                  <div className="bg-white dark:bg-[#563491] rounded-lg lg:rounded-2xl p-1 lg:p-4 shadow-md hover:shadow-lg transition-shadow duration-300 flex items-center justify-center">
-                    <div className="text-center">
-                      <div className="w-6 h-6 lg:w-12 lg:h-12 bg-red-500 rounded-full flex items-center justify-center mx-auto mb-1 lg:mb-2">
-                        <span className="text-white font-bold text-xs lg:text-lg">🌐</span>
-                      </div>
-                      <span className="text-gray-800 dark:text-white font-semibold text-xs lg:text-sm">Free</span>
-                    </div>
-                  </div>
-                  
-                  {/* Expresso */}
-                  <div className="bg-white dark:bg-[#563491] rounded-lg lg:rounded-2xl p-1 lg:p-4 shadow-md hover:shadow-lg transition-shadow duration-300 flex items-center justify-center">
-                    <div className="text-center">
-                      <div className="w-6 h-6 lg:w-12 lg:h-12 bg-green-500 rounded-full flex items-center justify-center mx-auto mb-1 lg:mb-2">
-                        <span className="text-white font-bold text-xs lg:text-lg">📶</span>
-                      </div>
-                      <span className="text-gray-800 dark:text-white font-semibold text-xs lg:text-sm">Expresso</span>
-                    </div>
-                  </div>
-                  
-                  {/* Canal+ */}
-                  <div className="bg-white dark:bg-[#563491] rounded-lg lg:rounded-2xl p-1 lg:p-4 shadow-md hover:shadow-lg transition-shadow duration-300 flex items-center justify-center">
-                    <div className="text-center">
-                      <div className="w-6 h-6 lg:w-12 lg:h-12 bg-purple-500 rounded-full flex items-center justify-center mx-auto mb-1 lg:mb-2">
-                        <span className="text-white font-bold text-xs lg:text-lg">📺</span>
-                      </div>
-                      <span className="text-gray-800 dark:text-white font-semibold text-xs lg:text-sm">Canal+</span>
-                    </div>
-                  </div>
-                  
-                  {/* Nouveau partenaire - Place disponible */}
-                  <div className="bg-white dark:bg-[#563491] rounded-lg lg:rounded-2xl p-1 lg:p-4 shadow-md hover:shadow-lg transition-shadow duration-300 flex items-center justify-center border-2 border-dashed border-gray-300 dark:border-gray-600">
-                    <div className="text-center">
-                      <div className="w-6 h-6 lg:w-12 lg:h-12 bg-gray-300 dark:bg-gray-600 rounded-full flex items-center justify-center mx-auto mb-1 lg:mb-2">
-                        <span className="text-gray-500 dark:text-gray-400 font-bold text-xs lg:text-lg">+</span>
-                      </div>
-                      <span className="text-gray-500 dark:text-gray-400 font-semibold text-xs lg:text-sm">Nouveau</span>
-                    </div>
-                  </div>
-                </div>
-                
-                <p className="text-center text-gray-600 dark:text-gray-400 text-xs lg:text-sm mt-4 lg:mt-6">
-                  Et bien d'autres partenaires...
-                </p>
-                
-                <button className="bg-blue-400 hover:bg-blue-500 text-white dark:bg-blue-400 dark:text-white dark:hover:bg-blue-500 font-semibold py-2 lg:py-3 px-3 lg:px-6 rounded-lg lg:rounded-xl transition-all duration-300 transform hover:scale-105 shadow-lg text-xs lg:text-base w-full lg:w-auto mt-6">
-                  Commencer maintenant
-                </button>
+              <h3 className="text-2xl font-bold text-miikaty-dark dark:text-white">Paiement de factures</h3>
+            </div>
+            
+            <p className="text-gray-700 dark:text-gray-300 mb-6 leading-relaxed">
+              Réglez toutes vos factures en quelques clics. Électricité, eau, internet, télévision et bien plus encore.
+            </p>
+            
+            <div className="space-y-2 mb-6">
+              <div className="flex items-center text-sm text-gray-600 dark:text-gray-400">
+                <span className="w-2 h-2 bg-miikaty rounded-full mr-3"></span>
+                Paiement instantané
+              </div>
+              <div className="flex items-center text-sm text-gray-600 dark:text-gray-400">
+                <span className="w-2 h-2 bg-miikaty rounded-full mr-3"></span>
+                Reçu électronique
+              </div>
+              <div className="flex items-center text-sm text-gray-600 dark:text-gray-400">
+                <span className="w-2 h-2 bg-miikaty rounded-full mr-3"></span>
+                Sécurisé 24h/24
+              </div>
+            </div>
+            
+            {/* Logos des entreprises partenaires */}
+            <div className="flex items-center space-x-2 mt-6">
+              <div className="w-8 h-8 bg-gray-200 dark:bg-gray-700 rounded-full flex items-center justify-center">
+                <span className="text-gray-500 dark:text-gray-400 text-xs">Logo</span>
+              </div>
+              <div className="w-8 h-8 bg-gray-200 dark:bg-gray-700 rounded-full flex items-center justify-center">
+                <span className="text-gray-500 dark:text-gray-400 text-xs">Logo</span>
+              </div>
+              <div className="w-8 h-8 bg-gray-200 dark:bg-gray-700 rounded-full flex items-center justify-center">
+                <span className="text-gray-500 dark:text-gray-400 text-xs">Logo</span>
+              </div>
+              <div className="w-8 h-8 bg-gray-200 dark:bg-gray-700 rounded-full flex items-center justify-center">
+                <span className="text-gray-500 dark:text-gray-400 text-xs">Logo</span>
               </div>
             </div>
           </div>
-        </section>
 
-        {/* Service 2 - Achats de crédit */}
-        <section className="mb-16">
-          <div className="bg-gradient-to-r from-green-50 to-emerald-100 dark:from-[#2d1a4d] dark:to-[#1a1a1a] rounded-3xl p-8 lg:p-12 shadow-lg">
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
-              {/* Détails du service à gauche */}
-              <div>
-                <div className="flex items-center justify-start mb-3 lg:mb-6">
-                  <div className="w-10 h-10 lg:w-16 lg:h-16 bg-green-200 rounded-full flex items-center justify-center mr-2 lg:mr-4">
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-5 h-5 lg:w-8 lg:h-8 text-green-600">
-                      <path strokeLinecap="round" strokeLinejoin="round" d="M12 6v12m-3-2.818.879.659c1.171.879 3.07.879 4.242 0 1.172-.879 1.172-2.303 0-3.182C13.536 12.219 12.768 12 12 12c-.725 0-1.45-.22-2.003-.659-1.106-.879-1.106-2.303 0-3.182s2.9-.879 4.006 0l.415.33M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
-                    </svg>
-                  </div>
-                  <h2 className="text-xl lg:text-3xl font-bold text-miikaty-dark dark:text-white">Achats de crédit</h2>
-                </div>
-                
-                <p className="text-gray-700 dark:text-gray-300 text-sm lg:text-lg mb-4 lg:mb-8 leading-relaxed">
-                  Rechargez votre crédit téléphonique en quelques secondes. Compatible avec tous les opérateurs majeurs du Sénégal et de la sous-région.
-                </p>
-                
-                <div className="space-y-3 lg:space-y-4 mb-4 lg:mb-8">
-                  <div className="flex items-center">
-                    <svg className="w-5 h-5 lg:w-6 lg:h-6 text-miikaty mr-2 lg:mr-3" fill="currentColor" viewBox="0 0 20 20">
-                      <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
-                    </svg>
-                    <span className="text-gray-700 dark:text-gray-300 text-xs lg:text-base">Orange Money, Yass, Expresso</span>
-                  </div>
-                  <div className="flex items-center">
-                    <svg className="w-5 h-5 lg:w-6 lg:h-6 text-miikaty mr-2 lg:mr-3" fill="currentColor" viewBox="0 0 20 20">
-                      <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
-                    </svg>
-                    <span className="text-gray-700 dark:text-gray-300 text-xs lg:text-base">Recharges instantanées</span>
-                  </div>
-                  <div className="flex items-center">
-                    <svg className="w-5 h-5 lg:w-6 lg:h-6 text-miikaty mr-2 lg:mr-3" fill="currentColor" viewBox="0 0 20 20">
-                      <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
-                    </svg>
-                    <span className="text-gray-700 dark:text-gray-300 text-xs lg:text-base">Tarifs préférentiels</span>
-                  </div>
-                  <div className="flex items-center">
-                    <svg className="w-5 h-5 lg:w-6 lg:h-6 text-miikaty mr-2 lg:mr-3" fill="currentColor" viewBox="0 0 20 20">
-                      <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
-                    </svg>
-                    <span className="text-gray-700 dark:text-gray-300 text-xs lg:text-base">Bonus et promotions exclusives</span>
-                  </div>
-                </div>
-                
+          {/* Carte 2 - Achats de crédit */}
+          <div className="bg-white dark:bg-[#1a1a1a] border-2 border-green-200 dark:border-green-800 rounded-3xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105">
+            <div className="flex items-center mb-6">
+              <div className="w-12 h-12 bg-green-200 rounded-full flex items-center justify-center mr-4">
+                <svg className="w-6 h-6 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6v12m-3-2.818.879.659c1.171.879 3.07.879 4.242 0 1.172-.879 1.172-2.303 0-3.182C13.536 12.219 12.768 12 12 12c-.725 0-1.45-.22-2.003-.659-1.106-.879-1.106-2.303 0-3.182s2.9-.879 4.006 0l.415.33M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
+                </svg>
               </div>
-              
-              {/* Logos des opérateurs à droite */}
-              <div className="max-w-xs lg:max-w-none mx-auto lg:mx-0">
-                <h3 className="text-base lg:text-xl font-semibold text-miikaty-dark dark:text-white mb-3 lg:mb-6 text-left">Nos opérateurs partenaires</h3>
-                <div className="grid grid-cols-4 gap-1 lg:gap-4">
-                  {/* Orange */}
-                  <div className="bg-white dark:bg-[#563491] rounded-lg lg:rounded-2xl p-1 lg:p-4 shadow-md hover:shadow-lg transition-shadow duration-300 flex items-center justify-center">
-                    <div className="text-center">
-                      <div className="w-6 h-6 lg:w-12 lg:h-12 bg-orange-500 rounded-full flex items-center justify-center mx-auto mb-1 lg:mb-2">
-                        <span className="text-white font-bold text-xs lg:text-lg">📱</span>
-                      </div>
-                      <span className="text-gray-800 dark:text-white font-semibold text-xs lg:text-sm">Orange</span>
-                    </div>
-                  </div>
-                  
-                  {/* Yass */}
-                  <div className="bg-white dark:bg-[#563491] rounded-lg lg:rounded-2xl p-1 lg:p-4 shadow-md hover:shadow-lg transition-shadow duration-300 flex items-center justify-center">
-                    <div className="text-center">
-                      <div className="w-6 h-6 lg:w-12 lg:h-12 bg-blue-500 rounded-full flex items-center justify-center mx-auto mb-1 lg:mb-2">
-                        <span className="text-white font-bold text-xs lg:text-lg">📞</span>
-                      </div>
-                      <span className="text-gray-800 dark:text-white font-semibold text-xs lg:text-sm">Yass</span>
-                    </div>
-                  </div>
-                  
-                  {/* Expresso */}
-                  <div className="bg-white dark:bg-[#563491] rounded-lg lg:rounded-2xl p-1 lg:p-4 shadow-md hover:shadow-lg transition-shadow duration-300 flex items-center justify-center">
-                    <div className="text-center">
-                      <div className="w-6 h-6 lg:w-12 lg:h-12 bg-green-500 rounded-full flex items-center justify-center mx-auto mb-1 lg:mb-2">
-                        <span className="text-white font-bold text-xs lg:text-lg">📶</span>
-                      </div>
-                      <span className="text-gray-800 dark:text-white font-semibold text-xs lg:text-sm">Expresso</span>
-                    </div>
-                  </div>
-                  
-                  {/* Free */}
-                  <div className="bg-white dark:bg-[#563491] rounded-lg lg:rounded-2xl p-1 lg:p-4 shadow-md hover:shadow-lg transition-shadow duration-300 flex items-center justify-center">
-                    <div className="text-center">
-                      <div className="w-6 h-6 lg:w-12 lg:h-12 bg-red-500 rounded-full flex items-center justify-center mx-auto mb-1 lg:mb-2">
-                        <span className="text-white font-bold text-xs lg:text-lg">🌐</span>
-                      </div>
-                      <span className="text-gray-800 dark:text-white font-semibold text-xs lg:text-sm">Free</span>
-                    </div>
-                  </div>
-                  
-                  {/* Tigo */}
-                  <div className="bg-white dark:bg-[#563491] rounded-lg lg:rounded-2xl p-1 lg:p-4 shadow-md hover:shadow-lg transition-shadow duration-300 flex items-center justify-center">
-                    <div className="text-center">
-                      <div className="w-6 h-6 lg:w-12 lg:h-12 bg-yellow-500 rounded-full flex items-center justify-center mx-auto mb-1 lg:mb-2">
-                        <span className="text-white font-bold text-xs lg:text-lg">📡</span>
-                      </div>
-                      <span className="text-gray-800 dark:text-white font-semibold text-xs lg:text-sm">Tigo</span>
-                    </div>
-                  </div>
-                  
-                  {/* MTN */}
-                  <div className="bg-white dark:bg-[#563491] rounded-lg lg:rounded-2xl p-1 lg:p-4 shadow-md hover:shadow-lg transition-shadow duration-300 flex items-center justify-center">
-                    <div className="text-center">
-                      <div className="w-6 h-6 lg:w-12 lg:h-12 bg-yellow-400 rounded-full flex items-center justify-center mx-auto mb-1 lg:mb-2">
-                        <span className="text-white font-bold text-xs lg:text-lg">📲</span>
-                      </div>
-                      <span className="text-gray-800 dark:text-white font-semibold text-xs lg:text-sm">MTN</span>
-                    </div>
-                  </div>
-                  
-                  {/* Nouveau partenaire - Place disponible */}
-                  <div className="bg-white dark:bg-[#563491] rounded-lg lg:rounded-2xl p-1 lg:p-4 shadow-md hover:shadow-lg transition-shadow duration-300 flex items-center justify-center border-2 border-dashed border-gray-300 dark:border-gray-600">
-                    <div className="text-center">
-                      <div className="w-6 h-6 lg:w-12 lg:h-12 bg-gray-300 dark:bg-gray-600 rounded-full flex items-center justify-center mx-auto mb-1 lg:mb-2">
-                        <span className="text-gray-500 dark:text-gray-400 font-bold text-xs lg:text-lg">+</span>
-                      </div>
-                      <span className="text-gray-500 dark:text-gray-400 font-semibold text-xs lg:text-sm">Nouveau</span>
-                    </div>
-                  </div>
-                </div>
-                
-                <p className="text-center text-gray-600 dark:text-gray-400 text-sm mt-6">
-                  Et bien d'autres opérateurs...
-                </p>
-                
-                <button className="bg-green-400 hover:bg-green-500 text-white dark:bg-green-400 dark:text-white dark:hover:bg-green-500 font-semibold py-2 lg:py-3 px-3 lg:px-6 rounded-lg lg:rounded-xl transition-all duration-300 transform hover:scale-105 shadow-lg text-xs lg:text-base w-full lg:w-auto mt-6">
-                  Recharger maintenant
-                </button>
+              <h3 className="text-2xl font-bold text-miikaty-dark dark:text-white">Achats de crédit</h3>
+            </div>
+            
+            <p className="text-gray-700 dark:text-gray-300 mb-6 leading-relaxed">
+              Rechargez votre crédit téléphonique en quelques secondes. Compatible avec tous les opérateurs majeurs.
+            </p>
+            
+            <div className="space-y-2 mb-6">
+              <div className="flex items-center text-sm text-gray-600 dark:text-gray-400">
+                <span className="w-2 h-2 bg-miikaty rounded-full mr-3"></span>
+                Recharges instantanées
+              </div>
+              <div className="flex items-center text-sm text-gray-600 dark:text-gray-400">
+                <span className="w-2 h-2 bg-miikaty rounded-full mr-3"></span>
+                Tarifs préférentiels
+              </div>
+              <div className="flex items-center text-sm text-gray-600 dark:text-gray-400">
+                <span className="w-2 h-2 bg-miikaty rounded-full mr-3"></span>
+                Bonus exclusifs
+              </div>
+            </div>
+            
+            {/* Logos des entreprises partenaires */}
+            <div className="flex items-center space-x-2 mt-6">
+              <div className="w-8 h-8 bg-gray-200 dark:bg-gray-700 rounded-full flex items-center justify-center">
+                <span className="text-gray-500 dark:text-gray-400 text-xs">Logo</span>
+              </div>
+              <div className="w-8 h-8 bg-gray-200 dark:bg-gray-700 rounded-full flex items-center justify-center">
+                <span className="text-gray-500 dark:text-gray-400 text-xs">Logo</span>
+              </div>
+              <div className="w-8 h-8 bg-gray-200 dark:bg-gray-700 rounded-full flex items-center justify-center">
+                <span className="text-gray-500 dark:text-gray-400 text-xs">Logo</span>
+              </div>
+              <div className="w-8 h-8 bg-gray-200 dark:bg-gray-700 rounded-full flex items-center justify-center">
+                <span className="text-gray-500 dark:text-gray-400 text-xs">Logo</span>
               </div>
             </div>
           </div>
-        </section>
+        </div>
 
-        {/* Service 3 - Transfert bancaire */}
-        <section className="mb-16">
-          <div className="bg-gradient-to-r from-purple-50 to-violet-100 dark:from-[#1a1a1a] dark:to-[#2d1a4d] rounded-3xl p-8 lg:p-12 shadow-lg">
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
-              {/* Détails du service à gauche */}
-              <div>
-                <div className="flex items-center justify-start mb-3 lg:mb-6">
-                  <div className="w-10 h-10 lg:w-16 lg:h-16 bg-purple-200 rounded-full flex items-center justify-center mr-2 lg:mr-4">
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-5 h-5 lg:w-8 lg:h-8 text-purple-600">
-                      <path strokeLinecap="round" strokeLinejoin="round" d="M7.5 21 3 16.5m0 0L7.5 12M3 16.5h13.5m0-13.5L21 7.5m0 0L16.5 12M21 7.5H7.5" />
-                    </svg>
-                  </div>
-                  <h2 className="text-xl lg:text-3xl font-bold text-miikaty-dark dark:text-white">Transfert bancaire</h2>
-                </div>
-                
-                <p className="text-gray-700 dark:text-gray-300 text-sm lg:text-lg mb-4 lg:mb-8 leading-relaxed">
-                  Envoyez de l'argent instantanément à vos proches, peu importe où ils se trouvent. Transferts sécurisés et rapides.
-                </p>
-                
-                <div className="space-y-3 lg:space-y-4 mb-4 lg:mb-8">
-                  <div className="flex items-center">
-                    <svg className="w-5 h-5 lg:w-6 lg:h-6 text-miikaty mr-2 lg:mr-3" fill="currentColor" viewBox="0 0 20 20">
-                      <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
-                    </svg>
-                    <span className="text-gray-700 dark:text-gray-300 text-xs lg:text-base">Transferts instantanés</span>
-                  </div>
-                  <div className="flex items-center">
-                    <svg className="w-5 h-5 lg:w-6 lg:h-6 text-miikaty mr-2 lg:mr-3" fill="currentColor" viewBox="0 0 20 20">
-                      <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
-                    </svg>
-                    <span className="text-gray-700 dark:text-gray-300 text-xs lg:text-base">Pas de frais cachés</span>
-                  </div>
-                  <div className="flex items-center">
-                    <svg className="w-5 h-5 lg:w-6 lg:h-6 text-miikaty mr-2 lg:mr-3" fill="currentColor" viewBox="0 0 20 20">
-                      <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
-                    </svg>
-                    <span className="text-gray-700 dark:text-gray-300 text-xs lg:text-base">Sécurité maximale</span>
-                  </div>
-                  <div className="flex items-center">
-                    <svg className="w-5 h-5 lg:w-6 lg:h-6 text-miikaty mr-2 lg:mr-3" fill="currentColor" viewBox="0 0 20 20">
-                      <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
-                    </svg>
-                    <span className="text-gray-700 dark:text-gray-300 text-xs lg:text-base">Transferts internationaux</span>
-                  </div>
-                </div>
-                
+        {/* Deuxième rangée de cartes */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-16">
+          {/* Carte 3 - Transfert d'argent */}
+          <div className="bg-white dark:bg-[#1a1a1a] border-2 border-purple-200 dark:border-purple-800 rounded-3xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105">
+            <div className="flex items-center mb-6">
+              <div className="w-12 h-12 bg-purple-200 rounded-full flex items-center justify-center mr-4">
+                <svg className="w-6 h-6 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7.5 21 3 16.5m0 0L7.5 12M3 16.5h13.5m0-13.5L21 7.5m0 0L16.5 12M21 7.5H7.5" />
+                </svg>
               </div>
-              
-              {/* Logos des banques à droite */}
-              <div className="max-w-xs lg:max-w-none mx-auto lg:mx-0">
-                <h3 className="text-base lg:text-xl font-semibold text-miikaty-dark dark:text-white mb-3 lg:mb-6 text-left">Nos partenaires bancaires</h3>
-                <div className="grid grid-cols-4 gap-1 lg:gap-4">
-                  {/* Ecobank */}
-                  <div className="bg-white dark:bg-[#563491] rounded-lg lg:rounded-2xl p-1 lg:p-4 shadow-md hover:shadow-lg transition-shadow duration-300 flex items-center justify-center">
-                    <div className="text-center">
-                      <div className="w-6 h-6 lg:w-12 lg:h-12 bg-green-600 rounded-full flex items-center justify-center mx-auto mb-1 lg:mb-2">
-                        <span className="text-white font-bold text-xs lg:text-lg">🏦</span>
-                      </div>
-                      <span className="text-gray-800 dark:text-white font-semibold text-xs lg:text-sm">Ecobank</span>
-                    </div>
-                  </div>
-                  
-                  {/* BICIS */}
-                  <div className="bg-white dark:bg-[#563491] rounded-lg lg:rounded-2xl p-1 lg:p-4 shadow-md hover:shadow-lg transition-shadow duration-300 flex items-center justify-center">
-                    <div className="text-center">
-                      <div className="w-6 h-6 lg:w-12 lg:h-12 bg-blue-600 rounded-full flex items-center justify-center mx-auto mb-1 lg:mb-2">
-                        <span className="text-white font-bold text-xs lg:text-lg">🏛️</span>
-                      </div>
-                      <span className="text-gray-800 dark:text-white font-semibold text-xs lg:text-sm">BICIS</span>
-                    </div>
-                  </div>
-                  
-                  {/* SGBS */}
-                  <div className="bg-white dark:bg-[#563491] rounded-lg lg:rounded-2xl p-1 lg:p-4 shadow-md hover:shadow-lg transition-shadow duration-300 flex items-center justify-center">
-                    <div className="text-center">
-                      <div className="w-6 h-6 lg:w-12 lg:h-12 bg-red-600 rounded-full flex items-center justify-center mx-auto mb-1 lg:mb-2">
-                        <span className="text-white font-bold text-xs lg:text-lg">🏢</span>
-                      </div>
-                      <span className="text-gray-800 dark:text-white font-semibold text-xs lg:text-sm">SGBS</span>
-                    </div>
-                  </div>
-                  
-                  {/* BHS */}
-                  <div className="bg-white dark:bg-[#563491] rounded-lg lg:rounded-2xl p-1 lg:p-4 shadow-md hover:shadow-lg transition-shadow duration-300 flex items-center justify-center">
-                    <div className="text-center">
-                      <div className="w-6 h-6 lg:w-12 lg:h-12 bg-purple-600 rounded-full flex items-center justify-center mx-auto mb-1 lg:mb-2">
-                        <span className="text-white font-bold text-xs lg:text-lg">🏪</span>
-                      </div>
-                      <span className="text-gray-800 dark:text-white font-semibold text-xs lg:text-sm">BHS</span>
-                    </div>
-                  </div>
-                  
-                  {/* Visa */}
-                  <div className="bg-white dark:bg-[#563491] rounded-lg lg:rounded-2xl p-1 lg:p-4 shadow-md hover:shadow-lg transition-shadow duration-300 flex items-center justify-center">
-                    <div className="text-center">
-                      <div className="w-6 h-6 lg:w-12 lg:h-12 bg-blue-500 rounded-full flex items-center justify-center mx-auto mb-1 lg:mb-2">
-                        <span className="text-white font-bold text-xs lg:text-lg">💳</span>
-                      </div>
-                      <span className="text-gray-800 dark:text-white font-semibold text-xs lg:text-sm">Visa</span>
-                    </div>
-                  </div>
-                  
-                  {/* Mastercard */}
-                  <div className="bg-white dark:bg-[#563491] rounded-lg lg:rounded-2xl p-1 lg:p-4 shadow-md hover:shadow-lg transition-shadow duration-300 flex items-center justify-center">
-                    <div className="text-center">
-                      <div className="w-6 h-6 lg:w-12 lg:h-12 bg-red-500 rounded-full flex items-center justify-center mx-auto mb-1 lg:mb-2">
-                        <span className="text-white font-bold text-xs lg:text-lg">💳</span>
-                      </div>
-                      <span className="text-gray-800 dark:text-white font-semibold text-xs lg:text-sm">Mastercard</span>
-                    </div>
-                  </div>
-                  
-                  {/* Nouveau partenaire - Place disponible */}
-                  <div className="bg-white dark:bg-[#563491] rounded-lg lg:rounded-2xl p-1 lg:p-4 shadow-md hover:shadow-lg transition-shadow duration-300 flex items-center justify-center border-2 border-dashed border-gray-300 dark:border-gray-600">
-                    <div className="text-center">
-                      <div className="w-6 h-6 lg:w-12 lg:h-12 bg-gray-300 dark:bg-gray-600 rounded-full flex items-center justify-center mx-auto mb-1 lg:mb-2">
-                        <span className="text-gray-500 dark:text-gray-400 font-bold text-xs lg:text-lg">+</span>
-                      </div>
-                      <span className="text-gray-500 dark:text-gray-400 font-semibold text-xs lg:text-sm">Nouveau</span>
-                    </div>
-                  </div>
-                </div>
-                
-                <p className="text-center text-gray-600 dark:text-gray-400 text-sm mt-6">
-                  Et bien d'autres partenaires...
-                </p>
-                
-                <button className="bg-purple-400 hover:bg-purple-500 text-white dark:bg-purple-400 dark:text-white dark:hover:bg-purple-500 font-semibold py-2 lg:py-3 px-3 lg:px-6 rounded-lg lg:rounded-xl transition-all duration-300 transform hover:scale-105 shadow-lg text-xs lg:text-base w-full lg:w-auto mt-6">
-                  Transférer maintenant
-                </button>
+              <h3 className="text-2xl font-bold text-miikaty-dark dark:text-white">Transfert d'argent</h3>
+            </div>
+            
+            <p className="text-gray-700 dark:text-gray-300 mb-6 leading-relaxed">
+              Envoyez de l'argent instantanément à vos proches. Rapide, sécurisé et sans frais cachés.
+            </p>
+            
+            <div className="space-y-2 mb-6">
+              <div className="flex items-center text-sm text-gray-600 dark:text-gray-400">
+                <span className="w-2 h-2 bg-miikaty rounded-full mr-3"></span>
+                Transfert instantané
+              </div>
+              <div className="flex items-center text-sm text-gray-600 dark:text-gray-400">
+                <span className="w-2 h-2 bg-miikaty rounded-full mr-3"></span>
+                Sans frais cachés
+              </div>
+              <div className="flex items-center text-sm text-gray-600 dark:text-gray-400">
+                <span className="w-2 h-2 bg-miikaty rounded-full mr-3"></span>
+                Sécurisé 24h/24
+              </div>
+            </div>
+            
+            {/* Logos des entreprises partenaires */}
+            <div className="flex items-center space-x-2 mt-6">
+              <div className="w-8 h-8 bg-gray-200 dark:bg-gray-700 rounded-full flex items-center justify-center">
+                <span className="text-gray-500 dark:text-gray-400 text-xs">Logo</span>
+              </div>
+              <div className="w-8 h-8 bg-gray-200 dark:bg-gray-700 rounded-full flex items-center justify-center">
+                <span className="text-gray-500 dark:text-gray-400 text-xs">Logo</span>
+              </div>
+              <div className="w-8 h-8 bg-gray-200 dark:bg-gray-700 rounded-full flex items-center justify-center">
+                <span className="text-gray-500 dark:text-gray-400 text-xs">Logo</span>
+              </div>
+              <div className="w-8 h-8 bg-gray-200 dark:bg-gray-700 rounded-full flex items-center justify-center">
+                <span className="text-gray-500 dark:text-gray-400 text-xs">Logo</span>
               </div>
             </div>
           </div>
-        </section>
 
-        {/* Service 4 - Cadeaux */}
-      <section className="mb-16">
-          <div className="bg-gradient-to-r from-pink-50 to-rose-100 dark:from-[#2d1a4d] dark:to-[#1a1a1a] rounded-3xl p-8 lg:p-12 shadow-lg">
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
-              {/* Détails du service à gauche */}
-              <div>
-                <div className="flex items-center justify-start mb-3 lg:mb-6">
-                  <div className="w-10 h-10 lg:w-16 lg:h-16 bg-pink-200 rounded-full flex items-center justify-center mr-2 lg:mr-4">
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-5 h-5 lg:w-8 lg:h-8 text-pink-600">
-                      <path strokeLinecap="round" strokeLinejoin="round" d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12Z" />
-                    </svg>
-                  </div>
-                  <h2 className="text-xl lg:text-3xl font-bold text-miikaty-dark dark:text-white">Cadeaux</h2>
-                </div>
-                
-                <p className="text-gray-700 dark:text-gray-300 text-sm lg:text-lg mb-4 lg:mb-8 leading-relaxed">
-                  Envoyez de l'argent en cadeau à vos proches avec des messages personnalisés. Parfait pour les occasions spéciales.
-                </p>
-                
-                <div className="space-y-3 lg:space-y-4 mb-4 lg:mb-8">
-                  <div className="flex items-center">
-                    <svg className="w-5 h-5 lg:w-6 lg:h-6 text-miikaty mr-2 lg:mr-3" fill="currentColor" viewBox="0 0 20 20">
-                      <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
-                    </svg>
-                    <span className="text-gray-700 dark:text-gray-300 text-xs lg:text-base">Messages personnalisés</span>
-                  </div>
-                  <div className="flex items-center">
-                    <svg className="w-5 h-5 lg:w-6 lg:h-6 text-miikaty mr-2 lg:mr-3" fill="currentColor" viewBox="0 0 20 20">
-                      <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
-                    </svg>
-                    <span className="text-gray-700 dark:text-gray-300 text-xs lg:text-base">Envoi instantané</span>
-                  </div>
-                  <div className="flex items-center">
-                    <svg className="w-5 h-5 lg:w-6 lg:h-6 text-miikaty mr-2 lg:mr-3" fill="currentColor" viewBox="0 0 20 20">
-                      <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
-                    </svg>
-                    <span className="text-gray-700 dark:text-gray-300 text-xs lg:text-base">Cartes virtuelles animées</span>
-                  </div>
-                  <div className="flex items-center">
-                    <svg className="w-5 h-5 lg:w-6 lg:h-6 text-miikaty mr-2 lg:mr-3" fill="currentColor" viewBox="0 0 20 20">
-                      <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
-                    </svg>
-                    <span className="text-gray-700 dark:text-gray-300 text-xs lg:text-base">Occasions spéciales</span>
-                  </div>
-                </div>
-                
+          {/* Carte 4 - Les poches */}
+          <div className="bg-white dark:bg-[#1a1a1a] border-2 border-yellow-200 dark:border-yellow-800 rounded-3xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105">
+            <div className="flex items-center mb-6">
+              <div className="w-12 h-12 bg-yellow-200 rounded-full flex items-center justify-center mr-4">
+                <svg className="w-6 h-6 text-yellow-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M20.25 6.375c0 2.278-3.694 4.125-8.25 4.125S3.75 8.653 3.75 6.375m16.5 0c0-2.278-3.694-4.125-8.25-4.125S3.75 4.097 3.75 6.375m16.5 0v11.25c0 2.278-3.694 4.125-8.25 4.125s-8.25-1.847-8.25-4.125V6.375m16.5 0v3.75m-16.5-3.75v3.75m16.5 0v3.75C20.25 16.153 16.556 18 12 18s-8.25-1.847-8.25-4.125v-3.75m16.5 0c0 2.278-3.694 4.125-8.25 4.125s-8.25-1.847-8.25-4.125" />
+                </svg>
               </div>
-              
-              {/* Occasions spéciales à droite */}
-              <div className="max-w-xs lg:max-w-none mx-auto lg:mx-0">
-                <h3 className="text-base lg:text-xl font-semibold text-miikaty-dark dark:text-white mb-3 lg:mb-6 text-left">Occasions spéciales</h3>
-                <div className="grid grid-cols-4 gap-1 lg:gap-4">
-                  {/* Anniversaire */}
-                  <div className="bg-white dark:bg-[#563491] rounded-lg lg:rounded-2xl p-1 lg:p-4 shadow-md hover:shadow-lg transition-shadow duration-300 flex items-center justify-center">
-                    <div className="text-center">
-                      <div className="w-6 h-6 lg:w-12 lg:h-12 bg-pink-500 rounded-full flex items-center justify-center mx-auto mb-1 lg:mb-2">
-                        <span className="text-white font-bold text-xs lg:text-lg">🎂</span>
-                      </div>
-                      <span className="text-gray-800 dark:text-white font-semibold text-xs lg:text-sm">Anniversaire</span>
-                    </div>
-                  </div>
-                  
-                  {/* Mariage */}
-                  <div className="bg-white dark:bg-[#563491] rounded-lg lg:rounded-2xl p-1 lg:p-4 shadow-md hover:shadow-lg transition-shadow duration-300 flex items-center justify-center">
-                    <div className="text-center">
-                      <div className="w-6 h-6 lg:w-12 lg:h-12 bg-red-500 rounded-full flex items-center justify-center mx-auto mb-1 lg:mb-2">
-                        <span className="text-white font-bold text-xs lg:text-lg">💒</span>
-                      </div>
-                      <span className="text-gray-800 dark:text-white font-semibold text-xs lg:text-sm">Mariage</span>
-                    </div>
-                  </div>
-                  
-                  {/* Noël */}
-                  <div className="bg-white dark:bg-[#563491] rounded-lg lg:rounded-2xl p-1 lg:p-4 shadow-md hover:shadow-lg transition-shadow duration-300 flex items-center justify-center">
-                    <div className="text-center">
-                      <div className="w-6 h-6 lg:w-12 lg:h-12 bg-green-500 rounded-full flex items-center justify-center mx-auto mb-1 lg:mb-2">
-                        <span className="text-white font-bold text-xs lg:text-lg">🎄</span>
-                      </div>
-                      <span className="text-gray-800 dark:text-white font-semibold text-xs lg:text-sm">Noël</span>
-                    </div>
-                  </div>
-                  
-                  {/* Nouvel An */}
-                  <div className="bg-white dark:bg-[#563491] rounded-lg lg:rounded-2xl p-1 lg:p-4 shadow-md hover:shadow-lg transition-shadow duration-300 flex items-center justify-center">
-                    <div className="text-center">
-                      <div className="w-6 h-6 lg:w-12 lg:h-12 bg-yellow-500 rounded-full flex items-center justify-center mx-auto mb-1 lg:mb-2">
-                        <span className="text-white font-bold text-xs lg:text-lg">🎆</span>
-                      </div>
-                      <span className="text-gray-800 dark:text-white font-semibold text-xs lg:text-sm">Nouvel An</span>
-                    </div>
-                  </div>
-                  
-                  {/* Fête des mères */}
-                  <div className="bg-white dark:bg-[#563491] rounded-lg lg:rounded-2xl p-1 lg:p-4 shadow-md hover:shadow-lg transition-shadow duration-300 flex items-center justify-center">
-                    <div className="text-center">
-                      <div className="w-6 h-6 lg:w-12 lg:h-12 bg-purple-500 rounded-full flex items-center justify-center mx-auto mb-1 lg:mb-2">
-                        <span className="text-white font-bold text-xs lg:text-lg">🌹</span>
-                      </div>
-                      <span className="text-gray-800 dark:text-white font-semibold text-xs lg:text-sm">Fête des mères</span>
-                    </div>
-                  </div>
-                  
-                  {/* Fête des pères */}
-                  <div className="bg-white dark:bg-[#563491] rounded-lg lg:rounded-2xl p-1 lg:p-4 shadow-md hover:shadow-lg transition-shadow duration-300 flex items-center justify-center">
-                    <div className="text-center">
-                      <div className="w-6 h-6 lg:w-12 lg:h-12 bg-blue-500 rounded-full flex items-center justify-center mx-auto mb-1 lg:mb-2">
-                        <span className="text-white font-bold text-xs lg:text-lg">👔</span>
-                      </div>
-                      <span className="text-gray-800 dark:text-white font-semibold text-xs lg:text-sm">Fête des pères</span>
-                    </div>
-                  </div>
-                  
-                  {/* Nouvelle occasion - Place disponible */}
-                  <div className="bg-white dark:bg-[#563491] rounded-lg lg:rounded-2xl p-1 lg:p-4 shadow-md hover:shadow-lg transition-shadow duration-300 flex items-center justify-center border-2 border-dashed border-gray-300 dark:border-gray-600">
-                    <div className="text-center">
-                      <div className="w-6 h-6 lg:w-12 lg:h-12 bg-gray-300 dark:bg-gray-600 rounded-full flex items-center justify-center mx-auto mb-1 lg:mb-2">
-                        <span className="text-gray-500 dark:text-gray-400 font-bold text-xs lg:text-lg">+</span>
-                      </div>
-                      <span className="text-gray-500 dark:text-gray-400 font-semibold text-xs lg:text-sm">Nouvelle</span>
-                    </div>
-                  </div>
-                </div>
-                
-                <p className="text-center text-gray-600 dark:text-gray-400 text-sm mt-6">
-                  Et bien d'autres occasions...
-                </p>
-                
-                <button className="bg-pink-400 hover:bg-pink-500 text-white dark:bg-pink-400 dark:text-white dark:hover:bg-pink-500 font-semibold py-2 lg:py-3 px-3 lg:px-6 rounded-lg lg:rounded-xl transition-all duration-300 transform hover:scale-105 shadow-lg text-xs lg:text-base w-full lg:w-auto mt-6">
-                  Envoyer un cadeau
-                </button>
+              <h3 className="text-2xl font-bold text-miikaty-dark dark:text-white">Les poches</h3>
+            </div>
+            
+            <p className="text-gray-700 dark:text-gray-300 mb-6 leading-relaxed">
+              Créez des poches pour mieux gérer votre argent, économiser ou partager en famille.
+            </p>
+            
+            <div className="space-y-2 mb-6">
+              <div className="flex items-center text-sm text-gray-600 dark:text-gray-400">
+                <span className="w-2 h-2 bg-miikaty rounded-full mr-3"></span>
+                Épargne intelligente
+              </div>
+              <div className="flex items-center text-sm text-gray-600 dark:text-gray-400">
+                <span className="w-2 h-2 bg-miikaty rounded-full mr-3"></span>
+                Partage en famille
+              </div>
+              <div className="flex items-center text-sm text-gray-600 dark:text-gray-400">
+                <span className="w-2 h-2 bg-miikaty rounded-full mr-3"></span>
+                Objectifs personnalisés
+              </div>
+            </div>
+            
+            {/* Logos des entreprises partenaires */}
+            <div className="flex items-center space-x-2 mt-6">
+              <div className="w-8 h-8 bg-gray-200 dark:bg-gray-700 rounded-full flex items-center justify-center">
+                <span className="text-gray-500 dark:text-gray-400 text-xs">Logo</span>
+              </div>
+              <div className="w-8 h-8 bg-gray-200 dark:bg-gray-700 rounded-full flex items-center justify-center">
+                <span className="text-gray-500 dark:text-gray-400 text-xs">Logo</span>
+              </div>
+              <div className="w-8 h-8 bg-gray-200 dark:bg-gray-700 rounded-full flex items-center justify-center">
+                <span className="text-gray-500 dark:text-gray-400 text-xs">Logo</span>
+              </div>
+              <div className="w-8 h-8 bg-gray-200 dark:bg-gray-700 rounded-full flex items-center justify-center">
+                <span className="text-gray-500 dark:text-gray-400 text-xs">Logo</span>
               </div>
             </div>
           </div>
-        </section>
+        </div>
 
-        {/* Service 5 - Coffres */}
-        <section className="mb-16">
-          <div className="bg-gradient-to-r from-yellow-50 to-amber-100 dark:from-[#1a1a1a] dark:to-[#2d1a4d] rounded-3xl p-8 lg:p-12 shadow-lg">
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
-              {/* Détails du service à gauche */}
-              <div>
-                <div className="flex items-center justify-start mb-3 lg:mb-6">
-                  <div className="w-10 h-10 lg:w-16 lg:h-16 bg-yellow-200 rounded-full flex items-center justify-center mr-2 lg:mr-4">
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-5 h-5 lg:w-8 lg:h-8 text-yellow-600">
-                      <path strokeLinecap="round" strokeLinejoin="round" d="M20.25 6.375c0 2.278-3.694 4.125-8.25 4.125S3.75 8.653 3.75 6.375m16.5 0c0-2.278-3.694-4.125-8.25-4.125S3.75 4.097 3.75 6.375m16.5 0v11.25c0 2.278-3.694 4.125-8.25 4.125s-8.25-1.847-8.25-4.125V6.375m16.5 0v3.75m-16.5-3.75v3.75m16.5 0v3.75C20.25 16.153 16.556 18 12 18s-8.25-1.847-8.25-4.125v-3.75m16.5 0c0 2.278-3.694 4.125-8.25 4.125s-8.25-1.847-8.25-4.125" />
-                    </svg>
-                  </div>
-                  <h2 className="text-xl lg:text-3xl font-bold text-miikaty-dark dark:text-white">Coffres</h2>
-                </div>
-                
-                <p className="text-gray-700 dark:text-gray-300 text-sm lg:text-lg mb-4 lg:mb-8 leading-relaxed">
-                  Créez des coffres pour mettre de l'argent de côté et atteindre vos objectifs d'épargne. Épargnez intelligemment.
-                </p>
-                
-                <div className="space-y-3 lg:space-y-4 mb-4 lg:mb-8">
-                  <div className="flex items-center">
-                    <svg className="w-5 h-5 lg:w-6 lg:h-6 text-miikaty mr-2 lg:mr-3" fill="currentColor" viewBox="0 0 20 20">
-                      <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
-                    </svg>
-                    <span className="text-gray-700 dark:text-gray-300 text-xs lg:text-base">Objectifs personnalisés</span>
-                  </div>
-                  <div className="flex items-center">
-                    <svg className="w-5 h-5 lg:w-6 lg:h-6 text-miikaty mr-2 lg:mr-3" fill="currentColor" viewBox="0 0 20 20">
-                      <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
-                    </svg>
-                    <span className="text-gray-700 dark:text-gray-300 text-xs lg:text-base">Intérêts attractifs</span>
-                  </div>
-                  <div className="flex items-center">
-                    <svg className="w-5 h-5 lg:w-6 lg:h-6 text-miikaty mr-2 lg:mr-3" fill="currentColor" viewBox="0 0 20 20">
-                      <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
-                    </svg>
-                    <span className="text-gray-700 dark:text-gray-300 text-xs lg:text-base">Épargne automatique</span>
-                  </div>
-                  <div className="flex items-center">
-                    <svg className="w-5 h-5 lg:w-6 lg:h-6 text-miikaty mr-2 lg:mr-3" fill="currentColor" viewBox="0 0 20 20">
-                      <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
-                    </svg>
-                    <span className="text-gray-700 dark:text-gray-300 text-xs lg:text-base">Suivi en temps réel</span>
-                  </div>
-                </div>
-                
+        {/* Troisième rangée de cartes */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-16">
+          {/* Carte 5 - Paiement par carte */}
+          <div className="bg-white dark:bg-[#1a1a1a] border-2 border-cyan-200 dark:border-cyan-800 rounded-3xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105">
+            <div className="flex items-center mb-6">
+              <div className="w-12 h-12 bg-cyan-200 rounded-full flex items-center justify-center mr-4">
+                <svg className="w-6 h-6 text-cyan-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path d="M2.25 8.25h19.5M2.25 9h19.5m-16.5 5.25h6m-6 2.25h3m-3.75 3h15a2.25 2.25 0 002.25-2.25V6.75a2.25 2.25 0 00-2.25-2.25h-15a2.25 2.25 0 00-2.25 2.25v10.5A2.25 2.25 0 004.5 21z" />
+                </svg>
               </div>
-              
-              {/* Types de coffres à droite */}
-              <div className="max-w-xs lg:max-w-none mx-auto lg:mx-0">
-                <h3 className="text-base lg:text-xl font-semibold text-miikaty-dark dark:text-white mb-3 lg:mb-6 text-left">Types de coffres</h3>
-                <div className="grid grid-cols-4 gap-1 lg:gap-4">
-                  {/* Voyage */}
-                  <div className="bg-white dark:bg-[#563491] rounded-lg lg:rounded-2xl p-1 lg:p-4 shadow-md hover:shadow-lg transition-shadow duration-300 flex items-center justify-center">
-                    <div className="text-center">
-                      <div className="w-6 h-6 lg:w-12 lg:h-12 bg-blue-500 rounded-full flex items-center justify-center mx-auto mb-1 lg:mb-2">
-                        <span className="text-white font-bold text-xs lg:text-lg">✈️</span>
-                      </div>
-                      <span className="text-gray-800 dark:text-white font-semibold text-xs lg:text-sm">Voyage</span>
-                    </div>
-                  </div>
-                  
-                  {/* Études */}
-                  <div className="bg-white dark:bg-[#563491] rounded-lg lg:rounded-2xl p-1 lg:p-4 shadow-md hover:shadow-lg transition-shadow duration-300 flex items-center justify-center">
-                    <div className="text-center">
-                      <div className="w-6 h-6 lg:w-12 lg:h-12 bg-green-500 rounded-full flex items-center justify-center mx-auto mb-1 lg:mb-2">
-                        <span className="text-white font-bold text-xs lg:text-lg">📚</span>
-                      </div>
-                      <span className="text-gray-800 dark:text-white font-semibold text-xs lg:text-sm">Études</span>
-                    </div>
-                  </div>
-                  
-                  {/* Maison */}
-                  <div className="bg-white dark:bg-[#563491] rounded-lg lg:rounded-2xl p-1 lg:p-4 shadow-md hover:shadow-lg transition-shadow duration-300 flex items-center justify-center">
-                    <div className="text-center">
-                      <div className="w-6 h-6 lg:w-12 lg:h-12 bg-yellow-500 rounded-full flex items-center justify-center mx-auto mb-1 lg:mb-2">
-                        <span className="text-white font-bold text-xs lg:text-lg">🏠</span>
-                      </div>
-                      <span className="text-gray-800 dark:text-white font-semibold text-xs lg:text-sm">Maison</span>
-                    </div>
-                  </div>
-                  
-                  {/* Urgence */}
-                  <div className="bg-white dark:bg-[#563491] rounded-lg lg:rounded-2xl p-1 lg:p-4 shadow-md hover:shadow-lg transition-shadow duration-300 flex items-center justify-center">
-                    <div className="text-center">
-                      <div className="w-6 h-6 lg:w-12 lg:h-12 bg-red-500 rounded-full flex items-center justify-center mx-auto mb-1 lg:mb-2">
-                        <span className="text-white font-bold text-xs lg:text-lg">🚨</span>
-                      </div>
-                      <span className="text-gray-800 dark:text-white font-semibold text-xs lg:text-sm">Urgence</span>
-                    </div>
-                  </div>
-                  
-                  {/* Mariage */}
-                  <div className="bg-white dark:bg-[#563491] rounded-lg lg:rounded-2xl p-1 lg:p-4 shadow-md hover:shadow-lg transition-shadow duration-300 flex items-center justify-center">
-                    <div className="text-center">
-                      <div className="w-6 h-6 lg:w-12 lg:h-12 bg-pink-500 rounded-full flex items-center justify-center mx-auto mb-1 lg:mb-2">
-                        <span className="text-white font-bold text-xs lg:text-lg">💒</span>
-                      </div>
-                      <span className="text-gray-800 dark:text-white font-semibold text-xs lg:text-sm">Mariage</span>
-                    </div>
-                  </div>
-                  
-                  {/* Business */}
-                  <div className="bg-white dark:bg-[#563491] rounded-lg lg:rounded-2xl p-1 lg:p-4 shadow-md hover:shadow-lg transition-shadow duration-300 flex items-center justify-center">
-                    <div className="text-center">
-                      <div className="w-6 h-6 lg:w-12 lg:h-12 bg-purple-500 rounded-full flex items-center justify-center mx-auto mb-1 lg:mb-2">
-                        <span className="text-white font-bold text-xs lg:text-lg">💼</span>
-                      </div>
-                      <span className="text-gray-800 dark:text-white font-semibold text-xs lg:text-sm">Business</span>
-                    </div>
-                  </div>
-                  
-                  {/* Nouveau coffre - Place disponible */}
-                  <div className="bg-white dark:bg-[#563491] rounded-lg lg:rounded-2xl p-1 lg:p-4 shadow-md hover:shadow-lg transition-shadow duration-300 flex items-center justify-center border-2 border-dashed border-gray-300 dark:border-gray-600">
-                    <div className="text-center">
-                      <div className="w-6 h-6 lg:w-12 lg:h-12 bg-gray-300 dark:bg-gray-600 rounded-full flex items-center justify-center mx-auto mb-1 lg:mb-2">
-                        <span className="text-gray-500 dark:text-gray-400 font-bold text-xs lg:text-lg">+</span>
-                      </div>
-                      <span className="text-gray-500 dark:text-gray-400 font-semibold text-xs lg:text-sm">Nouveau</span>
-                    </div>
-                  </div>
-                </div>
-                
-                <p className="text-center text-gray-600 dark:text-gray-400 text-sm mt-6">
-                  Créez vos propres objectifs...
-                </p>
-                
-                <button className="bg-yellow-400 hover:bg-yellow-500 text-white dark:bg-yellow-400 dark:text-white dark:hover:bg-yellow-500 font-semibold py-2 lg:py-3 px-3 lg:px-6 rounded-lg lg:rounded-xl transition-all duration-300 transform hover:scale-105 shadow-lg text-xs lg:text-base w-full lg:w-auto mt-6">
-                  Créer un coffre
-                </button>
+              <h3 className="text-2xl font-bold text-miikaty-dark dark:text-white">Paiement par carte</h3>
+            </div>
+            
+            <p className="text-gray-700 dark:text-gray-300 mb-6 leading-relaxed">
+              Payez sur tous vos sites préférés avec votre carte bancaire, en toute sécurité.
+            </p>
+            
+            <div className="space-y-2 mb-6">
+              <div className="flex items-center text-sm text-gray-600 dark:text-gray-400">
+                <span className="w-2 h-2 bg-miikaty rounded-full mr-3"></span>
+                Sécurisé 3D Secure
+              </div>
+              <div className="flex items-center text-sm text-gray-600 dark:text-gray-400">
+                <span className="w-2 h-2 bg-miikaty rounded-full mr-3"></span>
+                Compatible partout
+              </div>
+              <div className="flex items-center text-sm text-gray-600 dark:text-gray-400">
+                <span className="w-2 h-2 bg-miikaty rounded-full mr-3"></span>
+                Historique détaillé
+              </div>
+            </div>
+            
+            {/* Logos des entreprises partenaires */}
+            <div className="flex items-center space-x-2 mt-6">
+              <div className="w-8 h-8 bg-gray-200 dark:bg-gray-700 rounded-full flex items-center justify-center">
+                <span className="text-gray-500 dark:text-gray-400 text-xs">Logo</span>
+              </div>
+              <div className="w-8 h-8 bg-gray-200 dark:bg-gray-700 rounded-full flex items-center justify-center">
+                <span className="text-gray-500 dark:text-gray-400 text-xs">Logo</span>
+              </div>
+              <div className="w-8 h-8 bg-gray-200 dark:bg-gray-700 rounded-full flex items-center justify-center">
+                <span className="text-gray-500 dark:text-gray-400 text-xs">Logo</span>
+              </div>
+              <div className="w-8 h-8 bg-gray-200 dark:bg-gray-700 rounded-full flex items-center justify-center">
+                <span className="text-gray-500 dark:text-gray-400 text-xs">Logo</span>
               </div>
             </div>
           </div>
-        </section>
+
+          {/* Carte 6 - NFC tap to pay */}
+          <div className="bg-white dark:bg-[#1a1a1a] border-2 border-indigo-200 dark:border-indigo-800 rounded-3xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105">
+            <div className="flex items-center mb-6">
+              <div className="w-12 h-12 bg-indigo-200 rounded-full flex items-center justify-center mr-4">
+                <svg className="w-6 h-6 text-indigo-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8.288 15.038a5.25 5.25 0 017.424 0M5.136 11.886c3.11-3.11 8.154-3.11 11.264 0M11.46 18.19c.496.496 1.298.496 1.794 0M2.25 8.625c5.166-5.166 13.584-5.166 18.75 0" />
+                </svg>
+              </div>
+              <h3 className="text-2xl font-bold text-miikaty-dark dark:text-white">NFC tap to pay</h3>
+            </div>
+            
+            <p className="text-gray-700 dark:text-gray-300 mb-6 leading-relaxed">
+              Réglez vos achats en magasin d'un simple geste, grâce au paiement sans contact NFC.
+            </p>
+            
+            <div className="space-y-2 mb-6">
+              <div className="flex items-center text-sm text-gray-600 dark:text-gray-400">
+                <span className="w-2 h-2 bg-miikaty rounded-full mr-3"></span>
+                Paiement sans contact
+              </div>
+              <div className="flex items-center text-sm text-gray-600 dark:text-gray-400">
+                <span className="w-2 h-2 bg-miikaty rounded-full mr-3"></span>
+                Rapide et sécurisé
+              </div>
+              <div className="flex items-center text-sm text-gray-600 dark:text-gray-400">
+                <span className="w-2 h-2 bg-miikaty rounded-full mr-3"></span>
+                Compatible partout
+              </div>
+            </div>
+            
+            {/* Logos des entreprises partenaires */}
+            <div className="flex items-center space-x-2 mt-6">
+              <div className="w-8 h-8 bg-gray-200 dark:bg-gray-700 rounded-full flex items-center justify-center">
+                <span className="text-gray-500 dark:text-gray-400 text-xs">Logo</span>
+              </div>
+              <div className="w-8 h-8 bg-gray-200 dark:bg-gray-700 rounded-full flex items-center justify-center">
+                <span className="text-gray-500 dark:text-gray-400 text-xs">Logo</span>
+              </div>
+              <div className="w-8 h-8 bg-gray-200 dark:bg-gray-700 rounded-full flex items-center justify-center">
+                <span className="text-gray-500 dark:text-gray-400 text-xs">Logo</span>
+              </div>
+              <div className="w-8 h-8 bg-gray-200 dark:bg-gray-700 rounded-full flex items-center justify-center">
+                <span className="text-gray-500 dark:text-gray-400 text-xs">Logo</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Quatrième rangée de cartes */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-16">
+          {/* Carte 7 - Transfert bancaire */}
+          <div className="bg-white dark:bg-[#1a1a1a] border-2 border-purple-200 dark:border-purple-800 rounded-3xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105">
+            <div className="flex items-center mb-6">
+              <div className="w-12 h-12 bg-purple-200 rounded-full flex items-center justify-center mr-4">
+                <svg className="w-6 h-6 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7.5 21 3 16.5m0 0L7.5 12M3 16.5h13.5m0-13.5L21 7.5m0 0L16.5 12M21 7.5H7.5" />
+                </svg>
+              </div>
+              <h3 className="text-2xl font-bold text-miikaty-dark dark:text-white">Transfert bancaire</h3>
+            </div>
+            
+            <p className="text-gray-700 dark:text-gray-300 mb-6 leading-relaxed">
+              Envoyez de l'argent instantanément à vos proches, peu importe où ils se trouvent. Transferts sécurisés et rapides.
+            </p>
+            
+            <div className="space-y-2 mb-6">
+              <div className="flex items-center text-sm text-gray-600 dark:text-gray-400">
+                <span className="w-2 h-2 bg-miikaty rounded-full mr-3"></span>
+                Transferts instantanés
+              </div>
+              <div className="flex items-center text-sm text-gray-600 dark:text-gray-400">
+                <span className="w-2 h-2 bg-miikaty rounded-full mr-3"></span>
+                Pas de frais cachés
+              </div>
+              <div className="flex items-center text-sm text-gray-600 dark:text-gray-400">
+                <span className="w-2 h-2 bg-miikaty rounded-full mr-3"></span>
+                Sécurité maximale
+              </div>
+            </div>
+            
+            {/* Logos des entreprises partenaires */}
+            <div className="flex items-center space-x-2 mt-6">
+              <div className="w-8 h-8 bg-gray-200 dark:bg-gray-700 rounded-full flex items-center justify-center">
+                <span className="text-gray-500 dark:text-gray-400 text-xs">Logo</span>
+              </div>
+              <div className="w-8 h-8 bg-gray-200 dark:bg-gray-700 rounded-full flex items-center justify-center">
+                <span className="text-gray-500 dark:text-gray-400 text-xs">Logo</span>
+              </div>
+              <div className="w-8 h-8 bg-gray-200 dark:bg-gray-700 rounded-full flex items-center justify-center">
+                <span className="text-gray-500 dark:text-gray-400 text-xs">Logo</span>
+              </div>
+              <div className="w-8 h-8 bg-gray-200 dark:bg-gray-700 rounded-full flex items-center justify-center">
+                <span className="text-gray-500 dark:text-gray-400 text-xs">Logo</span>
+              </div>
+            </div>
+          </div>
+
+          {/* Carte 8 - Cadeaux */}
+          <div className="bg-white dark:bg-[#1a1a1a] border-2 border-pink-200 dark:border-pink-800 rounded-3xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105">
+            <div className="flex items-center mb-6">
+              <div className="w-12 h-12 bg-pink-200 rounded-full flex items-center justify-center mr-4">
+                <svg className="w-6 h-6 text-pink-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12Z" />
+                </svg>
+              </div>
+              <h3 className="text-2xl font-bold text-miikaty-dark dark:text-white">Cadeaux</h3>
+            </div>
+            
+            <p className="text-gray-700 dark:text-gray-300 mb-6 leading-relaxed">
+              Envoyez de l'argent en cadeau à vos proches avec des messages personnalisés. Parfait pour les occasions spéciales.
+            </p>
+            
+            <div className="space-y-2 mb-6">
+              <div className="flex items-center text-sm text-gray-600 dark:text-gray-400">
+                <span className="w-2 h-2 bg-miikaty rounded-full mr-3"></span>
+                Messages personnalisés
+              </div>
+              <div className="flex items-center text-sm text-gray-600 dark:text-gray-400">
+                <span className="w-2 h-2 bg-miikaty rounded-full mr-3"></span>
+                Occasions spéciales
+              </div>
+              <div className="flex items-center text-sm text-gray-600 dark:text-gray-400">
+                <span className="w-2 h-2 bg-miikaty rounded-full mr-3"></span>
+                Livraison instantanée
+              </div>
+            </div>
+            
+            {/* Logos des entreprises partenaires */}
+            <div className="flex items-center space-x-2 mt-6">
+              <div className="w-8 h-8 bg-gray-200 dark:bg-gray-700 rounded-full flex items-center justify-center">
+                <span className="text-gray-500 dark:text-gray-400 text-xs">Logo</span>
+              </div>
+              <div className="w-8 h-8 bg-gray-200 dark:bg-gray-700 rounded-full flex items-center justify-center">
+                <span className="text-gray-500 dark:text-gray-400 text-xs">Logo</span>
+              </div>
+              <div className="w-8 h-8 bg-gray-200 dark:bg-gray-700 rounded-full flex items-center justify-center">
+                <span className="text-gray-500 dark:text-gray-400 text-xs">Logo</span>
+              </div>
+              <div className="w-8 h-8 bg-gray-200 dark:bg-gray-700 rounded-full flex items-center justify-center">
+                <span className="text-gray-500 dark:text-gray-400 text-xs">Logo</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Quatrième rangée de cartes */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-16">
+          {/* Carte 7 - Cadeaux */}
+          <div className="bg-white dark:bg-[#1a1a1a] border-2 border-pink-200 dark:border-pink-800 rounded-3xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105">
+            <div className="flex items-center mb-6">
+              <div className="w-12 h-12 bg-pink-200 rounded-full flex items-center justify-center mr-4">
+                <svg className="w-6 h-6 text-pink-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12Z" />
+                </svg>
+              </div>
+              <h3 className="text-2xl font-bold text-miikaty-dark dark:text-white">Cadeaux</h3>
+            </div>
+            
+            <p className="text-gray-700 dark:text-gray-300 mb-6 leading-relaxed">
+              Envoyez de l'argent en cadeau à vos proches avec des messages personnalisés. Parfait pour les occasions spéciales.
+            </p>
+            
+            <div className="space-y-2 mb-6">
+              <div className="flex items-center text-sm text-gray-600 dark:text-gray-400">
+                <span className="w-2 h-2 bg-miikaty rounded-full mr-3"></span>
+                Messages personnalisés
+              </div>
+              <div className="flex items-center text-sm text-gray-600 dark:text-gray-400">
+                <span className="w-2 h-2 bg-miikaty rounded-full mr-3"></span>
+                Envoi instantané
+              </div>
+              <div className="flex items-center text-sm text-gray-600 dark:text-gray-400">
+                <span className="w-2 h-2 bg-miikaty rounded-full mr-3"></span>
+                Cartes virtuelles animées
+              </div>
+              <div className="flex items-center text-sm text-gray-600 dark:text-gray-400">
+                <span className="w-2 h-2 bg-miikaty rounded-full mr-3"></span>
+                Occasions spéciales
+              </div>
+            </div>
+            
+            {/* Logos des entreprises partenaires */}
+            <div className="flex items-center space-x-2 mt-6">
+              <div className="w-8 h-8 bg-gray-200 dark:bg-gray-700 rounded-full flex items-center justify-center">
+                <span className="text-gray-500 dark:text-gray-400 text-xs">Logo</span>
+              </div>
+              <div className="w-8 h-8 bg-gray-200 dark:bg-gray-700 rounded-full flex items-center justify-center">
+                <span className="text-gray-500 dark:text-gray-400 text-xs">Logo</span>
+              </div>
+              <div className="w-8 h-8 bg-gray-200 dark:bg-gray-700 rounded-full flex items-center justify-center">
+                <span className="text-gray-500 dark:text-gray-400 text-xs">Logo</span>
+              </div>
+              <div className="w-8 h-8 bg-gray-200 dark:bg-gray-700 rounded-full flex items-center justify-center">
+                <span className="text-gray-500 dark:text-gray-400 text-xs">Logo</span>
+              </div>
+            </div>
+          </div>
+
+          {/* Carte 8 - Mon IBAN */}
+          <div className="bg-white dark:bg-[#1a1a1a] border-2 border-cyan-200 dark:border-cyan-800 rounded-3xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105">
+            <div className="flex items-center mb-6">
+              <div className="w-12 h-12 bg-cyan-200 rounded-full flex items-center justify-center mr-4">
+                <svg className="w-6 h-6 text-cyan-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6v12m-3-2.818.879.659c1.171.879 3.07.879 4.242 0 1.172-.879 1.172-2.303 0-3.182C13.536 12.219 12.768 12 12 12c-.725 0-1.45-.22-2.003-.659-1.106-.879-1.106-2.303 0-3.182s2.9-.879 4.006 0l.415.33M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
+                </svg>
+              </div>
+              <h3 className="text-2xl font-bold text-miikaty-dark dark:text-white">Mon IBAN</h3>
+            </div>
+            
+            <p className="text-gray-700 dark:text-gray-300 mb-6 leading-relaxed">
+              Générez votre IBAN personnel pour recevoir des virements internationaux. Compatible avec tous les réseaux bancaires.
+            </p>
+            
+            <div className="space-y-2 mb-6">
+              <div className="flex items-center text-sm text-gray-600 dark:text-gray-400">
+                <span className="w-2 h-2 bg-miikaty rounded-full mr-3"></span>
+                IBAN personnel unique
+              </div>
+              <div className="flex items-center text-sm text-gray-600 dark:text-gray-400">
+                <span className="w-2 h-2 bg-miikaty rounded-full mr-3"></span>
+                Virements internationaux
+              </div>
+              <div className="flex items-center text-sm text-gray-600 dark:text-gray-400">
+                <span className="w-2 h-2 bg-miikaty rounded-full mr-3"></span>
+                Reception instantanée
+              </div>
+              <div className="flex items-center text-sm text-gray-600 dark:text-gray-400">
+                <span className="w-2 h-2 bg-miikaty rounded-full mr-3"></span>
+                Compatible SEPA
+              </div>
+            </div>
+            
+            {/* Logos des entreprises partenaires */}
+            <div className="flex items-center space-x-2 mt-6">
+              <div className="w-8 h-8 bg-gray-200 dark:bg-gray-700 rounded-full flex items-center justify-center">
+                <span className="text-gray-500 dark:text-gray-400 text-xs">Logo</span>
+              </div>
+              <div className="w-8 h-8 bg-gray-200 dark:bg-gray-700 rounded-full flex items-center justify-center">
+                <span className="text-gray-500 dark:text-gray-400 text-xs">Logo</span>
+              </div>
+              <div className="w-8 h-8 bg-gray-200 dark:bg-gray-700 rounded-full flex items-center justify-center">
+                <span className="text-gray-500 dark:text-gray-400 text-xs">Logo</span>
+              </div>
+              <div className="w-8 h-8 bg-gray-200 dark:bg-gray-700 rounded-full flex items-center justify-center">
+                <span className="text-gray-500 dark:text-gray-400 text-xs">Logo</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Cinquième rangée de cartes */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-16">
+          {/* Carte 9 - Coffres */}
+          <div className="bg-white dark:bg-[#1a1a1a] border-2 border-yellow-200 dark:border-yellow-800 rounded-3xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105">
+            <div className="flex items-center mb-6">
+              <div className="w-12 h-12 bg-yellow-200 rounded-full flex items-center justify-center mr-4">
+                <svg className="w-6 h-6 text-yellow-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M20.25 6.375c0 2.278-3.694 4.125-8.25 4.125S3.75 8.653 3.75 6.375m16.5 0c0-2.278-3.694-4.125-8.25-4.125S3.75 4.097 3.75 6.375m16.5 0v11.25c0 2.278-3.694 4.125-8.25 4.125s-8.25-1.847-8.25-4.125V6.375m16.5 0v3.75m-16.5-3.75v3.75m16.5 0v3.75C20.25 16.153 16.556 18 12 18s-8.25-1.847-8.25-4.125v-3.75m16.5 0c0 2.278-3.694 4.125-8.25 4.125s-8.25-1.847-8.25-4.125" />
+                </svg>
+              </div>
+              <h3 className="text-2xl font-bold text-miikaty-dark dark:text-white">Coffres</h3>
+            </div>
+            
+            <p className="text-gray-700 dark:text-gray-300 mb-6 leading-relaxed">
+              Créez des coffres pour mettre de l'argent de côté et atteindre vos objectifs d'épargne. Épargnez intelligemment.
+            </p>
+            
+            <div className="space-y-2 mb-6">
+              <div className="flex items-center text-sm text-gray-600 dark:text-gray-400">
+                <span className="w-2 h-2 bg-miikaty rounded-full mr-3"></span>
+                Objectifs personnalisés
+              </div>
+              <div className="flex items-center text-sm text-gray-600 dark:text-gray-400">
+                <span className="w-2 h-2 bg-miikaty rounded-full mr-3"></span>
+                Intérêts attractifs
+              </div>
+              <div className="flex items-center text-sm text-gray-600 dark:text-gray-400">
+                <span className="w-2 h-2 bg-miikaty rounded-full mr-3"></span>
+                Épargne automatique
+              </div>
+            </div>
+            
+            {/* Logos des entreprises partenaires */}
+            <div className="flex items-center space-x-2 mt-6">
+              <div className="w-8 h-8 bg-gray-200 dark:bg-gray-700 rounded-full flex items-center justify-center">
+                <span className="text-gray-500 dark:text-gray-400 text-xs">Logo</span>
+              </div>
+              <div className="w-8 h-8 bg-gray-200 dark:bg-gray-700 rounded-full flex items-center justify-center">
+                <span className="text-gray-500 dark:text-gray-400 text-xs">Logo</span>
+              </div>
+              <div className="w-8 h-8 bg-gray-200 dark:bg-gray-700 rounded-full flex items-center justify-center">
+                <span className="text-gray-500 dark:text-gray-400 text-xs">Logo</span>
+              </div>
+              <div className="w-8 h-8 bg-gray-200 dark:bg-gray-700 rounded-full flex items-center justify-center">
+                <span className="text-gray-500 dark:text-gray-400 text-xs">Logo</span>
+              </div>
+            </div>
+          </div>
+
+          {/* Carte 10 - Mon IBAN */}
+          <div className="bg-white dark:bg-[#1a1a1a] border-2 border-cyan-200 dark:border-cyan-800 rounded-3xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105">
+            <div className="flex items-center mb-6">
+              <div className="w-12 h-12 bg-cyan-200 rounded-full flex items-center justify-center mr-4">
+                <svg className="w-6 h-6 text-cyan-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M2.25 18.75a60.07 60.07 0 0 1 15.797 2.101c.727.198 1.453-.342 1.453-1.096V18.75M3.75 4.5v.75A.75.75 0 0 1 3 6h-.75m0 0v-.375c0-.621.504-1.125 1.125-1.125H20.25M2.25 6v9m18-10.5v.75c0 .414.336.75.75.75h.75m-1.5-1.5h.375c.621 0 1.125.504 1.125 1.125v9.75c0 .621-.504 1.125-1.125 1.125h-.375m1.5-1.5H21a.75.75 0 0 0-.75.75v.75m0 0H3.75m0 0h-.375a1.125 1.125 0 0 1-1.125-1.125V15m1.5 1.5v-.75A.75.75 0 0 0 3 15h-.75M15 10.5a3 3 0 1 1-6 0 3 3 0 0 1 6 0Zm3 0h.008v.008H18V10.5Zm-12 0h.008v.008H6V10.5Z" />
+                </svg>
+              </div>
+              <h3 className="text-2xl font-bold text-miikaty-dark dark:text-white">Mon IBAN</h3>
+            </div>
+            
+            <p className="text-gray-700 dark:text-gray-300 mb-6 leading-relaxed">
+              Recevez de l'argent directement sur votre compte avec votre IBAN personnel. Compatible avec toutes les banques.
+            </p>
+            
+            <div className="space-y-2 mb-6">
+              <div className="flex items-center text-sm text-gray-600 dark:text-gray-400">
+                <span className="w-2 h-2 bg-miikaty rounded-full mr-3"></span>
+                IBAN personnel
+              </div>
+              <div className="flex items-center text-sm text-gray-600 dark:text-gray-400">
+                <span className="w-2 h-2 bg-miikaty rounded-full mr-3"></span>
+                Compatible partout
+              </div>
+              <div className="flex items-center text-sm text-gray-600 dark:text-gray-400">
+                <span className="w-2 h-2 bg-miikaty rounded-full mr-3"></span>
+                Transferts SEPA
+              </div>
+            </div>
+            
+            {/* Logos des entreprises partenaires */}
+            <div className="flex items-center space-x-2 mt-6">
+              <div className="w-8 h-8 bg-gray-200 dark:bg-gray-700 rounded-full flex items-center justify-center">
+                <span className="text-gray-500 dark:text-gray-400 text-xs">Logo</span>
+              </div>
+              <div className="w-8 h-8 bg-gray-200 dark:bg-gray-700 rounded-full flex items-center justify-center">
+                <span className="text-gray-500 dark:text-gray-400 text-xs">Logo</span>
+              </div>
+              <div className="w-8 h-8 bg-gray-200 dark:bg-gray-700 rounded-full flex items-center justify-center">
+                <span className="text-gray-500 dark:text-gray-400 text-xs">Logo</span>
+              </div>
+              <div className="w-8 h-8 bg-gray-200 dark:bg-gray-700 rounded-full flex items-center justify-center">
+                <span className="text-gray-500 dark:text-gray-400 text-xs">Logo</span>
+              </div>
+            </div>
+          </div>
+        </div>
 
         {/* Service 6 - Mon IBAN */}
         <section className="mb-16">
@@ -959,275 +875,110 @@ export default function Services() {
           </div>
         </section>
 
-        {/* Service 7 - Devises */}
-        <section className="mb-16">
-          <div className="bg-gradient-to-r from-indigo-50 to-blue-100 dark:from-[#2d1a4d] dark:to-[#1a1a1a] rounded-3xl p-8 lg:p-12 shadow-lg">
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
-              {/* Détails du service à gauche */}
-              <div>
-                <div className="flex items-center justify-start mb-3 lg:mb-6">
-                  <div className="w-10 h-10 lg:w-16 lg:h-16 bg-indigo-200 rounded-full flex items-center justify-center mr-2 lg:mr-4">
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-5 h-5 lg:w-8 lg:h-8 text-indigo-600">
-                      <path strokeLinecap="round" strokeLinejoin="round" d="M12 6v12m-3-2.818.879.659c1.171.879 3.07.879 4.242 0 1.172-.879 1.172-2.303 0-3.182C13.536 12.219 12.768 12 12 12c-.725 0-1.45-.22-2.003-.659-1.106-.879-1.106-2.303 0-3.182s2.9-.879 4.006 0l.415.33M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
-                    </svg>
-                  </div>
-                  <h2 className="text-xl lg:text-3xl font-bold text-miikaty-dark dark:text-white">Devises</h2>
-                </div>
-                
-                <p className="text-gray-700 dark:text-gray-300 text-sm lg:text-lg mb-4 lg:mb-8 leading-relaxed">
-                  Convertissez vos devises en temps réel avec les meilleurs taux du marché. Support de plus de 50 devises.
-                </p>
-                
-                <div className="space-y-3 lg:space-y-4 mb-4 lg:mb-8">
-                  <div className="flex items-center">
-                    <svg className="w-5 h-5 lg:w-6 lg:h-6 text-miikaty mr-2 lg:mr-3" fill="currentColor" viewBox="0 0 20 20">
-                      <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
-                    </svg>
-                    <span className="text-gray-700 dark:text-gray-300 text-xs lg:text-base">Taux en temps réel</span>
-                  </div>
-                  <div className="flex items-center">
-                    <svg className="w-5 h-5 lg:w-6 lg:h-6 text-miikaty mr-2 lg:mr-3" fill="currentColor" viewBox="0 0 20 20">
-                      <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
-                    </svg>
-                    <span className="text-gray-700 dark:text-gray-300 text-xs lg:text-base">50+ devises supportées</span>
-                  </div>
-                  <div className="flex items-center">
-                    <svg className="w-5 h-5 lg:w-6 lg:h-6 text-miikaty mr-2 lg:mr-3" fill="currentColor" viewBox="0 0 20 20">
-                      <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
-                    </svg>
-                    <span className="text-gray-700 dark:text-gray-300 text-xs lg:text-base">Conversion instantanée</span>
-                  </div>
-                  <div className="flex items-center">
-                    <svg className="w-5 h-5 lg:w-6 lg:h-6 text-miikaty mr-2 lg:mr-3" fill="currentColor" viewBox="0 0 20 20">
-                      <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
-                    </svg>
-                    <span className="text-gray-700 dark:text-gray-300 text-xs lg:text-base">Historique des taux</span>
-                  </div>
-                </div>
-                
+        {/* Sixième rangée de cartes */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-16">
+          {/* Carte 9 - Devises */}
+          <div className="bg-white dark:bg-[#1a1a1a] border-2 border-indigo-200 dark:border-indigo-800 rounded-3xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105">
+            <div className="flex items-center mb-6">
+              <div className="w-12 h-12 bg-indigo-200 rounded-full flex items-center justify-center mr-4">
+                <svg className="w-6 h-6 text-indigo-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6v12m-3-2.818.879.659c1.171.879 3.07.879 4.242 0 1.172-.879 1.172-2.303 0-3.182C13.536 12.219 12.768 12 12 12c-.725 0-1.45-.22-2.003-.659-1.106-.879-1.106-2.303 0-3.182s2.9-.879 4.006 0l.415.33M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
+                </svg>
               </div>
-              
-              {/* Devises principales à droite */}
-              <div className="max-w-xs lg:max-w-none mx-auto lg:mx-0">
-                <h3 className="text-base lg:text-xl font-semibold text-miikaty-dark dark:text-white mb-3 lg:mb-6 text-left">Devises principales</h3>
-                <div className="grid grid-cols-4 gap-1 lg:gap-4">
-                  {/* Euro */}
-                  <div className="bg-white dark:bg-[#563491] rounded-lg lg:rounded-2xl p-1 lg:p-4 shadow-md hover:shadow-lg transition-shadow duration-300 flex items-center justify-center">
-                    <div className="text-center">
-                      <div className="w-6 h-6 lg:w-12 lg:h-12 bg-blue-600 rounded-full flex items-center justify-center mx-auto mb-1 lg:mb-2">
-                        <span className="text-white font-bold text-xs lg:text-lg">🇪🇺</span>
-                      </div>
-                      <span className="text-gray-800 dark:text-white font-semibold text-xs lg:text-sm">EUR</span>
-                    </div>
-                  </div>
-                  
-                  {/* Dollar US */}
-                  <div className="bg-white dark:bg-[#563491] rounded-lg lg:rounded-2xl p-1 lg:p-4 shadow-md hover:shadow-lg transition-shadow duration-300 flex items-center justify-center">
-                    <div className="text-center">
-                      <div className="w-6 h-6 lg:w-12 lg:h-12 bg-green-600 rounded-full flex items-center justify-center mx-auto mb-1 lg:mb-2">
-                        <span className="text-white font-bold text-xs lg:text-lg">🇺🇸</span>
-                      </div>
-                      <span className="text-gray-800 dark:text-white font-semibold text-xs lg:text-sm">USD</span>
-                    </div>
-                  </div>
-                  
-                  {/* Franc CFA */}
-                  <div className="bg-white dark:bg-[#563491] rounded-lg lg:rounded-2xl p-1 lg:p-4 shadow-md hover:shadow-lg transition-shadow duration-300 flex items-center justify-center">
-                    <div className="text-center">
-                      <div className="w-6 h-6 lg:w-12 lg:h-12 bg-yellow-500 rounded-full flex items-center justify-center mx-auto mb-1 lg:mb-2">
-                        <span className="text-white font-bold text-xs lg:text-lg">🇸🇳</span>
-                      </div>
-                      <span className="text-gray-800 dark:text-white font-semibold text-xs lg:text-sm">XOF</span>
-                    </div>
-                  </div>
-                  
-                  {/* Livre Sterling */}
-                  <div className="bg-white dark:bg-[#563491] rounded-lg lg:rounded-2xl p-1 lg:p-4 shadow-md hover:shadow-lg transition-shadow duration-300 flex items-center justify-center">
-                    <div className="text-center">
-                      <div className="w-6 h-6 lg:w-12 lg:h-12 bg-blue-500 rounded-full flex items-center justify-center mx-auto mb-1 lg:mb-2">
-                        <span className="text-white font-bold text-xs lg:text-lg">🇬🇧</span>
-                      </div>
-                      <span className="text-gray-800 dark:text-white font-semibold text-xs lg:text-sm">GBP</span>
-                    </div>
-                  </div>
-                  
-                  {/* Yen */}
-                  <div className="bg-white dark:bg-[#563491] rounded-lg lg:rounded-2xl p-1 lg:p-4 shadow-md hover:shadow-lg transition-shadow duration-300 flex items-center justify-center">
-                    <div className="text-center">
-                      <div className="w-6 h-6 lg:w-12 lg:h-12 bg-red-500 rounded-full flex items-center justify-center mx-auto mb-1 lg:mb-2">
-                        <span className="text-white font-bold text-xs lg:text-lg">🇯🇵</span>
-                      </div>
-                      <span className="text-gray-800 dark:text-white font-semibold text-xs lg:text-sm">JPY</span>
-                    </div>
-                  </div>
-                  
-                  {/* Yuan */}
-                  <div className="bg-white dark:bg-[#563491] rounded-lg lg:rounded-2xl p-1 lg:p-4 shadow-md hover:shadow-lg transition-shadow duration-300 flex items-center justify-center">
-                    <div className="text-center">
-                      <div className="w-6 h-6 lg:w-12 lg:h-12 bg-red-600 rounded-full flex items-center justify-center mx-auto mb-1 lg:mb-2">
-                        <span className="text-white font-bold text-xs lg:text-lg">🇨🇳</span>
-                      </div>
-                      <span className="text-gray-800 dark:text-white font-semibold text-xs lg:text-sm">CNY</span>
-                    </div>
-                  </div>
-                  
-                  {/* Nouvelle devise - Place disponible */}
-                  <div className="bg-white dark:bg-[#563491] rounded-lg lg:rounded-2xl p-1 lg:p-4 shadow-md hover:shadow-lg transition-shadow duration-300 flex items-center justify-center border-2 border-dashed border-gray-300 dark:border-gray-600">
-                    <div className="text-center">
-                      <div className="w-6 h-6 lg:w-12 lg:h-12 bg-gray-300 dark:bg-gray-600 rounded-full flex items-center justify-center mx-auto mb-1 lg:mb-2">
-                        <span className="text-gray-500 dark:text-gray-400 font-bold text-xs lg:text-lg">+</span>
-                      </div>
-                      <span className="text-gray-500 dark:text-gray-400 font-semibold text-xs lg:text-sm">Nouvelle</span>
-                    </div>
-                  </div>
-                </div>
-                
-                <p className="text-center text-gray-600 dark:text-gray-400 text-sm mt-6">
-                  Et bien d'autres devises...
-                </p>
-                
-                <button className="bg-indigo-400 hover:bg-indigo-500 text-white dark:bg-indigo-400 dark:text-white dark:hover:bg-indigo-500 font-semibold py-2 lg:py-3 px-3 lg:px-6 rounded-lg lg:rounded-xl transition-all duration-300 transform hover:scale-105 shadow-lg text-xs lg:text-base w-full lg:w-auto mt-6">
-                  Convertir des devises
-                </button>
+              <h3 className="text-2xl font-bold text-miikaty-dark dark:text-white">Devises</h3>
+            </div>
+            
+            <p className="text-gray-700 dark:text-gray-300 mb-6 leading-relaxed">
+              Convertissez vos devises en temps réel avec les meilleurs taux du marché. Support de plus de 50 devises.
+            </p>
+            
+            <div className="space-y-2 mb-6">
+              <div className="flex items-center text-sm text-gray-600 dark:text-gray-400">
+                <span className="w-2 h-2 bg-miikaty rounded-full mr-3"></span>
+                Taux en temps réel
+              </div>
+              <div className="flex items-center text-sm text-gray-600 dark:text-gray-400">
+                <span className="w-2 h-2 bg-miikaty rounded-full mr-3"></span>
+                50+ devises supportées
+              </div>
+              <div className="flex items-center text-sm text-gray-600 dark:text-gray-400">
+                <span className="w-2 h-2 bg-miikaty rounded-full mr-3"></span>
+                Conversion instantanée
+              </div>
+              <div className="flex items-center text-sm text-gray-600 dark:text-gray-400">
+                <span className="w-2 h-2 bg-miikaty rounded-full mr-3"></span>
+                Historique des taux
+              </div>
+            </div>
+            
+            {/* Logos des entreprises partenaires */}
+            <div className="flex items-center space-x-2 mt-6">
+              <div className="w-8 h-8 bg-gray-200 dark:bg-gray-700 rounded-full flex items-center justify-center">
+                <span className="text-gray-500 dark:text-gray-400 text-xs">Logo</span>
+              </div>
+              <div className="w-8 h-8 bg-gray-200 dark:bg-gray-700 rounded-full flex items-center justify-center">
+                <span className="text-gray-500 dark:text-gray-400 text-xs">Logo</span>
+              </div>
+              <div className="w-8 h-8 bg-gray-200 dark:bg-gray-700 rounded-full flex items-center justify-center">
+                <span className="text-gray-500 dark:text-gray-400 text-xs">Logo</span>
+              </div>
+              <div className="w-8 h-8 bg-gray-200 dark:bg-gray-700 rounded-full flex items-center justify-center">
+                <span className="text-gray-500 dark:text-gray-400 text-xs">Logo</span>
               </div>
             </div>
           </div>
-        </section>
 
-        {/* Service 8 - Gestionnaire d'abonnement */}
-        <section className="mb-16">
-          <div className="bg-gradient-to-r from-emerald-50 to-green-100 dark:from-[#2d1a4d] dark:to-[#1a1a1a] rounded-3xl p-8 lg:p-12 shadow-lg">
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
-              {/* Détails du service à gauche */}
-              <div>
-                <div className="flex items-center justify-start mb-3 lg:mb-6">
-                  <div className="w-10 h-10 lg:w-16 lg:h-16 bg-emerald-200 rounded-full flex items-center justify-center mr-2 lg:mr-4">
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-5 h-5 lg:w-8 lg:h-8 text-emerald-600">
-                      <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 12h16.5m-16.5 3.75h16.5M3.75 19.5h16.5M5.625 4.5h12.75a1.875 1.875 0 0 1 0 3.75H5.625a1.875 1.875 0 0 1 0-3.75ZM5.625 9.75h12.75a1.875 1.875 0 0 1 0 3.75H5.625a1.875 1.875 0 0 1 0-3.75ZM5.625 15h12.75a1.875 1.875 0 0 1 0 3.75H5.625a1.875 1.875 0 0 1 0-3.75Z" />
-                    </svg>
-                  </div>
-                  <h2 className="text-xl lg:text-3xl font-bold text-miikaty-dark dark:text-white">Gestionnaire d'abonnement</h2>
-                </div>
-                
-                <p className="text-gray-700 dark:text-gray-300 text-sm lg:text-lg mb-4 lg:mb-8 leading-relaxed">
-                  Gérez tous vos abonnements en un seul endroit. Paiements automatiques, rappels et économies garanties.
-                </p>
-                
-                <div className="space-y-3 lg:space-y-4 mb-4 lg:mb-8">
-                  <div className="flex items-center">
-                    <svg className="w-5 h-5 lg:w-6 lg:h-6 text-miikaty mr-2 lg:mr-3" fill="currentColor" viewBox="0 0 20 20">
-                      <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
-                    </svg>
-                    <span className="text-gray-700 dark:text-gray-300 text-xs lg:text-base">Paiements automatiques</span>
-                  </div>
-                  <div className="flex items-center">
-                    <svg className="w-5 h-5 lg:w-6 lg:h-6 text-miikaty mr-2 lg:mr-3" fill="currentColor" viewBox="0 0 20 20">
-                      <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
-                    </svg>
-                    <span className="text-gray-700 dark:text-gray-300 text-xs lg:text-base">Rappels intelligents</span>
-                  </div>
-                  <div className="flex items-center">
-                    <svg className="w-5 h-5 lg:w-6 lg:h-6 text-miikaty mr-2 lg:mr-3" fill="currentColor" viewBox="0 0 20 20">
-                      <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
-                    </svg>
-                    <span className="text-gray-700 dark:text-gray-300 text-xs lg:text-base">Analytics détaillés</span>
-                  </div>
-                  <div className="flex items-center">
-                    <svg className="w-5 h-5 lg:w-6 lg:h-6 text-miikaty mr-2 lg:mr-3" fill="currentColor" viewBox="0 0 20 20">
-                      <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
-                    </svg>
-                    <span className="text-gray-700 dark:text-gray-300 text-xs lg:text-base">Suggestions d'économies</span>
-                  </div>
-                </div>
-                
+          {/* Carte 10 - Gestionnaire d'abonnement */}
+          <div className="bg-white dark:bg-[#1a1a1a] border-2 border-emerald-200 dark:border-emerald-800 rounded-3xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105">
+            <div className="flex items-center mb-6">
+              <div className="w-12 h-12 bg-emerald-200 rounded-full flex items-center justify-center mr-4">
+                <svg className="w-6 h-6 text-emerald-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3.75 12h16.5m-16.5 3.75h16.5M3.75 19.5h16.5M5.625 4.5h12.75a1.875 1.875 0 0 1 0 3.75H5.625a1.875 1.875 0 0 1 0-3.75ZM5.625 9.75h12.75a1.875 1.875 0 0 1 0 3.75H5.625a1.875 1.875 0 0 1 0-3.75ZM5.625 15h12.75a1.875 1.875 0 0 1 0 3.75H5.625a1.875 1.875 0 0 1 0-3.75Z" />
+                </svg>
               </div>
-              
-              {/* Types d'abonnements à droite */}
-              <div className="max-w-xs lg:max-w-none mx-auto lg:mx-0">
-                <h3 className="text-base lg:text-xl font-semibold text-miikaty-dark dark:text-white mb-3 lg:mb-6 text-left">Types d'abonnements</h3>
-                <div className="grid grid-cols-4 gap-1 lg:gap-4">
-                  {/* Streaming */}
-                  <div className="bg-white dark:bg-[#563491] rounded-lg lg:rounded-2xl p-1 lg:p-4 shadow-md hover:shadow-lg transition-shadow duration-300 flex items-center justify-center">
-                    <div className="text-center">
-                      <div className="w-6 h-6 lg:w-12 lg:h-12 bg-red-500 rounded-full flex items-center justify-center mx-auto mb-1 lg:mb-2">
-                        <span className="text-white font-bold text-xs lg:text-lg">📺</span>
-                      </div>
-                      <span className="text-gray-800 dark:text-white font-semibold text-xs lg:text-sm">Streaming</span>
-                    </div>
-                  </div>
-                  
-                  {/* Musique */}
-                  <div className="bg-white dark:bg-[#563491] rounded-lg lg:rounded-2xl p-1 lg:p-4 shadow-md hover:shadow-lg transition-shadow duration-300 flex items-center justify-center">
-                    <div className="text-center">
-                      <div className="w-6 h-6 lg:w-12 lg:h-12 bg-green-500 rounded-full flex items-center justify-center mx-auto mb-1 lg:mb-2">
-                        <span className="text-white font-bold text-xs lg:text-lg">🎵</span>
-                      </div>
-                      <span className="text-gray-800 dark:text-white font-semibold text-xs lg:text-sm">Musique</span>
-                    </div>
-                  </div>
-                  
-                  {/* Jeux */}
-                  <div className="bg-white dark:bg-[#563491] rounded-lg lg:rounded-2xl p-1 lg:p-4 shadow-md hover:shadow-lg transition-shadow duration-300 flex items-center justify-center">
-                    <div className="text-center">
-                      <div className="w-6 h-6 lg:w-12 lg:h-12 bg-purple-500 rounded-full flex items-center justify-center mx-auto mb-1 lg:mb-2">
-                        <span className="text-white font-bold text-xs lg:text-lg">🎮</span>
-                      </div>
-                      <span className="text-gray-800 dark:text-white font-semibold text-xs lg:text-sm">Jeux</span>
-                    </div>
-                  </div>
-                  
-                  {/* Fitness */}
-                  <div className="bg-white dark:bg-[#563491] rounded-lg lg:rounded-2xl p-1 lg:p-4 shadow-md hover:shadow-lg transition-shadow duration-300 flex items-center justify-center">
-                    <div className="text-center">
-                      <div className="w-6 h-6 lg:w-12 lg:h-12 bg-blue-500 rounded-full flex items-center justify-center mx-auto mb-1 lg:mb-2">
-                        <span className="text-white font-bold text-xs lg:text-lg">💪</span>
-                      </div>
-                      <span className="text-gray-800 dark:text-white font-semibold text-xs lg:text-sm">Fitness</span>
-                    </div>
-                  </div>
-                  
-                  {/* Cloud */}
-                  <div className="bg-white dark:bg-[#563491] rounded-lg lg:rounded-2xl p-1 lg:p-4 shadow-md hover:shadow-lg transition-shadow duration-300 flex items-center justify-center">
-                    <div className="text-center">
-                      <div className="w-6 h-6 lg:w-12 lg:h-12 bg-gray-500 rounded-full flex items-center justify-center mx-auto mb-1 lg:mb-2">
-                        <span className="text-white font-bold text-xs lg:text-lg">☁️</span>
-                      </div>
-                      <span className="text-gray-800 dark:text-white font-semibold text-xs lg:text-sm">Cloud</span>
-                    </div>
-                  </div>
-                  
-                  {/* Logiciels */}
-                  <div className="bg-white dark:bg-[#563491] rounded-lg lg:rounded-2xl p-1 lg:p-4 shadow-md hover:shadow-lg transition-shadow duration-300 flex items-center justify-center">
-                    <div className="text-center">
-                      <div className="w-6 h-6 lg:w-12 lg:h-12 bg-indigo-500 rounded-full flex items-center justify-center mx-auto mb-1 lg:mb-2">
-                        <span className="text-white font-bold text-xs lg:text-lg">💻</span>
-                      </div>
-                      <span className="text-gray-800 dark:text-white font-semibold text-xs lg:text-sm">Logiciels</span>
-                    </div>
-                  </div>
-                  
-                  {/* Nouvel abonnement - Place disponible */}
-                  <div className="bg-white dark:bg-[#563491] rounded-lg lg:rounded-2xl p-1 lg:p-4 shadow-md hover:shadow-lg transition-shadow duration-300 flex items-center justify-center border-2 border-dashed border-gray-300 dark:border-gray-600">
-                    <div className="text-center">
-                      <div className="w-6 h-6 lg:w-12 lg:h-12 bg-gray-300 dark:bg-gray-600 rounded-full flex items-center justify-center mx-auto mb-1 lg:mb-2">
-                        <span className="text-gray-500 dark:text-gray-400 font-bold text-xs lg:text-lg">+</span>
-                      </div>
-                      <span className="text-gray-500 dark:text-gray-400 font-semibold text-xs lg:text-sm">Nouveau</span>
-                    </div>
-                  </div>
-                </div>
-                
-                <p className="text-center text-gray-600 dark:text-gray-400 text-sm mt-6">
-                  Et bien d'autres services...
-                </p>
-                
-                <button className="bg-emerald-400 hover:bg-emerald-500 text-white dark:bg-emerald-400 dark:text-white dark:hover:bg-emerald-500 font-semibold py-2 lg:py-3 px-3 lg:px-6 rounded-lg lg:rounded-xl transition-all duration-300 transform hover:scale-105 shadow-lg text-xs lg:text-base w-full lg:w-auto mt-6">
-                  Gérer mes abonnements
-                </button>
+              <h3 className="text-2xl font-bold text-miikaty-dark dark:text-white">Gestionnaire d'abonnement</h3>
+            </div>
+            
+            <p className="text-gray-700 dark:text-gray-300 mb-6 leading-relaxed">
+              Gérez tous vos abonnements en un seul endroit. Paiements automatiques, rappels et économies garanties.
+            </p>
+            
+            <div className="space-y-2 mb-6">
+              <div className="flex items-center text-sm text-gray-600 dark:text-gray-400">
+                <span className="w-2 h-2 bg-miikaty rounded-full mr-3"></span>
+                Paiements automatiques
               </div>
+              <div className="flex items-center text-sm text-gray-600 dark:text-gray-400">
+                <span className="w-2 h-2 bg-miikaty rounded-full mr-3"></span>
+                Rappels intelligents
+              </div>
+              <div className="flex items-center text-sm text-gray-600 dark:text-gray-400">
+                <span className="w-2 h-2 bg-miikaty rounded-full mr-3"></span>
+                Analytics détaillés
+              </div>
+              <div className="flex items-center text-sm text-gray-600 dark:text-gray-400">
+                <span className="w-2 h-2 bg-miikaty rounded-full mr-3"></span>
+                Suggestions d'économies
+              </div>
+            </div>
+            
+            {/* Logos des entreprises partenaires */}
+            <div className="flex items-center space-x-2 mt-6">
+              <div className="w-8 h-8 bg-gray-200 dark:bg-gray-700 rounded-full flex items-center justify-center">
+                <span className="text-gray-500 dark:text-gray-400 text-xs">Logo</span>
+              </div>
+              <div className="w-8 h-8 bg-gray-200 dark:bg-gray-700 rounded-full flex items-center justify-center">
+                <span className="text-gray-500 dark:text-gray-400 text-xs">Logo</span>
+              </div>
+              <div className="w-8 h-8 bg-gray-200 dark:bg-gray-700 rounded-full flex items-center justify-center">
+                <span className="text-gray-500 dark:text-gray-400 text-xs">Logo</span>
+              </div>
+              <div className="w-8 h-8 bg-gray-200 dark:bg-gray-700 rounded-full flex items-center justify-center">
+                <span className="text-gray-500 dark:text-gray-400 text-xs">Logo</span>
+              </div>
+            </div>
           </div>
         </div>
-      </section>
 
 
 
@@ -1413,6 +1164,9 @@ export default function Services() {
 
 
       </div>
+
+
+
       {/* Footer déplacé en dehors du conteneur principal pour occuper toute la largeur */}
       <footer className="bg-miikaty-dark text-white pt-16 pb-8 px-4">
         <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-5 gap-12">

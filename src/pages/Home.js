@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { AnimatePresence } from "framer-motion";
+import { Link } from "react-router-dom";
 
 // Composant typewriter corrigé
 function Typewriter({ text, speed = 35, className = "", textLines }) {
@@ -63,9 +64,62 @@ function Typewriter({ text, speed = 35, className = "", textLines }) {
   return <span className={className}>{text ? text.slice(0, index) : null}</span>;
 }
 
+// Composant QR Code Flottant
+function FloatingQRCode() {
+  const [isVisible, setIsVisible] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      // Apparaît après 400px de scroll (après la hero section)
+      const scrollPosition = window.scrollY;
+      setIsVisible(scrollPosition > 400);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  return (
+    <AnimatePresence>
+      {isVisible && (
+        <motion.div
+          initial={{ opacity: 0, scale: 0.8, x: 100 }}
+          animate={{ opacity: 1, scale: 1, x: 0 }}
+          exit={{ opacity: 0, scale: 0.8, x: 100 }}
+          transition={{ duration: 0.5, ease: "easeOut" }}
+          className="fixed bottom-8 right-8 z-50 hidden lg:block"
+        >
+          <div className="bg-white dark:bg-gray-800 rounded-2xl shadow-2xl p-2 border border-gray-200 dark:border-gray-700 hover:shadow-3xl transition-all duration-300 transform hover:scale-105">
+            <div className="text-center">
+              <div className="relative inline-block">
+                <img 
+                  src="/images/QR_code.png" 
+                  alt="QR Code Mikaty" 
+                  className="w-24 h-24 rounded-xl border-2 border-miikaty bg-white shadow-lg"
+                />
+                <div className="absolute -top-2 -right-2 bg-miikaty text-white rounded-full p-1.5 shadow-lg">
+                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" className="w-4 h-4">
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M12 4v12m0 0l-4-4m4 4l4-4m-4 4V4" />
+                  </svg>
+                </div>
+              </div>
+              <div className="mt-1 text-center">
+                <p className="font-bold text-gray-900 dark:text-white text-sm">Scanner ici</p>
+              </div>
+            </div>
+          </div>
+        </motion.div>
+      )}
+    </AnimatePresence>
+  );
+}
+
 export default function Home() {
   return (
     <>
+      {/* QR Code Flottant */}
+      <FloatingQRCode />
+      
       {/* Hero section */}
       <section className="pt-28 pb-20 px-0 relative overflow-hidden font-sans min-h-screen flex flex-col bg-[radial-gradient(ellipse_at_60%_40%,#7C3AED_0%,#1a1a1a_100%)] dark:bg-[radial-gradient(ellipse_at_60%_40%,#1a1a1a_0%,#2d1a4d_100%)]">
         <div className="container mx-auto flex flex-col md:flex-row items-center justify-between gap-12 px-6 relative z-10 flex-1">
@@ -267,250 +321,181 @@ export default function Home() {
               <p className="text-gray-700 dark:text-gray-300 text-sm leading-snug text-center group-hover:text-miikaty-dark transition-colors duration-300">Scannez et payez instantanément chez vos commerçants ou amis, sans contact.</p>
             </div>
           </div>
+          
+          {/* Bouton "Voir tous nos services" */}
+          <motion.div 
+            className="flex justify-center mt-8"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+          >
+            <Link 
+              to="/services" 
+              className="group inline-flex items-center px-6 py-3 border-2 border-miikaty dark:border-purple-400 hover:border-purple-600 dark:hover:border-purple-300 text-miikaty dark:text-purple-400 hover:text-purple-600 dark:hover:text-purple-300 font-semibold text-base rounded-xl transition-all duration-300 hover:shadow-lg hover:scale-105"
+            >
+              Voir plus
+              <svg className="w-4 h-4 ml-2 transform group-hover:translate-x-1 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+              </svg>
+            </Link>
+          </motion.div>
         </div>
       </section>
 
-      {/* Pourquoi choisir MIikaty */}
-      <section className="py-32 bg-[#f6f3ff] dark:bg-gradient-to-b dark:from-miikaty-dark dark:to-[#2d1a4d]">
-        <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-center gap-12 px-4">
-          {/* Mockup à gauche */}
-          <motion.div
-            className="md:w-1/2 flex justify-center relative mb-10 md:mb-0"
-            initial={{ opacity: 0, x: -40 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true, amount: 0.5 }}
-            transition={{ duration: 0.7 }}
-          >
-            <div className="relative flex items-center justify-center w-full max-w-2xl">
-              <div className="absolute inset-0 z-0 rounded-3xl" style={{background: 'radial-gradient(circle at 60% 40%, #e9d8fd 0%, #f6f3ff 80%)', filter: 'blur(0.5px)'}}></div>
-              <motion.img
-                src="/images/app-mockup.png"
-                alt="Aperçu de l'application MIikaty"
-                className="relative z-10 w-full h-auto object-contain rounded-2xl shadow-lg"
-                whileHover={{ scale: 1.04 }}
-                transition={{ type: 'spring', stiffness: 300 }}
-              />
-            </div>
-            {/* Carte flottante */}
-            <motion.div
-              className="absolute -top-8 left-1/2 -translate-x-1/2 bg-white dark:bg-gray-800 rounded-2xl shadow-xl px-8 py-6 w-72 border border-gray-100 dark:border-gray-700 flex flex-col items-center"
-              initial={{ opacity: 0, y: -20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, amount: 0.5 }}
-              transition={{ duration: 0.7, delay: 0.2 }}
-            >
-              <span className="text-3xl mb-2">💰</span>
-              <div className="text-gray-500 dark:text-gray-400 text-sm mb-1">Solde principal</div>
-              <div className="font-bold text-2xl text-miikaty mb-2">250 000 F CFA</div>
-              <div className="flex gap-3 mt-2">
-                <button className="bg-miikaty/10 dark:bg-miikaty/20 text-miikaty font-semibold px-4 py-1.5 rounded-full text-sm hover:bg-miikaty/20 dark:hover:bg-miikaty/30 transition">+ Ajouter</button>
-                <button className="bg-miikaty/10 dark:bg-miikaty/20 text-miikaty font-semibold px-4 py-1.5 rounded-full text-sm hover:bg-miikaty/20 dark:hover:bg-miikaty/30 transition">↘ Retirer</button>
+
+
+
+
+      {/* Section Innovation */}
+      <section className="py-20 px-4 bg-gray-50 dark:bg-gray-800">
+        <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-center gap-12">
+          {/* Espace pour image à gauche */}
+          <div className="md:w-1/2 flex justify-center order-2 md:order-1">
+            <div className="w-full h-96 bg-gradient-to-br from-blue-100 to-purple-100 dark:from-blue-900/20 dark:to-purple-900/20 rounded-2xl border-2 border-dashed border-blue-300 dark:border-blue-600 flex items-center justify-center">
+              <div className="text-center">
+                <svg className="w-16 h-16 text-blue-400 dark:text-blue-500 mx-auto mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
+                </svg>
+                <p className="text-blue-500 dark:text-blue-400 text-sm">Espace pour image</p>
               </div>
-            </motion.div>
-          </motion.div>
+            </div>
+          </div>
+          
           {/* Contenu à droite */}
-          <motion.div
-            className="md:w-1/2 text-left"
-            initial={{ opacity: 0, x: 40 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true, amount: 0.5 }}
-            transition={{ duration: 0.7, delay: 0.1 }}
-          >
-            <h2 className="text-3xl md:text-5xl font-extrabold mb-4 leading-tight bg-gradient-to-r from-[#563491] to-[#1a1a1a] dark:from-white dark:to-[#563491] bg-clip-text text-transparent">
-              Mettez de l'argent de côté sans effort
+          <div className="md:w-1/2 text-left order-1 md:order-2">
+            <h2 className="text-3xl md:text-5xl font-bold mb-6 text-[#563491] dark:text-[#d8a5ff]">
+              Innovation au service de votre quotidien
             </h2>
-            <p className="text-lg text-miikaty-dark dark:text-gray-300 mb-6">Mettez votre argent en sécurité sans effort grâce à MIikaty.</p>
+            <p className="text-lg text-gray-700 dark:text-gray-300 mb-8">
+              Découvrez comment Mikaty révolutionne vos transactions financières avec des technologies de pointe et une expérience utilisateur exceptionnelle.
+            </p>
             <ul className="space-y-4 mb-8">
               <li className="flex items-center gap-3">
-                <span className="text-green-500 text-xl">✔</span>
-                <span className="text-miikaty-dark dark:text-gray-300">Economisez facilement avec les virements automatiques et le rendu monnaie</span>
+                <span className="text-blue-500 text-xl">⚡</span>
+                <span className="text-gray-700 dark:text-gray-300">Transactions instantanées</span>
               </li>
               <li className="flex items-center gap-3">
-                <span className="text-green-500 text-xl">✔</span>
-                <span className="text-miikaty-dark dark:text-gray-300">Retirez votre argent quand vous voulez</span>
+                <span className="text-blue-500 text-xl">🎯</span>
+                <span className="text-gray-700 dark:text-gray-300">Interface intuitive et moderne</span>
               </li>
               <li className="flex items-center gap-3">
-                <span className="text-green-500 text-xl">✔</span>
-                <span className="text-miikaty-dark dark:text-gray-300">Economisez avec la communauté MIikaty grâce aux challenges et remportez des lots</span>
+                <span className="text-blue-500 text-xl">🌍</span>
+                <span className="text-gray-700 dark:text-gray-300">Disponible partout dans le monde</span>
+              </li>
+              <li className="flex items-center gap-3">
+                <span className="text-blue-500 text-xl">💡</span>
+                <span className="text-gray-700 dark:text-gray-300">Fonctionnalités innovantes</span>
               </li>
             </ul>
-            <a
-              href="/signup"
-              className="inline-block relative px-5 py-2.5 rounded-xl font-bold text-base shadow-lg tracking-wide transition-all duration-300 flex items-center justify-center gap-2 group focus:outline-none focus:ring-2 focus:ring-miikaty-dark bg-gradient-to-r from-miikaty to-miikaty-dark text-white border-0 max-w-sm w-auto mt-8
-              dark:bg-gradient-to-r dark:from-[#563491] dark:to-white dark:text-[#1a1a1a] dark:hover:from-white dark:hover:to-[#563491] dark:hover:text-white"
-              style={{}}
-            >
-              <span className="transition-all duration-300 text-left dark:group-hover:text-[#563491]">
-                Découvrir les poches
-              </span>
-              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" className="w-5 h-5 transition-transform duration-300 group-hover:translate-x-1 dark:group-hover:text-[#563491]">
-                <path strokeLinecap="round" strokeLinejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+            <button className="inline-flex items-center px-6 py-3 bg-[#563491] hover:bg-[#d8a5ff] text-white hover:text-black font-semibold rounded-xl transition-all duration-300">
+              Découvrir nos innovations
+              <svg className="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
               </svg>
-            </a>
-          </motion.div>
+            </button>
+          </div>
         </div>
       </section>
 
-      {/* Sécurité MIikaty */}
-      <section className="py-32 bg-white dark:bg-gradient-to-b dark:from-[#2d1a4d] dark:to-miikaty-dark">
-        <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-center gap-12 px-4">
+      {/* Section Sécurité */}
+      <section className="py-20 px-4 bg-white dark:bg-gray-900">
+        <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-center gap-12">
           {/* Contenu à gauche */}
-          <motion.div
-            className="md:w-1/2 text-left order-2 md:order-1"
-            initial={{ opacity: 0, x: -40 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true, amount: 0.5 }}
-            transition={{ duration: 0.7, delay: 0.1 }}
-          >
-            <h2 className="text-3xl md:text-5xl font-extrabold mb-4 leading-tight bg-gradient-to-r from-[#563491] to-[#1a1a1a] dark:from-white dark:to-[#563491] bg-clip-text text-transparent">
+          <div className="md:w-1/2 text-left">
+            <h2 className="text-3xl md:text-5xl font-bold mb-6 text-[#563491] dark:text-[#d8a5ff]">
               Votre sécurité, notre priorité
             </h2>
-            <p className="text-lg text-miikaty-dark dark:text-gray-300 mb-6">MIikaty protège vos données et vos transactions 24h/24 grâce aux meilleures technologies de sécurité.</p>
+            <p className="text-lg text-gray-700 dark:text-gray-300 mb-8">
+              Mlikaty protège vos données et vos transactions 24h/24 grâce aux meilleures technologies de sécurité.
+            </p>
             <ul className="space-y-4 mb-8">
               <li className="flex items-center gap-3">
                 <span className="text-green-500 text-xl">✔</span>
-                <span className="text-miikaty-dark dark:text-gray-300">Chiffrement de bout en bout</span>
+                <span className="text-gray-700 dark:text-gray-300">Chiffrement de bout en bout</span>
               </li>
               <li className="flex items-center gap-3">
                 <span className="text-green-500 text-xl">✔</span>
-                <span className="text-miikaty-dark dark:text-gray-300">Authentification biométrique et code PIN</span>
+                <span className="text-gray-700 dark:text-gray-300">Authentification biométrique et code PIN</span>
               </li>
               <li className="flex items-center gap-3">
                 <span className="text-green-500 text-xl">✔</span>
-                <span className="text-miikaty-dark dark:text-gray-300">Surveillance anti-fraude en temps réel</span>
+                <span className="text-gray-700 dark:text-gray-300">Surveillance anti-fraude en temps réel</span>
               </li>
               <li className="flex items-center gap-3">
                 <span className="text-green-500 text-xl">✔</span>
-                <span className="text-miikaty-dark dark:text-gray-300">Données hébergées en France/Europe</span>
+                <span className="text-gray-700 dark:text-gray-300">Données hébergées en France/Europe</span>
               </li>
             </ul>
-            <a
-              href="/securite"
-              className="inline-block relative px-5 py-2.5 rounded-xl font-bold text-base shadow-lg tracking-wide transition-all duration-300 flex items-center justify-center gap-2 group focus:outline-none focus:ring-2 focus:ring-miikaty-dark bg-gradient-to-r from-miikaty to-miikaty-dark text-white border-0 max-w-sm w-auto mt-8
-              dark:bg-gradient-to-r dark:from-[#563491] dark:to-white dark:text-[#1a1a1a] dark:hover:from-white dark:hover:to-[#563491] dark:hover:text-white"
-              style={{}}
-            >
-              <span className="transition-all duration-300 text-left dark:group-hover:text-[#563491]">
-                En savoir plus sur la sécurité
-              </span>
-              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" className="w-5 h-5 transition-transform duration-300 group-hover:translate-x-1 dark:group-hover:text-[#563491]">
-                <path strokeLinecap="round" strokeLinejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+            <button className="inline-flex items-center px-6 py-3 border-2 border-[#563491] text-[#563491] hover:bg-[#563491] hover:text-white font-semibold rounded-xl transition-all duration-300">
+              En savoir plus sur la sécurité
+              <svg className="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
               </svg>
-            </a>
-          </motion.div>
-          {/* Illustration sécurité à droite */}
-          <motion.div
-            className="md:w-1/2 flex justify-center mb-10 md:mb-0 order-1 md:order-2"
-            initial={{ opacity: 0, x: 40 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true, amount: 0.5 }}
-            transition={{ duration: 0.7 }}
-          >
-            <div className="relative flex items-center justify-center w-full max-w-xl">
-              <div className="absolute inset-0 z-0 rounded-3xl dark:bg-[radial-gradient(circle_at_60%_40%,#2d1a4d_0%,#1a1a1a_80%)]" style={{background: 'radial-gradient(circle at 60% 40%, #e9d8fd 0%, #f6f3ff 80%)', filter: 'blur(0.5px)'}}></div>
-              {/* Carré flottant style solde principal */}
-              <motion.div
-                className="absolute -top-8 left-1/2 -translate-x-1/2 bg-white dark:bg-gray-800 rounded-2xl shadow-xl px-8 py-6 w-72 border border-gray-100 dark:border-gray-700 flex flex-col items-center z-20"
-                initial={{ opacity: 0, y: -20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, amount: 0.5 }}
-                transition={{ duration: 0.7, delay: 0.2 }}
-              >
-                <span className="text-3xl mb-2">🔒</span>
-                <div className="text-gray-500 dark:text-gray-400 text-sm mb-1">Protection</div>
-                <div className="font-bold text-2xl text-miikaty mb-2">Sécurité 24h/24</div>
-                <div className="flex gap-3 mt-2">
-                  <span className="bg-miikaty/10 dark:bg-miikaty/20 text-miikaty font-semibold px-4 py-1.5 rounded-full text-sm">Chiffré</span>
-                  <span className="bg-miikaty/10 dark:bg-miikaty/20 text-miikaty font-semibold px-4 py-1.5 rounded-full text-sm">Biométrie</span>
-                </div>
-              </motion.div>
-              <motion.img
-                src="/images/securite.png"
-                alt="Sécurité MIikaty"
-                className="relative z-10 w-full max-w-2xl h-auto object-cover object-top rounded-2xl shadow-lg"
-                whileHover={{ scale: 1.04 }}
-                transition={{ type: 'spring', stiffness: 300 }}
-              />
+            </button>
+          </div>
+          
+          {/* Espace pour image à droite */}
+          <div className="md:w-1/2 flex justify-center">
+            <div className="w-full h-96 bg-gradient-to-br from-gray-100 to-gray-200 dark:from-gray-800 dark:to-gray-700 rounded-2xl border-2 border-dashed border-gray-300 dark:border-gray-600 flex items-center justify-center">
+              <div className="text-center">
+                <svg className="w-16 h-16 text-gray-400 dark:text-gray-500 mx-auto mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                </svg>
+                <p className="text-gray-500 dark:text-gray-400 text-sm">Espace pour image</p>
+              </div>
             </div>
-          </motion.div>
+          </div>
         </div>
       </section>
 
-      {/* Témoignages cartes */}
-      <section className="py-24 bg-white dark:bg-gradient-to-b dark:from-miikaty-dark dark:to-[#2d1a4d]">
-        <div className="max-w-6xl mx-auto px-4">
-          <h2 className="text-2xl md:text-3xl font-extrabold mb-14 text-center bg-gradient-to-r from-[#563491] to-[#1a1a1a] dark:from-white dark:to-[#563491] bg-clip-text text-transparent">
-            Ils utilisent MIikaty au quotidien
+      {/* Ils utilisent Mikaty au quotidien */}
+      <section className="py-24 bg-white dark:bg-[#1a1a1a]">
+        <div className="text-center mb-16 max-w-7xl mx-auto px-6">
+          <h2 className="text-3xl lg:text-4xl font-bold text-miikaty-dark dark:text-white mb-4">
+            Ils utilisent Mikaty au quotidien
           </h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
-            {/* Carte 1 */}
-            <motion.div 
-              initial={{ opacity: 0, y: 50, scale: 0.9 }}
-              whileInView={{ opacity: 1, y: 0, scale: 1 }}
-              transition={{ duration: 0.6, delay: 0.1 }}
-              viewport={{ once: true, amount: 0.3 }}
-              className="relative rounded-3xl shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-105 min-h-[600px] overflow-hidden"
-            >
-              <img
-                src="/images/card1.png"
-                alt="Fatou D."
-                className="w-full h-full object-cover absolute inset-0"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-[#563491]/80 via-[#563491]/40 to-transparent dark:from-black/80 dark:via-black/40"></div>
-              <div className="relative z-10 flex flex-col justify-end h-full p-8 text-white dark:text-white">
-                <p className="italic mb-6 text-base leading-relaxed">
-                  "J'envoie de l'argent à ma famille en 2 clics, même sans compte bancaire. MIikaty a changé ma vie !"
-                </p>
-                <div className="font-bold text-2xl mb-1">Fatou D.</div>
-                <div className="text-white/80">Marchande</div>
-              </div>
-            </motion.div>
+          <p className="text-gray-600 dark:text-gray-300 text-lg max-w-2xl mx-auto">
+            Découvrez comment nos utilisateurs transforment leur expérience financière avec Mikaty
+          </p>
+        </div>
 
-            {/* Carte 2 */}
-            <motion.div 
-              initial={{ opacity: 0, y: 50, scale: 0.9 }}
-              whileInView={{ opacity: 1, y: 0, scale: 1 }}
-              transition={{ duration: 0.6, delay: 0.3 }}
-              viewport={{ once: true, amount: 0.3 }}
-              className="relative rounded-3xl shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-105 min-h-[600px] overflow-hidden"
-            >
-              <img
-                src="/images/avatar2.jpg"
-                alt="Jean M."
-                className="w-full h-full object-cover absolute inset-0"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-[#563491]/80 via-[#563491]/40 to-transparent dark:from-black/80 dark:via-black/40"></div>
-              <div className="relative z-10 flex flex-col justify-end h-full p-8 text-white dark:text-white">
-                <p className="italic mb-6 text-base leading-relaxed">
-                  "Je paie mes factures et je recharge mon téléphone sans me déplacer. C'est simple et rapide."
-                </p>
-                <div className="font-bold text-2xl mb-1">Jean M.</div>
-                <div className="text-white/80">Artisan</div>
+        {/* Carrousel de blocs qui défilent */}
+        <div className="relative w-screen left-1/2 right-1/2 -mx-[50vw]">
+          <div className="flex animate-scroll space-x-6 px-12 md:px-20 lg:px-32 xl:px-48 2xl:px-64">
+              {/* Bloc 1 */}
+              <div className="flex-shrink-0 w-80 h-96 bg-gradient-to-br from-purple-100 to-pink-100 dark:from-purple-900/20 dark:to-pink-900/20 rounded-2xl border border-gray-200 dark:border-gray-700 shadow-lg flex items-center justify-center">
+                <span className="text-gray-500 dark:text-gray-400 text-sm">Votre image ici</span>
               </div>
-            </motion.div>
-
-            {/* Carte 3 */}
-            <motion.div 
-              initial={{ opacity: 0, y: 50, scale: 0.9 }}
-              whileInView={{ opacity: 1, y: 0, scale: 1 }}
-              transition={{ duration: 0.6, delay: 0.5 }}
-              viewport={{ once: true, amount: 0.3 }}
-              className="relative rounded-3xl shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-105 min-h-[600px] overflow-hidden"
-            >
-              <img
-                src="/images/avatar3.jpg"
-                alt="Awa S."
-                className="w-full h-full object-cover absolute inset-0"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-[#563491]/80 via-[#563491]/40 to-transparent dark:from-black/80 dark:via-black/40"></div>
-              <div className="relative z-10 flex flex-col justify-end h-full p-8 text-white dark:text-white">
-                <p className="italic mb-6 text-base leading-relaxed">
-                  "MIikaty m'aide à gérer mon argent de poche et à économiser, tout depuis mon mobile."
-                </p>
-                <div className="font-bold text-2xl mb-1">Awa S.</div>
-                <div className="text-white/80">Étudiante</div>
+              {/* Bloc 2 */}
+              <div className="flex-shrink-0 w-80 h-96 bg-gradient-to-br from-blue-100 to-cyan-100 dark:from-blue-900/20 dark:to-cyan-900/20 rounded-2xl border border-gray-200 dark:border-gray-700 shadow-lg flex items-center justify-center">
+                <span className="text-gray-500 dark:text-gray-400 text-sm">Votre image ici</span>
               </div>
-            </motion.div>
+              {/* Bloc 3 */}
+              <div className="flex-shrink-0 w-80 h-96 bg-gradient-to-br from-green-100 to-emerald-100 dark:from-green-900/20 dark:to-emerald-900/20 rounded-2xl border border-gray-200 dark:border-gray-700 shadow-lg flex items-center justify-center">
+                <span className="text-gray-500 dark:text-gray-400 text-sm">Votre image ici</span>
+              </div>
+              {/* Bloc 4 */}
+              <div className="flex-shrink-0 w-80 h-96 bg-gradient-to-br from-yellow-100 to-orange-100 dark:from-yellow-900/20 dark:to-orange-900/20 rounded-2xl border border-gray-200 dark:border-gray-700 shadow-lg flex items-center justify-center">
+                <span className="text-gray-500 dark:text-gray-400 text-sm">Votre image ici</span>
+              </div>
+              {/* Bloc 5 */}
+              <div className="flex-shrink-0 w-80 h-96 bg-gradient-to-br from-pink-100 to-rose-100 dark:from-pink-900/20 dark:to-rose-900/20 rounded-2xl border border-gray-200 dark:border-gray-700 shadow-lg flex items-center justify-center">
+                <span className="text-gray-500 dark:text-gray-400 text-sm">Votre image ici</span>
+              </div>
+              {/* Bloc 6 */}
+              <div className="flex-shrink-0 w-80 h-96 bg-gradient-to-br from-indigo-100 to-purple-100 dark:from-indigo-900/20 dark:to-purple-900/20 rounded-2xl border border-gray-200 dark:border-gray-700 shadow-lg flex items-center justify-center">
+                <span className="text-gray-500 dark:text-gray-400 text-sm">Votre image ici</span>
+              </div>
+              {/* Répéter les blocs pour un défilement continu */}
+              {/* Bloc 1 (dupliqué) */}
+              <div className="flex-shrink-0 w-80 h-96 bg-gradient-to-br from-purple-100 to-pink-100 dark:from-purple-900/20 dark:to-pink-900/20 rounded-2xl border border-gray-200 dark:border-gray-700 shadow-lg flex items-center justify-center">
+                <span className="text-gray-500 dark:text-gray-400 text-sm">Votre image ici</span>
+              </div>
+              {/* Bloc 2 (dupliqué) */}
+              <div className="flex-shrink-0 w-80 h-96 bg-gradient-to-br from-blue-100 to-cyan-100 dark:from-blue-900/20 dark:to-cyan-900/20 rounded-2xl border border-gray-200 dark:border-gray-700 shadow-lg flex items-center justify-center">
+                <span className="text-gray-500 dark:text-gray-400 text-sm">Votre image ici</span>
+              </div>
           </div>
         </div>
       </section>
