@@ -9,13 +9,13 @@ import Contact from "./pages/Contact";
 import HeroSection2 from "./pages/HeroSection2";
 import Entreprise from "./pages/Entreprise";
 import MiCard from "./pages/MiCard";
+import FAQ from "./pages/FAQ";
 
 // Composant Navbar qui adapte le fond selon la page
 function Navbar({ isScrolled, isAfterHero, isDark, setIsDark, LanguageSwitch }) {
   const location = useLocation();
   const pagePath = location.pathname;
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const [isFeaturesDropdownOpen, setIsFeaturesDropdownOpen] = useState(false);
 
   // Fermer le menu mobile quand on change de page
   useEffect(() => {
@@ -28,12 +28,14 @@ function Navbar({ isScrolled, isAfterHero, isDark, setIsDark, LanguageSwitch }) 
       animate={{ y: 0, opacity: 1 }}
       transition={{ duration: 0.7, ease: 'easeOut' }}
       className={`fixed top-0 left-0 w-full z-50 transition-all duration-300
-        ${pagePath === '/services' || pagePath === '/entreprise' || pagePath === '/micard'
-          ? 'bg-[#563491] shadow-lg border-b-0'
+        ${pagePath === '/entreprise' || pagePath === '/micard' || pagePath === '/contact' || pagePath === '/faq'
+          ? (isScrolled 
+              ? 'bg-[#563491]/90 backdrop-blur-md shadow-lg border-b border-white/10' 
+              : 'bg-[#563491] shadow-lg border-b-0')
           : (isScrolled
               ? (isAfterHero
-                  ? 'bg-black/70 backdrop-blur-sm shadow-lg border-b border-white/10'
-                  : 'bg-black/20 backdrop-blur-sm shadow-md border-b border-white/5')
+                  ? 'bg-black/80 backdrop-blur-md shadow-lg border-b border-white/10'
+                  : 'bg-black/30 backdrop-blur-md shadow-md border-b border-white/5')
               : 'bg-transparent shadow-none border-b-0')}
       `}
     >
@@ -45,90 +47,14 @@ function Navbar({ isScrolled, isAfterHero, isDark, setIsDark, LanguageSwitch }) 
 
         {/* Menu Desktop */}
         <ul className="hidden lg:flex space-x-6 items-center justify-center w-full">
-          <li><Link to="/" className={`relative font-medium text-shadow-md after:content-[''] after:block after:w-0 after:h-0.5 after:bg-miikaty after:transition-all after:duration-300 hover:after:w-full ${window.location.pathname === '/hero-section-2' ? 'text-miikaty' : 'text-white'}`}>Accueil</Link></li>
-          <li><Link to="/home2" className={`relative font-medium text-shadow-md after:content-[''] after:block after:w-0 after:h-0.5 after:bg-miikaty after:transition-all after:duration-300 hover:after:w-full ${window.location.pathname === '/hero-section-2' ? 'text-miikaty' : 'text-white'}`}>Accueil 2</Link></li>
-          <li><Link to="/services" className={`relative font-medium text-shadow-md after:content-[''] after:block after:w-0 after:h-0.5 after:bg-miikaty after:transition-all after:duration-300 hover:after:w-full ${window.location.pathname === '/hero-section-2' ? 'text-miikaty' : 'text-white'}`}>Services</Link></li>
-          <li><Link to="/micard" className={`relative font-medium text-shadow-md after:content-[''] after:block after:w-0 after:h-0.5 after:bg-miikaty after:transition-all after:duration-300 hover:after:w-full ${window.location.pathname === '/hero-section-2' ? 'text-miikaty' : 'text-white'}`}>MiCard</Link></li>
+          <li><Link to="/" className={`relative font-medium text-shadow-md after:content-[''] after:block after:w-0 after:h-0.5 after:bg-miikaty after:transition-all after:duration-300 hover:after:w-full ${pagePath === '/' ? 'after:w-full' : ''} ${pagePath === '/hero-section-2' ? 'text-miikaty' : 'text-white'}`}>Accueil</Link></li>
+          <li><Link to="/home2" className={`relative font-medium text-shadow-md after:content-[''] after:block after:w-0 after:h-0.5 after:bg-miikaty after:transition-all after:duration-300 hover:after:w-full ${pagePath === '/home2' ? 'after:w-full' : ''} ${pagePath === '/hero-section-2' ? 'text-miikaty' : 'text-white'}`}>Accueil 2</Link></li>
+          <li><Link to="/services" className={`relative font-medium text-shadow-md after:content-[''] after:block after:w-0 after:h-0.5 after:bg-miikaty after:transition-all after:duration-300 hover:after:w-full ${pagePath === '/services' ? 'after:w-full' : ''} ${pagePath === '/hero-section-2' ? 'text-miikaty' : 'text-white'}`}>Services</Link></li>
+          <li><Link to="/micard" className={`relative font-medium text-shadow-md after:content-[''] after:block after:w-0 after:h-0.5 after:bg-miikaty after:transition-all after:duration-300 hover:after:w-full ${pagePath === '/micard' ? 'after:w-full' : ''} ${pagePath === '/hero-section-2' ? 'text-miikaty' : 'text-white'}`}>MiCard</Link></li>
           
-          {/* Menu déroulant Fonctionnalités */}
-          <li className="relative group">
-            <button 
-              onMouseEnter={() => setIsFeaturesDropdownOpen(true)}
-              onMouseLeave={() => setIsFeaturesDropdownOpen(false)}
-              className={`relative font-medium text-shadow-md after:content-[''] after:block after:w-0 after:h-0.5 after:bg-miikaty after:transition-all after:duration-300 hover:after:w-full flex items-center ${window.location.pathname === '/hero-section-2' ? 'text-miikaty' : 'text-white'}`}
-            >
-              Fonctionnalités
-              <svg className="w-4 h-4 ml-1 transition-transform duration-200 group-hover:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-              </svg>
-            </button>
-            
-            {/* Dropdown Menu */}
-            <AnimatePresence>
-              {isFeaturesDropdownOpen && (
-                <motion.div
-                  initial={{ opacity: 0, y: -10 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  exit={{ opacity: 0, y: -10 }}
-                  transition={{ duration: 0.2 }}
-                  onMouseEnter={() => setIsFeaturesDropdownOpen(true)}
-                  onMouseLeave={() => setIsFeaturesDropdownOpen(false)}
-                  className="absolute top-full left-0 mt-2 w-[600px] bg-white dark:bg-gray-900 rounded-2xl shadow-2xl border border-gray-200 dark:border-gray-700 p-6 z-50"
-                >
-                  <div className="grid grid-cols-2 gap-6">
-                    {/* Bloc 1 */}
-                    <div>
-                      <h3 className="text-lg font-bold text-gray-900 dark:text-white mb-4">Paiements</h3>
-                      <ul className="space-y-3">
-                        <li><Link to="/services" className="flex items-center text-gray-700 dark:text-gray-300 hover:text-miikaty dark:hover:text-miikaty transition-colors">
-                          <span className="w-2 h-2 bg-miikaty rounded-full mr-3"></span>
-                          Paiement de factures
-                        </Link></li>
-                        <li><Link to="/services" className="flex items-center text-gray-700 dark:text-gray-300 hover:text-miikaty dark:hover:text-miikaty transition-colors">
-                          <span className="w-2 h-2 bg-miikaty rounded-full mr-3"></span>
-                          Transfert d'argent
-                        </Link></li>
-                        <li><Link to="/services" className="flex items-center text-gray-700 dark:text-gray-300 hover:text-miikaty dark:hover:text-miikaty transition-colors">
-                          <span className="w-2 h-2 bg-miikaty rounded-full mr-3"></span>
-                          Recharge mobile
-                        </Link></li>
-                        <li><Link to="/services" className="flex items-center text-gray-700 dark:text-gray-300 hover:text-miikaty dark:hover:text-miikaty transition-colors">
-                          <span className="w-2 h-2 bg-miikaty rounded-full mr-3"></span>
-                          Achat de crédit
-                        </Link></li>
-                      </ul>
-                    </div>
-                    
-                    {/* Bloc 2 */}
-                    <div>
-                      <h3 className="text-lg font-bold text-gray-900 dark:text-white mb-4">Services Financiers</h3>
-                      <ul className="space-y-3">
-                        <li><Link to="/micard" className="flex items-center text-gray-700 dark:text-gray-300 hover:text-miikaty dark:hover:text-miikaty transition-colors">
-                          <span className="w-2 h-2 bg-miikaty rounded-full mr-3"></span>
-                          Carte virtuelle MiCard
-                        </Link></li>
-                        <li><Link to="/services" className="flex items-center text-gray-700 dark:text-gray-300 hover:text-miikaty dark:hover:text-miikaty transition-colors">
-                          <span className="w-2 h-2 bg-miikaty rounded-full mr-3"></span>
-                          Épargne et investissement
-                        </Link></li>
-                        <li><Link to="/services" className="flex items-center text-gray-700 dark:text-gray-300 hover:text-miikaty dark:hover:text-miikaty transition-colors">
-                          <span className="w-2 h-2 bg-miikaty rounded-full mr-3"></span>
-                          Prêts et crédits
-                        </Link></li>
-                        <li><Link to="/services" className="flex items-center text-gray-700 dark:text-gray-300 hover:text-miikaty dark:hover:text-miikaty transition-colors">
-                          <span className="w-2 h-2 bg-miikaty rounded-full mr-3"></span>
-                          Assurance
-                        </Link></li>
-                      </ul>
-                    </div>
-                  </div>
-                </motion.div>
-              )}
-            </AnimatePresence>
-          </li>
-          
-          <li><Link to="/entreprise" className={`relative font-medium text-shadow-md after:content-[''] after:block after:w-0 after:h-0.5 after:bg-miikaty after:transition-all after:duration-300 hover:after:w-full ${window.location.pathname === '/hero-section-2' ? 'text-miikaty' : 'text-white'}`}>Entreprise</Link></li>
-          <li><Link to="/contact" className={`relative font-medium text-shadow-md after:content-[''] after:block after:w-0 after:h-0.5 after:bg-miikaty after:transition-all after:duration-300 hover:after:w-full ${window.location.pathname === '/hero-section-2' ? 'text-miikaty' : 'text-white'}`}>Contact</Link></li>
+          <li><Link to="/entreprise" className={`relative font-medium text-shadow-md after:content-[''] after:block after:w-0 after:h-0.5 after:bg-miikaty after:transition-all after:duration-300 hover:after:w-full ${pagePath === '/entreprise' ? 'after:w-full' : ''} ${pagePath === '/hero-section-2' ? 'text-miikaty' : 'text-white'}`}>Entreprise</Link></li>
+          <li><Link to="/contact" className={`relative font-medium text-shadow-md after:content-[''] after:block after:w-0 after:h-0.5 after:bg-miikaty after:transition-all after:duration-300 hover:after:w-full ${pagePath === '/contact' ? 'after:w-full' : ''} ${pagePath === '/hero-section-2' ? 'text-miikaty' : 'text-white'}`}>Contact</Link></li>
+          <li><Link to="/faq" className={`relative font-medium text-shadow-md after:content-[''] after:block after:w-0 after:h-0.5 after:bg-miikaty after:transition-all after:duration-300 hover:after:w-full ${pagePath === '/faq' ? 'after:w-full' : ''} ${pagePath === '/hero-section-2' ? 'text-miikaty' : 'text-white'}`}>FAQ</Link></li>
           <li>
             <Link to="/contact" className={`ml-4 bg-gray-900 border border-gray-400 px-5 py-2 rounded-xl font-semibold text-base hover:bg-gray-800 hover:border-miikaty transition ${window.location.pathname === '/hero-section-2' ? 'text-miikaty' : 'text-white'}`}>
               S'inscrire
@@ -178,24 +104,15 @@ function Navbar({ isScrolled, isAfterHero, isDark, setIsDark, LanguageSwitch }) 
             <div className="px-6 py-4 space-y-4">
               {/* Liens de navigation */}
               <div className="space-y-3">
-                <Link to="/" className="block text-white font-medium py-2 hover:text-miikaty transition-colors">Accueil</Link>
-                <Link to="/home2" className="block text-white font-medium py-2 hover:text-miikaty transition-colors">Accueil 2</Link>
-                <Link to="/services" className="block text-white font-medium py-2 hover:text-miikaty transition-colors">Services</Link>
-                <Link to="/micard" className="block text-white font-medium py-2 hover:text-miikaty transition-colors">MiCard</Link>
-                <Link to="/entreprise" className="block text-white font-medium py-2 hover:text-miikaty transition-colors">Entreprise</Link>
-                <Link to="/contact" className="block text-white font-medium py-2 hover:text-miikaty transition-colors">Contact</Link>
+                <Link to="/" className={`block font-medium py-2 transition-colors ${pagePath === '/' ? 'text-miikaty' : 'text-white hover:text-miikaty'}`}>Accueil</Link>
+                <Link to="/home2" className={`block font-medium py-2 transition-colors ${pagePath === '/home2' ? 'text-miikaty' : 'text-white hover:text-miikaty'}`}>Accueil 2</Link>
+                <Link to="/services" className={`block font-medium py-2 transition-colors ${pagePath === '/services' ? 'text-miikaty' : 'text-white hover:text-miikaty'}`}>Services</Link>
+                <Link to="/micard" className={`block font-medium py-2 transition-colors ${pagePath === '/micard' ? 'text-miikaty' : 'text-white hover:text-miikaty'}`}>MiCard</Link>
+                <Link to="/entreprise" className={`block font-medium py-2 transition-colors ${pagePath === '/entreprise' ? 'text-miikaty' : 'text-white hover:text-miikaty'}`}>Entreprise</Link>
+                <Link to="/contact" className={`block font-medium py-2 transition-colors ${pagePath === '/contact' ? 'text-miikaty' : 'text-white hover:text-miikaty'}`}>Contact</Link>
+                <Link to="/faq" className={`block font-medium py-2 transition-colors ${pagePath === '/faq' ? 'text-miikaty' : 'text-white hover:text-miikaty'}`}>FAQ</Link>
                 
-                {/* Fonctionnalités mobile */}
-                <div className="border-t border-white/10 pt-3">
-                  <div className="text-white font-medium py-2 mb-2">Fonctionnalités</div>
-                  <div className="pl-4 space-y-2">
-                    <Link to="/services" className="block text-gray-300 text-sm py-1 hover:text-miikaty transition-colors">Paiement de factures</Link>
-                    <Link to="/services" className="block text-gray-300 text-sm py-1 hover:text-miikaty transition-colors">Transfert d'argent</Link>
-                    <Link to="/services" className="block text-gray-300 text-sm py-1 hover:text-miikaty transition-colors">Recharge mobile</Link>
-                    <Link to="/micard" className="block text-gray-300 text-sm py-1 hover:text-miikaty transition-colors">Carte virtuelle MiCard</Link>
-                    <Link to="/services" className="block text-gray-300 text-sm py-1 hover:text-miikaty transition-colors">Épargne et investissement</Link>
-                  </div>
-                </div>
+
               </div>
               
               {/* Bouton S'inscrire */}
@@ -304,11 +221,11 @@ function App() {
             <Route path="/contact" element={<Contact />} />
             <Route path="/entreprise" element={<Entreprise />} />
             <Route path="/micard" element={<MiCard />} />
+            <Route path="/faq" element={<FAQ />} />
             <Route path="/securite" element={<Home />} />
             <Route path="/hero-section-2" element={<HeroSection2 />} />
           </Routes>
         </motion.main>
-        <footer className="bg-miikaty-dark text-miikaty-light text-center py-4 text-sm">© 2024 MIikaty. Tous droits réservés.</footer>
       </div>
     </Router>
   );

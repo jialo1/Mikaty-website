@@ -15,16 +15,16 @@ export default function Home2() {
             alt="Fond hero" 
             className="w-full h-full object-cover scale-x-[-1]"
           />
-          <div className="absolute inset-0 bg-black bg-opacity-30"></div>
+          <div className="absolute inset-0 bg-black bg-opacity-30 dark:bg-opacity-50"></div>
           {/* Dégradé #563491 qui remonte */}
-          <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-[#563491] to-transparent"></div>
+          <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-[#563491] to-transparent dark:from-[#2d1a4d]"></div>
         </div>
 
         {/* Background Elements */}
         <div className="absolute inset-0">
-          <div className="absolute top-20 left-10 w-72 h-72 bg-purple-300 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob"></div>
-          <div className="absolute top-40 right-10 w-72 h-72 bg-yellow-300 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob animation-delay-2000"></div>
-          <div className="absolute -bottom-8 left-20 w-72 h-72 bg-pink-300 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob animation-delay-4000"></div>
+          <div className="absolute top-20 left-10 w-72 h-72 bg-purple-300 dark:bg-purple-600 rounded-full mix-blend-multiply filter blur-xl opacity-70 dark:opacity-40 animate-blob"></div>
+          <div className="absolute top-40 right-10 w-72 h-72 bg-yellow-300 dark:bg-yellow-600 rounded-full mix-blend-multiply filter blur-xl opacity-70 dark:opacity-40 animate-blob animation-delay-2000"></div>
+          <div className="absolute -bottom-8 left-20 w-72 h-72 bg-pink-300 dark:bg-pink-600 rounded-full mix-blend-multiply filter blur-xl opacity-70 dark:opacity-40 animate-blob animation-delay-4000"></div>
         </div>
 
         <div className="relative z-10 max-w-7xl mx-auto px-6 py-24">
@@ -32,7 +32,7 @@ export default function Home2() {
             {/* Contenu à gauche */}
             <div className="text-left">
               <motion.h1 
-                className="text-5xl md:text-7xl font-bold text-white mb-6"
+                className="text-4xl md:text-6xl font-bold text-white mb-4"
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8 }}
@@ -41,13 +41,13 @@ export default function Home2() {
                   MiCard
                 </span>
                 <br />
-                <span className="text-3xl md:text-5xl font-light">
+                <span className="text-2xl md:text-4xl font-light">
                   La finance réinventée
                 </span>
               </motion.h1>
               
               <motion.p 
-                className="text-xl md:text-2xl text-white mb-8 max-w-xl"
+                className="text-lg md:text-xl text-white mb-6 max-w-xl"
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 0.2 }}
@@ -57,23 +57,22 @@ export default function Home2() {
               </motion.p>
 
               <motion.div 
-                className="flex flex-col sm:flex-row gap-4 justify-start items-start mb-8"
+                className="flex flex-col gap-4 justify-start items-start mb-8"
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 0.4 }}
               >
-                <Link
-                  to="/signup"
-                  className="bg-gradient-to-r from-[#563491] to-black text-white px-8 py-4 rounded-full text-lg font-semibold hover:shadow-lg transform hover:scale-105 transition-all duration-300"
-                >
-                  Commencer maintenant
-                </Link>
-                <Link
-                  to="/services"
-                  className="border-2 border-white text-white px-8 py-4 rounded-full text-lg font-semibold hover:bg-white hover:text-gray-900 transition-all duration-300"
-                >
-                  Découvrir nos services
-                </Link>
+                {/* Champ de saisie du numéro de téléphone */}
+                <div className="flex flex-col sm:flex-row gap-3 w-full max-w-md">
+                  <input
+                    type="tel"
+                    placeholder="+221 Votre numéro de téléphone"
+                    className="flex-1 px-4 py-3 rounded-full border-2 border-white/30 bg-white/10 backdrop-blur-sm text-white placeholder-white/60 focus:outline-none focus:border-white transition-all duration-300"
+                  />
+                  <button className="border-2 border-white text-white px-6 py-3 rounded-full text-base font-semibold hover:bg-white hover:text-gray-900 transform hover:scale-105 transition-all duration-300">
+                    Recevoir le lien
+                  </button>
+                </div>
               </motion.div>
 
               {/* Section téléchargement */}
@@ -85,7 +84,7 @@ export default function Home2() {
               >
                 {/* QR Code */}
                 <div className="flex flex-col items-center">
-                  <div className="bg-white/10 backdrop-blur-md border border-white/20 rounded-xl p-2 shadow-lg mb-2">
+                  <div className="bg-white rounded-xl p-2 shadow-lg mb-2">
                     <img 
                       src="/images/QR_code.png" 
                       alt="QR Code" 
@@ -235,11 +234,11 @@ export default function Home2() {
             </h2>
             <Link 
               to="/securite" 
-              className="inline-flex items-center px-8 py-3 bg-[#563491] hover:bg-[#d8a5ff] text-white hover:text-black font-semibold rounded-xl transition-all duration-300 transform hover:scale-105"
+              className="inline-flex items-center border-2 border-[#563491] text-[#563491] dark:border-[#d8a5ff] dark:text-[#d8a5ff] px-6 py-2 rounded-full text-base font-semibold hover:bg-[#563491] hover:text-white dark:hover:bg-[#d8a5ff] dark:hover:text-black transition-all duration-300"
             >
               En savoir plus
-              <svg className="ml-2 w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+              <svg className="ml-2 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
               </svg>
             </Link>
           </div>
@@ -372,6 +371,48 @@ export default function Home2() {
         </div>
       </section>
 
+      {/* Section Partenaires */}
+      <section className="py-20 px-4 bg-white/50 dark:bg-white/5">
+        <div className="max-w-6xl mx-auto">
+          <motion.div 
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+            className="text-center mb-16"
+          >
+            <h2 className="text-4xl font-bold text-gray-900 dark:text-white mb-6">Nos Partenaires</h2>
+            <p className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
+              Des collaborations stratégiques pour un écosystème financier plus fort
+            </p>
+          </motion.div>
+          
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 items-center">
+            {[
+              { name: "Orange Money", logo: "/images/Orange-Money.png" },
+              { name: "Wave", logo: "/images/Wave.png" },
+              { name: "Ecobank", logo: "/images/ecobank.png" },
+              { name: "Visa", logo: "/images/Visa.svg" }
+            ].map((partenaire, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, delay: index * 0.1 }}
+                viewport={{ once: true }}
+                className="bg-white/70 dark:bg-white/10 backdrop-blur-sm rounded-xl p-6 flex items-center justify-center hover:bg-white/90 dark:hover:bg-white/20 transition-all duration-300 shadow-lg dark:shadow-none"
+              >
+                <img 
+                  src={partenaire.logo} 
+                  alt={partenaire.name} 
+                  className="h-12 max-w-full object-contain filter brightness-0 dark:invert opacity-70 hover:opacity-100 transition-opacity"
+                />
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* Section Essayez Mikaty dès aujourd'hui */}
       <section className="py-12 px-4 bg-white relative overflow-hidden">
         {/* Éléments décoratifs */}
@@ -400,7 +441,7 @@ export default function Home2() {
 
           {/* Boutons d'action */}
           <div className="flex flex-col sm:flex-row gap-4 justify-center mb-6">
-            <a href="/signup" className="bg-[#563491] text-white hover:bg-[#d8a5ff] hover:text-black px-6 py-3 rounded-full font-semibold transition-all duration-300 transform hover:scale-105">
+            <a href="/signup" className="border-2 border-[#563491] text-[#563491] hover:bg-[#563491] hover:text-white px-6 py-3 rounded-full font-semibold transition-all duration-300 transform hover:scale-105">
               Commencer maintenant
             </a>
             <a href="/services" className="border-2 border-[#563491] text-[#563491] hover:bg-[#563491] hover:text-white px-6 py-3 rounded-full font-semibold transition-all duration-300">
@@ -420,12 +461,14 @@ export default function Home2() {
         </div>
       </section>
 
+
+
       {/* Footer */}
-      <footer className="bg-miikaty-dark text-white pt-16 pb-8 px-4">
-        <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-5 gap-12">
+      <footer className="bg-miikaty-dark text-white pt-12 pb-6 px-4">
+        <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-5 gap-8">
           {/* Logo & baseline + app download */}
-          <div className="col-span-1 flex flex-col items-center md:items-start gap-6">
-            <img src="/images/logo-miikaty-white.svg" alt="MIikaty" className="h-10 mb-2" />
+          <div className="col-span-1 flex flex-col items-center md:items-start gap-4">
+            <img src="/images/logomauve.svg" alt="MIikaty" className="h-8 mb-2" />
             <span className="text-white/80 text-sm mb-4">La finance, simple et accessible.</span>
             <div className="flex gap-2 mt-2">
               <a href="https://play.google.com/store/apps/details?id=ton.app" target="_blank" rel="noopener noreferrer">
@@ -435,7 +478,7 @@ export default function Home2() {
                 <img src="/images/app-store-badge.svg" alt="App Store" className="h-10" />
               </a>
             </div>
-            <div className="mt-4 text-xs text-white/40">MIikaty SASU<br/>12 rue de la Fintech, 75000 Paris<br/>SIRET : 123 456 789 00012</div>
+            <div className="mt-2 text-xs text-white/40">MIikaty SASU<br/>12 rue de la Fintech, 75000 Paris<br/>SIRET : 123 456 789 00012</div>
           </div>
           {/* À propos */}
           <div className="col-span-1">
@@ -466,7 +509,7 @@ export default function Home2() {
             </ul>
           </div>
           {/* Légal & réseaux sociaux */}
-          <div className="col-span-1 flex flex-col gap-6 items-center md:items-start">
+          <div className="col-span-1 flex flex-col gap-4 items-center md:items-start">
             <div>
               <div className="font-bold mb-4 text-miikaty">Légal</div>
               <ul className="space-y-2 text-white/80 text-sm">
@@ -494,7 +537,7 @@ export default function Home2() {
             </div>
           </div>
         </div>
-        <div className="mt-12 border-t border-white/10 pt-6 text-center text-white/60 text-sm">
+        <div className="mt-8 border-t border-white/10 pt-4 text-center text-white/60 text-sm">
           © {new Date().getFullYear()} MIikaty. Tous droits réservés. <a href="/mentions-legales" className="underline hover:text-miikaty">Mentions légales</a>
         </div>
       </footer>

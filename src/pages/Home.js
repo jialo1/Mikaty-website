@@ -265,7 +265,7 @@ export default function Home() {
           
           {/* Bouton "Voir tous nos services" */}
           <motion.div 
-            className="flex justify-center mt-8"
+            className="flex justify-center mt-16"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -329,7 +329,7 @@ export default function Home() {
                 <span className="text-gray-700 dark:text-gray-300">Fonctionnalités innovantes</span>
               </li>
             </ul>
-            <button className="inline-flex items-center px-6 py-3 bg-[#563491] hover:bg-[#d8a5ff] text-white hover:text-black font-semibold rounded-xl transition-all duration-300">
+            <button className="inline-flex items-center px-6 py-3 border-2 border-[#563491] text-[#563491] hover:bg-[#563491] hover:text-white font-semibold rounded-xl transition-all duration-300">
               Découvrir nos innovations
               <svg className="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
@@ -403,8 +403,8 @@ export default function Home() {
         </div>
 
         {/* Carrousel de blocs qui défilent */}
-        <div className="relative w-screen left-1/2 right-1/2 -mx-[50vw]">
-          <div className="flex animate-scroll space-x-6 px-12 md:px-20 lg:px-32 xl:px-48 2xl:px-64">
+        <div className="relative overflow-hidden">
+          <div className="flex animate-scroll space-x-6 px-6 md:px-12 lg:px-16">
               {/* Bloc 1 */}
               <div className="flex-shrink-0 w-80 h-96 bg-gradient-to-br from-purple-100 to-pink-100 dark:from-purple-900/20 dark:to-pink-900/20 rounded-2xl border border-gray-200 dark:border-gray-700 shadow-lg flex items-center justify-center overflow-hidden">
                 <img 
@@ -451,38 +451,43 @@ export default function Home() {
       </section>
 
       {/* Section Partenaires */}
-      <section className="py-16 bg-white dark:bg-gradient-to-b dark:from-miikaty-dark dark:to-[#2d1a4d]">
-        <div className="container mx-auto px-6">
-          <h2 className="text-2xl md:text-3xl font-extrabold mb-10 text-center bg-gradient-to-r from-[#563491] to-[#1a1a1a] dark:from-white dark:to-[#563491] bg-clip-text text-transparent">
-            Nos partenaires
-          </h2>
-          <div className="overflow-x-hidden w-full relative">
-            <div className="flex items-center gap-10 animate-partner-marquee" style={{minWidth: '1200px'}}>
-              {[
-                '/images/ecobank.png',
-                '/images/visa.svg',
-                '/images/orange-money.png',
-                '/images/wave.png',
-                // Ajoute ici d'autres logos si besoin
-              ].map((src, i) => (
-                <img
-                  key={i}
-                  src={src}
-                  alt="Logo partenaire"
-                  className="h-10 max-h-10 w-auto max-w-[100px] grayscale hover:grayscale-0 transition-all duration-300 mx-4 inline-block object-contain"
-                  style={{maxHeight: '40px', maxWidth: '100px'}}
+      <section className="py-20 px-4 bg-white/50 dark:bg-white/5">
+        <div className="max-w-6xl mx-auto">
+          <motion.div 
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+            className="text-center mb-16"
+          >
+            <h2 className="text-4xl font-bold text-gray-900 dark:text-white mb-6">Nos Partenaires</h2>
+            <p className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
+              Des collaborations stratégiques pour un écosystème financier plus fort
+            </p>
+          </motion.div>
+          
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 items-center">
+            {[
+              { name: "Orange Money", logo: "/images/Orange-Money.png" },
+              { name: "Wave", logo: "/images/Wave.png" },
+              { name: "Ecobank", logo: "/images/ecobank.png" },
+              { name: "Visa", logo: "/images/Visa.svg" }
+            ].map((partenaire, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, delay: index * 0.1 }}
+                viewport={{ once: true }}
+                className="bg-white/70 dark:bg-white/10 backdrop-blur-sm rounded-xl p-6 flex items-center justify-center hover:bg-white/90 dark:hover:bg-white/20 transition-all duration-300 shadow-lg dark:shadow-none"
+              >
+                <img 
+                  src={partenaire.logo} 
+                  alt={partenaire.name} 
+                  className="h-12 max-w-full object-contain filter brightness-0 dark:invert opacity-70 hover:opacity-100 transition-opacity"
                 />
-              ))}
-            </div>
-            <style>{`
-              @keyframes partner-marquee {
-                0% { transform: translateX(0); }
-                100% { transform: translateX(-50%); }
-              }
-              .animate-partner-marquee {
-                animation: partner-marquee 18s linear infinite;
-              }
-            `}</style>
+              </motion.div>
+            ))}
           </div>
         </div>
       </section>
@@ -547,11 +552,11 @@ export default function Home() {
       </section>
 
       {/* Footer */}
-      <footer className="bg-miikaty-dark text-white pt-16 pb-8 px-4">
-        <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-5 gap-12">
+      <footer className="bg-miikaty-dark text-white pt-12 pb-6 px-4">
+        <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-5 gap-8">
           {/* Logo & baseline + app download */}
-          <div className="col-span-1 flex flex-col items-center md:items-start gap-6">
-            <img src="/images/logo-miikaty-white.svg" alt="MIikaty" className="h-10 mb-2" />
+          <div className="col-span-1 flex flex-col items-center md:items-start gap-4">
+            <img src="/images/logomauve.svg" alt="MIikaty" className="h-8 mb-2" />
             <span className="text-white/80 text-sm mb-4">La finance, simple et accessible.</span>
             <div className="flex gap-2 mt-2">
               <a href="https://play.google.com/store/apps/details?id=ton.app" target="_blank" rel="noopener noreferrer">
@@ -561,7 +566,7 @@ export default function Home() {
                 <img src="/images/app-store-badge.svg" alt="App Store" className="h-10" />
               </a>
             </div>
-            <div className="mt-4 text-xs text-white/40">MIikaty SASU<br/>12 rue de la Fintech, 75000 Paris<br/>SIRET : 123 456 789 00012</div>
+            <div className="mt-2 text-xs text-white/40">MIikaty SASU<br/>12 rue de la Fintech, 75000 Paris<br/>SIRET : 123 456 789 00012</div>
           </div>
           {/* À propos */}
           <div className="col-span-1">
@@ -592,7 +597,7 @@ export default function Home() {
             </ul>
           </div>
           {/* Légal & réseaux sociaux */}
-          <div className="col-span-1 flex flex-col gap-6 items-center md:items-start">
+          <div className="col-span-1 flex flex-col gap-4 items-center md:items-start">
             <div>
               <div className="font-bold mb-4 text-miikaty">Légal</div>
               <ul className="space-y-2 text-white/80 text-sm">
@@ -620,7 +625,7 @@ export default function Home() {
             </div>
           </div>
         </div>
-        <div className="mt-12 border-t border-white/10 pt-6 text-center text-white/60 text-sm">
+        <div className="mt-8 border-t border-white/10 pt-4 text-center text-white/60 text-sm">
           © {new Date().getFullYear()} MIikaty. Tous droits réservés. <a href="/mentions-legales" className="underline hover:text-miikaty">Mentions légales</a>
         </div>
       </footer>
