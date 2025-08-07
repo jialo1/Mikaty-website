@@ -1,7 +1,17 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 
 export default function Entreprise() {
+  const [isLoaded, setIsLoaded] = useState(false);
+
+  useEffect(() => {
+    // Délai pour s'assurer que le composant est complètement monté
+    const timer = setTimeout(() => {
+      setIsLoaded(true);
+    }, 100);
+
+    return () => clearTimeout(timer);
+  }, []);
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-50 via-purple-50 to-gray-100 dark:from-gray-900 dark:via-purple-900 dark:to-gray-900">
       {/* Hero Section */}
@@ -69,9 +79,8 @@ export default function Entreprise() {
         <div className="max-w-6xl mx-auto">
           <motion.div 
             initial={{ opacity: 0, y: 50 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            viewport={{ once: true }}
+            animate={isLoaded ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
             className="grid md:grid-cols-2 gap-12 items-center"
           >
             <div>
@@ -117,9 +126,8 @@ export default function Entreprise() {
         <div className="max-w-6xl mx-auto">
           <motion.div 
             initial={{ opacity: 0, y: 50 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            viewport={{ once: true }}
+            animate={isLoaded ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
+            transition={{ duration: 0.8, delay: 0.4 }}
             className="text-center mb-16"
           >
             <h2 className="text-4xl font-bold text-gray-900 dark:text-white mb-6">Nos Valeurs</h2>
@@ -154,9 +162,8 @@ export default function Entreprise() {
               <motion.div
                 key={index}
                 initial={{ opacity: 0, y: 50 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: index * 0.1 }}
-                viewport={{ once: true }}
+                animate={isLoaded ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
+                transition={{ duration: 0.8, delay: 0.6 + index * 0.1 }}
                 className="bg-white/70 dark:bg-white/5 backdrop-blur-sm rounded-2xl p-8 text-center hover:bg-white/90 dark:hover:bg-white/10 transition-all duration-300 shadow-lg dark:shadow-none"
               >
                 <div className="text-4xl mb-4">{valeur.icon}</div>
@@ -173,9 +180,8 @@ export default function Entreprise() {
         <div className="max-w-6xl mx-auto">
           <motion.div 
             initial={{ opacity: 0, y: 50 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            viewport={{ once: true }}
+            animate={isLoaded ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
+            transition={{ duration: 0.8, delay: 0.8 }}
             className="text-center mb-16"
           >
             <h2 className="text-4xl font-bold text-gray-900 dark:text-white mb-6">Notre Équipe</h2>
@@ -208,9 +214,8 @@ export default function Entreprise() {
               <motion.div
                 key={index}
                 initial={{ opacity: 0, y: 50 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: index * 0.1 }}
-                viewport={{ once: true }}
+                animate={isLoaded ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
+                transition={{ duration: 0.8, delay: 1.0 + index * 0.1 }}
                 className="bg-white/70 dark:bg-white/5 backdrop-blur-sm rounded-2xl p-8 text-center hover:bg-white/90 dark:hover:bg-white/10 transition-all duration-300 shadow-lg dark:shadow-none"
               >
                 <div className="w-24 h-24 bg-gradient-to-br from-miikaty to-purple-600 rounded-full mx-auto mb-6 flex items-center justify-center text-3xl text-white">
@@ -230,9 +235,8 @@ export default function Entreprise() {
         <div className="max-w-6xl mx-auto">
           <motion.div 
             initial={{ opacity: 0, y: 50 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            viewport={{ once: true }}
+            animate={isLoaded ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
+            transition={{ duration: 0.8, delay: 1.2 }}
             className="text-center mb-16"
           >
             <h2 className="text-4xl font-bold text-gray-900 dark:text-white mb-6">Nos Chiffres Clés</h2>
@@ -251,9 +255,8 @@ export default function Entreprise() {
               <motion.div
                 key={index}
                 initial={{ opacity: 0, scale: 0.8 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 0.8, delay: index * 0.1 }}
-                viewport={{ once: true }}
+                animate={isLoaded ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.8 }}
+                transition={{ duration: 0.8, delay: 1.4 + index * 0.1 }}
                 className="text-center"
               >
                 <div className="text-4xl md:text-5xl font-bold text-miikaty mb-2">{stat.nombre}</div>

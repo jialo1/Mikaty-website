@@ -5,62 +5,11 @@ import { Link } from "react-router-dom";
 
 
 
-// Composant QR Code Flottant
-function FloatingQRCode() {
-  const [isVisible, setIsVisible] = useState(false);
 
-  useEffect(() => {
-    const handleScroll = () => {
-      // Apparaît après 400px de scroll (après la hero section)
-      const scrollPosition = window.scrollY;
-      setIsVisible(scrollPosition > 400);
-    };
-
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
-
-  return (
-    <AnimatePresence>
-      {isVisible && (
-        <motion.div
-          initial={{ opacity: 0, scale: 0.8, x: 100 }}
-          animate={{ opacity: 1, scale: 1, x: 0 }}
-          exit={{ opacity: 0, scale: 0.8, x: 100 }}
-          transition={{ duration: 0.5, ease: "easeOut" }}
-          className="fixed bottom-8 right-8 z-50 hidden lg:block"
-        >
-          <div className="bg-white dark:bg-gray-800 rounded-2xl shadow-2xl p-2 border border-gray-200 dark:border-gray-700 hover:shadow-3xl transition-all duration-300 transform hover:scale-105">
-            <div className="text-center">
-              <div className="relative inline-block">
-                <img 
-                  src="/images/QR_code.png" 
-                  alt="QR Code Mikaty" 
-                  className="w-24 h-24 rounded-xl border-2 border-miikaty bg-white shadow-lg"
-                />
-                <div className="absolute -top-2 -right-2 bg-miikaty text-white rounded-full p-1.5 shadow-lg">
-                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" className="w-4 h-4">
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M12 4v12m0 0l-4-4m4 4l4-4m-4 4V4" />
-                  </svg>
-                </div>
-              </div>
-              <div className="mt-1 text-center">
-                <p className="font-bold text-gray-900 dark:text-white text-sm">Scanner ici</p>
-              </div>
-            </div>
-          </div>
-        </motion.div>
-      )}
-    </AnimatePresence>
-  );
-}
 
 export default function Home() {
   return (
     <>
-      {/* QR Code Flottant */}
-      <FloatingQRCode />
-      
       {/* Hero section */}
       <section className="pt-28 pb-20 px-0 relative overflow-hidden font-sans min-h-screen flex flex-col bg-[radial-gradient(ellipse_at_60%_40%,#7C3AED_0%,#1a1a1a_100%)] dark:bg-[radial-gradient(ellipse_at_60%_40%,#1a1a1a_0%,#2d1a4d_100%)]">
         <div className="container mx-auto flex flex-col md:flex-row items-center justify-between gap-12 px-6 relative z-10 flex-1">
@@ -451,7 +400,7 @@ export default function Home() {
       </section>
 
       {/* Section Partenaires */}
-      <section className="py-20 px-4 bg-white/50 dark:bg-white/5">
+      <section className="py-20 px-4 bg-white/50 dark:bg-gradient-to-b dark:from-[#2d1a4d] dark:to-[#1a1a1a]">
         <div className="max-w-6xl mx-auto">
           <motion.div 
             initial={{ opacity: 0, y: 50 }}
@@ -516,7 +465,7 @@ export default function Home() {
       </section>
 
       {/* Appel à l'action mobile */}
-      <section className="py-16 text-center bg-[linear-gradient(90deg,#fefefe_0%,#f8f7ff_50%,#f8f7ff_100%)] dark:bg-gradient-to-b dark:from-[#2d1a4d] dark:to-miikaty-dark">
+      <section className="py-16 text-center bg-[linear-gradient(90deg,#fefefe_0%,#f8f7ff_50%,#f8f7ff_100%)] dark:bg-gradient-to-b dark:from-[#2d1a4d] dark:to-[#1a1a1a]">
         <div className="max-w-2xl mx-auto px-4">
           <h2 className="text-2xl md:text-3xl font-bold mb-4 bg-gradient-to-r from-[#563491] to-black dark:from-white dark:to-white bg-clip-text text-transparent">
             Essayez MIikaty dès maintenant

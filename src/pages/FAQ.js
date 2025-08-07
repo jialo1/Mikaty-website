@@ -1,11 +1,21 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { AnimatePresence } from "framer-motion";
 
 export default function FAQ() {
+  const [isLoaded, setIsLoaded] = useState(false);
   const [activeCategory, setActiveCategory] = useState("general");
   const [openQuestions, setOpenQuestions] = useState({});
+
+  useEffect(() => {
+    // Délai pour s'assurer que le composant est complètement monté
+    const timer = setTimeout(() => {
+      setIsLoaded(true);
+    }, 100);
+
+    return () => clearTimeout(timer);
+  }, []);
 
   const toggleQuestion = (questionId) => {
     setOpenQuestions(prev => ({
@@ -265,9 +275,8 @@ export default function FAQ() {
         <div className="max-w-4xl mx-auto text-center">
           <motion.div 
             initial={{ opacity: 0, y: 50 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            viewport={{ once: true }}
+            animate={isLoaded ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
           >
             <h2 className="text-4xl font-bold text-gray-900 dark:text-white mb-6">Vous n'avez pas trouvé votre réponse ?</h2>
             <p className="text-xl text-gray-600 dark:text-gray-300 mb-8">

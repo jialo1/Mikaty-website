@@ -372,7 +372,7 @@ export default function Home2() {
       </section>
 
       {/* Section Partenaires */}
-      <section className="py-20 px-4 bg-white/50 dark:bg-white/5">
+      <section className="py-20 px-4 bg-white/50 dark:bg-gradient-to-b dark:from-[#2d1a4d] dark:to-[#1a1a1a]">
         <div className="max-w-6xl mx-auto">
           <motion.div 
             initial={{ opacity: 0, y: 50 }}
@@ -414,7 +414,7 @@ export default function Home2() {
       </section>
 
       {/* Section Essayez Mikaty dès aujourd'hui */}
-      <section className="py-12 px-4 bg-white relative overflow-hidden">
+      <section className="py-12 px-4 bg-white dark:bg-gradient-to-b dark:from-[#2d1a4d] dark:to-[#1a1a1a] relative overflow-hidden">
         {/* Éléments décoratifs */}
         <div className="absolute inset-0">
           <div className="absolute top-10 left-10 w-32 h-32 bg-[#d8a5ff]/10 rounded-full blur-3xl"></div>
@@ -429,12 +429,12 @@ export default function Home2() {
 
           {/* Titre principal */}
           <h2 className="text-3xl md:text-4xl font-bold mb-4">
-            <span className="text-gray-900">Essayez</span>
+            <span className="text-gray-900 dark:text-white">Essayez</span>
             <br />
-            <span className="text-[#563491]">Mikaty dès aujourd'hui</span>
+            <span className="text-[#563491] dark:text-[#d8a5ff]">Mikaty dès aujourd'hui</span>
           </h2>
 
-          <p className="text-lg text-gray-600 mb-6 max-w-2xl mx-auto">
+          <p className="text-lg text-gray-600 dark:text-gray-300 mb-6 max-w-2xl mx-auto">
             Rejoignez des milliers d'utilisateurs<br />
             qui ont déjà transformé leur expérience financière
           </p>

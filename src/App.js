@@ -10,6 +10,8 @@ import HeroSection2 from "./pages/HeroSection2";
 import Entreprise from "./pages/Entreprise";
 import MiCard from "./pages/MiCard";
 import FAQ from "./pages/FAQ";
+import ChatAssistant from "./components/ChatAssistant";
+import ErrorBoundary from "./components/ErrorBoundary";
 
 // Composant Navbar qui adapte le fond selon la page
 function Navbar({ isScrolled, isAfterHero, isDark, setIsDark, LanguageSwitch }) {
@@ -56,7 +58,7 @@ function Navbar({ isScrolled, isAfterHero, isDark, setIsDark, LanguageSwitch }) 
           <li><Link to="/contact" className={`relative font-medium text-shadow-md after:content-[''] after:block after:w-0 after:h-0.5 after:bg-miikaty after:transition-all after:duration-300 hover:after:w-full ${pagePath === '/contact' ? 'after:w-full' : ''} ${pagePath === '/hero-section-2' ? 'text-miikaty' : 'text-white'}`}>Contact</Link></li>
           <li><Link to="/faq" className={`relative font-medium text-shadow-md after:content-[''] after:block after:w-0 after:h-0.5 after:bg-miikaty after:transition-all after:duration-300 hover:after:w-full ${pagePath === '/faq' ? 'after:w-full' : ''} ${pagePath === '/hero-section-2' ? 'text-miikaty' : 'text-white'}`}>FAQ</Link></li>
           <li>
-            <Link to="/contact" className={`ml-4 bg-gray-900 border border-gray-400 px-5 py-2 rounded-xl font-semibold text-base hover:bg-gray-800 hover:border-miikaty transition ${window.location.pathname === '/hero-section-2' ? 'text-miikaty' : 'text-white'}`}>
+            <Link to="/contact" className={`ml-4 bg-gray-900 border border-gray-400 px-5 py-2 rounded-xl font-semibold text-base hover:bg-gray-800 hover:border-miikaty transition ${pagePath === '/hero-section-2' ? 'text-miikaty' : 'text-white'}`}>
               S'inscrire
             </Link>
           </li>
@@ -178,6 +180,7 @@ function LanguageSwitch() {
 function App() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isAfterHero, setIsAfterHero] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
   const [isDark, setIsDark] = useState(() => {
     if (typeof window !== 'undefined') {
       return localStorage.getItem('theme') === 'dark';
@@ -196,38 +199,53 @@ function App() {
   }, [isDark]);
 
   useEffect(() => {
+    // Simuler un temps de chargement pour s'assurer que tout est prêt
+    const timer = setTimeout(() => {
+      setIsLoading(false);
+    }, 100);
+
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 0);
       setIsAfterHero(window.scrollY > 400); // 400px = hauteur approximative du hero
     };
     window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+      clearTimeout(timer);
+    };
   }, []);
   return (
-    <Router>
-      <div className="min-h-screen flex flex-col text-miikaty-dark">
-        <Navbar isScrolled={isScrolled} isAfterHero={isAfterHero} isDark={isDark} setIsDark={setIsDark} LanguageSwitch={LanguageSwitch} />
-        <motion.main
-          className="flex-1 bg-transparent"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 1, ease: 'easeOut', delay: 0.3 }}
-        >
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/home2" element={<Home2 />} />
-            <Route path="/about" element={<About />} />
-            <Route path="/services" element={<Services />} />
-            <Route path="/contact" element={<Contact />} />
-            <Route path="/entreprise" element={<Entreprise />} />
-            <Route path="/micard" element={<MiCard />} />
-            <Route path="/faq" element={<FAQ />} />
-            <Route path="/securite" element={<Home />} />
-            <Route path="/hero-section-2" element={<HeroSection2 />} />
-          </Routes>
-        </motion.main>
-      </div>
-    </Router>
+    <ErrorBoundary>
+      <Router>
+        <div className="min-h-screen flex flex-col text-miikaty-dark">
+          {!isLoading && (
+            <>
+              <Navbar isScrolled={isScrolled} isAfterHero={isAfterHero} isDark={isDark} setIsDark={setIsDark} LanguageSwitch={LanguageSwitch} />
+              <motion.main
+                className="flex-1 bg-transparent"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ duration: 1, ease: 'easeOut', delay: 0.3 }}
+              >
+                <Routes>
+                  <Route path="/" element={<Home />} />
+                  <Route path="/home2" element={<Home2 />} />
+                  <Route path="/about" element={<About />} />
+                  <Route path="/services" element={<Services />} />
+                  <Route path="/contact" element={<Contact />} />
+                  <Route path="/entreprise" element={<Entreprise />} />
+                  <Route path="/micard" element={<MiCard />} />
+                  <Route path="/faq" element={<FAQ />} />
+                  <Route path="/securite" element={<Home />} />
+                  <Route path="/hero-section-2" element={<HeroSection2 />} />
+                </Routes>
+              </motion.main>
+              <ChatAssistant />
+            </>
+          )}
+        </div>
+      </Router>
+    </ErrorBoundary>
   );
 }
 
