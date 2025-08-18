@@ -59,21 +59,21 @@ export default function Home() {
               </motion.a>
             </div>
           </div>
-          <div className="md:w-3/5 flex justify-center items-center h-full mt-0 md:mt-0 relative">
+          <div className="md:w-3/5 flex justify-end items-end h-full mt-0 md:mt-0 relative">
             {/* Carte du Sénégal en fond, derrière l'image */}
             <motion.img
               src="/images/senegal-outline.svg"
               alt="Carte du Sénégal"
-              className="absolute inset-0 w-full object-contain opacity-20 pointer-events-none select-none z-0"
+              className="absolute inset-0 w-[100%] h-[100%] object-contain opacity-40 pointer-events-none select-none z-0"
               style={{mixBlendMode: 'lighten'}}
               initial={{ y: 0 }}
               animate={{ y: [0, 20, 0] }}
               transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
             />
             <motion.img
-              src="/images/testhero.svg"
+              src="/images/testhero.png"
               alt="Visuel Hero Mikaty"
-              className="w-4/5 h-auto object-contain object-bottom rounded-2xl m-0 p-0 relative z-10"
+              className="w-2/3 h-auto object-cover object-bottom rounded-2xl m-0 p-0 mr-0 pr-0 relative z-10"
               initial={{ opacity: 0, y: 40 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 1, ease: 'easeOut' }}
@@ -275,6 +275,91 @@ export default function Home() {
         </div>
       </section>
 
+
+
+      {/* Section MiCard */}
+      <section className="py-24 bg-white dark:bg-gradient-to-b dark:from-[#2d1a4d] dark:to-[#1a1a1a]">
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-[#563491] to-black dark:from-white dark:to-[#d8a5ff] bg-clip-text text-transparent mb-6">
+              Découvrez MiCard
+            </h2>
+            <p className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
+              La carte virtuelle qui révolutionne vos paiements en ligne et en magasin
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            {/* Contenu à gauche */}
+            <div className="space-y-6">
+              <div className="space-y-4">
+                <h3 className="text-2xl font-bold text-[#563491] dark:text-white">
+                  💳 Carte virtuelle sécurisée
+                </h3>
+                <p className="text-gray-600 dark:text-gray-300">
+                  Créez votre carte virtuelle en quelques secondes et commencez à payer instantanément. 
+                  Aucun frais caché, contrôle total de vos dépenses.
+                </p>
+              </div>
+
+              <div className="space-y-4">
+                <h3 className="text-2xl font-bold text-[#563491] dark:text-white">
+                  🔒 Sécurité maximale
+                </h3>
+                <p className="text-gray-600 dark:text-gray-300">
+                  Chiffrement de bout en bout, authentification biométrique et surveillance anti-fraude 24h/24. 
+                  Vos données sont protégées par les meilleures technologies.
+                </p>
+              </div>
+
+              <div className="space-y-4">
+                <h3 className="text-2xl font-bold text-[#563491] dark:text-white">
+                  🌍 Acceptée partout
+                </h3>
+                <p className="text-gray-600 dark:text-gray-300">
+                  Payez sur tous vos sites préférés et en magasin avec votre carte virtuelle. 
+                  Compatible avec tous les terminaux de paiement.
+                </p>
+              </div>
+
+              <div className="pt-6">
+                <Link 
+                  to="/micard" 
+                  className="inline-flex items-center px-8 py-3 bg-[#563491] text-white font-semibold rounded-full hover:bg-[#4a2d7a] transition-all duration-300 transform hover:scale-105"
+                >
+                  En savoir plus sur MiCard
+                  <svg className="ml-2 w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                  </svg>
+                </Link>
+              </div>
+            </div>
+
+            {/* Image à droite */}
+            <div className="flex justify-center">
+              <div className="relative">
+                <div className="w-80 h-96 bg-gradient-to-br from-[#563491] to-[#8b5cf6] rounded-2xl shadow-2xl transform rotate-3 hover:rotate-0 transition-all duration-500">
+                  <div className="absolute inset-4 bg-white rounded-xl flex items-center justify-center">
+                    <div className="text-center">
+                      <div className="w-16 h-16 bg-[#563491] rounded-full mx-auto mb-4 flex items-center justify-center">
+                        <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 003 3z" />
+                        </svg>
+                      </div>
+                      <h4 className="text-lg font-bold text-[#563491]">MiCard</h4>
+                      <p className="text-sm text-gray-600">Carte virtuelle</p>
+                    </div>
+                  </div>
+                </div>
+                {/* Éléments décoratifs */}
+                <div className="absolute -top-4 -right-4 w-8 h-8 bg-yellow-400 rounded-full opacity-80"></div>
+                <div className="absolute -bottom-4 -left-4 w-6 h-6 bg-pink-400 rounded-full opacity-80"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Section Sécurité */}
       <section className="py-20 px-4 bg-white dark:bg-gradient-to-b dark:from-[#2d1a4d] dark:to-miikaty-dark">
         <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-center gap-12">
@@ -325,6 +410,8 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+
 
       {/* Ils utilisent Mikaty au quotidien */}
       <section className="py-24 bg-[linear-gradient(90deg,#fefefe_0%,#f8f7ff_50%,#f8f7ff_100%)] dark:bg-gradient-to-b dark:from-miikaty-dark dark:to-[#2d1a4d]">
@@ -450,6 +537,8 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+
 
       {/* Appel à l'action mobile */}
       <section className="py-16 text-center bg-[linear-gradient(90deg,#fefefe_0%,#f8f7ff_50%,#f8f7ff_100%)] dark:bg-gradient-to-b dark:from-[#2d1a4d] dark:to-[#1a1a1a]">

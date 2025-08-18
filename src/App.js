@@ -41,55 +41,57 @@ function Navbar({ isScrolled, isAfterHero, isDark, setIsDark, LanguageSwitch }) 
               : 'bg-transparent shadow-none border-b-0')}
       `}
     >
-      <nav className="container mx-auto flex items-center justify-between py-4 px-6">
+      <nav className="container mx-auto flex items-center justify-between py-2 px-6">
         {/* Logo */}
-        <div className="text-2xl font-bold text-miikaty flex items-center">
-          <img src="/images/logomauve.svg" alt="Logo Mikaty" className="h-8 max-h-10 w-auto max-w-[140px] object-contain" style={{background: 'none'}} />
+        <div className="text-2xl font-bold text-miikaty flex items-center flex-shrink-0">
+          <img src="/images/logomauve.svg" alt="Logo Mikaty" className="h-6 max-h-8 w-auto max-w-[120px] object-contain" style={{background: 'none'}} />
         </div>
 
-        {/* Menu Desktop */}
-        <ul className="hidden lg:flex space-x-6 items-center justify-center w-full">
-          <li><Link to="/" className={`relative font-medium text-shadow-md after:content-[''] after:block after:w-0 after:h-0.5 after:bg-miikaty after:transition-all after:duration-300 hover:after:w-full ${pagePath === '/' ? 'after:w-full' : ''} text-white`}>Accueil</Link></li>
-          <li><Link to="/home2" className={`relative font-medium text-shadow-md after:content-[''] after:block after:w-0 after:h-0.5 after:bg-miikaty after:transition-all after:duration-300 hover:after:w-full ${pagePath === '/home2' ? 'after:w-full' : ''} text-white`}>Accueil 2</Link></li>
-          <li><Link to="/services" className={`relative font-medium text-shadow-md after:content-[''] after:block after:w-0 after:h-0.5 after:bg-miikaty after:transition-all after:duration-300 hover:after:w-full ${pagePath === '/services' ? 'after:w-full' : ''} text-white`}>Services</Link></li>
-          <li><Link to="/micard" className={`relative font-medium text-shadow-md after:content-[''] after:block after:w-0 after:h-0.5 after:bg-miikaty after:transition-all after:duration-300 hover:after:w-full ${pagePath === '/micard' ? 'after:w-full' : ''} text-white`}>MiCard</Link></li>
-          
-          <li><Link to="/entreprise" className={`relative font-medium text-shadow-md after:content-[''] after:block after:w-0 after:h-0.5 after:bg-miikaty after:transition-all after:duration-300 hover:after:w-full ${pagePath === '/entreprise' ? 'after:w-full' : ''} text-white`}>Entreprise</Link></li>
-          <li><Link to="/contact" className={`relative font-medium text-shadow-md after:content-[''] after:block after:w-0 after:h-0.5 after:bg-miikaty after:transition-all after:duration-300 hover:after:w-full ${pagePath === '/contact' ? 'after:w-full' : ''} text-white`}>Contact</Link></li>
-          <li><Link to="/faq" className={`relative font-medium text-shadow-md after:content-[''] after:block after:w-0 after:h-0.5 after:bg-miikaty after:transition-all after:duration-300 hover:after:w-full ${pagePath === '/faq' ? 'after:w-full' : ''} text-white`}>FAQ</Link></li>
-          <li>
-            <Link to="/contact" className={`ml-4 bg-gray-900 border border-gray-400 px-5 py-2 rounded-xl font-semibold text-base hover:bg-gray-800 hover:border-miikaty transition text-white`}>
-              S'inscrire
-            </Link>
-          </li>
-        </ul>
+        {/* Menu Desktop - Centré */}
+        <div className="hidden lg:flex flex-1 justify-center">
+          <ul className="flex space-x-6 items-center">
+            <li><Link to="/" className={`relative font-medium text-shadow-md after:content-[''] after:block after:w-0 after:h-0.5 after:bg-miikaty after:transition-all after:duration-300 hover:after:w-full ${pagePath === '/' ? 'after:w-full' : ''} text-white`}>Accueil</Link></li>
+            <li><Link to="/home2" className={`relative font-medium text-shadow-md after:content-[''] after:block after:w-0 after:h-0.5 after:bg-miikaty after:transition-all after:duration-300 hover:after:w-full ${pagePath === '/home2' ? 'after:w-full' : ''} text-white`}>Accueil 2</Link></li>
+            <li><Link to="/services" className={`relative font-medium text-shadow-md after:content-[''] after:block after:w-0 after:h-0.5 after:bg-miikaty after:transition-all after:duration-300 hover:after:w-full ${pagePath === '/services' ? 'after:w-full' : ''} text-white`}>Services</Link></li>
+            <li><Link to="/micard" className={`relative font-medium text-shadow-md after:content-[''] after:block after:w-0 after:h-0.5 after:bg-miikaty after:transition-all after:duration-300 hover:after:w-full ${pagePath === '/micard' ? 'after:w-full' : ''} text-white`}>MiCard</Link></li>
+            
+            <li><Link to="/entreprise" className={`relative font-medium text-shadow-md after:content-[''] after:block after:w-0 after:h-0.5 after:bg-miikaty after:transition-all after:duration-300 hover:after:w-full ${pagePath === '/entreprise' ? 'after:w-full' : ''} text-white`}>Entreprise</Link></li>
+            <li><Link to="/contact" className={`relative font-medium text-shadow-md after:content-[''] after:block after:w-0 after:h-0.5 after:bg-miikaty after:transition-all after:duration-300 hover:after:w-full ${pagePath === '/contact' ? 'after:w-full' : ''} text-white`}>Contact</Link></li>
+            <li><Link to="/faq" className={`relative font-medium text-shadow-md after:content-[''] after:block after:w-0 after:h-0.5 after:bg-miikaty after:transition-all after:duration-300 hover:after:w-full ${pagePath === '/faq' ? 'after:w-full' : ''} text-white`}>FAQ</Link></li>
+            <li>
+              <Link to="/contact" className={`ml-4 bg-gray-900 border border-gray-400 px-4 py-1.5 rounded-lg font-semibold text-sm hover:bg-gray-800 hover:border-miikaty transition text-white`}>
+                S'inscrire
+              </Link>
+            </li>
+          </ul>
+        </div>
 
         {/* Contrôles de droite (Desktop) */}
-        <div className="hidden lg:flex items-center space-x-4 ml-6">
+        <div className="hidden lg:flex items-center space-x-4 ml-6 flex-shrink-0">
           <LanguageSwitch />
           {/* Bouton mode sombre */}
           <button
-            className={`flex items-center justify-center w-8 h-8 rounded-lg border border-gray-500 focus:outline-none transition duration-200 ${isDark ? 'bg-miikaty-dark text-white' : 'bg-white text-black'} hover:bg-gray-800 hover:border-miikaty`}
+            className={`flex items-center justify-center w-6 h-6 rounded-md border border-gray-500 focus:outline-none transition duration-200 ${isDark ? 'bg-miikaty-dark text-white' : 'bg-white text-black'} hover:bg-gray-800 hover:border-miikaty`}
             onClick={() => setIsDark(d => !d)}
             aria-label="Basculer le mode sombre"
           >
             {isDark ? (
-              <svg className="w-6 h-6" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M21 12.79A9 9 0 1111.21 3a7 7 0 109.79 9.79z" /></svg>
+              <svg className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M21 12.79A9 9 0 1111.21 3a7 7 0 109.79 9.79z" /></svg>
             ) : (
-              <svg className="w-6 h-6" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="5" /><path d="M12 1v2m0 18v2m11-11h-2M3 12H1m16.95 7.07l-1.41-1.41M6.34 6.34L4.93 4.93m12.02 0l-1.41 1.41M6.34 17.66l-1.41 1.41" /></svg>
+              <svg className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="5" /><path d="M12 1v2m0 18v2m11-11h-2M3 12H1m16.95 7.07l-1.41-1.41M6.34 6.34L4.93 4.93m12.02 0l-1.41 1.41M6.34 17.66l-1.41 1.41" /></svg>
             )}
           </button>
         </div>
 
         {/* Bouton hamburger mobile */}
         <button
-          className="lg:hidden flex flex-col justify-center items-center w-8 h-8 space-y-1.5 focus:outline-none"
+          className="lg:hidden flex flex-col justify-center items-center w-6 h-6 space-y-1 focus:outline-none"
           onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
           aria-label="Menu mobile"
         >
-          <span className={`block w-6 h-0.5 bg-white transition-all duration-300 ${isMobileMenuOpen ? 'rotate-45 translate-y-2' : ''}`}></span>
-          <span className={`block w-6 h-0.5 bg-white transition-all duration-300 ${isMobileMenuOpen ? 'opacity-0' : ''}`}></span>
-          <span className={`block w-6 h-0.5 bg-white transition-all duration-300 ${isMobileMenuOpen ? '-rotate-45 -translate-y-2' : ''}`}></span>
+          <span className={`block w-5 h-0.5 bg-white transition-all duration-300 ${isMobileMenuOpen ? 'rotate-45 translate-y-1.5' : ''}`}></span>
+          <span className={`block w-5 h-0.5 bg-white transition-all duration-300 ${isMobileMenuOpen ? 'opacity-0' : ''}`}></span>
+          <span className={`block w-5 h-0.5 bg-white transition-all duration-300 ${isMobileMenuOpen ? '-rotate-45 -translate-y-1.5' : ''}`}></span>
         </button>
       </nav>
 
