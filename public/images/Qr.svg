@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Calque_2" data-name="Calque 2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #563491;
+      }
+    </style>
+  </defs>
+  <g id="Capa_1" data-name="Capa 1">
+    <g>
+      <path class="cls-1" d="M160,0H0v160h160V0ZM128,128H32V32h96v96Z"/>
+      <rect class="cls-1" x="64" y="64" width="32" height="32"/>
+      <path class="cls-1" d="M352,0v160h160V0h-160ZM480,128h-96V32h96v96Z"/>
+      <rect class="cls-1" x="416" y="64" width="32" height="32"/>
+      <path class="cls-1" d="M0,512h160v-160H0v160ZM32,384h96v96H32v-96Z"/>
+      <rect class="cls-1" x="64" y="416" width="32" height="32"/>
+      <rect class="cls-1" x="256" width="64" height="32"/>
+      <polygon class="cls-1" points="256 128 288 128 288 96 320 96 320 64 224 64 224 32 192 32 192 64 192 80 192 96 256 96 256 128"/>
+      <rect class="cls-1" x="192" y="128" width="32" height="32"/>
+      <polygon class="cls-1" points="320 160 288 160 288 192 192 192 192 224 320 224 320 160"/>
+      <polygon class="cls-1" points="32 288 64 288 64 256 32 256 32 192 0 192 0 320 32 320 32 288"/>
+      <rect class="cls-1" x="64" y="192" width="32" height="32"/>
+      <polygon class="cls-1" points="192 320 256 320 256 288 224 288 224 256 160 256 160 192 128 192 128 256 96 256 96 320 128 320 128 288 144 288 160 288 192 288 192 320"/>
+      <rect class="cls-1" x="288" y="256" width="32" height="64"/>
+      <polygon class="cls-1" points="288 352 192 352 192 384 256 384 256 480 192 480 192 512 288 512 288 480 352 480 352 448 288 448 288 352"/>
+      <rect class="cls-1" x="192" y="416" width="32" height="32"/>
+      <rect class="cls-1" x="320" y="352" width="32" height="64"/>
+      <polygon class="cls-1" points="480 416 384 416 384 512 416 512 416 448 480 448 480 416"/>
+      <rect class="cls-1" x="448" y="480" width="64" height="32"/>
+      <rect class="cls-1" x="480" y="352" width="32" height="32"/>
+      <polygon class="cls-1" points="384 384 416 384 416 288 352 288 352 320 384 320 384 384"/>
+      <polygon class="cls-1" points="448 224 416 224 416 192 384 192 384 224 352 224 352 256 480 256 480 224 512 224 512 192 448 192 448 224"/>
+      <rect class="cls-1" x="448" y="288" width="64" height="32"/>
+    </g>
+  </g>
+</svg>

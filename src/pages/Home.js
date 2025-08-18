@@ -13,7 +13,7 @@ export default function Home() {
       {/* Hero section */}
       <section className="pt-28 pb-20 px-0 relative overflow-hidden font-sans min-h-screen flex flex-col bg-[radial-gradient(ellipse_at_60%_40%,#7C3AED_0%,#1a1a1a_100%)] dark:bg-[radial-gradient(ellipse_at_60%_40%,#1a1a1a_0%,#2d1a4d_100%)]">
         <div className="container mx-auto flex flex-col md:flex-row items-center justify-between gap-12 px-6 relative z-10 flex-1">
-          <div className="md:w-1/2 flex flex-col items-start text-left gap-4">
+          <div className="md:w-1/4 flex flex-col items-start text-left gap-4">
             <h1 className="text-6xl md:text-8xl font-bold tracking-tighter text-white mb-0" style={{ textShadow: '0 4px 20px rgba(0,0,0,0.4)' }}>
               Payez. Envoyez. Recevez.
             </h1>
@@ -59,21 +59,21 @@ export default function Home() {
               </motion.a>
             </div>
           </div>
-          <div className="md:w-1/2 flex justify-center items-center h-full mt-0 md:mt-0 relative">
+          <div className="md:w-3/5 flex justify-center items-center h-full mt-0 md:mt-0 relative">
             {/* Carte du Sénégal en fond, derrière l'image */}
             <motion.img
               src="/images/senegal-outline.svg"
               alt="Carte du Sénégal"
-              className="absolute inset-0 w-full h-full object-contain opacity-10 pointer-events-none select-none z-0"
+              className="absolute inset-0 w-full object-contain opacity-20 pointer-events-none select-none z-0"
               style={{mixBlendMode: 'lighten'}}
               initial={{ y: 0 }}
               animate={{ y: [0, 20, 0] }}
               transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
             />
             <motion.img
-              src="/images/hero.png"
+              src="/images/testhero.svg"
               alt="Visuel Hero Mikaty"
-              className="w-full max-w-md h-auto object-cover object-bottom rounded-2xl m-0 p-0 relative z-10"
+              className="w-4/5 h-auto object-contain object-bottom rounded-2xl m-0 p-0 relative z-10"
               initial={{ opacity: 0, y: 40 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 1, ease: 'easeOut' }}
@@ -146,11 +146,7 @@ export default function Home() {
             {/* Service 1 */}
             <div className="flex flex-col items-center bg-white dark:bg-[#563491] rounded-3xl shadow-[0_4px_24px_0_rgba(124,58,237,0.10)] hover:shadow-[0_8px_32px_0_rgba(124,58,237,0.18)] hover:bg-[#f6f3ff] dark:hover:bg-[#F2E4F8] transition-all duration-300 p-10 group">
               <span className="flex items-center justify-center w-12 h-12 rounded-full bg-white mb-2 group-hover:bg-[#563491] transition-colors duration-300">
-                {/* Lightbulb icon */}
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-7 h-7 text-miikaty group-hover:text-white transition-colors duration-300">
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M12 18v-5.25m0 0a6.01 6.01 0 001.5-11.625a6.01 6.01 0 00-1.5-11.625m-1.5 11.625a6.01 6.01 0 01-1.5-11.625" />
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M9.375 21L3 12m0 0l6.375-9M3 12h18" />
-                </svg>
+                <img src="/images/Factures.svg" alt="Factures" className="w-7 h-7 group-hover:filter group-hover:brightness-0 group-hover:invert transition-all duration-300" />
               </span>
               <h3 className="font-semibold text-base text-black dark:text-white mb-1 group-hover:text-miikaty-dark">Paiement de factures</h3>
               <p className="text-gray-700 dark:text-gray-300 text-sm leading-snug text-center group-hover:text-miikaty-dark transition-colors duration-300">Réglez vos factures d'électricité, d'eau, d'internet et plus, en quelques clics.</p>
@@ -180,10 +176,7 @@ export default function Home() {
             {/* Service 4 */}
             <div className="flex flex-col items-center bg-white dark:bg-[#563491] rounded-3xl shadow-[0_4px_24px_0_rgba(124,58,237,0.10)] hover:shadow-[0_8px_32px_0_rgba(124,58,237,0.18)] hover:bg-[#f6f3ff] dark:hover:bg-[#F2E4F8] transition-all duration-300 p-10 group">
               <span className="flex items-center justify-center w-12 h-12 rounded-full bg-white mb-2 group-hover:bg-[#563491] transition-colors duration-300">
-                {/* Credit card icon */}
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-7 h-7 text-miikaty group-hover:text-white transition-colors duration-300">
-                  <path d="M2.25 8.25h19.5M2.25 9h19.5m-16.5 5.25h6m-6 2.25h3m-3.75 3h15a2.25 2.25 0 002.25-2.25V6.75a2.25 2.25 0 00-2.25-2.25h-15a2.25 2.25 0 00-2.25 2.25v10.5A2.25 2.25 0 004.5 21z" />
-                </svg>
+                <img src="/images/Carte.svg" alt="Carte bancaire" className="w-7 h-7 group-hover:filter group-hover:brightness-0 group-hover:invert transition-all duration-300" />
               </span>
               <h3 className="font-semibold text-base text-black dark:text-white mb-1 group-hover:text-miikaty-dark">Paiement par carte en ligne</h3>
               <p className="text-gray-700 dark:text-gray-300 text-sm leading-snug text-center group-hover:text-miikaty-dark transition-colors duration-300">Payez sur tous vos sites préférés avec votre carte bancaire, en toute sécurité.</p>
@@ -191,10 +184,7 @@ export default function Home() {
             {/* Service 5 */}
             <div className="flex flex-col items-center bg-white dark:bg-[#563491] rounded-3xl shadow-[0_4px_24px_0_rgba(124,58,237,0.10)] hover:shadow-[0_8px_32px_0_rgba(124,58,237,0.18)] hover:bg-[#f6f3ff] dark:hover:bg-[#F2E4F8] transition-all duration-300 p-10 group">
               <span className="flex items-center justify-center w-12 h-12 rounded-full bg-white mb-2 group-hover:bg-[#563491] transition-colors duration-300">
-                {/* NFC icon */}
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-7 h-7 text-miikaty group-hover:text-white transition-colors duration-300">
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M8.288 15.038a5.25 5.25 0 017.424 0M5.136 11.886c3.11-3.11 8.154-3.11 11.264 0M11.46 18.19c.496.496 1.298.496 1.794 0M2.25 8.625c5.166-5.166 13.584-5.166 18.75 0" />
-                </svg>
+                <img src="/images/nfc.svg" alt="NFC" className="w-7 h-7 group-hover:filter group-hover:brightness-0 group-hover:invert transition-all duration-300" />
               </span>
               <h3 className="font-semibold text-base text-black dark:text-white mb-1 group-hover:text-miikaty-dark">NFC tap to pay</h3>
               <p className="text-gray-700 dark:text-gray-300 text-sm leading-snug text-center group-hover:text-miikaty-dark transition-colors duration-300">Réglez vos achats en magasin d'un simple geste, grâce au paiement sans contact NFC.</p>
@@ -202,10 +192,7 @@ export default function Home() {
             {/* Service 6 */}
             <div className="flex flex-col items-center bg-white dark:bg-[#563491] rounded-3xl shadow-[0_4px_24px_0_rgba(124,58,237,0.10)] hover:shadow-[0_8px_32px_0_rgba(124,58,237,0.18)] hover:bg-[#f6f3ff] dark:hover:bg-[#F2E4F8] transition-all duration-300 p-10 group">
               <span className="flex items-center justify-center w-12 h-12 rounded-full bg-white mb-2 group-hover:bg-[#563491] transition-colors duration-300">
-                {/* QR code icon (simplified) */}
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-7 h-7 text-miikaty group-hover:text-white transition-colors duration-300">
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 4.5a.75.75 0 00-.75.75v13.5a.75.75 0 00.75.75h16.5a.75.75 0 00.75-.75V5.25a.75.75 0 00-.75-.75H3.75zM8.25 8.25h1.5v1.5h-1.5V8.25zm0 3h1.5v1.5h-1.5v-1.5zm0 3h1.5v1.5h-1.5V15zm-3-3h1.5v1.5H5.25v-1.5zm0 3h1.5v1.5H5.25V15zm0-6h1.5v1.5H5.25V9zm3 0h1.5v1.5H8.25V9zm6-3h1.5v1.5h-1.5V6zm-3 0h1.5v1.5h-1.5V6zm3 3h1.5v1.5h-1.5V9zm-3 6h1.5v1.5h-1.5V15zm-3 3h1.5v1.5h-1.5v-1.5z" />
-                </svg>
+                <img src="/images/Qr.svg" alt="QR Code" className="w-7 h-7 group-hover:filter group-hover:brightness-0 group-hover:invert transition-all duration-300" />
               </span>
               <h3 className="font-semibold text-base text-black dark:text-white mb-1 group-hover:text-miikaty-dark">Paiement avec QR code</h3>
               <p className="text-gray-700 dark:text-gray-300 text-sm leading-snug text-center group-hover:text-miikaty-dark transition-colors duration-300">Scannez et payez instantanément chez vos commerçants ou amis, sans contact.</p>
@@ -262,19 +249,19 @@ export default function Home() {
             </p>
             <ul className="space-y-4 mb-8">
               <li className="flex items-center gap-3">
-                <span className="text-blue-500 text-xl">⚡</span>
+                <span className="text-blue-500 text-xl">✔</span>
                 <span className="text-gray-700 dark:text-gray-300">Transactions instantanées</span>
               </li>
               <li className="flex items-center gap-3">
-                <span className="text-blue-500 text-xl">🎯</span>
+                <span className="text-blue-500 text-xl">✔</span>
                 <span className="text-gray-700 dark:text-gray-300">Interface intuitive et moderne</span>
               </li>
               <li className="flex items-center gap-3">
-                <span className="text-blue-500 text-xl">🌍</span>
+                <span className="text-blue-500 text-xl">✔</span>
                 <span className="text-gray-700 dark:text-gray-300">Disponible partout dans le monde</span>
               </li>
               <li className="flex items-center gap-3">
-                <span className="text-blue-500 text-xl">💡</span>
+                <span className="text-blue-500 text-xl">✔</span>
                 <span className="text-gray-700 dark:text-gray-300">Fonctionnalités innovantes</span>
               </li>
             </ul>

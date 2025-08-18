@@ -65,7 +65,7 @@ export default function Entreprise() {
             >
               <div className="w-full h-96 bg-gradient-to-br from-miikaty/20 to-purple-600/20 rounded-2xl border-2 border-dashed border-miikaty/30 flex items-center justify-center">
                 <div className="text-center text-gray-500 dark:text-gray-400">
-                  <div className="text-4xl mb-2">📸</div>
+                  
                   <p className="text-lg">Votre image ici</p>
                 </div>
               </div>
@@ -111,9 +111,6 @@ export default function Entreprise() {
             <div className="relative">
               <div className="bg-gradient-to-br from-miikaty to-purple-600 rounded-2xl p-8 h-80 flex items-center justify-center">
                 <div className="text-center text-white">
-                  <div className="text-6xl mb-4">🚀</div>
-                  <h3 className="text-2xl font-bold mb-2">Innovation Continue</h3>
-                  <p className="text-lg opacity-90">Nous repoussons constamment les limites de la technologie</p>
                 </div>
               </div>
             </div>
@@ -139,22 +136,22 @@ export default function Entreprise() {
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
             {[
               {
-                icon: "🤝",
+                icon: "",
                 title: "Confiance",
                 description: "La transparence et la fiabilité sont au cœur de nos relations"
               },
               {
-                icon: "💡",
+                icon: "",
                 title: "Innovation",
                 description: "Nous repoussons les limites pour créer des solutions révolutionnaires"
               },
               {
-                icon: "🌍",
+                icon: "",
                 title: "Impact",
                 description: "Chaque action vise à améliorer la vie de nos utilisateurs"
               },
               {
-                icon: "🔒",
+                icon: "",
                 title: "Sécurité",
                 description: "La protection de vos données est notre priorité absolue"
               }

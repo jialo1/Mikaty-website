@@ -6,7 +6,7 @@ import Home2 from "./pages/Home2";
 import About from "./pages/About";
 import Services from "./pages/Services";
 import Contact from "./pages/Contact";
-import HeroSection2 from "./pages/HeroSection2";
+
 import Entreprise from "./pages/Entreprise";
 import MiCard from "./pages/MiCard";
 import FAQ from "./pages/FAQ";
@@ -49,16 +49,16 @@ function Navbar({ isScrolled, isAfterHero, isDark, setIsDark, LanguageSwitch }) 
 
         {/* Menu Desktop */}
         <ul className="hidden lg:flex space-x-6 items-center justify-center w-full">
-          <li><Link to="/" className={`relative font-medium text-shadow-md after:content-[''] after:block after:w-0 after:h-0.5 after:bg-miikaty after:transition-all after:duration-300 hover:after:w-full ${pagePath === '/' ? 'after:w-full' : ''} ${pagePath === '/hero-section-2' ? 'text-miikaty' : 'text-white'}`}>Accueil</Link></li>
-          <li><Link to="/home2" className={`relative font-medium text-shadow-md after:content-[''] after:block after:w-0 after:h-0.5 after:bg-miikaty after:transition-all after:duration-300 hover:after:w-full ${pagePath === '/home2' ? 'after:w-full' : ''} ${pagePath === '/hero-section-2' ? 'text-miikaty' : 'text-white'}`}>Accueil 2</Link></li>
-          <li><Link to="/services" className={`relative font-medium text-shadow-md after:content-[''] after:block after:w-0 after:h-0.5 after:bg-miikaty after:transition-all after:duration-300 hover:after:w-full ${pagePath === '/services' ? 'after:w-full' : ''} ${pagePath === '/hero-section-2' ? 'text-miikaty' : 'text-white'}`}>Services</Link></li>
-          <li><Link to="/micard" className={`relative font-medium text-shadow-md after:content-[''] after:block after:w-0 after:h-0.5 after:bg-miikaty after:transition-all after:duration-300 hover:after:w-full ${pagePath === '/micard' ? 'after:w-full' : ''} ${pagePath === '/hero-section-2' ? 'text-miikaty' : 'text-white'}`}>MiCard</Link></li>
+          <li><Link to="/" className={`relative font-medium text-shadow-md after:content-[''] after:block after:w-0 after:h-0.5 after:bg-miikaty after:transition-all after:duration-300 hover:after:w-full ${pagePath === '/' ? 'after:w-full' : ''} text-white`}>Accueil</Link></li>
+          <li><Link to="/home2" className={`relative font-medium text-shadow-md after:content-[''] after:block after:w-0 after:h-0.5 after:bg-miikaty after:transition-all after:duration-300 hover:after:w-full ${pagePath === '/home2' ? 'after:w-full' : ''} text-white`}>Accueil 2</Link></li>
+          <li><Link to="/services" className={`relative font-medium text-shadow-md after:content-[''] after:block after:w-0 after:h-0.5 after:bg-miikaty after:transition-all after:duration-300 hover:after:w-full ${pagePath === '/services' ? 'after:w-full' : ''} text-white`}>Services</Link></li>
+          <li><Link to="/micard" className={`relative font-medium text-shadow-md after:content-[''] after:block after:w-0 after:h-0.5 after:bg-miikaty after:transition-all after:duration-300 hover:after:w-full ${pagePath === '/micard' ? 'after:w-full' : ''} text-white`}>MiCard</Link></li>
           
-          <li><Link to="/entreprise" className={`relative font-medium text-shadow-md after:content-[''] after:block after:w-0 after:h-0.5 after:bg-miikaty after:transition-all after:duration-300 hover:after:w-full ${pagePath === '/entreprise' ? 'after:w-full' : ''} ${pagePath === '/hero-section-2' ? 'text-miikaty' : 'text-white'}`}>Entreprise</Link></li>
-          <li><Link to="/contact" className={`relative font-medium text-shadow-md after:content-[''] after:block after:w-0 after:h-0.5 after:bg-miikaty after:transition-all after:duration-300 hover:after:w-full ${pagePath === '/contact' ? 'after:w-full' : ''} ${pagePath === '/hero-section-2' ? 'text-miikaty' : 'text-white'}`}>Contact</Link></li>
-          <li><Link to="/faq" className={`relative font-medium text-shadow-md after:content-[''] after:block after:w-0 after:h-0.5 after:bg-miikaty after:transition-all after:duration-300 hover:after:w-full ${pagePath === '/faq' ? 'after:w-full' : ''} ${pagePath === '/hero-section-2' ? 'text-miikaty' : 'text-white'}`}>FAQ</Link></li>
+          <li><Link to="/entreprise" className={`relative font-medium text-shadow-md after:content-[''] after:block after:w-0 after:h-0.5 after:bg-miikaty after:transition-all after:duration-300 hover:after:w-full ${pagePath === '/entreprise' ? 'after:w-full' : ''} text-white`}>Entreprise</Link></li>
+          <li><Link to="/contact" className={`relative font-medium text-shadow-md after:content-[''] after:block after:w-0 after:h-0.5 after:bg-miikaty after:transition-all after:duration-300 hover:after:w-full ${pagePath === '/contact' ? 'after:w-full' : ''} text-white`}>Contact</Link></li>
+          <li><Link to="/faq" className={`relative font-medium text-shadow-md after:content-[''] after:block after:w-0 after:h-0.5 after:bg-miikaty after:transition-all after:duration-300 hover:after:w-full ${pagePath === '/faq' ? 'after:w-full' : ''} text-white`}>FAQ</Link></li>
           <li>
-            <Link to="/contact" className={`ml-4 bg-gray-900 border border-gray-400 px-5 py-2 rounded-xl font-semibold text-base hover:bg-gray-800 hover:border-miikaty transition ${pagePath === '/hero-section-2' ? 'text-miikaty' : 'text-white'}`}>
+            <Link to="/contact" className={`ml-4 bg-gray-900 border border-gray-400 px-5 py-2 rounded-xl font-semibold text-base hover:bg-gray-800 hover:border-miikaty transition text-white`}>
               S'inscrire
             </Link>
           </li>
@@ -237,7 +237,7 @@ function App() {
                   <Route path="/micard" element={<MiCard />} />
                   <Route path="/faq" element={<FAQ />} />
                   <Route path="/securite" element={<Home />} />
-                  <Route path="/hero-section-2" element={<HeroSection2 />} />
+          
                 </Routes>
               </motion.main>
               <ChatAssistant />
