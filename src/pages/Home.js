@@ -249,19 +249,19 @@ export default function Home() {
             </p>
             <ul className="space-y-4 mb-8">
               <li className="flex items-center gap-3">
-                <span className="text-blue-500 text-xl">✔</span>
+                <span className="text-[#563491] text-xl">✔</span>
                 <span className="text-gray-700 dark:text-gray-300">Transactions instantanées</span>
               </li>
               <li className="flex items-center gap-3">
-                <span className="text-blue-500 text-xl">✔</span>
+                <span className="text-[#563491] text-xl">✔</span>
                 <span className="text-gray-700 dark:text-gray-300">Interface intuitive et moderne</span>
               </li>
               <li className="flex items-center gap-3">
-                <span className="text-blue-500 text-xl">✔</span>
+                <span className="text-[#563491] text-xl">✔</span>
                 <span className="text-gray-700 dark:text-gray-300">Disponible partout dans le monde</span>
               </li>
               <li className="flex items-center gap-3">
-                <span className="text-blue-500 text-xl">✔</span>
+                <span className="text-[#563491] text-xl">✔</span>
                 <span className="text-gray-700 dark:text-gray-300">Fonctionnalités innovantes</span>
               </li>
             </ul>
@@ -279,22 +279,19 @@ export default function Home() {
 
       {/* Section MiCard */}
       <section className="py-24 bg-white dark:bg-gradient-to-b dark:from-[#2d1a4d] dark:to-[#1a1a1a]">
-        <div className="max-w-7xl mx-auto px-6">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-[#563491] to-black dark:from-white dark:to-[#d8a5ff] bg-clip-text text-transparent mb-6">
+        <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-center gap-12">
+          {/* Contenu à gauche */}
+          <div className="md:w-1/2 text-left order-1 md:order-1">
+            <h2 className="text-3xl md:text-5xl font-bold mb-6 bg-gradient-to-r from-[#563491] to-black dark:from-white dark:to-[#d8a5ff] bg-clip-text text-transparent">
               Découvrez MiCard
             </h2>
-            <p className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
+            <p className="text-lg text-gray-700 dark:text-gray-300 mb-8">
               La carte virtuelle qui révolutionne vos paiements en ligne et en magasin
             </p>
-          </div>
-
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            {/* Contenu à gauche */}
             <div className="space-y-6">
               <div className="space-y-4">
                 <h3 className="text-2xl font-bold text-[#563491] dark:text-white">
-                  💳 Carte virtuelle sécurisée
+                  ✔ Carte virtuelle sécurisée
                 </h3>
                 <p className="text-gray-600 dark:text-gray-300">
                   Créez votre carte virtuelle en quelques secondes et commencez à payer instantanément. 
@@ -304,7 +301,7 @@ export default function Home() {
 
               <div className="space-y-4">
                 <h3 className="text-2xl font-bold text-[#563491] dark:text-white">
-                  🔒 Sécurité maximale
+                  ✔ Sécurité maximale
                 </h3>
                 <p className="text-gray-600 dark:text-gray-300">
                   Chiffrement de bout en bout, authentification biométrique et surveillance anti-fraude 24h/24. 
@@ -314,7 +311,7 @@ export default function Home() {
 
               <div className="space-y-4">
                 <h3 className="text-2xl font-bold text-[#563491] dark:text-white">
-                  🌍 Acceptée partout
+                  ✔ Acceptée partout
                 </h3>
                 <p className="text-gray-600 dark:text-gray-300">
                   Payez sur tous vos sites préférés et en magasin avec votre carte virtuelle. 
@@ -325,36 +322,42 @@ export default function Home() {
               <div className="pt-6">
                 <Link 
                   to="/micard" 
-                  className="inline-flex items-center px-8 py-3 bg-[#563491] text-white font-semibold rounded-full hover:bg-[#4a2d7a] transition-all duration-300 transform hover:scale-105"
+                  className="inline-flex items-center px-6 py-3 border-2 border-[#563491] text-[#563491] hover:bg-[#563491] hover:text-white font-semibold rounded-xl transition-all duration-300"
                 >
                   En savoir plus sur MiCard
-                  <svg className="ml-2 w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <svg className="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
                   </svg>
                 </Link>
               </div>
             </div>
-
-            {/* Image à droite */}
-            <div className="flex justify-center">
-              <div className="relative">
-                <div className="w-80 h-96 bg-gradient-to-br from-[#563491] to-[#8b5cf6] rounded-2xl shadow-2xl transform rotate-3 hover:rotate-0 transition-all duration-500">
-                  <div className="absolute inset-4 bg-white rounded-xl flex items-center justify-center">
-                    <div className="text-center">
-                      <div className="w-16 h-16 bg-[#563491] rounded-full mx-auto mb-4 flex items-center justify-center">
-                        <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 003 3z" />
-                        </svg>
-                      </div>
-                      <h4 className="text-lg font-bold text-[#563491]">MiCard</h4>
-                      <p className="text-sm text-gray-600">Carte virtuelle</p>
+          </div>
+          
+          {/* Image à droite */}
+          <div className="md:w-1/2 flex justify-center order-2 md:order-2">
+            <div className="relative">
+              <div className="w-80 h-96 bg-gradient-to-br from-[#a855f7] via-[#8b5cf6] to-[#7c3aed] rounded-2xl shadow-2xl transform rotate-3 hover:rotate-0 transition-all duration-500 relative overflow-hidden">
+                {/* Effet de luminosité */}
+                <div className="absolute inset-0 bg-gradient-to-br from-white/20 via-transparent to-purple-300/30"></div>
+                <div className="absolute top-0 left-0 w-full h-1/2 bg-gradient-to-b from-white/30 to-transparent"></div>
+                <div className="absolute -top-20 -right-20 w-40 h-40 bg-white/20 rounded-full blur-3xl"></div>
+                <div className="absolute -bottom-20 -left-20 w-32 h-32 bg-purple-300/30 rounded-full blur-3xl"></div>
+                
+                <div className="absolute inset-4 bg-white/95 backdrop-blur-sm rounded-xl flex items-center justify-center shadow-lg">
+                  <div className="text-center">
+                    <div className="w-16 h-16 bg-gradient-to-br from-[#a855f7] to-[#7c3aed] rounded-full mx-auto mb-4 flex items-center justify-center shadow-lg">
+                      <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 003 3z" />
+                      </svg>
                     </div>
+                    <h4 className="text-lg font-bold text-[#7c3aed]">MiCard</h4>
+                    <p className="text-sm text-gray-600">Carte virtuelle</p>
                   </div>
                 </div>
-                {/* Éléments décoratifs */}
-                <div className="absolute -top-4 -right-4 w-8 h-8 bg-yellow-400 rounded-full opacity-80"></div>
-                <div className="absolute -bottom-4 -left-4 w-6 h-6 bg-pink-400 rounded-full opacity-80"></div>
               </div>
+              {/* Éléments décoratifs lumineux */}
+              <div className="absolute -top-4 -right-4 w-8 h-8 bg-gradient-to-r from-yellow-300 to-yellow-400 rounded-full opacity-90 shadow-lg animate-pulse"></div>
+              <div className="absolute -bottom-4 -left-4 w-6 h-6 bg-gradient-to-r from-pink-300 to-pink-400 rounded-full opacity-90 shadow-lg animate-pulse"></div>
             </div>
           </div>
         </div>
@@ -373,19 +376,19 @@ export default function Home() {
             </p>
             <ul className="space-y-4 mb-8">
               <li className="flex items-center gap-3">
-                <span className="text-green-500 text-xl">✔</span>
+                <span className="text-[#563491] text-xl">✔</span>
                 <span className="text-gray-700 dark:text-gray-300">Chiffrement de bout en bout</span>
               </li>
               <li className="flex items-center gap-3">
-                <span className="text-green-500 text-xl">✔</span>
+                <span className="text-[#563491] text-xl">✔</span>
                 <span className="text-gray-700 dark:text-gray-300">Authentification biométrique et code PIN</span>
               </li>
               <li className="flex items-center gap-3">
-                <span className="text-green-500 text-xl">✔</span>
+                <span className="text-[#563491] text-xl">✔</span>
                 <span className="text-gray-700 dark:text-gray-300">Surveillance anti-fraude en temps réel</span>
               </li>
               <li className="flex items-center gap-3">
-                <span className="text-green-500 text-xl">✔</span>
+                <span className="text-[#563491] text-xl">✔</span>
                 <span className="text-gray-700 dark:text-gray-300">Données hébergées en France/Europe</span>
               </li>
             </ul>
