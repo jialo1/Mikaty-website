@@ -62,9 +62,9 @@ export default function Home() {
           <div className="md:w-3/5 flex justify-end items-end h-full mt-0 md:mt-0 relative">
             {/* Carte du Sénégal en fond, derrière l'image */}
             <motion.img
-              src="/images/senegal-outline.svg"
+              src="/images/senegal-outline.png"
               alt="Carte du Sénégal"
-              className="absolute inset-0 w-[100%] h-[100%] object-contain opacity-40 pointer-events-none select-none z-0"
+              className="absolute inset-0 w-[100%] h-[100%] object-contain opacity-100 pointer-events-none select-none z-0"
               style={{mixBlendMode: 'lighten'}}
               initial={{ y: 0 }}
               animate={{ y: [0, 20, 0] }}
@@ -73,7 +73,7 @@ export default function Home() {
             <motion.img
               src="/images/testhero.png"
               alt="Visuel Hero Mikaty"
-              className="w-2/3 h-auto object-cover object-bottom rounded-2xl m-0 p-0 mr-0 pr-0 relative z-10"
+              className="w-2/5 h-auto object-cover object-bottom rounded-2xl m-0 p-0 mr-0 pr-0 relative z-10"
               initial={{ opacity: 0, y: 40 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 1, ease: 'easeOut' }}
@@ -227,15 +227,14 @@ export default function Home() {
       {/* Section Innovation */}
       <section className="py-20 px-4 bg-[linear-gradient(90deg,#fefefe_0%,#f8f7ff_50%,#f8f7ff_100%)] dark:bg-gradient-to-b dark:from-miikaty-dark dark:to-[#2d1a4d]">
         <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-center gap-12">
-          {/* Espace pour image à gauche */}
+          {/* Image à gauche */}
           <div className="md:w-1/2 flex justify-center order-2 md:order-1">
-            <div className="w-full h-96 bg-gradient-to-br from-blue-100 to-purple-100 dark:from-blue-900/20 dark:to-purple-900/20 rounded-2xl border-2 border-dashed border-blue-300 dark:border-blue-600 flex items-center justify-center">
-              <div className="text-center">
-                <svg className="w-16 h-16 text-blue-400 dark:text-blue-500 mx-auto mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
-                </svg>
-                <p className="text-blue-500 dark:text-blue-400 text-sm">Espace pour image</p>
-              </div>
+            <div className="w-full h-96 rounded-2xl shadow-2xl overflow-hidden">
+                              <img 
+                  src="/images/inov1.jpg" 
+                  alt="Innovation au quotidien" 
+                  className="w-full h-full object-cover rounded-2xl"
+                />
             </div>
           </div>
           
@@ -280,40 +279,55 @@ export default function Home() {
       {/* Section MiCard */}
       <section className="py-24 bg-white dark:bg-gradient-to-b dark:from-[#2d1a4d] dark:to-[#1a1a1a]">
         <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-center gap-12">
-          {/* Contenu à gauche */}
-          <div className="md:w-1/2 text-left order-1 md:order-1">
+          {/* Image à gauche */}
+          <div className="md:w-1/2 flex justify-center order-2 md:order-1">
+            <div className="relative">
+              <div className="w-96 h-[28rem] rounded-2xl shadow-2xl overflow-hidden">
+                <img 
+                  src="/images/inov.png" 
+                  alt="Innovation MiCard" 
+                  className="w-full h-full object-cover rounded-2xl"
+                />
+              </div>
+
+              <div className="absolute -bottom-4 -left-4 w-6 h-6 bg-gradient-to-r from-pink-300 to-pink-400 rounded-full opacity-90 shadow-lg animate-pulse"></div>
+            </div>
+          </div>
+          
+          {/* Contenu à droite */}
+          <div className="md:w-1/2 text-left order-1 md:order-2">
             <h2 className="text-3xl md:text-5xl font-bold mb-6 bg-gradient-to-r from-[#563491] to-black dark:from-white dark:to-[#d8a5ff] bg-clip-text text-transparent">
               Découvrez MiCard
             </h2>
             <p className="text-lg text-gray-700 dark:text-gray-300 mb-8">
               La carte virtuelle qui révolutionne vos paiements en ligne et en magasin
             </p>
-            <div className="space-y-6">
-              <div className="space-y-4">
-                <h3 className="text-2xl font-bold text-[#563491] dark:text-white">
+            <div className="space-y-4">
+              <div className="space-y-3">
+                <h3 className="text-xl font-bold text-[#563491] dark:text-white">
                   ✔ Carte virtuelle sécurisée
                 </h3>
-                <p className="text-gray-600 dark:text-gray-300">
+                <p className="text-gray-600 dark:text-gray-300 text-sm">
                   Créez votre carte virtuelle en quelques secondes et commencez à payer instantanément. 
                   Aucun frais caché, contrôle total de vos dépenses.
                 </p>
               </div>
 
-              <div className="space-y-4">
-                <h3 className="text-2xl font-bold text-[#563491] dark:text-white">
+              <div className="space-y-3">
+                <h3 className="text-xl font-bold text-[#563491] dark:text-white">
                   ✔ Sécurité maximale
                 </h3>
-                <p className="text-gray-600 dark:text-gray-300">
+                <p className="text-gray-600 dark:text-gray-300 text-sm">
                   Chiffrement de bout en bout, authentification biométrique et surveillance anti-fraude 24h/24. 
                   Vos données sont protégées par les meilleures technologies.
                 </p>
               </div>
 
-              <div className="space-y-4">
+              <div className="space-y-3">
                 <h3 className="text-2xl font-bold text-[#563491] dark:text-white">
                   ✔ Acceptée partout
                 </h3>
-                <p className="text-gray-600 dark:text-gray-300">
+                <p className="text-gray-600 dark:text-gray-300 text-sm">
                   Payez sur tous vos sites préférés et en magasin avec votre carte virtuelle. 
                   Compatible avec tous les terminaux de paiement.
                 </p>
@@ -332,34 +346,6 @@ export default function Home() {
               </div>
             </div>
           </div>
-          
-          {/* Image à droite */}
-          <div className="md:w-1/2 flex justify-center order-2 md:order-2">
-            <div className="relative">
-              <div className="w-80 h-96 bg-gradient-to-br from-[#a855f7] via-[#8b5cf6] to-[#7c3aed] rounded-2xl shadow-2xl transform rotate-3 hover:rotate-0 transition-all duration-500 relative overflow-hidden">
-                {/* Effet de luminosité */}
-                <div className="absolute inset-0 bg-gradient-to-br from-white/20 via-transparent to-purple-300/30"></div>
-                <div className="absolute top-0 left-0 w-full h-1/2 bg-gradient-to-b from-white/30 to-transparent"></div>
-                <div className="absolute -top-20 -right-20 w-40 h-40 bg-white/20 rounded-full blur-3xl"></div>
-                <div className="absolute -bottom-20 -left-20 w-32 h-32 bg-purple-300/30 rounded-full blur-3xl"></div>
-                
-                <div className="absolute inset-4 bg-white/95 backdrop-blur-sm rounded-xl flex items-center justify-center shadow-lg">
-                  <div className="text-center">
-                    <div className="w-16 h-16 bg-gradient-to-br from-[#a855f7] to-[#7c3aed] rounded-full mx-auto mb-4 flex items-center justify-center shadow-lg">
-                      <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 003 3z" />
-                      </svg>
-                    </div>
-                    <h4 className="text-lg font-bold text-[#7c3aed]">MiCard</h4>
-                    <p className="text-sm text-gray-600">Carte virtuelle</p>
-                  </div>
-                </div>
-              </div>
-              {/* Éléments décoratifs lumineux */}
-              <div className="absolute -top-4 -right-4 w-8 h-8 bg-gradient-to-r from-yellow-300 to-yellow-400 rounded-full opacity-90 shadow-lg animate-pulse"></div>
-              <div className="absolute -bottom-4 -left-4 w-6 h-6 bg-gradient-to-r from-pink-300 to-pink-400 rounded-full opacity-90 shadow-lg animate-pulse"></div>
-            </div>
-          </div>
         </div>
       </section>
 
@@ -371,27 +357,69 @@ export default function Home() {
             <h2 className="text-3xl md:text-5xl font-bold mb-6 bg-gradient-to-r from-[#563491] to-black dark:from-[#d8a5ff] dark:to-[#d8a5ff] bg-clip-text text-transparent">
               Votre sécurité, notre priorité
             </h2>
-            <p className="text-lg text-gray-700 dark:text-gray-300 mb-8">
-              Mlikaty protège vos données et vos transactions 24h/24 grâce aux meilleures technologies de sécurité.
+            <p className="text-lg text-gray-700 dark:text-gray-300 mb-4">
+              PCI DSS Conformité
             </p>
-            <ul className="space-y-4 mb-8">
-              <li className="flex items-center gap-3">
-                <span className="text-[#563491] text-xl">✔</span>
-                <span className="text-gray-700 dark:text-gray-300">Chiffrement de bout en bout</span>
-              </li>
-              <li className="flex items-center gap-3">
-                <span className="text-[#563491] text-xl">✔</span>
-                <span className="text-gray-700 dark:text-gray-300">Authentification biométrique et code PIN</span>
-              </li>
-              <li className="flex items-center gap-3">
-                <span className="text-[#563491] text-xl">✔</span>
-                <span className="text-gray-700 dark:text-gray-300">Surveillance anti-fraude en temps réel</span>
-              </li>
-              <li className="flex items-center gap-3">
-                <span className="text-[#563491] text-xl">✔</span>
-                <span className="text-gray-700 dark:text-gray-300">Données hébergées en France/Europe</span>
-              </li>
-            </ul>
+            <p className="text-lg text-gray-700 dark:text-gray-300 mb-8">
+              La conformité PCI garantit que des mesures de sécurité rigoureuses sont appliquées en permanence chez Mikaty et ses partenaires.
+            </p>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+              {/* Colonne gauche - 3 services */}
+              <div className="space-y-4">
+                <div className="flex items-center gap-3 p-4 bg-green-50 dark:bg-green-900/20 rounded-xl border border-green-100 dark:border-green-800/30">
+                  <span className="text-green-500 text-xl">
+                    <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                      <path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm-2 16l-4-4 1.41-1.41L10 14.17l6.59-6.59L18 9l-8 8z"/>
+                    </svg>
+                  </span>
+                  <span className="text-gray-700 dark:text-gray-300">Certifié PCI DSS</span>
+                </div>
+                <div className="flex items-center gap-3 p-4 bg-blue-50 dark:bg-blue-900/20 rounded-xl border border-blue-100 dark:border-blue-800/30">
+                  <span className="text-blue-500 text-xl">
+                    <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                      <path d="M18 8h-1V6c0-2.76-2.24-5-5-5S7 3.24 7 6v2H6c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V10c0-1.1-.9-2-2-2zM9 6c0-1.66 1.34-3 3-3s3 1.34 3 3v2H9V6zm9 14H6V10h12v10z"/>
+                    </svg>
+                  </span>
+                  <span className="text-gray-700 dark:text-gray-300">Chiffrement sécurisé</span>
+                </div>
+                <div className="flex items-center gap-3 p-4 bg-purple-50 dark:bg-purple-900/20 rounded-xl border border-purple-100 dark:border-purple-800/30">
+                  <span className="text-purple-500 text-xl">
+                    <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                      <path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm-2 16l-4-4 1.41-1.41L10 14.17l6.59-6.59L18 9l-8 8z"/>
+                    </svg>
+                  </span>
+                  <span className="text-gray-700 dark:text-gray-300">Protection des données</span>
+                </div>
+              </div>
+
+              {/* Colonne droite - 3 services */}
+              <div className="space-y-4">
+                <div className="flex items-center gap-3 p-4 bg-orange-50 dark:bg-orange-900/20 rounded-xl border border-orange-100 dark:border-orange-800/30">
+                  <span className="text-orange-500 text-xl">
+                    <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                      <path d="M12 4.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5zM12 17c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5zm0-8c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"/>
+                    </svg>
+                  </span>
+                  <span className="text-gray-700 dark:text-gray-300">Surveillance 24h/24</span>
+                </div>
+                <div className="flex items-center gap-3 p-4 bg-teal-50 dark:bg-teal-900/20 rounded-xl border border-teal-100 dark:border-teal-800/30">
+                  <span className="text-teal-500 text-xl">
+                    <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                      <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/>
+                    </svg>
+                  </span>
+                  <span className="text-gray-700 dark:text-gray-300">Conforme au RGPD</span>
+                </div>
+                <div className="flex items-center gap-3 p-4 bg-red-50 dark:bg-red-900/20 rounded-xl border border-red-100 dark:border-red-800/30">
+                  <span className="text-red-500 text-xl">
+                    <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                      <path d="M12 2L2 7v10c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V7l-10-5zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+                    </svg>
+                  </span>
+                  <span className="text-gray-700 dark:text-gray-300">Certifié ISO 27001</span>
+                </div>
+              </div>
+            </div>
             <button className="inline-flex items-center px-6 py-3 border-2 border-[#563491] text-[#563491] hover:bg-[#563491] hover:text-white font-semibold rounded-xl transition-all duration-300">
               En savoir plus sur la sécurité
               <svg className="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -400,15 +428,14 @@ export default function Home() {
             </button>
           </div>
           
-          {/* Espace pour image à droite */}
+          {/* Image de sécurité */}
           <div className="md:w-1/2 flex justify-center">
-            <div className="w-full h-96 bg-gradient-to-br from-gray-100 to-gray-200 dark:from-gray-800 dark:to-gray-700 rounded-2xl border-2 border-dashed border-gray-300 dark:border-gray-600 flex items-center justify-center">
-              <div className="text-center">
-                <svg className="w-16 h-16 text-gray-400 dark:text-gray-500 mx-auto mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
-                </svg>
-                <p className="text-gray-500 dark:text-gray-400 text-sm">Espace pour image</p>
-              </div>
+            <div className="w-full h-96 rounded-2xl overflow-hidden shadow-2xl">
+              <img 
+                src="/images/Secure.jpg" 
+                alt="Sécurité Mikaty" 
+                className="w-full h-full object-cover rounded-2xl"
+              />
             </div>
           </div>
         </div>
@@ -434,43 +461,67 @@ export default function Home() {
               {/* Bloc 1 */}
               <div className="flex-shrink-0 w-80 h-96 bg-gradient-to-br from-purple-100 to-pink-100 dark:from-purple-900/20 dark:to-pink-900/20 rounded-2xl border border-gray-200 dark:border-gray-700 shadow-lg flex items-center justify-center overflow-hidden">
                 <img 
-                  src="/images/femmecard.png" 
-                  alt="Femme card" 
+                  src="/images/1.jpg" 
+                  alt="Utilisateur Mikaty 1" 
                   className="w-full h-full object-cover rounded-2xl"
                 />
               </div>
               {/* Bloc 2 */}
-              <div className="flex-shrink-0 w-80 h-96 bg-gradient-to-br from-blue-100 to-cyan-100 dark:from-blue-900/20 dark:to-cyan-900/20 rounded-2xl border border-gray-200 dark:border-gray-700 shadow-lg flex items-center justify-center">
-                <span className="text-gray-500 dark:text-gray-400 text-sm">Votre image ici</span>
+              <div className="flex-shrink-0 w-80 h-96 bg-gradient-to-br from-blue-100 to-cyan-100 dark:from-blue-900/20 dark:to-cyan-900/20 rounded-2xl border border-gray-200 dark:border-gray-700 shadow-lg flex items-center justify-center overflow-hidden">
+                <img 
+                  src="/images/2.jpg" 
+                  alt="Utilisateur Mikaty 2" 
+                  className="w-full h-full object-cover rounded-2xl"
+                />
               </div>
               {/* Bloc 3 */}
-              <div className="flex-shrink-0 w-80 h-96 bg-gradient-to-br from-green-100 to-emerald-100 dark:from-green-900/20 dark:to-emerald-900/20 rounded-2xl border border-gray-200 dark:border-gray-700 shadow-lg flex items-center justify-center">
-                <span className="text-gray-500 dark:text-gray-400 text-sm">Votre image ici</span>
+              <div className="flex-shrink-0 w-80 h-96 bg-gradient-to-br from-green-100 to-emerald-100 dark:from-green-900/20 dark:to-emerald-900/20 rounded-2xl border border-gray-200 dark:border-gray-700 shadow-lg flex items-center justify-center overflow-hidden">
+                <img 
+                  src="/images/3.jpg" 
+                  alt="Utilisateur Mikaty 3" 
+                  className="w-full h-full object-cover rounded-2xl"
+                />
               </div>
               {/* Bloc 4 */}
-              <div className="flex-shrink-0 w-80 h-96 bg-gradient-to-br from-yellow-100 to-orange-100 dark:from-yellow-900/20 dark:to-orange-900/20 rounded-2xl border border-gray-200 dark:border-gray-700 shadow-lg flex items-center justify-center">
-                <span className="text-gray-500 dark:text-gray-400 text-sm">Votre image ici</span>
+              <div className="flex-shrink-0 w-80 h-96 bg-gradient-to-br from-yellow-100 to-orange-100 dark:from-yellow-900/20 dark:to-orange-900/20 rounded-2xl border border-gray-200 dark:border-gray-700 shadow-lg flex items-center justify-center overflow-hidden">
+                <img 
+                  src="/images/4.jpg" 
+                  alt="Utilisateur Mikaty 4" 
+                  className="w-full h-full object-cover rounded-2xl"
+                />
               </div>
               {/* Bloc 5 */}
-              <div className="flex-shrink-0 w-80 h-96 bg-gradient-to-br from-pink-100 to-rose-100 dark:from-pink-900/20 dark:to-rose-900/20 rounded-2xl border border-gray-200 dark:border-gray-700 shadow-lg flex items-center justify-center">
-                <span className="text-gray-500 dark:text-gray-400 text-sm">Votre image ici</span>
+              <div className="flex-shrink-0 w-80 h-96 bg-gradient-to-br from-pink-100 to-rose-100 dark:from-pink-900/20 dark:to-rose-900/20 rounded-2xl border border-gray-200 dark:border-gray-700 shadow-lg flex items-center justify-center overflow-hidden">
+                <img 
+                  src="/images/5.jpg" 
+                  alt="Utilisateur Mikaty 5" 
+                  className="w-full h-full object-cover rounded-2xl"
+                />
               </div>
               {/* Bloc 6 */}
-              <div className="flex-shrink-0 w-80 h-96 bg-gradient-to-br from-indigo-100 to-purple-100 dark:from-indigo-900/20 dark:to-purple-900/20 rounded-2xl border border-gray-200 dark:border-gray-700 shadow-lg flex items-center justify-center">
-                <span className="text-gray-500 dark:text-gray-400 text-sm">Votre image ici</span>
+              <div className="flex-shrink-0 w-80 h-96 bg-gradient-to-br from-indigo-100 to-purple-100 dark:from-indigo-900/20 dark:to-purple-900/20 rounded-2xl border border-gray-200 dark:border-gray-700 shadow-lg flex items-center justify-center overflow-hidden">
+                <img 
+                  src="/images/6.jpg" 
+                  alt="Utilisateur Mikaty 6" 
+                  className="w-full h-full object-cover rounded-2xl"
+                />
               </div>
               {/* Répéter les blocs pour un défilement continu */}
               {/* Bloc 1 (dupliqué) */}
               <div className="flex-shrink-0 w-80 h-96 bg-gradient-to-br from-purple-100 to-pink-100 dark:from-purple-900/20 dark:to-pink-900/20 rounded-2xl border border-gray-200 dark:border-gray-700 shadow-lg flex items-center justify-center overflow-hidden">
                 <img 
-                  src="/images/femmecard.png" 
-                  alt="Femme card" 
+                  src="/images/1.jpg" 
+                  alt="Utilisateur Mikaty 1" 
                   className="w-full h-full object-cover rounded-2xl"
                 />
               </div>
               {/* Bloc 2 (dupliqué) */}
-              <div className="flex-shrink-0 w-80 h-96 bg-gradient-to-br from-blue-100 to-cyan-100 dark:from-blue-900/20 dark:to-cyan-900/20 rounded-2xl border border-gray-200 dark:border-gray-700 shadow-lg flex items-center justify-center">
-                <span className="text-gray-500 dark:text-gray-400 text-sm">Votre image ici</span>
+              <div className="flex-shrink-0 w-80 h-96 bg-gradient-to-br from-blue-100 to-cyan-100 dark:from-blue-900/20 dark:to-cyan-900/20 rounded-2xl border border-gray-200 dark:border-gray-700 shadow-lg flex items-center justify-center overflow-hidden">
+                <img 
+                  src="/images/2.jpg" 
+                  alt="Utilisateur Mikaty 2" 
+                  className="w-full h-full object-cover rounded-2xl"
+                />
               </div>
           </div>
         </div>
@@ -492,12 +543,16 @@ export default function Home() {
             </p>
           </motion.div>
           
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 items-center">
+          <div className="flex flex-wrap justify-center gap-4 items-center">
             {[
+              { name: "Visa", logo: "/images/Visa.svg", size: "h-8" },
+              { name: "Verestro", logo: "/images/Verestro.svg" },
+              { name: "Ecobank", logo: "/images/ecobank.png" },
+              { name: "Lam", logo: "/images/lam.png", size: "h-12" },
+              { name: "Bdk", logo: "/images/bdk.png" },
               { name: "Orange Money", logo: "/images/Orange-Money.png" },
               { name: "Wave", logo: "/images/Wave.png" },
-              { name: "Ecobank", logo: "/images/ecobank.png" },
-              { name: "Visa", logo: "/images/Visa.svg" }
+              { name: "Paymentology", logo: "/images/Paymentology.png", size: "h-8" }
             ].map((partenaire, index) => (
               <motion.div
                 key={index}
@@ -505,12 +560,12 @@ export default function Home() {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: index * 0.1 }}
                 viewport={{ once: true }}
-                className="bg-white/70 dark:bg-white/10 backdrop-blur-sm rounded-xl p-6 flex items-center justify-center hover:bg-white/90 dark:hover:bg-white/20 transition-all duration-300 shadow-lg dark:shadow-none"
+                className="p-3 flex items-center justify-center"
               >
                 <img 
                   src={partenaire.logo} 
                   alt={partenaire.name} 
-                  className="h-12 max-w-full object-contain filter brightness-0 dark:invert opacity-70 hover:opacity-100 transition-opacity"
+                  className={`${partenaire.size || "h-10"} max-w-full object-contain`}
                 />
               </motion.div>
             ))}
