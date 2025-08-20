@@ -525,75 +525,108 @@ export default function Services() {
         </div>
       </section>
 
-      {/* Section Sécurité */}
+      {/* Section Services Illustrés */}
       <section className="py-20 bg-white dark:bg-gradient-to-b dark:from-[#2d1a4d] dark:to-miikaty-dark">
         <div className="max-w-7xl mx-auto px-6">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold text-[#563491] dark:bg-gradient-to-r dark:from-white dark:to-[#d8a5ff] dark:bg-clip-text dark:text-transparent mb-6">
-              Votre sécurité, notre priorité
+              Nos Services
             </h2>
             <p className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
-              Nous utilisons les technologies les plus avancées<br />
-              pour protéger vos données et vos transactions.
+              Découvrez notre gamme complète de services financiers<br />
+              conçus pour simplifier votre quotidien.
             </p>
           </div>
           
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {/* Carte 1 - Chiffrement */}
-            <div className="bg-white dark:bg-[#1a1a1a] rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 border border-gray-200 dark:border-gray-700">
-              <div className="w-16 h-16 bg-blue-100 dark:bg-blue-900 rounded-2xl flex items-center justify-center mb-6">
-                <svg className="w-8 h-8 text-blue-600 dark:text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {/* Service 1 - Micash */}
+            <div className="bg-white dark:bg-[#1a1a1a] rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 border border-gray-200 dark:border-gray-700 overflow-hidden">
+              <div className="w-full h-48 bg-gradient-to-br from-blue-100 to-blue-200 dark:from-blue-900 dark:to-blue-800 rounded-xl mb-4 flex items-center justify-center">
+                <svg className="w-20 h-20 text-blue-600 dark:text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7.5 21 3 16.5m0 0L7.5 12M3 16.5h13.5m0-13.5L21 7.5m0 0L16.5 12M21 7.5H7.5" />
                 </svg>
               </div>
-              <h3 className="text-xl font-bold text-[#563491] dark:text-white mb-4">Chiffrement SSL</h3>
-              <p className="text-gray-600 dark:text-gray-300">
-                Toutes vos données sont chiffrées avec un protocole SSL 256 bits pour une protection maximale.
+              <h3 className="text-xl font-bold text-[#563491] dark:text-white mb-3">Micash</h3>
+              <p className="text-gray-600 dark:text-gray-300 text-sm leading-relaxed">
+                Transférez de l'argent vers d'autres applications de paiement mobile en quelques clics. 
+                Compatible avec tous les services populaires.
               </p>
             </div>
             
-            {/* Carte 2 - Authentification */}
-            <div className="bg-white dark:bg-[#1a1a1a] rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 border border-gray-200 dark:border-gray-700">
-              <div className="w-16 h-16 bg-green-100 dark:bg-green-900 rounded-2xl flex items-center justify-center mb-6">
-                <svg className="w-8 h-8 text-green-600 dark:text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
-                </svg>
+            {/* Service 2 - Crédit Mobile */}
+            <div className="bg-white dark:bg-[#1a1a1a] rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 border border-gray-200 dark:border-gray-700 overflow-hidden">
+              <div className="w-full h-48 rounded-xl mb-4 overflow-hidden">
+                <img 
+                  src="/images/Credit.jpg" 
+                  alt="Crédit Mobile" 
+                  className="w-full h-full object-cover hover:scale-110 transition-transform duration-300"
+                />
               </div>
-              <h3 className="text-xl font-bold text-[#563491] dark:text-white mb-4">Authentification forte</h3>
-              <p className="text-gray-600 dark:text-gray-300">
-                Double authentification et vérification biométrique pour sécuriser vos accès.
+              <h3 className="text-xl font-bold text-[#563491] dark:text-white mb-3">Crédit Mobile</h3>
+              <p className="text-gray-600 dark:text-gray-300 text-sm leading-relaxed">
+                Achetez du crédit mobile pour tous les opérateurs. Rechargez votre téléphone 
+                ou celui de vos proches instantanément.
               </p>
             </div>
             
-            {/* Carte 3 - Surveillance */}
-            <div className="bg-white dark:bg-[#1a1a1a] rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 border border-gray-200 dark:border-gray-700">
-              <div className="w-16 h-16 bg-purple-100 dark:bg-purple-900 rounded-2xl flex items-center justify-center mb-6">
-                <svg className="w-8 h-8 text-purple-600 dark:text-purple-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
-                </svg>
-              </div>
-              <h3 className="text-xl font-bold text-[#563491] dark:text-white mb-4">Surveillance 24/7</h3>
-              <p className="text-gray-600 dark:text-gray-300">
-                Notre équipe surveille en permanence les transactions pour détecter toute activité suspecte.
-              </p>
-            </div>
-            
-            {/* Carte 4 - Conformité */}
-            <div className="bg-white dark:bg-[#1a1a1a] rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 border border-gray-200 dark:border-gray-700">
-              <div className="w-16 h-16 bg-orange-100 dark:bg-orange-900 rounded-2xl flex items-center justify-center mb-6">
-                <svg className="w-8 h-8 text-orange-600 dark:text-orange-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            {/* Service 3 - Paiement de Factures */}
+            <div className="bg-white dark:bg-[#1a1a1a] rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 border border-gray-200 dark:border-gray-700 overflow-hidden">
+              <div className="w-full h-48 bg-gradient-to-br from-purple-100 to-purple-200 dark:from-purple-900 dark:to-purple-800 rounded-xl mb-4 flex items-center justify-center">
+                <svg className="w-20 h-20 text-purple-600 dark:text-purple-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12h3.75M9 15h3.75M9 18h3.75m3 .75H18a2.25 2.25 0 0 0 2.25-2.25V6.108c0-1.135-.845-2.098-1.976-2.192a48.424 48.424 0 0 0-1.123-.08m-5.801 0c-.065.21-.1.433-.1.664 0 .414.336.75.75.75h4.5a.75.75 0 0 0 .75-.75 2.25 2.25 0 0 0-.1-.664m-5.8 0A2.251 2.251 0 0 1 13.5 2.25H15c1.012 0 1.867.668 2.15 1.586m-5.8 0c-.376.023-.75.05-1.124.08C9.095 4.01 8.25 4.973 8.25 6.108V19.5a2.25 2.25 0 0 0 2.25 2.25h.75m0-3H21" />
                 </svg>
               </div>
-              <h3 className="text-xl font-bold text-[#563491] dark:text-white mb-4">Conformité réglementaire</h3>
-              <p className="text-gray-600 dark:text-gray-300">
-                Respect strict des normes européennes et françaises en matière de protection des données.
+              <h3 className="text-xl font-bold text-[#563491] dark:text-white mb-3">Paiement de Factures</h3>
+              <p className="text-gray-600 dark:text-gray-300 text-sm leading-relaxed">
+                Payez vos factures d'eau, d'électricité, d'internet et plus encore. 
+                Plus besoin de faire la queue, tout se fait depuis votre mobile.
               </p>
             </div>
+            
+            {/* Service 4 - Virement Bancaire */}
+            <div className="bg-white dark:bg-[#1a1a1a] rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 border border-gray-200 dark:border-gray-700 overflow-hidden">
+              <div className="w-full h-48 bg-gradient-to-br from-indigo-100 to-indigo-200 dark:from-indigo-900 dark:to-indigo-800 rounded-xl mb-4 flex items-center justify-center">
+                <svg className="w-20 h-20 text-indigo-600 dark:text-indigo-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z" />
+                </svg>
+              </div>
+              <h3 className="text-xl font-bold text-[#563491] dark:text-white mb-3">Virement Bancaire</h3>
+              <p className="text-gray-600 dark:text-gray-300 text-sm leading-relaxed">
+                Effectuez des virements vers n'importe quel compte bancaire. 
+                Transferts sécurisés et instantanés vers vos proches.
+              </p>
+            </div>
+            
+            {/* Service 5 - Cadeaux */}
+            <div className="bg-white dark:bg-[#1a1a1a] rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 border border-gray-200 dark:border-gray-700 overflow-hidden">
+              <div className="w-full h-48 bg-gradient-to-br from-pink-100 to-pink-200 dark:from-pink-900 dark:to-pink-800 rounded-xl mb-4 flex items-center justify-center">
+                <svg className="w-20 h-20 text-pink-600 dark:text-pink-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12Z" />
+                </svg>
+              </div>
+              <h3 className="text-xl font-bold text-[#563491] dark:text-white mb-3">Cadeaux</h3>
+              <p className="text-gray-600 dark:text-gray-300 text-sm leading-relaxed">
+                Offrez de l'argent à vos proches de manière élégante. 
+                Créez des cartes cadeaux personnalisées pour toutes les occasions.
+              </p>
+            </div>
+            
+            {/* Service 6 - Poches */}
+            <div className="bg-white dark:bg-[#1a1a1a] rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 border border-gray-200 dark:border-gray-700 overflow-hidden">
+              <div className="w-full h-48 bg-gradient-to-br from-yellow-100 to-yellow-200 dark:from-yellow-900 dark:to-yellow-800 rounded-xl mb-4 flex items-center justify-center">
+                <svg className="w-20 h-20 text-yellow-600 dark:text-yellow-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4" />
+                </svg>
+              </div>
+              <h3 className="text-xl font-bold text-[#563491] dark:text-white mb-3">Poches</h3>
+              <p className="text-gray-600 dark:text-gray-300 text-sm leading-relaxed">
+                Organisez vos finances avec des poches personnalisées. 
+                Épargnez pour vos projets et gérez vos budgets facilement.
+              </p>
             </div>
           </div>
-        </section>
+        </div>
+      </section>
 
       {/* Section Essayez Mikaty dès aujourd'hui */}
       <section className="py-16 bg-white dark:bg-[#1a1a1a]">

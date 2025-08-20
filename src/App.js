@@ -6,8 +6,6 @@ import Home2 from "./pages/Home2";
 import About from "./pages/About";
 import Services from "./pages/Services";
 import Contact from "./pages/Contact";
-
-import Entreprise from "./pages/Entreprise";
 import MiCard from "./pages/MiCard";
 import FAQ from "./pages/FAQ";
 import ChatAssistant from "./components/ChatAssistant";
@@ -30,7 +28,7 @@ function Navbar({ isScrolled, isAfterHero, isDark, setIsDark, LanguageSwitch }) 
       animate={{ y: 0, opacity: 1 }}
       transition={{ duration: 0.7, ease: 'easeOut' }}
       className={`fixed top-0 left-0 w-full z-50 transition-all duration-300
-        ${pagePath === '/entreprise' || pagePath === '/micard' || pagePath === '/contact' || pagePath === '/faq'
+                        ${pagePath === '/about' || pagePath === '/micard' || pagePath === '/contact' || pagePath === '/faq'
           ? (isScrolled 
               ? 'bg-[#563491]/90 backdrop-blur-md shadow-lg border-b border-white/10' 
               : 'bg-[#563491] shadow-lg border-b-0')
@@ -55,7 +53,7 @@ function Navbar({ isScrolled, isAfterHero, isDark, setIsDark, LanguageSwitch }) 
             <li><Link to="/services" className={`relative font-medium text-shadow-md after:content-[''] after:block after:w-0 after:h-0.5 after:bg-miikaty after:transition-all after:duration-300 hover:after:w-full ${pagePath === '/services' ? 'after:w-full' : ''} text-white`}>Services</Link></li>
             <li><Link to="/micard" className={`relative font-medium text-shadow-md after:content-[''] after:block after:w-0 after:h-0.5 after:bg-miikaty after:transition-all after:duration-300 hover:after:w-full ${pagePath === '/micard' ? 'after:w-full' : ''} text-white`}>MiCard</Link></li>
             
-            <li><Link to="/entreprise" className={`relative font-medium text-shadow-md after:content-[''] after:block after:w-0 after:h-0.5 after:bg-miikaty after:transition-all after:duration-300 hover:after:w-full ${pagePath === '/entreprise' ? 'after:w-full' : ''} text-white`}>Entreprise</Link></li>
+                            <li><Link to="/about" className={`relative font-medium text-shadow-md after:content-[''] after:block after:w-0 after:h-0.5 after:bg-miikaty after:transition-all after:duration-300 hover:after:w-full ${pagePath === '/about' ? 'after:w-full' : ''} text-white`}>À propos</Link></li>
             <li><Link to="/contact" className={`relative font-medium text-shadow-md after:content-[''] after:block after:w-0 after:h-0.5 after:bg-miikaty after:transition-all after:duration-300 hover:after:w-full ${pagePath === '/contact' ? 'after:w-full' : ''} text-white`}>Contact</Link></li>
             <li><Link to="/faq" className={`relative font-medium text-shadow-md after:content-[''] after:block after:w-0 after:h-0.5 after:bg-miikaty after:transition-all after:duration-300 hover:after:w-full ${pagePath === '/faq' ? 'after:w-full' : ''} text-white`}>FAQ</Link></li>
             <li>
@@ -112,7 +110,7 @@ function Navbar({ isScrolled, isAfterHero, isDark, setIsDark, LanguageSwitch }) 
                 <Link to="/home2" className={`block font-medium py-2 transition-colors ${pagePath === '/home2' ? 'text-miikaty' : 'text-white hover:text-miikaty'}`}>Accueil 2</Link>
                 <Link to="/services" className={`block font-medium py-2 transition-colors ${pagePath === '/services' ? 'text-miikaty' : 'text-white hover:text-miikaty'}`}>Services</Link>
                 <Link to="/micard" className={`block font-medium py-2 transition-colors ${pagePath === '/micard' ? 'text-miikaty' : 'text-white hover:text-miikaty'}`}>MiCard</Link>
-                <Link to="/entreprise" className={`block font-medium py-2 transition-colors ${pagePath === '/entreprise' ? 'text-miikaty' : 'text-white hover:text-miikaty'}`}>Entreprise</Link>
+                <Link to="/about" className={`block font-medium py-2 transition-colors ${pagePath === '/about' ? 'text-miikaty' : 'text-white hover:text-miikaty'}`}>À propos</Link>
                 <Link to="/contact" className={`block font-medium py-2 transition-colors ${pagePath === '/contact' ? 'text-miikaty' : 'text-white hover:text-miikaty'}`}>Contact</Link>
                 <Link to="/faq" className={`block font-medium py-2 transition-colors ${pagePath === '/faq' ? 'text-miikaty' : 'text-white hover:text-miikaty'}`}>FAQ</Link>
                 
@@ -235,7 +233,7 @@ function App() {
                   <Route path="/about" element={<About />} />
                   <Route path="/services" element={<Services />} />
                   <Route path="/contact" element={<Contact />} />
-                  <Route path="/entreprise" element={<Entreprise />} />
+                  <Route path="/about" element={<About />} />
                   <Route path="/micard" element={<MiCard />} />
                   <Route path="/faq" element={<FAQ />} />
                   <Route path="/securite" element={<Home />} />

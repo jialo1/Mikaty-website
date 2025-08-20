@@ -58,181 +58,32 @@ export default function MiCard() {
               </motion.div>
             </motion.div>
 
-            {/* Espace pour votre image */}
+            {/* Image MiCard */}
             <motion.div
               initial={{ opacity: 0, x: 50 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8, delay: 0.3 }}
               className="relative flex items-center justify-center"
             >
-              {/* Placeholder pour votre image */}
-              <div className="w-full h-96 bg-gradient-to-br from-miikaty/10 to-purple-600/10 rounded-3xl border-2 border-dashed border-miikaty/30 flex items-center justify-center">
-                <div className="text-center">
-                  <svg className="w-16 h-16 text-miikaty/50 mx-auto mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
-                  </svg>
-                  <p className="text-miikaty/70 font-medium">Votre image ici</p>
-                </div>
-              </div>
+              <motion.img
+                src="/images/Micard.png"
+                alt="MiCard - Carte virtuelle Mikaty"
+                className="w-full max-w-md h-auto object-contain rounded-3xl shadow-2xl"
+                initial={{ scale: 0.8, rotateY: -15 }}
+                animate={{ scale: 1, rotateY: 0 }}
+                transition={{ duration: 1, delay: 0.5 }}
+                whileHover={{ 
+                  scale: 1.05, 
+                  rotateY: 5,
+                  transition: { duration: 0.3 }
+                }}
+              />
             </motion.div>
           </div>
         </div>
       </section>
 
-      {/* Section Fonctionnalités avec images */}
-      <section className="py-16 px-4">
-        <div className="max-w-6xl mx-auto">
-          <motion.h2 
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            viewport={{ once: true }}
-            className="text-3xl md:text-4xl font-bold text-center text-gray-900 dark:text-white mb-16"
-          >
-            <span className="text-miikaty">Fonctionnalités</span>
-          </motion.h2>
-          
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-            {/* Sécurité */}
-            <motion.div
-              initial={{ opacity: 0, y: 50 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.1 }}
-              viewport={{ once: true }}
-              whileHover={{ scale: 1.05, rotateY: 5 }}
-              className="group"
-            >
-              <div className="bg-white/80 dark:bg-white/10 backdrop-blur-sm rounded-3xl p-8 shadow-xl hover:shadow-2xl transition-all duration-500 border border-gray-200/50 dark:border-gray-700/50 relative overflow-hidden">
-                <div className="absolute top-0 right-0 w-32 h-32 bg-miikaty/10 rounded-full -translate-y-16 translate-x-16 group-hover:scale-150 transition-transform duration-500"></div>
-                
-                {/* Placeholder pour image de sécurité */}
-                <div className="w-full h-[500px] bg-gradient-to-br from-miikaty/10 to-purple-600/10 rounded-2xl flex items-center justify-center border-2 border-dashed border-miikaty/30 group-hover:border-miikaty/50 transition-colors duration-300">
-                  <div className="text-center">
-                    <svg className="w-16 h-16 text-miikaty/50 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
-                    </svg>
-                  </div>
-                </div>
-              </div>
-            </motion.div>
 
-            {/* Paiements instantanés */}
-            <motion.div
-              initial={{ opacity: 0, y: 50 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.2 }}
-              viewport={{ once: true }}
-              whileHover={{ scale: 1.05, rotateY: 5 }}
-              className="group"
-            >
-              <div className="bg-white/80 dark:bg-white/10 backdrop-blur-sm rounded-3xl p-8 shadow-xl hover:shadow-2xl transition-all duration-500 border border-gray-200/50 dark:border-gray-700/50 relative overflow-hidden">
-                <div className="absolute top-0 right-0 w-32 h-32 bg-miikaty/10 rounded-full -translate-y-16 translate-x-16 group-hover:scale-150 transition-transform duration-500"></div>
-                
-                {/* Placeholder pour image de paiement instantané */}
-                <div className="w-full h-[500px] bg-gradient-to-br from-miikaty/10 to-purple-600/10 rounded-2xl flex items-center justify-center border-2 border-dashed border-miikaty/30 group-hover:border-miikaty/50 transition-colors duration-300">
-                  <div className="text-center">
-                    <svg className="w-16 h-16 text-miikaty/50 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
-                    </svg>
-                  </div>
-                </div>
-              </div>
-            </motion.div>
-
-            {/* Contrôle */}
-            <motion.div
-              initial={{ opacity: 0, y: 50 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.3 }}
-              viewport={{ once: true }}
-              whileHover={{ scale: 1.05, rotateY: 5 }}
-              className="group"
-            >
-              <div className="bg-white/80 dark:bg-white/10 backdrop-blur-sm rounded-3xl p-8 shadow-xl hover:shadow-2xl transition-all duration-500 border border-gray-200/50 dark:border-gray-700/50 relative overflow-hidden">
-                <div className="absolute top-0 right-0 w-32 h-32 bg-miikaty/10 rounded-full -translate-y-16 translate-x-16 group-hover:scale-150 transition-transform duration-500"></div>
-                
-                {/* Placeholder pour image de contrôle */}
-                <div className="w-full h-[500px] bg-gradient-to-br from-miikaty/10 to-purple-600/10 rounded-2xl flex items-center justify-center border-2 border-dashed border-miikaty/30 group-hover:border-miikaty/50 transition-colors duration-300">
-                  <div className="text-center">
-                    <svg className="w-16 h-16 text-miikaty/50 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
-                    </svg>
-                  </div>
-                </div>
-              </div>
-            </motion.div>
-
-            {/* Multi-devices */}
-            <motion.div
-              initial={{ opacity: 0, y: 50 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.4 }}
-              viewport={{ once: true }}
-              whileHover={{ scale: 1.05, rotateY: 5 }}
-              className="group"
-            >
-              <div className="bg-white/80 dark:bg-white/10 backdrop-blur-sm rounded-3xl p-8 shadow-xl hover:shadow-2xl transition-all duration-500 border border-gray-200/50 dark:border-gray-700/50 relative overflow-hidden">
-                <div className="absolute top-0 right-0 w-32 h-32 bg-miikaty/10 rounded-full -translate-y-16 translate-x-16 group-hover:scale-150 transition-transform duration-500"></div>
-                
-                {/* Placeholder pour image multi-devices */}
-                <div className="w-full h-[500px] bg-gradient-to-br from-miikaty/10 to-purple-600/10 rounded-2xl flex items-center justify-center border-2 border-dashed border-miikaty/30 group-hover:border-miikaty/50 transition-colors duration-300">
-                  <div className="text-center">
-                    <svg className="w-16 h-16 text-miikaty/50 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-                    </svg>
-                  </div>
-                </div>
-              </div>
-            </motion.div>
-
-            {/* Notifications */}
-            <motion.div
-              initial={{ opacity: 0, y: 50 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.5 }}
-              viewport={{ once: true }}
-              whileHover={{ scale: 1.05, rotateY: 5 }}
-              className="group"
-            >
-              <div className="bg-white/80 dark:bg-white/10 backdrop-blur-sm rounded-3xl p-8 shadow-xl hover:shadow-2xl transition-all duration-500 border border-gray-200/50 dark:border-gray-700/50 relative overflow-hidden">
-                <div className="absolute top-0 right-0 w-32 h-32 bg-miikaty/10 rounded-full -translate-y-16 translate-x-16 group-hover:scale-150 transition-transform duration-500"></div>
-                
-                {/* Placeholder pour image de notifications */}
-                <div className="w-full h-[500px] bg-gradient-to-br from-miikaty/10 to-purple-600/10 rounded-2xl flex items-center justify-center border-2 border-dashed border-miikaty/30 group-hover:border-miikaty/50 transition-colors duration-300">
-                  <div className="text-center">
-                    <svg className="w-16 h-16 text-miikaty/50 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 17h5l-5 5v-5zM4.19 4.19A2 2 0 006 3h12a2 2 0 012 2v12a2 2 0 01-2 2H6a2 2 0 01-2-2V5a2 2 0 012-2z" />
-                    </svg>
-                  </div>
-                </div>
-              </div>
-            </motion.div>
-
-            {/* International */}
-            <motion.div
-              initial={{ opacity: 0, y: 50 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.6 }}
-              viewport={{ once: true }}
-              whileHover={{ scale: 1.05, rotateY: 5 }}
-              className="group"
-            >
-              <div className="bg-white/80 dark:bg-white/10 backdrop-blur-sm rounded-3xl p-8 shadow-xl hover:shadow-2xl transition-all duration-500 border border-gray-200/50 dark:border-gray-700/50 relative overflow-hidden">
-                <div className="absolute top-0 right-0 w-32 h-32 bg-miikaty/10 rounded-full -translate-y-16 translate-x-16 group-hover:scale-150 transition-transform duration-500"></div>
-                
-                {/* Placeholder pour image internationale */}
-                <div className="w-full h-[500px] bg-gradient-to-br from-miikaty/10 to-purple-600/10 rounded-2xl flex items-center justify-center border-2 border-dashed border-miikaty/30 group-hover:border-miikaty/50 transition-colors duration-300">
-                  <div className="text-center">
-                    <svg className="w-16 h-16 text-miikaty/50 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-                    </svg>
-                  </div>
-                </div>
-              </div>
-            </motion.div>
-          </div>
-        </div>
-      </section>
 
       {/* Section Comment ça marche avec animations */}
       <section className="py-16 px-4 bg-white/50 dark:bg-gray-800/50 relative overflow-hidden">
@@ -248,7 +99,7 @@ export default function MiCard() {
           </motion.h2>
           
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {/* Bloc 1 */}
+            {/* Étape 1 : Télécharge */}
             <motion.div
               initial={{ opacity: 0, x: -50 }}
               animate={isLoaded ? { opacity: 1, x: 0 } : { opacity: 0, x: -50 }}
@@ -256,22 +107,31 @@ export default function MiCard() {
               whileHover={{ scale: 1.02 }}
               className="group"
             >
-              <div className="bg-gradient-to-br from-purple-100 to-purple-200 dark:from-purple-900/30 dark:to-purple-800/30 rounded-3xl p-8 h-80 shadow-xl hover:shadow-2xl transition-all duration-500 border border-purple-200/50 dark:border-purple-700/50 relative overflow-hidden bg-cover bg-center bg-no-repeat">
-                {/* Placeholder pour illustration Photoshop */}
-                <div className="w-full h-full flex items-center justify-center">
-                  <div className="text-center">
-                    <div className="w-32 h-32 bg-gradient-to-br from-miikaty/10 to-purple-600/10 rounded-2xl border-2 border-dashed border-miikaty/30 flex items-center justify-center mb-4">
-                      <svg className="w-16 h-16 text-miikaty/30" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
-                      </svg>
-                    </div>
-                    <p className="text-miikaty/50 text-sm font-medium">Illustration Étape 1</p>
+              <div className="bg-gradient-to-br from-miikaty/10 to-purple-600/10 dark:from-miikaty/20 dark:to-purple-600/20 rounded-3xl p-8 h-96 shadow-xl hover:shadow-2xl transition-all duration-500 border border-miikaty/20 dark:border-purple-600/20 relative overflow-hidden">
+                {/* Icône et numéro d'étape */}
+                <div className="text-center mb-6">
+                  <div className="w-20 h-20 bg-gradient-to-br from-miikaty to-purple-600 rounded-full flex items-center justify-center mx-auto mb-4 shadow-lg">
+                    <span className="text-3xl font-bold text-white">1</span>
+                  </div>
+                  <h3 className="text-2xl font-bold text-miikaty dark:text-purple-300 mb-2">Télécharge</h3>
+                </div>
+                
+                {/* Contenu descriptif */}
+                <div className="text-center space-y-4">
+                  <p className="text-gray-700 dark:text-gray-200 text-sm leading-relaxed">
+                    Téléchargez l'application Mikaty depuis l'App Store ou Google Play Store. 
+                    C'est gratuit et prend moins de 2 minutes !
+                  </p>
+                  <div className="pt-2">
+                    <span className="inline-block bg-miikaty/20 text-miikaty dark:bg-purple-600/20 dark:text-purple-300 px-3 py-1 rounded-full text-xs font-medium">
+                      Disponible sur iOS et Android
+                    </span>
                   </div>
                 </div>
               </div>
             </motion.div>
             
-            {/* Bloc 2 */}
+            {/* Étape 2 : Active */}
             <motion.div
               initial={{ opacity: 0, y: 50 }}
               animate={isLoaded ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
@@ -279,22 +139,31 @@ export default function MiCard() {
               whileHover={{ scale: 1.02 }}
               className="group"
             >
-              <div className="bg-gradient-to-br from-miikaty to-purple-600 rounded-3xl p-8 h-80 shadow-xl hover:shadow-2xl transition-all duration-500 border border-purple-300/50 relative overflow-hidden bg-cover bg-center bg-no-repeat">
-                {/* Placeholder pour illustration Photoshop */}
-                <div className="w-full h-full flex items-center justify-center">
-                  <div className="text-center">
-                    <div className="w-32 h-32 bg-gradient-to-br from-white/10 to-purple-600/10 rounded-2xl border-2 border-dashed border-white/30 flex items-center justify-center mb-4">
-                      <svg className="w-16 h-16 text-white/30" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
-                      </svg>
-                    </div>
-                    <p className="text-white/50 text-sm font-medium">Illustration Étape 2</p>
+              <div className="bg-gradient-to-br from-miikaty/10 to-purple-600/10 dark:from-miikaty/20 dark:to-purple-600/20 rounded-3xl p-8 h-96 shadow-xl hover:shadow-2xl transition-all duration-500 border border-miikaty/20 dark:border-purple-600/20 relative overflow-hidden">
+                {/* Icône et numéro d'étape */}
+                <div className="text-center mb-6">
+                  <div className="w-20 h-20 bg-gradient-to-br from-miikaty to-purple-600 rounded-full flex items-center justify-center mx-auto mb-4 shadow-lg">
+                    <span className="text-3xl font-bold text-white">2</span>
+                  </div>
+                  <h3 className="text-2xl font-bold text-miikaty dark:text-purple-300 mb-2">Active</h3>
+                </div>
+                
+                {/* Contenu descriptif */}
+                <div className="text-center space-y-4">
+                  <p className="text-gray-700 dark:text-gray-200 text-sm leading-relaxed">
+                    Créez votre compte en quelques clics avec votre numéro de téléphone. 
+                    Recevez un code de vérification par SMS et activez votre MiCard !
+                  </p>
+                  <div className="pt-2">
+                    <span className="inline-block bg-miikaty/20 text-miikaty dark:bg-purple-600/20 dark:text-purple-300 px-3 py-1 rounded-full text-xs font-medium">
+                      Vérification en 30 secondes
+                    </span>
                   </div>
                 </div>
               </div>
             </motion.div>
             
-            {/* Bloc 3 */}
+            {/* Étape 3 : Utilise */}
             <motion.div
               initial={{ opacity: 0, x: 50 }}
               animate={isLoaded ? { opacity: 1, x: 0 } : { opacity: 0, x: 50 }}
@@ -302,19 +171,165 @@ export default function MiCard() {
               whileHover={{ scale: 1.02 }}
               className="group"
             >
-              <div className="bg-gradient-to-br from-white to-purple-100 rounded-3xl p-8 h-80 shadow-xl hover:shadow-2xl transition-all duration-500 border border-purple-200/50 relative overflow-hidden bg-cover bg-center bg-no-repeat">
-                {/* Placeholder pour illustration Photoshop */}
-                <div className="w-full h-full flex items-center justify-center">
-                  <div className="text-center">
-                    <div className="w-32 h-32 bg-gradient-to-br from-purple-500/10 to-purple-600/10 rounded-2xl border-2 border-dashed border-purple-500/30 flex items-center justify-center mb-4">
-                      <svg className="w-16 h-16 text-purple-500/30" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
-                      </svg>
-                    </div>
-                    <p className="text-purple-500/50 text-sm font-medium">Illustration Étape 3</p>
+              <div className="bg-gradient-to-br from-green-100 to-green-200 dark:from-green-900/30 dark:to-green-800/30 rounded-3xl p-8 h-96 shadow-xl hover:shadow-2xl transition-all duration-500 border border-green-200/50 dark:border-green-700/50 relative overflow-hidden">
+                {/* Icône et numéro d'étape */}
+                <div className="text-center mb-6">
+                  <div className="w-20 h-20 bg-gradient-to-br from-green-500 to-green-600 rounded-full flex items-center justify-center mx-auto mb-4 shadow-lg">
+                    <span className="text-3xl font-bold text-white">3</span>
+                  </div>
+                  <h3 className="text-2xl font-bold text-green-900 dark:text-green-100 mb-2">Utilise</h3>
+                </div>
+                
+                {/* Contenu descriptif */}
+                <div className="text-center space-y-4">
+                  <p className="text-green-800 dark:text-green-200 text-sm leading-relaxed">
+                    Payez partout avec votre MiCard ! En ligne, en magasin, pour vos factures. 
+                    Transférez de l'argent et gérez vos finances en toute sécurité.
+                  </p>
+                  <div className="pt-2">
+                    <span className="inline-block bg-green-500/20 text-green-700 dark:text-green-300 px-3 py-1 rounded-full text-xs font-medium">
+                      Paiements instantanés
+                    </span>
                   </div>
                 </div>
               </div>
+            </motion.div>
+          </div>
+        </div>
+      </section>
+
+      {/* Section Services de Sécurité */}
+      <section className="py-20 px-4 bg-gradient-to-br from-gray-100 to-blue-50 dark:from-gray-800 dark:to-blue-900/20">
+        <div className="max-w-7xl mx-auto">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={isLoaded ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+            className="text-center mb-16"
+          >
+            <h2 className="text-3xl md:text-4xl font-bold text-[#563491] dark:bg-gradient-to-r dark:from-white dark:to-[#d8a5ff] dark:bg-clip-text dark:text-transparent mb-6">
+              Votre sécurité, notre priorité
+            </h2>
+            <p className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
+              Nous utilisons les technologies les plus avancées<br />
+              pour protéger vos données et vos transactions.
+            </p>
+          </motion.div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {/* Certifié PCI DSS */}
+            <motion.div
+              initial={{ opacity: 0, y: 50 }}
+              animate={isLoaded ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
+              transition={{ duration: 0.8, delay: 0.3 }}
+              whileHover={{ scale: 1.05 }}
+              className="bg-white dark:bg-gray-800 rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-200 dark:border-gray-700"
+            >
+              <div className="w-16 h-16 bg-blue-100 dark:bg-blue-900 rounded-2xl flex items-center justify-center mb-6">
+                <svg className="w-8 h-8 text-blue-600 dark:text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+                </svg>
+              </div>
+              <h3 className="text-xl font-bold text-[#563491] dark:text-white mb-4">Certifié PCI DSS</h3>
+              <p className="text-gray-600 dark:text-gray-300">
+                Conformité aux normes de sécurité des données de l'industrie des cartes de paiement.
+              </p>
+            </motion.div>
+
+            {/* Chiffrement sécurisé */}
+            <motion.div
+              initial={{ opacity: 0, y: 50 }}
+              animate={isLoaded ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
+              transition={{ duration: 0.8, delay: 0.4 }}
+              whileHover={{ scale: 1.05 }}
+              className="bg-white dark:bg-gray-800 rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-200 dark:border-gray-700"
+            >
+              <div className="w-16 h-16 bg-green-100 dark:bg-green-900 rounded-2xl flex items-center justify-center mb-6">
+                <svg className="w-8 h-8 text-green-600 dark:text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
+                </svg>
+              </div>
+              <h3 className="text-xl font-bold text-[#563491] dark:text-white mb-4">Chiffrement sécurisé</h3>
+              <p className="text-gray-600 dark:text-gray-300">
+                Protection de vos données avec des algorithmes de chiffrement de niveau militaire.
+              </p>
+            </motion.div>
+
+            {/* Protection des données */}
+            <motion.div
+              initial={{ opacity: 0, y: 50 }}
+              animate={isLoaded ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
+              transition={{ duration: 0.8, delay: 0.5 }}
+              whileHover={{ scale: 1.05 }}
+              className="bg-white dark:bg-gray-800 rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-200 dark:border-gray-700"
+            >
+              <div className="w-16 h-16 bg-purple-100 dark:bg-purple-900 rounded-2xl flex items-center justify-center mb-6">
+                <svg className="w-8 h-8 text-purple-600 dark:text-purple-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M20.618 8.945l-3.945-3.945a2.5 2.5 0 00-3.536 0L12 8.618l-1.137-1.137a2.5 2.5 0 00-3.536 0L3.382 8.945a2.5 2.5 0 000 3.536L12 20.618l8.618-8.618a2.5 2.5 0 000-3.536z" />
+                </svg>
+              </div>
+              <h3 className="text-xl font-bold text-[#563491] dark:text-white mb-4">Protection des données</h3>
+              <p className="text-gray-600 dark:text-gray-300">
+                Sauvegarde sécurisée et protection complète de vos informations personnelles.
+              </p>
+            </motion.div>
+
+            {/* Surveillance 24h/24 */}
+            <motion.div
+              initial={{ opacity: 0, y: 50 }}
+              animate={isLoaded ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
+              transition={{ duration: 0.8, delay: 0.6 }}
+              whileHover={{ scale: 1.05 }}
+              className="bg-white dark:bg-gray-800 rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-200 dark:border-gray-700"
+            >
+              <div className="w-16 h-16 bg-orange-100 dark:bg-orange-900 rounded-2xl flex items-center justify-center mb-6">
+                <svg className="w-8 h-8 text-orange-600 dark:text-orange-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
+                </svg>
+              </div>
+              <h3 className="text-xl font-bold text-[#563491] dark:text-white mb-4">Surveillance 24h/24</h3>
+              <p className="text-gray-600 dark:text-gray-300">
+                Monitoring continu de nos systèmes pour détecter et prévenir toute menace.
+              </p>
+            </motion.div>
+
+            {/* Conforme au RGPD */}
+            <motion.div
+              initial={{ opacity: 0, y: 50 }}
+              animate={isLoaded ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
+              transition={{ duration: 0.8, delay: 0.7 }}
+              whileHover={{ scale: 1.05 }}
+              className="bg-white dark:bg-gray-800 rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-200 dark:border-gray-700"
+            >
+              <div className="w-16 h-16 bg-teal-100 dark:bg-teal-900 rounded-2xl flex items-center justify-center mb-6">
+                <svg className="w-8 h-8 text-teal-600 dark:text-teal-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12h3.75M9 15h3.75M9 18h3.75m3 .75H18a2.25 2.25 0 0 0 2.25-2.25V6.108c0-1.135-.845-2.098-1.976-2.192a48.424 48.424 0 0 0-1.123-.08m-5.801 0c-.065.21-.1.433-.1.664 0 .414.336.75.75.75h4.5a.75.75 0 0 0 .75-.75 2.25 2.25 0 0 0-.1-.664m-5.8 0A2.251 2.251 0 0 1 13.5 2.25H15c1.012 0 1.867.668 2.15 1.586m-5.8 0c-.376.023-.75.05-1.124.08C9.095 4.01 8.25 4.973 8.25 6.108V19.5a2.25 2.25 0 0 0 2.25 2.25h.75m0-3H21" />
+                </svg>
+              </div>
+              <h3 className="text-xl font-bold text-[#563491] dark:text-white mb-4">Conforme au RGPD</h3>
+              <p className="text-gray-600 dark:text-gray-300">
+                Respect total du règlement général sur la protection des données européen.
+              </p>
+            </motion.div>
+
+            {/* Certifié ISO 27001 */}
+            <motion.div
+              initial={{ opacity: 0, y: 50 }}
+              animate={isLoaded ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
+              transition={{ duration: 0.8, delay: 0.8 }}
+              whileHover={{ scale: 1.05 }}
+              className="bg-white dark:bg-gray-800 rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-200 dark:border-gray-700"
+            >
+              <div className="w-16 h-16 bg-red-100 dark:bg-red-900 rounded-2xl flex items-center justify-center mb-6">
+                <svg className="w-8 h-8 text-red-600 dark:text-red-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z" />
+                </svg>
+              </div>
+              <h3 className="text-xl font-bold text-[#563491] dark:text-white mb-4">Certifié ISO 27001</h3>
+              <p className="text-gray-600 dark:text-gray-300">
+                Certification internationale pour la gestion de la sécurité de l'information.
+              </p>
             </motion.div>
           </div>
         </div>
@@ -348,6 +363,178 @@ export default function MiCard() {
           >
             Créer ma MiCard
           </motion.button>
+        </div>
+      </section>
+
+      {/* Section Services de la Carte Virtuelle */}
+      <section className="py-20 px-4 bg-gradient-to-br from-gray-50 to-purple-50 dark:from-gray-900 dark:to-purple-900/20">
+        <div className="max-w-7xl mx-auto">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={isLoaded ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+            className="text-center mb-16"
+          >
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-6">
+              Services de votre <span className="text-miikaty">MiCard</span>
+            </h2>
+            <p className="text-lg text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
+              Découvrez tous les services que votre carte virtuelle peut effectuer pour simplifier vos finances
+            </p>
+          </motion.div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {/* Paiements en ligne */}
+            <motion.div
+              initial={{ opacity: 0, y: 50 }}
+              animate={isLoaded ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
+              transition={{ duration: 0.8, delay: 0.3 }}
+              whileHover={{ scale: 1.05 }}
+              className="bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-200 dark:border-gray-700"
+            >
+              <div className="w-12 h-12 bg-blue-100 dark:bg-blue-900 rounded-xl flex items-center justify-center mb-4">
+                <svg className="w-6 h-6 text-blue-600 dark:text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z" />
+                </svg>
+              </div>
+              <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-3">Paiements en ligne</h3>
+              <p className="text-gray-600 dark:text-gray-300 mb-4">
+                Effectuez des achats sécurisés sur tous les sites e-commerce avec votre carte virtuelle
+              </p>
+              <ul className="text-sm text-gray-500 dark:text-gray-400 space-y-1">
+                <li>• Sites de shopping en ligne</li>
+                <li>• Services de streaming</li>
+                <li>• Applications mobiles</li>
+                <li>• Jeux et logiciels</li>
+              </ul>
+            </motion.div>
+
+            {/* Paiements physiques */}
+            <motion.div
+              initial={{ opacity: 0, y: 50 }}
+              animate={isLoaded ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
+              transition={{ duration: 0.8, delay: 0.4 }}
+              whileHover={{ scale: 1.05 }}
+              className="bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-200 dark:border-gray-700"
+            >
+              <div className="w-12 h-12 bg-green-100 dark:bg-green-900 rounded-xl flex items-center justify-center mb-4">
+                <svg className="w-6 h-6 text-green-600 dark:text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+                </svg>
+              </div>
+              <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-3">Paiements physiques</h3>
+              <p className="text-gray-600 dark:text-gray-300 mb-4">
+                Payez dans les magasins, restaurants et commerces avec le paiement sans contact
+              </p>
+              <ul className="text-sm text-gray-500 dark:text-gray-400 space-y-1">
+                <li>• Magasins et supermarchés</li>
+                <li>• Restaurants et cafés</li>
+                <li>• Stations-service</li>
+                <li>• Pharmacies</li>
+              </ul>
+            </motion.div>
+
+            {/* Retraits d'argent */}
+            <motion.div
+              initial={{ opacity: 0, y: 50 }}
+              animate={isLoaded ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
+              transition={{ duration: 0.8, delay: 0.5 }}
+              whileHover={{ scale: 1.05 }}
+              className="bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-200 dark:border-gray-700"
+            >
+              <div className="w-12 h-12 bg-purple-100 dark:bg-purple-900 rounded-xl flex items-center justify-center mb-4">
+                <svg className="w-6 h-6 text-purple-600 dark:text-purple-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1" />
+                </svg>
+              </div>
+              <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-3">Retraits d'argent</h3>
+              <p className="text-gray-600 dark:text-gray-300 mb-4">
+                Retirez du liquide dans tous les distributeurs automatiques du réseau partenaire
+              </p>
+              <ul className="text-sm text-gray-500 dark:text-gray-400 space-y-1">
+                <li>• Distributeurs automatiques</li>
+                <li>• Banques partenaires</li>
+                <li>• Commerces affiliés</li>
+                <li>• Sans frais supplémentaires</li>
+              </ul>
+            </motion.div>
+
+            {/* Transferts et virements */}
+            <motion.div
+              initial={{ opacity: 0, y: 50 }}
+              animate={isLoaded ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
+              transition={{ duration: 0.8, delay: 0.6 }}
+              whileHover={{ scale: 1.05 }}
+              className="bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-200 dark:border-gray-700"
+            >
+              <div className="w-12 h-12 bg-orange-100 dark:bg-orange-900 rounded-xl flex items-center justify-center mb-4">
+                <svg className="w-6 h-6 text-orange-600 dark:text-orange-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4" />
+                </svg>
+              </div>
+              <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-3">Transferts et virements</h3>
+              <p className="text-gray-600 dark:text-gray-300 mb-4">
+                Envoyez de l'argent à vos proches ou effectuez des virements bancaires
+              </p>
+              <ul className="text-sm text-gray-500 dark:text-gray-400 space-y-1">
+                <li>• Transferts vers d'autres MiCard</li>
+                <li>• Virements bancaires SEPA</li>
+                <li>• Envoi d'argent international</li>
+                <li>• Paiements de factures</li>
+              </ul>
+            </motion.div>
+
+            {/* Paiements récurrents */}
+            <motion.div
+              initial={{ opacity: 0, y: 50 }}
+              animate={isLoaded ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
+              transition={{ duration: 0.8, delay: 0.7 }}
+              whileHover={{ scale: 1.05 }}
+              className="bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-200 dark:border-gray-700"
+            >
+              <div className="w-12 h-12 bg-teal-100 dark:bg-teal-900 rounded-xl flex items-center justify-center mb-4">
+                <svg className="w-6 h-6 text-teal-600 dark:text-teal-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
+                </svg>
+              </div>
+              <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-3">Paiements récurrents</h3>
+              <p className="text-gray-600 dark:text-gray-300 mb-4">
+                Configurez des paiements automatiques pour vos abonnements et factures
+              </p>
+              <ul className="text-sm text-gray-500 dark:text-gray-400 space-y-1">
+                <li>• Abonnements streaming</li>
+                <li>• Factures d'énergie</li>
+                <li>• Assurances</li>
+                <li>• Services en ligne</li>
+              </ul>
+            </motion.div>
+
+            {/* Paiements internationaux */}
+            <motion.div
+              initial={{ opacity: 0, y: 50 }}
+              animate={isLoaded ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
+              transition={{ duration: 0.8, delay: 0.8 }}
+              whileHover={{ scale: 1.05 }}
+              className="bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-200 dark:border-gray-700"
+            >
+              <div className="w-12 h-12 bg-red-100 dark:bg-red-900 rounded-xl flex items-center justify-center mb-4">
+                <svg className="w-6 h-6 text-red-600 dark:text-red-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+              </div>
+              <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-3">Paiements internationaux</h3>
+              <p className="text-gray-600 dark:text-gray-300 mb-4">
+                Effectuez des transactions dans plus de 150 pays avec des taux compétitifs
+              </p>
+              <ul className="text-sm text-gray-500 dark:text-gray-400 space-y-1">
+                <li>• 150+ pays supportés</li>
+                <li>• Taux de change optimaux</li>
+                <li>• Paiements en devises</li>
+                <li>• Support multilingue</li>
+              </ul>
+            </motion.div>
+          </div>
         </div>
       </section>
 

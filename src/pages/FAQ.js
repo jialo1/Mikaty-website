@@ -5,7 +5,7 @@ import { AnimatePresence } from "framer-motion";
 
 export default function FAQ() {
   const [isLoaded, setIsLoaded] = useState(false);
-  const [activeCategory, setActiveCategory] = useState("general");
+  const [activeCategory, setActiveCategory] = useState("compte");
   const [openQuestions, setOpenQuestions] = useState({});
 
   useEffect(() => {
@@ -25,127 +25,279 @@ export default function FAQ() {
   };
 
   const categories = [
-    { id: "general", name: "Général", icon: "🏠" },
-    { id: "account", name: "Compte", icon: "👤" },
-    { id: "payments", name: "Paiements", icon: "💳" },
-    { id: "security", name: "Sécurité", icon: "🔒" },
-    { id: "technical", name: "Technique", icon: "⚙️" }
+    { id: "compte", name: "Compte", icon: "👤" },
+    { id: "carte", name: "Carte", icon: "💳" },
+    { id: "virements", name: "Virements", icon: "🔄" },
+    { id: "paiements", name: "Paiements", icon: "💸" },
+    { id: "factures", name: "Factures", icon: "📋" },
+    { id: "deposer", name: "Déposer de l'argent", icon: "💰" },
+    { id: "envoyer", name: "Envoyer de l'argent", icon: "📤" },
+    { id: "economiser", name: "Economiser de l'argent", icon: "🏦" },
+    { id: "mshop", name: "MShop", icon: "🛍️" }
   ];
 
   const faqData = {
-    general: [
+    compte: [
       {
-        id: "gen1",
-        question: "Qu'est-ce que Mikaty ?",
-        answer: "Mikaty est une application de paiement mobile qui permet de transférer de l'argent, payer des factures, acheter du crédit mobile et bien plus encore. Notre mission est de rendre les services financiers accessibles à tous en Afrique."
+        id: "compte1",
+        question: "Comment ouvrir un compte ?",
+        answer: "Téléchargez l'application Mikaty, entrez votre numéro de téléphone, recevez un code de vérification par SMS, et créez votre mot de passe. C'est simple et rapide !"
       },
       {
-        id: "gen2",
-        question: "Mikaty est-il gratuit ?",
-        answer: "L'application Mikaty est gratuite à télécharger et à utiliser. Certaines transactions peuvent avoir des frais minimes, mais les transferts entre utilisateurs Mikaty sont généralement gratuits."
+        id: "compte2",
+        question: "Quels documents faut-il pour valider mon identité ?",
+        answer: "Pour valider votre identité, vous aurez besoin de votre carte d'identité nationale, votre passeport ou votre permis de conduire. Une photo de vous sera également requise."
       },
       {
-        id: "gen3",
-        question: "Dans quels pays Mikaty est-il disponible ?",
-        answer: "Mikaty est actuellement disponible dans 15 pays d'Afrique, incluant le Sénégal, la Côte d'Ivoire, le Mali, le Burkina Faso, et d'autres pays de la région."
+        id: "compte3",
+        question: "Ma pièce a été refusée, pourquoi ?",
+        answer: "Votre pièce peut être refusée si elle est illisible, expirée, ou si les informations ne correspondent pas à celles de votre compte. Vérifiez que votre document est valide et lisible."
       },
       {
-        id: "gen4",
-        question: "Comment contacter le support Mikaty ?",
-        answer: "Vous pouvez nous contacter via notre page Contact, par email à support@mikaty.com, ou par téléphone au +221 33 XXX XX XX. Notre équipe est disponible 24/7."
+        id: "compte4",
+        question: "Comment mettre à jour mes infos d'identification ?",
+        answer: "Allez dans Paramètres > Profil > Informations personnelles. Vous pourrez modifier vos coordonnées et télécharger de nouveaux documents d'identité si nécessaire."
+      },
+      {
+        id: "compte5",
+        question: "Mon compte est bloqué, comment le débloquer ?",
+        answer: "Contactez notre support client via l'application ou par téléphone. Nous vous aiderons à identifier la cause du blocage et à le résoudre rapidement."
+      },
+      {
+        id: "compte6",
+        question: "Comment modifier mon code de sécurité ?",
+        answer: "Allez dans Paramètres > Sécurité > Code de sécurité. Vous devrez entrer votre ancien code puis définir un nouveau code à 4 chiffres."
+      },
+      {
+        id: "compte7",
+        question: "Quels sont les frais liés au compte ?",
+        answer: "L'ouverture et la tenue de compte sont gratuites. Seules certaines transactions (recharges, transferts externes) peuvent avoir des frais minimes."
       }
     ],
-    account: [
+    carte: [
       {
-        id: "acc1",
-        question: "Comment créer un compte Mikaty ?",
-        answer: "Téléchargez l'application, entrez votre numéro de téléphone, recevez un code de vérification par SMS, et créez votre mot de passe. C'est tout !"
+        id: "carte1",
+        question: "Comment obtenir une carte ?",
+        answer: "Une fois votre compte validé, vous pouvez commander votre carte depuis l'application. Elle sera livrée à votre adresse en 3-5 jours ouvrés."
       },
       {
-        id: "acc2",
-        question: "Faut-il un compte bancaire pour utiliser Mikaty ?",
-        answer: "Non, vous n'avez pas besoin de compte bancaire. Mikaty fonctionne uniquement avec votre numéro de téléphone mobile."
+        id: "carte2",
+        question: "Combien coûte la carte ?",
+        answer: "La première carte est gratuite. En cas de perte ou de vol, une nouvelle carte coûte 1000 FCFA. La livraison est incluse dans le prix."
       },
       {
-        id: "acc3",
-        question: "Comment modifier mes informations personnelles ?",
-        answer: "Allez dans Paramètres > Profil dans l'application pour modifier vos informations personnelles. Certaines modifications peuvent nécessiter une vérification."
+        id: "carte3",
+        question: "Comment activer ma carte ?",
+        answer: "Votre carte s'active automatiquement dès réception. Vous recevrez un SMS de confirmation. Vous pouvez aussi l'activer manuellement dans l'application."
       },
       {
-        id: "acc4",
-        question: "Comment supprimer mon compte ?",
-        answer: "Contactez notre support client pour demander la suppression de votre compte. Assurez-vous d'avoir retiré tous vos fonds avant la suppression."
+        id: "carte4",
+        question: "Comment bloquer/débloquer ma carte ?",
+        answer: "Dans l'application, allez dans Carte > Gérer ma carte. Vous pouvez bloquer temporairement votre carte et la débloquer quand vous le souhaitez."
+      },
+      {
+        id: "carte5",
+        question: "Comment remplacer ma carte ?",
+        answer: "En cas de perte ou de vol, bloquez immédiatement votre carte dans l'application, puis commandez une nouvelle carte. L'ancienne sera automatiquement désactivée."
+      },
+      {
+        id: "carte6",
+        question: "Quels sont les plafonds de ma carte ?",
+        answer: "Les plafonds varient selon votre niveau de vérification : 50 000 FCFA/jour pour les comptes basiques, 200 000 FCFA/jour pour les comptes vérifiés, et 500 000 FCFA/jour pour les comptes premium."
       }
     ],
-    payments: [
+    virements: [
       {
-        id: "pay1",
-        question: "Comment recharger mon compte Mikaty ?",
-        answer: "Vous pouvez recharger via nos partenaires (Orange Money, Wave, etc.), par carte bancaire, ou par virement mobile. Allez dans l'onglet 'Recharger' de l'application."
+        id: "virement1",
+        question: "Comment recharger ma carte par virement bancaire ?",
+        answer: "Utilisez votre RIB Mikaty pour recevoir des virements. Allez dans Recharger > Virement bancaire pour obtenir vos coordonnées bancaires complètes."
       },
       {
-        id: "pay2",
-        question: "Quels sont les frais de transaction ?",
-        answer: "Les transferts entre utilisateurs Mikaty sont gratuits. Les autres opérations (recharges, paiements de factures) ont des frais minimes, généralement entre 50 et 200 FCFA."
+        id: "virement2",
+        question: "Quels sont les délais pour recevoir un virement ?",
+        answer: "Les virements SEPA sont généralement traités en 24-48h ouvrées. Les virements internes entre banques sénégalaises sont généralement instantanés ou traités le jour même."
       },
       {
-        id: "pay3",
-        question: "Comment payer mes factures d'électricité et d'eau ?",
-        answer: "Allez dans l'onglet 'Paiements' > 'Factures', sélectionnez votre fournisseur, entrez votre numéro de compteur et le montant à payer."
+        id: "virement3",
+        question: "Puis-je recevoir un virement de l'étranger ?",
+        answer: "Oui, vous pouvez recevoir des virements internationaux. Les délais varient selon le pays d'origine (2-5 jours ouvrés) et des frais de change peuvent s'appliquer."
       },
       {
-        id: "pay4",
-        question: "Combien de temps pour un transfert d'argent ?",
-        answer: "Les transferts entre utilisateurs Mikaty sont instantanés. Les transferts vers des comptes bancaires prennent généralement 24-48 heures."
+        id: "virement4",
+        question: "Puis-je envoyer de l'argent vers un compte bancaire ?",
+        answer: "Oui, vous pouvez envoyer de l'argent vers un compte bancaire sénégalais ou européen. Les frais et délais varient selon la destination et le montant."
       },
       {
-        id: "pay5",
-        question: "Comment acheter du crédit mobile ?",
-        answer: "Allez dans 'Paiements' > 'Crédit mobile', sélectionnez votre opérateur, entrez le numéro et le montant de crédit souhaité."
+        id: "virement5",
+        question: "Comment obtenir un RIB ?",
+        answer: "Votre RIB est disponible dans l'application sous Recharger > Virement bancaire. Vous pouvez le télécharger ou le copier pour le partager."
       }
     ],
-    security: [
+    paiements: [
       {
-        id: "sec1",
-        question: "Mes données sont-elles sécurisées ?",
-        answer: "Absolument. Mikaty utilise les technologies de cryptage les plus avancées pour protéger vos données personnelles et vos transactions."
+        id: "paiement1",
+        question: "Comment faire un paiement en ligne ?",
+        answer: "Sélectionnez l'option 'Paiement en ligne' dans l'application, entrez les informations de votre carte, confirmez le montant et validez. Vous recevrez une confirmation par SMS."
       },
       {
-        id: "sec2",
-        question: "Que faire si j'ai perdu mon téléphone ?",
-        answer: "Contactez immédiatement notre support pour bloquer votre compte. Vous pourrez le réactiver avec un nouveau téléphone après vérification."
+        id: "paiement2",
+        question: "Comment faire un paiement TPE ?",
+        answer: "Présentez votre carte Mikaty au terminal de paiement, entrez votre code secret à 4 chiffres, et confirmez le montant. Le paiement sera traité instantanément."
       },
       {
-        id: "sec3",
-        question: "Comment changer mon mot de passe ?",
-        answer: "Allez dans Paramètres > Sécurité > Changer le mot de passe. Vous devrez entrer votre mot de passe actuel puis le nouveau."
+        id: "paiement3",
+        question: "Comment annuler un abonnement ?",
+        answer: "Allez dans Paiements > Abonnements actifs, sélectionnez l'abonnement à annuler et confirmez. L'annulation prendra effet à la fin de la période en cours."
       },
       {
-        id: "sec4",
-        question: "Mikaty est-il réglementé ?",
-        answer: "Oui, Mikaty est agréé par les autorités de régulation financière dans tous les pays où nous opérons, garantissant la sécurité de vos fonds."
+        id: "paiement4",
+        question: "Comment fonctionne le token Mikaty ?",
+        answer: "Le token Mikaty est un code de sécurité unique généré pour chaque transaction. Il est envoyé par SMS et doit être saisi pour confirmer les opérations sensibles."
       }
     ],
-    technical: [
+    factures: [
       {
-        id: "tech1",
-        question: "L'application ne se lance pas, que faire ?",
-        answer: "Vérifiez votre connexion internet, redémarrez l'application, ou réinstallez-la depuis l'App Store/Google Play. Si le problème persiste, contactez le support."
+        id: "facture1",
+        question: "Comment acheter du crédit téléphonique ?",
+        answer: "Allez dans Factures > Téléphonie, sélectionnez votre opérateur, entrez votre numéro et le montant de recharge. Le crédit sera ajouté instantanément."
       },
       {
-        id: "tech2",
-        question: "Je ne reçois pas le code de vérification SMS",
-        answer: "Vérifiez que votre numéro est correct, attendez quelques minutes, ou demandez un nouveau code. Assurez-vous d'avoir une couverture réseau."
+        id: "facture2",
+        question: "Comment acheter une recharge Rapido ?",
+        answer: "Dans Factures > Transport, sélectionnez Rapido, entrez votre numéro de carte et le montant. La recharge sera disponible immédiatement sur votre carte."
       },
       {
-        id: "tech3",
-        question: "L'application est lente, comment l'améliorer ?",
-        answer: "Fermez les autres applications, vérifiez votre connexion internet, ou mettez à jour l'application vers la dernière version disponible."
+        id: "facture3",
+        question: "Comment acheter une recharge Woyofal ?",
+        answer: "Sélectionnez Woyofal dans Factures > Transport, entrez votre numéro de carte et le montant. Votre carte sera rechargée instantanément."
       },
       {
-        id: "tech4",
-        question: "Quelles sont les versions d'Android/iOS supportées ?",
-        answer: "Mikaty nécessite Android 6.0+ ou iOS 12.0+. Assurez-vous que votre appareil est à jour pour une expérience optimale."
+        id: "facture4",
+        question: "Comment régler sa facture Senelec ?",
+        answer: "Allez dans Factures > Électricité, sélectionnez Senelec, entrez votre numéro de compteur et le montant à payer. Le paiement sera traité en temps réel."
+      },
+      {
+        id: "facture5",
+        question: "Comment régler sa facture Sen' Eau ?",
+        answer: "Dans Factures > Eau, sélectionnez Sen' Eau, entrez votre numéro de compteur et le montant. Votre facture sera réglée immédiatement."
+      }
+    ],
+    deposer: [
+      {
+        id: "deposer1",
+        question: "Comment recharger ma carte par Wave ?",
+        answer: "Allez dans Recharger > Wave, entrez votre numéro Wave et le montant. Confirmez la transaction et votre carte sera rechargée instantanément."
+      },
+      {
+        id: "deposer2",
+        question: "Comment recharger ma carte par Orange money ?",
+        answer: "Sélectionnez Orange Money dans Recharger, entrez votre numéro Orange et le montant. Validez la transaction pour recharger votre carte."
+      },
+      {
+        id: "deposer3",
+        question: "Comment recharger ma carte par Yas ?",
+        answer: "Dans Recharger > Yas, entrez votre numéro Yas et le montant. Confirmez la transaction pour recharger votre carte Mikaty."
+      },
+      {
+        id: "deposer4",
+        question: "Comment recharger ma carte par virement bancaire ?",
+        answer: "Utilisez votre RIB Mikaty pour recevoir des virements. Les fonds seront automatiquement ajoutés à votre carte une fois le virement traité par votre banque."
+      },
+      {
+        id: "deposer5",
+        question: "Comment recharger ma carte par mon coffre ?",
+        answer: "Allez dans Coffre > Transférer vers carte, sélectionnez le montant et confirmez. L'argent sera instantanément transféré de votre coffre vers votre carte."
+      },
+      {
+        id: "deposer6",
+        question: "Puis-je recharger ma carte via mon RIB Mikaty ?",
+        answer: "Oui, vous pouvez utiliser votre RIB Mikaty pour recevoir des virements qui rechargeront automatiquement votre carte une fois traités."
+      },
+      {
+        id: "deposer7",
+        question: "Puis-je recevoir un virement de l'étranger ?",
+        answer: "Oui, vous pouvez recevoir des virements internationaux sur votre RIB Mikaty. Les délais et frais varient selon le pays d'origine."
+      }
+    ],
+    envoyer: [
+      {
+        id: "envoyer1",
+        question: "Comment envoyer de l'argent vers Wave ?",
+        answer: "Allez dans Envoyer > Wave, entrez le numéro Wave du destinataire et le montant. Confirmez la transaction et l'argent sera envoyé instantanément."
+      },
+      {
+        id: "envoyer2",
+        question: "Comment envoyer de l'argent vers Orange ?",
+        answer: "Sélectionnez Orange dans Envoyer, entrez le numéro Orange du destinataire et le montant. Validez la transaction pour envoyer l'argent."
+      },
+      {
+        id: "envoyer3",
+        question: "Comment envoyer de l'argent vers Yas ?",
+        answer: "Dans Envoyer > Yas, entrez le numéro Yas du destinataire et le montant. Confirmez la transaction pour envoyer l'argent."
+      },
+      {
+        id: "envoyer4",
+        question: "Quels sont les frais ?",
+        answer: "Les transferts vers Wave, Orange et Yas sont gratuits pour les montants jusqu'à 50 000 FCFA. Au-delà, des frais de 100 FCFA s'appliquent."
+      },
+      {
+        id: "envoyer5",
+        question: "Comment annuler un transfert ?",
+        answer: "Les transferts sont instantanés et ne peuvent pas être annulés. En cas d'erreur, contactez immédiatement notre support client."
+      },
+      {
+        id: "envoyer6",
+        question: "Puis-je envoyer de l'argent à l'étranger ?",
+        answer: "Oui, vous pouvez envoyer de l'argent à l'étranger. Les délais, frais et limites varient selon le pays de destination."
+      }
+    ],
+    economiser: [
+      {
+        id: "economiser1",
+        question: "Qu'est-ce qu'un coffre ?",
+        answer: "Un coffre est un compte d'épargne séparé de votre carte principale. Il vous permet de mettre de l'argent de côté avec un taux d'intérêt avantageux."
+      },
+      {
+        id: "economiser2",
+        question: "Comment programmer des dépôts réguliers ?",
+        answer: "Allez dans Coffre > Programmer, choisissez la fréquence (hebdomadaire, mensuelle), le montant et la date de début. Les dépôts seront automatiques."
+      },
+      {
+        id: "economiser3",
+        question: "Comment retirer de l'argent de mon coffre ?",
+        answer: "Dans Coffre > Retirer, sélectionnez le montant et confirmez. L'argent sera transféré vers votre carte principale en quelques secondes."
+      },
+      {
+        id: "economiser4",
+        question: "Comment bloquer/débloquer un coffre ?",
+        answer: "Allez dans Coffre > Gérer > Bloquer/Débloquer. Un coffre bloqué ne peut pas recevoir de nouveaux dépôts mais permet toujours les retraits."
+      }
+    ],
+    mshop: [
+      {
+        id: "mshop1",
+        question: "C'est quoi MShop ?",
+        answer: "MShop est notre plateforme de commerce en ligne intégrée à Mikaty. Elle permet aux commerçants de créer des boutiques et aux clients de faire des achats en ligne."
+      },
+      {
+        id: "mshop2",
+        question: "Quels sont les frais ?",
+        answer: "MShop propose différents forfaits : gratuit pour les débutants, 2% de commission sur les ventes pour les boutiques standard, et 1.5% pour les boutiques premium."
+      },
+      {
+        id: "mshop3",
+        question: "Comment créer ma boutique ?",
+        answer: "Allez dans MShop > Créer ma boutique, remplissez les informations requises, téléchargez vos documents et attendez la validation (24-48h)."
+      },
+      {
+        id: "mshop4",
+        question: "Comment suivre mes commandes ?",
+        answer: "Dans votre tableau de bord MShop, allez dans Commandes pour voir toutes vos ventes, leur statut et gérer les expéditions."
+      },
+      {
+        id: "mshop5",
+        question: "Comment recevoir les paiements de mes clients ?",
+        answer: "Les paiements de vos clients sont automatiquement crédités sur votre compte Mikaty. Vous pouvez les transférer vers votre carte ou votre coffre."
       }
     ]
   };
