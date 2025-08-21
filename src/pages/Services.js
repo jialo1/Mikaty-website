@@ -624,9 +624,9 @@ export default function Services() {
                 Épargnez pour vos projets et gérez vos budgets facilement.
               </p>
             </div>
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
 
       {/* Section Essayez Mikaty dès aujourd'hui */}
       <section className="py-16 bg-white dark:bg-[#1a1a1a]">
@@ -661,10 +661,10 @@ export default function Services() {
 
             {/* Badges de téléchargement */}
             <div className="flex justify-center gap-4">
-              <a href="#" className="block">
+              <a href="https://apps.apple.com/app/idtonappid" target="_blank" rel="noopener noreferrer" className="block">
                 <img src="/images/app-store-badge.svg" alt="App Store" className="h-10 hover:scale-105 transition-transform duration-300" />
               </a>
-              <a href="#" className="block">
+              <a href="https://play.google.com/store/apps/details?id=ton.app" target="_blank" rel="noopener noreferrer" className="block">
                 <img src="/images/google-play-badge.svg" alt="Google Play" className="h-10 hover:scale-105 transition-transform duration-300" />
                   </a>
                 </div>

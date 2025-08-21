@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
-import { Link } from "react-router-dom";
 
 export default function Contact() {
   const [isLoaded, setIsLoaded] = useState(false);

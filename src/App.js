@@ -42,13 +42,14 @@ function Navbar({ isScrolled, isAfterHero, isDark, setIsDark, LanguageSwitch }) 
       <nav className="container mx-auto flex items-center justify-between py-2 px-6">
         {/* Logo */}
         <div className="text-2xl font-bold text-miikaty flex items-center flex-shrink-0">
-          <img src="/images/logomauve.svg" alt="Logo Mikaty" className="h-6 max-h-8 w-auto max-w-[120px] object-contain" style={{background: 'none'}} />
+          <Link to="/" className="hover:opacity-80 transition-opacity duration-200">
+            <img src="/images/logomauve.svg" alt="Logo Mikaty" className="h-6 max-h-8 w-auto max-w-[120px] object-contain" style={{background: 'none'}} />
+          </Link>
         </div>
 
         {/* Menu Desktop - Centré */}
         <div className="hidden lg:flex flex-1 justify-center">
           <ul className="flex space-x-6 items-center">
-            <li><Link to="/" className={`relative font-medium text-shadow-md after:content-[''] after:block after:w-0 after:h-0.5 after:bg-miikaty after:transition-all after:duration-300 hover:after:w-full ${pagePath === '/' ? 'after:w-full' : ''} text-white`}>Accueil</Link></li>
             <li><Link to="/home2" className={`relative font-medium text-shadow-md after:content-[''] after:block after:w-0 after:h-0.5 after:bg-miikaty after:transition-all after:duration-300 hover:after:w-full ${pagePath === '/home2' ? 'after:w-full' : ''} text-white`}>Accueil 2</Link></li>
             <li><Link to="/services" className={`relative font-medium text-shadow-md after:content-[''] after:block after:w-0 after:h-0.5 after:bg-miikaty after:transition-all after:duration-300 hover:after:w-full ${pagePath === '/services' ? 'after:w-full' : ''} text-white`}>Services</Link></li>
             <li><Link to="/micard" className={`relative font-medium text-shadow-md after:content-[''] after:block after:w-0 after:h-0.5 after:bg-miikaty after:transition-all after:duration-300 hover:after:w-full ${pagePath === '/micard' ? 'after:w-full' : ''} text-white`}>MiCard</Link></li>

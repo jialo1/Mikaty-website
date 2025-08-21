@@ -198,9 +198,9 @@ export default function Home() {
               <p className="text-gray-700 dark:text-gray-300 text-sm leading-snug text-center group-hover:text-miikaty-dark transition-colors duration-300">Scannez et payez instantanément chez vos commerçants ou amis, sans contact.</p>
             </div>
           </div>
-
+          
           {/* Bouton "Voir tous nos services" */}
-          <motion.div
+          <motion.div 
             className="flex justify-center mt-16"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -234,15 +234,15 @@ export default function Home() {
                   src="/images/inov1.jpg" 
                   alt="Innovation au quotidien" 
                   className="w-full h-full object-cover rounded-2xl"
-              />
+                />
             </div>
-              </div>
+          </div>
           
           {/* Contenu à droite */}
           <div className="md:w-1/2 text-left order-1 md:order-2">
                       <h2 className="text-3xl md:text-5xl font-bold mb-6 bg-gradient-to-r from-[#563491] to-black dark:from-[#d8a5ff] dark:to-[#d8a5ff] bg-clip-text text-transparent">
             Innovation au service de votre quotidien
-            </h2>
+          </h2>
             <p className="text-lg text-gray-700 dark:text-gray-300 mb-8">
               Découvrez comment Mikaty révolutionne vos transactions financières avec des technologies de pointe et une expérience utilisateur exceptionnelle.
             </p>
@@ -341,7 +341,7 @@ export default function Home() {
                   En savoir plus sur MiCard
                   <svg className="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-              </svg>
+                  </svg>
                 </Link>
               </div>
             </div>
@@ -371,14 +371,14 @@ export default function Home() {
                     <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
                       <path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm-2 16l-4-4 1.41-1.41L10 14.17l6.59-6.59L18 9l-8 8z"/>
                     </svg>
-              </span>
+                  </span>
                   <span className="text-gray-700 dark:text-gray-300">Certifié PCI DSS</span>
                 </div>
                 <div className="flex items-center gap-3 p-4 bg-blue-50 dark:bg-blue-900/20 rounded-xl border border-blue-100 dark:border-blue-800/30">
                   <span className="text-blue-500 text-xl">
                     <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
                       <path d="M18 8h-1V6c0-2.76-2.24-5-5-5S7 3.24 7 6v2H6c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V10c0-1.1-.9-2-2-2zM9 6c0-1.66 1.34-3 3-3s3 1.34 3 3v2H9V6zm9 14H6V10h12v10z"/>
-              </svg>
+                    </svg>
                   </span>
                   <span className="text-gray-700 dark:text-gray-300">Chiffrement sécurisé</span>
                 </div>
@@ -453,7 +453,7 @@ export default function Home() {
             Découvrez comment nos utilisateurs transforment<br />
             leur expérience financière avec Mikaty
           </p>
-              </div>
+        </div>
 
         {/* Carrousel de blocs qui défilent */}
         <div className="relative overflow-hidden">
