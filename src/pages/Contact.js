@@ -411,8 +411,8 @@ export default function Contact() {
               <div className="font-bold mb-4 text-miikaty">Légal</div>
               <ul className="space-y-2 text-white/80 text-sm">
                 <li><a href="/mentions-legales" className="hover:text-miikaty transition">Mentions légales</a></li>
-                <li><a href="/confidentialite" className="hover:text-miikaty transition">Confidentialité</a></li>
-                <li><a href="/cgu" className="hover:text-miikaty transition">Conditions générales</a></li>
+                <li><a href="/cgu" className="hover:text-miikaty transition">Conditions Générales d'Utilisation</a></li>
+                <li><a href="/termes-et-conditions" className="hover:text-miikaty transition">Termes et Conditions</a></li>
               </ul>
             </div>
             <div className="flex gap-4 mt-4">

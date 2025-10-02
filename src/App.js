@@ -8,6 +8,9 @@ import Services from "./pages/Services";
 import Contact from "./pages/Contact";
 import MiCard from "./pages/MiCard";
 import FAQ from "./pages/FAQ";
+import TermsAndConditions from "./pages/TermsAndConditions";
+import CGU from "./pages/CGU";
+import LegalNotice from "./pages/LegalNotice";
 import ChatAssistant from "./components/ChatAssistant";
 import ErrorBoundary from "./components/ErrorBoundary";
 
@@ -28,7 +31,7 @@ function Navbar({ isScrolled, isAfterHero, isDark, setIsDark, LanguageSwitch }) 
       animate={{ y: 0, opacity: 1 }}
       transition={{ duration: 0.7, ease: 'easeOut' }}
       className={`fixed top-0 left-0 w-full z-50 transition-all duration-300
-                        ${pagePath === '/about' || pagePath === '/micard' || pagePath === '/contact' || pagePath === '/faq'
+                        ${pagePath === '/about' || pagePath === '/micard' || pagePath === '/contact' || pagePath === '/faq' || pagePath === '/mentions-legales' || pagePath === '/cgu' || pagePath === '/termes-et-conditions'
           ? (isScrolled 
               ? 'bg-[#563491]/90 backdrop-blur-md shadow-lg border-b border-white/10' 
               : 'bg-[#563491] shadow-lg border-b-0')
@@ -237,6 +240,9 @@ function App() {
                   <Route path="/about" element={<About />} />
                   <Route path="/micard" element={<MiCard />} />
                   <Route path="/faq" element={<FAQ />} />
+                  <Route path="/termes-et-conditions" element={<TermsAndConditions />} />
+                  <Route path="/cgu" element={<CGU />} />
+                  <Route path="/mentions-legales" element={<LegalNotice />} />
                   <Route path="/securite" element={<Home />} />
           
                 </Routes>
