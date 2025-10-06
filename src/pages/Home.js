@@ -226,16 +226,11 @@ export default function Home() {
       {/* Section Innovation */}
       <section className="py-20 px-4 bg-[linear-gradient(90deg,#fefefe_0%,#f8f7ff_50%,#f8f7ff_100%)] dark:bg-gradient-to-b dark:from-miikaty-dark dark:to-[#2d1a4d]">
         <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-center gap-12">
-          {/* Image à gauche */}
+          {/* Cadre à gauche */}
           <div className="md:w-1/2 flex justify-center order-2 md:order-1">
-            <div className="w-full h-96 rounded-2xl shadow-2xl overflow-hidden">
-                              <img 
-                  src="/images/inov1.jpg" 
-                  alt="Innovation au quotidien" 
-                  className="w-full h-full object-cover rounded-2xl"
-              />
+            <div className="w-full h-96 rounded-2xl shadow-2xl overflow-hidden bg-gradient-to-br from-purple-100 to-pink-100 dark:from-purple-900/20 dark:to-pink-900/20 border border-gray-200 dark:border-gray-700">
             </div>
-              </div>
+          </div>
           
           {/* Contenu à droite */}
           <div className="md:w-1/2 text-left order-1 md:order-2">
@@ -278,15 +273,10 @@ export default function Home() {
       {/* Section MiCard */}
       <section className="py-24 bg-white dark:bg-gradient-to-b dark:from-[#2d1a4d] dark:to-[#1a1a1a]">
         <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-center gap-12">
-          {/* Image à gauche */}
+          {/* Cadre à gauche */}
           <div className="md:w-1/2 flex justify-center order-2 md:order-1">
             <div className="relative">
-              <div className="w-96 h-[28rem] rounded-2xl shadow-2xl overflow-hidden">
-                <img 
-                  src="/images/inov.png" 
-                  alt="Innovation MiCard" 
-                  className="w-full h-full object-cover rounded-2xl"
-                />
+              <div className="w-96 h-[28rem] rounded-2xl shadow-2xl overflow-hidden bg-gradient-to-br from-blue-100 to-cyan-100 dark:from-blue-900/20 dark:to-cyan-900/20 border border-gray-200 dark:border-gray-700">
               </div>
 
               <div className="absolute -bottom-4 -left-4 w-6 h-6 bg-gradient-to-r from-pink-300 to-pink-400 rounded-full opacity-90 shadow-lg animate-pulse"></div>
@@ -427,14 +417,9 @@ export default function Home() {
             </button>
           </div>
           
-          {/* Image de sécurité */}
+          {/* Cadre de sécurité */}
           <div className="md:w-1/2 flex justify-center">
-            <div className="w-full h-96 rounded-2xl overflow-hidden shadow-2xl">
-              <img 
-                src="/images/Secure.jpg" 
-                alt="Sécurité Mikaty" 
-                className="w-full h-full object-cover rounded-2xl"
-              />
+            <div className="w-full h-96 rounded-2xl overflow-hidden shadow-2xl bg-gradient-to-br from-green-100 to-emerald-100 dark:from-green-900/20 dark:to-emerald-900/20 border border-gray-200 dark:border-gray-700">
             </div>
           </div>
         </div>
@@ -459,68 +444,28 @@ export default function Home() {
           <div className="flex animate-scroll space-x-6 px-6 md:px-12 lg:px-16">
               {/* Bloc 1 */}
               <div className="flex-shrink-0 w-80 h-96 bg-gradient-to-br from-purple-100 to-pink-100 dark:from-purple-900/20 dark:to-pink-900/20 rounded-2xl border border-gray-200 dark:border-gray-700 shadow-lg flex items-center justify-center overflow-hidden">
-                <img 
-                  src="/images/1.jpg" 
-                  alt="Utilisateur Mikaty 1" 
-                  className="w-full h-full object-cover rounded-2xl"
-                />
               </div>
               {/* Bloc 2 */}
               <div className="flex-shrink-0 w-80 h-96 bg-gradient-to-br from-blue-100 to-cyan-100 dark:from-blue-900/20 dark:to-cyan-900/20 rounded-2xl border border-gray-200 dark:border-gray-700 shadow-lg flex items-center justify-center overflow-hidden">
-                <img 
-                  src="/images/2.jpg" 
-                  alt="Utilisateur Mikaty 2" 
-                  className="w-full h-full object-cover rounded-2xl"
-                />
               </div>
               {/* Bloc 3 */}
               <div className="flex-shrink-0 w-80 h-96 bg-gradient-to-br from-green-100 to-emerald-100 dark:from-green-900/20 dark:to-emerald-900/20 rounded-2xl border border-gray-200 dark:border-gray-700 shadow-lg flex items-center justify-center overflow-hidden">
-                <img 
-                  src="/images/3.jpg" 
-                  alt="Utilisateur Mikaty 3" 
-                  className="w-full h-full object-cover rounded-2xl"
-                />
               </div>
               {/* Bloc 4 */}
               <div className="flex-shrink-0 w-80 h-96 bg-gradient-to-br from-yellow-100 to-orange-100 dark:from-yellow-900/20 dark:to-orange-900/20 rounded-2xl border border-gray-200 dark:border-gray-700 shadow-lg flex items-center justify-center overflow-hidden">
-                <img 
-                  src="/images/4.jpg" 
-                  alt="Utilisateur Mikaty 4" 
-                  className="w-full h-full object-cover rounded-2xl"
-                />
               </div>
               {/* Bloc 5 */}
               <div className="flex-shrink-0 w-80 h-96 bg-gradient-to-br from-pink-100 to-rose-100 dark:from-pink-900/20 dark:to-rose-900/20 rounded-2xl border border-gray-200 dark:border-gray-700 shadow-lg flex items-center justify-center overflow-hidden">
-                <img 
-                  src="/images/5.jpg" 
-                  alt="Utilisateur Mikaty 5" 
-                  className="w-full h-full object-cover rounded-2xl"
-                />
               </div>
               {/* Bloc 6 */}
               <div className="flex-shrink-0 w-80 h-96 bg-gradient-to-br from-indigo-100 to-purple-100 dark:from-indigo-900/20 dark:to-purple-900/20 rounded-2xl border border-gray-200 dark:border-gray-700 shadow-lg flex items-center justify-center overflow-hidden">
-                <img 
-                  src="/images/6.jpg" 
-                  alt="Utilisateur Mikaty 6" 
-                  className="w-full h-full object-cover rounded-2xl"
-                />
               </div>
               {/* Répéter les blocs pour un défilement continu */}
               {/* Bloc 1 (dupliqué) */}
               <div className="flex-shrink-0 w-80 h-96 bg-gradient-to-br from-purple-100 to-pink-100 dark:from-purple-900/20 dark:to-pink-900/20 rounded-2xl border border-gray-200 dark:border-gray-700 shadow-lg flex items-center justify-center overflow-hidden">
-                <img 
-                  src="/images/1.jpg" 
-                  alt="Utilisateur Mikaty 1" 
-                  className="w-full h-full object-cover rounded-2xl"
-                />
               </div>
               {/* Bloc 2 (dupliqué) */}
               <div className="flex-shrink-0 w-80 h-96 bg-gradient-to-br from-blue-100 to-cyan-100 dark:from-blue-900/20 dark:to-cyan-900/20 rounded-2xl border border-gray-200 dark:border-gray-700 shadow-lg flex items-center justify-center overflow-hidden">
-                <img 
-                  src="/images/2.jpg" 
-                  alt="Utilisateur Mikaty 2" 
-                  className="w-full h-full object-cover rounded-2xl"
-                />
               </div>
           </div>
         </div>

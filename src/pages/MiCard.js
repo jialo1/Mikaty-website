@@ -335,36 +335,6 @@ export default function MiCard() {
         </div>
       </section>
 
-      {/* Section CTA avec animation */}
-      <section className="py-16 px-4 relative overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-miikaty/10 to-purple-600/10"></div>
-        <div className="max-w-4xl mx-auto text-center relative">
-          <motion.div
-            initial={{ opacity: 0, scale: 0.8 }}
-            animate={isLoaded ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.8 }}
-            transition={{ duration: 1, delay: 0.3 }}
-            className="mb-12"
-          >
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-8">
-              Prêt pour <span className="text-miikaty">MiCard</span> ?
-            </h2>
-          </motion.div>
-          
-          <motion.button
-            initial={{ opacity: 0, y: 30 }}
-            animate={isLoaded ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
-            transition={{ duration: 0.8, delay: 0.6 }}
-            whileHover={{ 
-              scale: 1.05,
-              boxShadow: "0 20px 40px rgba(124, 58, 237, 0.3)"
-            }}
-            whileTap={{ scale: 0.95 }}
-            className="bg-gradient-to-r from-miikaty to-purple-600 hover:from-purple-600 hover:to-miikaty text-white font-bold py-4 px-8 rounded-2xl text-lg transition-all duration-300 shadow-xl hover:shadow-2xl transform hover:-translate-y-1"
-          >
-            Créer ma MiCard
-          </motion.button>
-        </div>
-      </section>
 
       {/* Section Services de la Carte Virtuelle */}
       <section className="py-20 px-4 bg-gradient-to-br from-gray-50 to-purple-50 dark:from-gray-900 dark:to-purple-900/20">
