@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { BrowserRouter as Router, Routes, Route, Link, useLocation } from "react-router-dom";
 import Home from "./pages/Home";
-import Home2 from "./pages/Home2";
 import About from "./pages/About";
 import Services from "./pages/Services";
 import Contact from "./pages/Contact";
@@ -11,11 +10,14 @@ import FAQ from "./pages/FAQ";
 import TermsAndConditions from "./pages/TermsAndConditions";
 import CGU from "./pages/CGU";
 import LegalNotice from "./pages/LegalNotice";
+import Careers from "./pages/Careers";
 import ChatAssistant from "./components/ChatAssistant";
 import ErrorBoundary from "./components/ErrorBoundary";
+import { useTranslation } from "./translations";
 
 // Composant Navbar qui adapte le fond selon la page
-function Navbar({ isScrolled, isAfterHero, isDark, setIsDark, LanguageSwitch }) {
+function Navbar({ isScrolled, isAfterHero, isDark, setIsDark, LanguageSwitch, lang }) {
+  const t = useTranslation(lang);
   const location = useLocation();
   const pagePath = location.pathname;
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -31,7 +33,7 @@ function Navbar({ isScrolled, isAfterHero, isDark, setIsDark, LanguageSwitch }) 
       animate={{ y: 0, opacity: 1 }}
       transition={{ duration: 0.7, ease: 'easeOut' }}
       className={`fixed top-0 left-0 w-full z-50 transition-all duration-300
-                        ${pagePath === '/about' || pagePath === '/micard' || pagePath === '/contact' || pagePath === '/faq' || pagePath === '/mentions-legales' || pagePath === '/cgu' || pagePath === '/termes-et-conditions'
+                        ${pagePath === '/about' || pagePath === '/micard' || pagePath === '/contact' || pagePath === '/faq' || pagePath === '/carrieres' || pagePath === '/mentions-legales' || pagePath === '/cgu' || pagePath === '/termes-et-conditions'
           ? (isScrolled 
               ? 'bg-[#563491]/90 backdrop-blur-md shadow-lg border-b border-white/10' 
               : 'bg-[#563491] shadow-lg border-b-0')
@@ -53,18 +55,14 @@ function Navbar({ isScrolled, isAfterHero, isDark, setIsDark, LanguageSwitch }) 
         {/* Menu Desktop - Centré */}
         <div className="hidden lg:flex flex-1 justify-center">
           <ul className="flex space-x-6 items-center">
-            <li><Link to="/home2" className={`relative font-medium text-shadow-md after:content-[''] after:block after:w-0 after:h-0.5 after:bg-miikaty after:transition-all after:duration-300 hover:after:w-full ${pagePath === '/home2' ? 'after:w-full' : ''} text-white`}>Accueil 2</Link></li>
-            <li><Link to="/services" className={`relative font-medium text-shadow-md after:content-[''] after:block after:w-0 after:h-0.5 after:bg-miikaty after:transition-all after:duration-300 hover:after:w-full ${pagePath === '/services' ? 'after:w-full' : ''} text-white`}>Services</Link></li>
-            <li><Link to="/micard" className={`relative font-medium text-shadow-md after:content-[''] after:block after:w-0 after:h-0.5 after:bg-miikaty after:transition-all after:duration-300 hover:after:w-full ${pagePath === '/micard' ? 'after:w-full' : ''} text-white`}>MiCard</Link></li>
+            <li><Link to="/" className={`relative font-medium text-shadow-md after:content-[''] after:block after:w-0 after:h-0.5 after:bg-miikaty after:transition-all after:duration-300 hover:after:w-full ${pagePath === '/' ? 'after:w-full' : ''} text-white`}>{t.nav.home}</Link></li>
+            <li><Link to="/services" className={`relative font-medium text-shadow-md after:content-[''] after:block after:w-0 after:h-0.5 after:bg-miikaty after:transition-all after:duration-300 hover:after:w-full ${pagePath === '/services' ? 'after:w-full' : ''} text-white`}>{t.nav.services}</Link></li>
+            <li><Link to="/micard" className={`relative font-medium text-shadow-md after:content-[''] after:block after:w-0 after:h-0.5 after:bg-miikaty after:transition-all after:duration-300 hover:after:w-full ${pagePath === '/micard' ? 'after:w-full' : ''} text-white`}>{t.nav.micard}</Link></li>
             
-                            <li><Link to="/about" className={`relative font-medium text-shadow-md after:content-[''] after:block after:w-0 after:h-0.5 after:bg-miikaty after:transition-all after:duration-300 hover:after:w-full ${pagePath === '/about' ? 'after:w-full' : ''} text-white`}>À propos</Link></li>
-            <li><Link to="/contact" className={`relative font-medium text-shadow-md after:content-[''] after:block after:w-0 after:h-0.5 after:bg-miikaty after:transition-all after:duration-300 hover:after:w-full ${pagePath === '/contact' ? 'after:w-full' : ''} text-white`}>Contact</Link></li>
-            <li><Link to="/faq" className={`relative font-medium text-shadow-md after:content-[''] after:block after:w-0 after:h-0.5 after:bg-miikaty after:transition-all after:duration-300 hover:after:w-full ${pagePath === '/faq' ? 'after:w-full' : ''} text-white`}>FAQ</Link></li>
-            <li>
-              <Link to="/contact" className={`ml-4 bg-gray-900 border border-gray-400 px-4 py-1.5 rounded-lg font-semibold text-sm hover:bg-gray-800 hover:border-miikaty transition text-white`}>
-                S'inscrire
-              </Link>
-            </li>
+                            <li><Link to="/about" className={`relative font-medium text-shadow-md after:content-[''] after:block after:w-0 after:h-0.5 after:bg-miikaty after:transition-all after:duration-300 hover:after:w-full ${pagePath === '/about' ? 'after:w-full' : ''} text-white`}>{t.nav.about}</Link></li>
+            <li><Link to="/contact" className={`relative font-medium text-shadow-md after:content-[''] after:block after:w-0 after:h-0.5 after:bg-miikaty after:transition-all after:duration-300 hover:after:w-full ${pagePath === '/contact' ? 'after:w-full' : ''} text-white`}>{t.nav.contact}</Link></li>
+            <li><Link to="/carrieres" className={`relative font-medium text-shadow-md after:content-[''] after:block after:w-0 after:h-0.5 after:bg-miikaty after:transition-all after:duration-300 hover:after:w-full ${pagePath === '/carrieres' ? 'after:w-full' : ''} text-white`}>{t.nav.careers}</Link></li>
+            <li><Link to="/faq" className={`relative font-medium text-shadow-md after:content-[''] after:block after:w-0 after:h-0.5 after:bg-miikaty after:transition-all after:duration-300 hover:after:w-full ${pagePath === '/faq' ? 'after:w-full' : ''} text-white`}>{t.nav.faq}</Link></li>
           </ul>
         </div>
 
@@ -110,26 +108,17 @@ function Navbar({ isScrolled, isAfterHero, isDark, setIsDark, LanguageSwitch }) 
             <div className="px-6 py-4 space-y-4">
               {/* Liens de navigation */}
               <div className="space-y-3">
-                <Link to="/" className={`block font-medium py-2 transition-colors ${pagePath === '/' ? 'text-miikaty' : 'text-white hover:text-miikaty'}`}>Accueil</Link>
-                <Link to="/home2" className={`block font-medium py-2 transition-colors ${pagePath === '/home2' ? 'text-miikaty' : 'text-white hover:text-miikaty'}`}>Accueil 2</Link>
-                <Link to="/services" className={`block font-medium py-2 transition-colors ${pagePath === '/services' ? 'text-miikaty' : 'text-white hover:text-miikaty'}`}>Services</Link>
-                <Link to="/micard" className={`block font-medium py-2 transition-colors ${pagePath === '/micard' ? 'text-miikaty' : 'text-white hover:text-miikaty'}`}>MiCard</Link>
-                <Link to="/about" className={`block font-medium py-2 transition-colors ${pagePath === '/about' ? 'text-miikaty' : 'text-white hover:text-miikaty'}`}>À propos</Link>
-                <Link to="/contact" className={`block font-medium py-2 transition-colors ${pagePath === '/contact' ? 'text-miikaty' : 'text-white hover:text-miikaty'}`}>Contact</Link>
-                <Link to="/faq" className={`block font-medium py-2 transition-colors ${pagePath === '/faq' ? 'text-miikaty' : 'text-white hover:text-miikaty'}`}>FAQ</Link>
+                <Link to="/" className={`block font-medium py-2 transition-colors ${pagePath === '/' ? 'text-miikaty' : 'text-white hover:text-miikaty'}`}>{t.nav.home}</Link>
+                <Link to="/services" className={`block font-medium py-2 transition-colors ${pagePath === '/services' ? 'text-miikaty' : 'text-white hover:text-miikaty'}`}>{t.nav.services}</Link>
+                <Link to="/micard" className={`block font-medium py-2 transition-colors ${pagePath === '/micard' ? 'text-miikaty' : 'text-white hover:text-miikaty'}`}>{t.nav.micard}</Link>
+                <Link to="/about" className={`block font-medium py-2 transition-colors ${pagePath === '/about' ? 'text-miikaty' : 'text-white hover:text-miikaty'}`}>{t.nav.about}</Link>
+                <Link to="/contact" className={`block font-medium py-2 transition-colors ${pagePath === '/contact' ? 'text-miikaty' : 'text-white hover:text-miikaty'}`}>{t.nav.contact}</Link>
+                <Link to="/carrieres" className={`block font-medium py-2 transition-colors ${pagePath === '/carrieres' ? 'text-miikaty' : 'text-white hover:text-miikaty'}`}>{t.nav.careers}</Link>
+                <Link to="/faq" className={`block font-medium py-2 transition-colors ${pagePath === '/faq' ? 'text-miikaty' : 'text-white hover:text-miikaty'}`}>{t.nav.faq}</Link>
                 
 
               </div>
               
-              {/* Bouton S'inscrire */}
-              <div className="pt-2">
-                <Link 
-                  to="/contact" 
-                  className="block w-full bg-miikaty text-white text-center py-3 px-4 rounded-xl font-semibold hover:bg-miikaty-dark transition-colors"
-                >
-                  S'inscrire
-                </Link>
-              </div>
 
               {/* Contrôles mobile */}
               <div className="flex items-center justify-between pt-4 border-t border-white/10">
@@ -156,8 +145,7 @@ function Navbar({ isScrolled, isAfterHero, isDark, setIsDark, LanguageSwitch }) 
 }
 
 // Composant LanguageSwitch
-function LanguageSwitch() {
-  const [lang, setLang] = useState("fr");
+function LanguageSwitch({ lang, setLang }) {
   return (
     <div className="flex items-center">
       <span className={`font-bold text-base mr-1 transition-colors duration-200 ${lang === 'fr' ? 'text-white' : 'text-gray-400'}`}>FR</span>
@@ -185,6 +173,12 @@ function App() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isAfterHero, setIsAfterHero] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
+  const [lang, setLang] = useState(() => {
+    if (typeof window !== 'undefined') {
+      return localStorage.getItem('language') || 'fr';
+    }
+    return 'fr';
+  });
   const [isDark, setIsDark] = useState(() => {
     if (typeof window !== 'undefined') {
       return localStorage.getItem('theme') === 'dark';
@@ -201,6 +195,12 @@ function App() {
       localStorage.setItem('theme', 'light');
     }
   }, [isDark]);
+
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      localStorage.setItem('language', lang);
+    }
+  }, [lang]);
 
   useEffect(() => {
     // Simuler un temps de chargement pour s'assurer que tout est prêt
@@ -220,11 +220,16 @@ function App() {
   }, []);
   return (
     <ErrorBoundary>
-      <Router>
+      <Router
+        future={{
+          v7_startTransition: true,
+          v7_relativeSplatPath: true
+        }}
+      >
         <div className="min-h-screen flex flex-col text-miikaty-dark">
           {!isLoading && (
             <>
-              <Navbar isScrolled={isScrolled} isAfterHero={isAfterHero} isDark={isDark} setIsDark={setIsDark} LanguageSwitch={LanguageSwitch} />
+              <Navbar isScrolled={isScrolled} isAfterHero={isAfterHero} isDark={isDark} setIsDark={setIsDark} LanguageSwitch={() => <LanguageSwitch lang={lang} setLang={setLang} />} lang={lang} />
               <motion.main
                 className="flex-1 bg-transparent"
                 initial={{ opacity: 0 }}
@@ -232,22 +237,21 @@ function App() {
                 transition={{ duration: 1, ease: 'easeOut', delay: 0.3 }}
               >
                 <Routes>
-                  <Route path="/" element={<Home />} />
-                  <Route path="/home2" element={<Home2 />} />
-                  <Route path="/about" element={<About />} />
-                  <Route path="/services" element={<Services />} />
-                  <Route path="/contact" element={<Contact />} />
-                  <Route path="/about" element={<About />} />
-                  <Route path="/micard" element={<MiCard />} />
-                  <Route path="/faq" element={<FAQ />} />
-                  <Route path="/termes-et-conditions" element={<TermsAndConditions />} />
-                  <Route path="/cgu" element={<CGU />} />
-                  <Route path="/mentions-legales" element={<LegalNotice />} />
-                  <Route path="/securite" element={<Home />} />
+                  <Route path="/" element={<Home lang={lang} />} />
+                  <Route path="/about" element={<About lang={lang} />} />
+                  <Route path="/services" element={<Services lang={lang} />} />
+                  <Route path="/contact" element={<Contact lang={lang} />} />
+                  <Route path="/micard" element={<MiCard lang={lang} />} />
+                  <Route path="/faq" element={<FAQ lang={lang} />} />
+                  <Route path="/termes-et-conditions" element={<TermsAndConditions lang={lang} />} />
+                  <Route path="/cgu" element={<CGU lang={lang} />} />
+                  <Route path="/mentions-legales" element={<LegalNotice lang={lang} />} />
+                  <Route path="/carrieres" element={<Careers lang={lang} />} />
+                  <Route path="/securite" element={<Home lang={lang} />} />
           
                 </Routes>
               </motion.main>
-              <ChatAssistant />
+              <ChatAssistant lang={lang} />
             </>
           )}
         </div>

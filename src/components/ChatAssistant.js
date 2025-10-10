@@ -1,13 +1,15 @@
 import React, { useState, useRef, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import { useTranslation } from "../translations";
 
-export default function ChatAssistant() {
+export default function ChatAssistant({ lang = 'fr' }) {
+  const t = useTranslation(lang);
   const [isOpen, setIsOpen] = useState(false);
   const [messages, setMessages] = useState([
     {
       id: 1,
       type: "bot",
-      text: "Bonjour ! Je suis l'assistant Mikaty. Comment puis-je vous aider aujourd'hui ? 😊",
+      text: t.chatAssistant.greeting,
       timestamp: new Date()
     }
   ]);
@@ -242,7 +244,7 @@ export default function ChatAssistant() {
                   value={inputValue}
                   onChange={(e) => setInputValue(e.target.value)}
                   onKeyPress={handleKeyPress}
-                  placeholder="Tapez votre message..."
+                  placeholder={t.chatAssistant.placeholder}
                   className="flex-1 px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-xl focus:outline-none focus:border-miikaty dark:bg-gray-700 dark:text-white"
                 />
                 <button

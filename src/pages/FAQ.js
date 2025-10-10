@@ -1,19 +1,18 @@
 import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
-import { AnimatePresence } from "framer-motion";
+import { useTranslation } from "../translations";
 
-export default function FAQ() {
+export default function FAQ({ lang = 'fr' }) {
+  const t = useTranslation(lang);
   const [isLoaded, setIsLoaded] = useState(false);
-  const [activeCategory, setActiveCategory] = useState("compte");
+  const [activeCategory, setActiveCategory] = useState("general");
   const [openQuestions, setOpenQuestions] = useState({});
 
   useEffect(() => {
-    // Délai pour s'assurer que le composant est complètement monté
     const timer = setTimeout(() => {
       setIsLoaded(true);
     }, 100);
-
     return () => clearTimeout(timer);
   }, []);
 
@@ -25,509 +24,339 @@ export default function FAQ() {
   };
 
   const categories = [
+    { id: "general", name: "Général", icon: "ℹ️" },
     { id: "compte", name: "Compte", icon: "👤" },
-    { id: "carte", name: "Carte", icon: "💳" },
-    { id: "virements", name: "Virements", icon: "🔄" },
+    { id: "transferts", name: "Transferts", icon: "🔄" },
+    { id: "micard", name: "MiCard", icon: "💳" },
     { id: "paiements", name: "Paiements", icon: "💸" },
-    { id: "factures", name: "Factures", icon: "📋" },
-    { id: "deposer", name: "Déposer de l'argent", icon: "💰" },
-    { id: "envoyer", name: "Envoyer de l'argent", icon: "📤" },
-    { id: "economiser", name: "Economiser de l'argent", icon: "🏦" },
-    { id: "mshop", name: "MShop", icon: "🛍️" }
+    { id: "securite", name: "Sécurité", icon: "🔒" },
+    { id: "frais", name: "Frais", icon: "💰" }
   ];
 
   const faqData = {
+    general: [
+      {
+        id: "general1",
+        question: "Qu'est-ce que Mikaty ?",
+        answer: "Mikaty est une plateforme financière digitale qui révolutionne la façon dont les Sénégalais et les Africains gèrent leur argent. Nous offrons des services de transfert d'argent, de paiement, de carte virtuelle et bien plus encore, le tout depuis votre smartphone."
+      },
+      {
+        id: "general2",
+        question: "Mikaty est-il une banque ?",
+        answer: "Mikaty est une institution de monnaie électronique agréée par la Banque Centrale des États de l'Afrique de l'Ouest (BCEAO). Nous offrons des services financiers sécurisés et conformes aux réglementations en vigueur."
+      },
+      {
+        id: "general3",
+        question: "Comment Mikaty est-il différent des autres services financiers ?",
+        answer: "Mikaty se distingue par sa simplicité d'utilisation, ses frais compétitifs, sa sécurité de pointe et son approche centrée sur l'utilisateur. Nous n'avons pas de succursales physiques, ce qui nous permet d'offrir des services plus rapides et moins chers."
+      },
+      {
+        id: "general4",
+        question: "Dans quels pays Mikaty est-il disponible ?",
+        answer: "Mikaty est actuellement disponible au Sénégal et nous étendons progressivement nos services à d'autres pays d'Afrique de l'Ouest. Restez connectés pour les annonces de nouveaux marchés."
+      }
+    ],
     compte: [
       {
         id: "compte1",
-        question: "Comment ouvrir un compte ?",
-        answer: "Téléchargez l'application Mikaty, entrez votre numéro de téléphone, recevez un code de vérification par SMS, et créez votre mot de passe. C'est simple et rapide !"
+        question: "Comment ouvrir un compte Mikaty ?",
+        answer: "Ouvrir un compte Mikaty est très simple : téléchargez l'application, entrez votre numéro de téléphone, vérifiez votre identité avec un code SMS, et créez votre mot de passe. Votre compte sera actif en quelques minutes."
       },
       {
         id: "compte2",
-        question: "Quels documents faut-il pour valider mon identité ?",
-        answer: "Pour valider votre identité, vous aurez besoin de votre carte d'identité nationale, votre passeport ou votre permis de conduire. Une photo de vous sera également requise."
+        question: "Quels documents sont nécessaires pour ouvrir un compte ?",
+        answer: "Vous aurez besoin de votre carte d'identité nationale, d'un numéro de téléphone valide et d'une adresse email. Pour des limites plus élevées, vous devrez fournir des documents d'identité supplémentaires."
       },
       {
         id: "compte3",
-        question: "Ma pièce a été refusée, pourquoi ?",
-        answer: "Votre pièce peut être refusée si elle est illisible, expirée, ou si les informations ne correspondent pas à celles de votre compte. Vérifiez que votre document est valide et lisible."
+        question: "Y a-t-il un âge minimum pour ouvrir un compte ?",
+        answer: "Vous devez avoir au moins 18 ans pour ouvrir un compte Mikaty. Les mineurs peuvent utiliser Mikaty sous la supervision d'un tuteur légal."
       },
       {
         id: "compte4",
-        question: "Comment mettre à jour mes infos d'identification ?",
-        answer: "Allez dans Paramètres > Profil > Informations personnelles. Vous pourrez modifier vos coordonnées et télécharger de nouveaux documents d'identité si nécessaire."
-      },
-      {
-        id: "compte5",
-        question: "Mon compte est bloqué, comment le débloquer ?",
-        answer: "Contactez notre support client via l'application ou par téléphone. Nous vous aiderons à identifier la cause du blocage et à le résoudre rapidement."
-      },
-      {
-        id: "compte6",
-        question: "Comment modifier mon code de sécurité ?",
-        answer: "Allez dans Paramètres > Sécurité > Code de sécurité. Vous devrez entrer votre ancien code puis définir un nouveau code à 4 chiffres."
-      },
-      {
-        id: "compte7",
-        question: "Quels sont les frais liés au compte ?",
-        answer: "L'ouverture et la tenue de compte sont gratuites. Seules certaines transactions (recharges, transferts externes) peuvent avoir des frais minimes."
+        question: "Puis-je avoir plusieurs comptes Mikaty ?",
+        answer: "Non, un seul compte Mikaty est autorisé par personne. Cela garantit la sécurité et la conformité avec les réglementations anti-blanchiment."
       }
     ],
-    carte: [
+    transferts: [
       {
-        id: "carte1",
-        question: "Comment obtenir une carte ?",
-        answer: "Une fois votre compte validé, vous pouvez commander votre carte depuis l'application. Elle sera livrée à votre adresse en 3-5 jours ouvrés."
+        id: "transfert1",
+        question: "Comment envoyer de l'argent avec Mikaty ?",
+        answer: "Pour envoyer de l'argent, ouvrez l'application, sélectionnez 'Envoyer', entrez le numéro de téléphone du destinataire, saisissez le montant et confirmez la transaction. L'argent arrive instantanément."
       },
       {
-        id: "carte2",
-        question: "Combien coûte la carte ?",
-        answer: "La première carte est gratuite. En cas de perte ou de vol, une nouvelle carte coûte 1000 FCFA. La livraison est incluse dans le prix."
+        id: "transfert2",
+        question: "Puis-je envoyer de l'argent à des personnes qui n'ont pas Mikaty ?",
+        answer: "Oui, vous pouvez envoyer de l'argent à n'importe qui au Sénégal, même s'ils n'ont pas encore Mikaty. Ils recevront un SMS avec les instructions pour récupérer l'argent."
       },
       {
-        id: "carte3",
-        question: "Comment activer ma carte ?",
-        answer: "Votre carte s'active automatiquement dès réception. Vous recevrez un SMS de confirmation. Vous pouvez aussi l'activer manuellement dans l'application."
+        id: "transfert3",
+        question: "Quels sont les délais de traitement des transferts ?",
+        answer: "Les transferts entre utilisateurs Mikaty sont instantanés. Les transferts vers d'autres services peuvent prendre quelques minutes à quelques heures selon le service de destination."
       },
       {
-        id: "carte4",
-        question: "Comment bloquer/débloquer ma carte ?",
-        answer: "Dans l'application, allez dans Carte > Gérer ma carte. Vous pouvez bloquer temporairement votre carte et la débloquer quand vous le souhaitez."
-      },
-      {
-        id: "carte5",
-        question: "Comment remplacer ma carte ?",
-        answer: "En cas de perte ou de vol, bloquez immédiatement votre carte dans l'application, puis commandez une nouvelle carte. L'ancienne sera automatiquement désactivée."
-      },
-      {
-        id: "carte6",
-        question: "Quels sont les plafonds de ma carte ?",
-        answer: "Les plafonds varient selon votre niveau de vérification : 50 000 FCFA/jour pour les comptes basiques, 200 000 FCFA/jour pour les comptes vérifiés, et 500 000 FCFA/jour pour les comptes premium."
+        id: "transfert4",
+        question: "Y a-t-il des limites sur les montants de transfert ?",
+        answer: "Oui, il y a des limites quotidiennes et mensuelles qui dépendent du niveau de vérification de votre compte. Ces limites peuvent être augmentées en complétant votre profil."
       }
     ],
-    virements: [
+    micard: [
       {
-        id: "virement1",
-        question: "Comment recharger ma carte par virement bancaire ?",
-        answer: "Utilisez votre RIB Mikaty pour recevoir des virements. Allez dans Recharger > Virement bancaire pour obtenir vos coordonnées bancaires complètes."
+        id: "micard1",
+        question: "Qu'est-ce que MiCard ?",
+        answer: "MiCard est notre carte virtuelle qui vous permet de payer en ligne et en magasin. Elle est liée à votre compte Mikaty et vous donne accès à vos fonds partout où les cartes sont acceptées."
       },
       {
-        id: "virement2",
-        question: "Quels sont les délais pour recevoir un virement ?",
-        answer: "Les virements SEPA sont généralement traités en 24-48h ouvrées. Les virements internes entre banques sénégalaises sont généralement instantanés ou traités le jour même."
+        id: "micard2",
+        question: "Comment obtenir une MiCard ?",
+        answer: "La MiCard est disponible directement dans l'application Mikaty. Il suffit de la demander depuis votre tableau de bord et elle sera activée instantanément sur votre compte."
       },
       {
-        id: "virement3",
-        question: "Puis-je recevoir un virement de l'étranger ?",
-        answer: "Oui, vous pouvez recevoir des virements internationaux. Les délais varient selon le pays d'origine (2-5 jours ouvrés) et des frais de change peuvent s'appliquer."
+        id: "micard3",
+        question: "MiCard est-elle acceptée partout ?",
+        answer: "MiCard est acceptée partout où les cartes Visa sont acceptées, que ce soit en ligne ou dans les magasins physiques au Sénégal et à l'international."
       },
       {
-        id: "virement4",
-        question: "Puis-je envoyer de l'argent vers un compte bancaire ?",
-        answer: "Oui, vous pouvez envoyer de l'argent vers un compte bancaire sénégalais ou européen. Les frais et délais varient selon la destination et le montant."
-      },
-      {
-        id: "virement5",
-        question: "Comment obtenir un RIB ?",
-        answer: "Votre RIB est disponible dans l'application sous Recharger > Virement bancaire. Vous pouvez le télécharger ou le copier pour le partager."
+        id: "micard4",
+        question: "Puis-je retirer de l'argent avec MiCard ?",
+        answer: "Oui, vous pouvez retirer de l'argent aux distributeurs automatiques qui acceptent les cartes Visa. Des frais peuvent s'appliquer selon l'établissement."
       }
     ],
     paiements: [
       {
         id: "paiement1",
-        question: "Comment faire un paiement en ligne ?",
-        answer: "Sélectionnez l'option 'Paiement en ligne' dans l'application, entrez les informations de votre carte, confirmez le montant et validez. Vous recevrez une confirmation par SMS."
+        question: "Comment payer mes factures avec Mikaty ?",
+        answer: "Dans l'application, sélectionnez 'Paiements', choisissez le type de facture (électricité, eau, téléphone, etc.), entrez vos informations et confirmez le paiement. C'est simple et sécurisé."
       },
       {
         id: "paiement2",
-        question: "Comment faire un paiement TPE ?",
-        answer: "Présentez votre carte Mikaty au terminal de paiement, entrez votre code secret à 4 chiffres, et confirmez le montant. Le paiement sera traité instantanément."
+        question: "Quels types de factures puis-je payer ?",
+        answer: "Vous pouvez payer vos factures d'électricité (Senelec), d'eau (SDE), de téléphone (Orange, Free, Expresso), d'internet et bien d'autres services."
       },
       {
         id: "paiement3",
-        question: "Comment annuler un abonnement ?",
-        answer: "Allez dans Paiements > Abonnements actifs, sélectionnez l'abonnement à annuler et confirmez. L'annulation prendra effet à la fin de la période en cours."
+        question: "Les paiements de factures sont-ils instantanés ?",
+        answer: "La plupart des paiements de factures sont traités instantanément. Certains services peuvent prendre quelques minutes pour être confirmés."
       },
       {
         id: "paiement4",
-        question: "Comment fonctionne le token Mikaty ?",
-        answer: "Le token Mikaty est un code de sécurité unique généré pour chaque transaction. Il est envoyé par SMS et doit être saisi pour confirmer les opérations sensibles."
+        question: "Puis-je programmer des paiements automatiques ?",
+        answer: "Oui, vous pouvez programmer des paiements automatiques pour vos factures récurrentes, ce qui vous évite les oublis et les frais de retard."
       }
     ],
-    factures: [
+    securite: [
       {
-        id: "facture1",
-        question: "Comment acheter du crédit téléphonique ?",
-        answer: "Allez dans Factures > Téléphonie, sélectionnez votre opérateur, entrez votre numéro et le montant de recharge. Le crédit sera ajouté instantanément."
+        id: "securite1",
+        question: "Mon argent est-il en sécurité avec Mikaty ?",
+        answer: "Absolument. Mikaty utilise un chiffrement de niveau bancaire et est conforme aux standards internationaux de sécurité. Vos fonds sont protégés par les meilleures technologies de sécurité."
       },
       {
-        id: "facture2",
-        question: "Comment acheter une recharge Rapido ?",
-        answer: "Dans Factures > Transport, sélectionnez Rapido, entrez votre numéro de carte et le montant. La recharge sera disponible immédiatement sur votre carte."
+        id: "securite2",
+        question: "Que faire si je perds mon téléphone ?",
+        answer: "Contactez immédiatement notre service client. Nous bloquerons votre compte et vous aiderons à le récupérer sur un nouveau téléphone. Votre argent reste en sécurité."
       },
       {
-        id: "facture3",
-        question: "Comment acheter une recharge Woyofal ?",
-        answer: "Sélectionnez Woyofal dans Factures > Transport, entrez votre numéro de carte et le montant. Votre carte sera rechargée instantanément."
+        id: "securite3",
+        question: "Comment protéger mon compte Mikaty ?",
+        answer: "Utilisez un mot de passe fort, activez l'authentification à deux facteurs, ne partagez jamais vos codes de vérification et déconnectez-vous toujours de l'application après utilisation."
       },
       {
-        id: "facture4",
-        question: "Comment régler sa facture Senelec ?",
-        answer: "Allez dans Factures > Électricité, sélectionnez Senelec, entrez votre numéro de compteur et le montant à payer. Le paiement sera traité en temps réel."
-      },
-      {
-        id: "facture5",
-        question: "Comment régler sa facture Sen' Eau ?",
-        answer: "Dans Factures > Eau, sélectionnez Sen' Eau, entrez votre numéro de compteur et le montant. Votre facture sera réglée immédiatement."
+        id: "securite4",
+        question: "Mikaty partage-t-il mes informations personnelles ?",
+        answer: "Non, Mikaty ne partage jamais vos informations personnelles avec des tiers sans votre consentement explicite. Nous respectons strictement votre vie privée et les réglementations sur la protection des données."
       }
     ],
-    deposer: [
+    frais: [
       {
-        id: "deposer1",
-        question: "Comment recharger ma carte par Wave ?",
-        answer: "Allez dans Recharger > Wave, entrez votre numéro Wave et le montant. Confirmez la transaction et votre carte sera rechargée instantanément."
+        id: "frais1",
+        question: "Quels sont les frais de Mikaty ?",
+        answer: "Mikaty offre des transferts gratuits entre utilisateurs Mikaty. Les autres services ont des frais compétitifs et transparents, affichés clairement avant chaque transaction."
       },
       {
-        id: "deposer2",
-        question: "Comment recharger ma carte par Orange money ?",
-        answer: "Sélectionnez Orange Money dans Recharger, entrez votre numéro Orange et le montant. Validez la transaction pour recharger votre carte."
+        id: "frais2",
+        question: "Y a-t-il des frais cachés ?",
+        answer: "Non, Mikaty s'engage à la transparence totale. Tous les frais sont clairement affichés avant chaque transaction. Il n'y a jamais de frais cachés ou de surprises."
       },
       {
-        id: "deposer3",
-        question: "Comment recharger ma carte par Yas ?",
-        answer: "Dans Recharger > Yas, entrez votre numéro Yas et le montant. Confirmez la transaction pour recharger votre carte Mikaty."
+        id: "frais3",
+        question: "Comment Mikaty gagne-t-il de l'argent ?",
+        answer: "Mikaty gagne de l'argent grâce aux frais de transaction sur certains services, aux commissions sur les paiements de factures et aux services premium. Nous ne gagnons jamais d'argent sur vos dépôts."
       },
       {
-        id: "deposer4",
-        question: "Comment recharger ma carte par virement bancaire ?",
-        answer: "Utilisez votre RIB Mikaty pour recevoir des virements. Les fonds seront automatiquement ajoutés à votre carte une fois le virement traité par votre banque."
-      },
-      {
-        id: "deposer5",
-        question: "Comment recharger ma carte par mon coffre ?",
-        answer: "Allez dans Coffre > Transférer vers carte, sélectionnez le montant et confirmez. L'argent sera instantanément transféré de votre coffre vers votre carte."
-      },
-      {
-        id: "deposer6",
-        question: "Puis-je recharger ma carte via mon RIB Mikaty ?",
-        answer: "Oui, vous pouvez utiliser votre RIB Mikaty pour recevoir des virements qui rechargeront automatiquement votre carte une fois traités."
-      },
-      {
-        id: "deposer7",
-        question: "Puis-je recevoir un virement de l'étranger ?",
-        answer: "Oui, vous pouvez recevoir des virements internationaux sur votre RIB Mikaty. Les délais et frais varient selon le pays d'origine."
-      }
-    ],
-    envoyer: [
-      {
-        id: "envoyer1",
-        question: "Comment envoyer de l'argent vers Wave ?",
-        answer: "Allez dans Envoyer > Wave, entrez le numéro Wave du destinataire et le montant. Confirmez la transaction et l'argent sera envoyé instantanément."
-      },
-      {
-        id: "envoyer2",
-        question: "Comment envoyer de l'argent vers Orange ?",
-        answer: "Sélectionnez Orange dans Envoyer, entrez le numéro Orange du destinataire et le montant. Validez la transaction pour envoyer l'argent."
-      },
-      {
-        id: "envoyer3",
-        question: "Comment envoyer de l'argent vers Yas ?",
-        answer: "Dans Envoyer > Yas, entrez le numéro Yas du destinataire et le montant. Confirmez la transaction pour envoyer l'argent."
-      },
-      {
-        id: "envoyer4",
-        question: "Quels sont les frais ?",
-        answer: "Les transferts vers Wave, Orange et Yas sont gratuits pour les montants jusqu'à 50 000 FCFA. Au-delà, des frais de 100 FCFA s'appliquent."
-      },
-      {
-        id: "envoyer5",
-        question: "Comment annuler un transfert ?",
-        answer: "Les transferts sont instantanés et ne peuvent pas être annulés. En cas d'erreur, contactez immédiatement notre support client."
-      },
-      {
-        id: "envoyer6",
-        question: "Puis-je envoyer de l'argent à l'étranger ?",
-        answer: "Oui, vous pouvez envoyer de l'argent à l'étranger. Les délais, frais et limites varient selon le pays de destination."
-      }
-    ],
-    economiser: [
-      {
-        id: "economiser1",
-        question: "Qu'est-ce qu'un coffre ?",
-        answer: "Un coffre est un compte d'épargne séparé de votre carte principale. Il vous permet de mettre de l'argent de côté avec un taux d'intérêt avantageux."
-      },
-      {
-        id: "economiser2",
-        question: "Comment programmer des dépôts réguliers ?",
-        answer: "Allez dans Coffre > Programmer, choisissez la fréquence (hebdomadaire, mensuelle), le montant et la date de début. Les dépôts seront automatiques."
-      },
-      {
-        id: "economiser3",
-        question: "Comment retirer de l'argent de mon coffre ?",
-        answer: "Dans Coffre > Retirer, sélectionnez le montant et confirmez. L'argent sera transféré vers votre carte principale en quelques secondes."
-      },
-      {
-        id: "economiser4",
-        question: "Comment bloquer/débloquer un coffre ?",
-        answer: "Allez dans Coffre > Gérer > Bloquer/Débloquer. Un coffre bloqué ne peut pas recevoir de nouveaux dépôts mais permet toujours les retraits."
-      }
-    ],
-    mshop: [
-      {
-        id: "mshop1",
-        question: "C'est quoi MShop ?",
-        answer: "MShop est notre plateforme de commerce en ligne intégrée à Mikaty. Elle permet aux commerçants de créer des boutiques et aux clients de faire des achats en ligne."
-      },
-      {
-        id: "mshop2",
-        question: "Quels sont les frais ?",
-        answer: "MShop propose différents forfaits : gratuit pour les débutants, 2% de commission sur les ventes pour les boutiques standard, et 1.5% pour les boutiques premium."
-      },
-      {
-        id: "mshop3",
-        question: "Comment créer ma boutique ?",
-        answer: "Allez dans MShop > Créer ma boutique, remplissez les informations requises, téléchargez vos documents et attendez la validation (24-48h)."
-      },
-      {
-        id: "mshop4",
-        question: "Comment suivre mes commandes ?",
-        answer: "Dans votre tableau de bord MShop, allez dans Commandes pour voir toutes vos ventes, leur statut et gérer les expéditions."
-      },
-      {
-        id: "mshop5",
-        question: "Comment recevoir les paiements de mes clients ?",
-        answer: "Les paiements de vos clients sont automatiquement crédités sur votre compte Mikaty. Vous pouvez les transférer vers votre carte ou votre coffre."
+        id: "frais4",
+        question: "Puis-je voir l'historique de mes frais ?",
+        answer: "Oui, vous pouvez consulter l'historique détaillé de tous vos frais dans la section 'Historique' de l'application, avec une répartition claire par type de transaction."
       }
     ]
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-gray-50 via-purple-50 to-gray-100 dark:from-gray-900 dark:via-purple-900 dark:to-gray-900">
-      {/* Hero Section */}
-      <section className="relative pt-32 pb-20 px-4">
-        <div className="max-w-6xl mx-auto">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            {/* Contenu à gauche */}
-            <motion.div 
-              initial={{ opacity: 0, x: -30 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.8 }}
-              className="text-left"
-            >
-              <motion.h1 
-                initial={{ opacity: 0, y: 30 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8 }}
-                className="text-5xl md:text-7xl font-bold text-gray-900 dark:text-white mb-6"
-              >
-                Questions <span className="text-miikaty">Fréquentes</span>
-              </motion.h1>
-              <motion.p 
-                initial={{ opacity: 0, y: 30 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: 0.2 }}
-                className="text-xl md:text-2xl text-gray-600 dark:text-gray-300 mb-8"
-              >
-                Trouvez rapidement les réponses à vos questions sur Mikaty
-              </motion.p>
-            </motion.div>
-            
-            {/* Espace pour image à droite */}
-            <motion.div 
-              initial={{ opacity: 0, x: 30 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.8, delay: 0.3 }}
-              className="flex items-center justify-center"
-            >
-              <div className="w-full h-96 bg-gradient-to-br from-miikaty/20 to-purple-600/20 rounded-2xl border-2 border-dashed border-miikaty/30 flex items-center justify-center">
-                <div className="text-center text-gray-500 dark:text-gray-400">
-                  <div className="text-4xl mb-2">📸</div>
-                  <p className="text-lg">Votre image ici</p>
-                </div>
-              </div>
-            </motion.div>
-          </div>
-        </div>
-      </section>
+    <div className="min-h-screen bg-white dark:bg-gradient-to-b dark:from-[#1a1a1a] dark:to-[#2d1a4d]">
 
-      {/* Catégories */}
-      <section className="py-12 px-4">
-        <div className="max-w-6xl mx-auto">
-          <div className="flex flex-wrap justify-center gap-4 mb-12">
+      {/* FAQ Content */}
+      <section className="pt-28 pb-20 px-4">
+        <div className="max-w-7xl mx-auto">
+            <motion.div 
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            viewport={{ once: true }}
+            className="flex flex-col lg:flex-row gap-8"
+          >
+            {/* Sidebar Navigation */}
+            <div className="lg:w-1/4">
+              <div className="bg-white dark:bg-white/10 rounded-2xl shadow-lg border border-gray-100 dark:border-white/10 p-6 sticky top-24">
+                <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-6">Navigation</h3>
+                <nav className="space-y-2">
             {categories.map((category) => (
-              <motion.button
+                    <button
                 key={category.id}
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: 0.1 }}
                 onClick={() => setActiveCategory(category.id)}
-                className={`flex items-center gap-2 px-6 py-3 rounded-xl font-semibold transition-all duration-300 ${
+                      className={`w-full text-left px-4 py-3 rounded-lg font-medium transition-all duration-300 flex items-center justify-between ${
                   activeCategory === category.id
-                    ? 'bg-miikaty text-white shadow-lg'
-                    : 'bg-white/80 dark:bg-white/10 text-gray-700 dark:text-gray-300 hover:bg-miikaty/10 dark:hover:bg-white/20'
+                          ? 'bg-[#563491] text-white'
+                          : 'text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-white/5'
                 }`}
               >
-                <span className="text-xl">{category.icon}</span>
+                      <span className="flex items-center">
+                        <span className="mr-3">{category.icon}</span>
                 {category.name}
-              </motion.button>
-            ))}
+                      </span>
+                      <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                      </svg>
+                    </button>
+                  ))}
+                </nav>
+              </div>
+            </div>
+
+            {/* Main Content */}
+            <div className="lg:w-3/4">
+              <div className="mb-8">
+                <h2 className="text-3xl font-bold text-[#563491] dark:text-[#d8a5ff] mb-4">
+                  Questions fréquemment posées - {categories.find(cat => cat.id === activeCategory)?.name}
+                </h2>
+                <p className="text-gray-600 dark:text-gray-300">
+                  Questions que les gens nous posent souvent :
+                </p>
           </div>
 
-          {/* Questions */}
-          <div className="space-y-4">
-            {faqData[activeCategory].map((item, index) => (
+              {/* FAQ Questions */}
+              <div className="space-y-6">
+                {faqData[activeCategory]?.map((item, index) => (
               <motion.div
                 key={item.id}
-                initial={{ opacity: 0, x: -20 }}
-                animate={{ opacity: 1, x: 0 }}
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
-                className="bg-white/80 dark:bg-white/10 backdrop-blur-sm rounded-2xl border border-white/20 overflow-hidden"
+                    viewport={{ once: true }}
+                    className="bg-white dark:bg-white/10 rounded-2xl shadow-lg border border-gray-100 dark:border-white/10 overflow-hidden"
               >
                 <button
                   onClick={() => toggleQuestion(item.id)}
-                  className="w-full px-6 py-4 text-left flex items-center justify-between hover:bg-white/20 dark:hover:bg-white/5 transition-colors"
+                      className="w-full px-8 py-6 text-left flex justify-between items-center hover:bg-gray-50 dark:hover:bg-white/5 transition-colors"
                 >
-                  <h3 className="font-semibold text-gray-900 dark:text-white pr-4">
+                      <h3 className="text-lg font-semibold text-[#563491] dark:text-[#d8a5ff] pr-4">
                     {item.question}
                   </h3>
                   <motion.div
                     animate={{ rotate: openQuestions[item.id] ? 180 : 0 }}
                     transition={{ duration: 0.3 }}
-                    className="flex-shrink-0"
                   >
-                    <svg className="w-5 h-5 text-miikaty" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <svg className="w-6 h-6 text-[#563491]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
                     </svg>
                   </motion.div>
                 </button>
-                <AnimatePresence>
-                  {openQuestions[item.id] && (
+                    
                     <motion.div
-                      initial={{ height: 0, opacity: 0 }}
-                      animate={{ height: "auto", opacity: 1 }}
-                      exit={{ height: 0, opacity: 0 }}
+                      initial={false}
+                      animate={{ 
+                        height: openQuestions[item.id] ? 'auto' : 0,
+                        opacity: openQuestions[item.id] ? 1 : 0
+                      }}
                       transition={{ duration: 0.3 }}
                       className="overflow-hidden"
                     >
-                      <div className="px-6 pb-4 text-gray-600 dark:text-gray-300">
+                      <div className="px-8 pb-6">
+                        <p className="text-gray-700 dark:text-gray-300 leading-relaxed">
                         {item.answer}
+                        </p>
                       </div>
                     </motion.div>
-                  )}
-                </AnimatePresence>
               </motion.div>
             ))}
           </div>
-        </div>
-      </section>
 
-      {/* CTA Section */}
-      <section className="py-20 px-4">
-        <div className="max-w-4xl mx-auto text-center">
-          <motion.div 
-            initial={{ opacity: 0, y: 50 }}
-            animate={isLoaded ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-          >
-            <h2 className="text-4xl font-bold text-gray-900 dark:text-white mb-6">Vous n'avez pas trouvé votre réponse ?</h2>
-            <p className="text-xl text-gray-600 dark:text-gray-300 mb-8">
-              Notre équipe est là pour vous aider. Contactez-nous directement !
+              {/* Contact Support */}
+              <div className="mt-16 text-center">
+                <div className="bg-[#f8f7ff] dark:bg-white/5 rounded-2xl p-8">
+                  <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-4">
+                    Vous ne trouvez pas votre question ?
+                  </h3>
+                  <p className="text-gray-600 dark:text-gray-300 mb-6">
+                    Notre équipe support est disponible 24h/24 pour vous aider
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link 
                 to="/contact"
-                className="bg-miikaty hover:bg-miikaty-dark text-white px-8 py-4 rounded-xl font-semibold text-lg transition-all duration-300 transform hover:scale-105"
+                      className="px-8 py-3 bg-[#563491] text-white rounded-lg hover:bg-[#4a2c7a] transition-colors font-semibold"
               >
                 Nous contacter
               </Link>
-              <Link 
-                to="/services"
-                className="border-2 border-miikaty text-miikaty hover:bg-miikaty hover:text-white px-8 py-4 rounded-xl font-semibold text-lg transition-all duration-300 transform hover:scale-105"
-              >
-                Découvrir nos services
-              </Link>
+                    <a 
+                      href="mailto:support@mikaty.com" 
+                      className="px-8 py-3 border-2 border-[#563491] text-[#563491] rounded-lg hover:bg-[#563491] hover:text-white transition-colors font-semibold"
+                    >
+                      support@mikaty.com
+                    </a>
+                  </div>
+                </div>
+              </div>
             </div>
           </motion.div>
         </div>
       </section>
 
       {/* Footer */}
-      <footer className="bg-miikaty-dark text-white pt-12 pb-6 px-4">
-        <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-5 gap-8">
-          {/* Logo & baseline + app download */}
-          <div className="col-span-1 flex flex-col items-center md:items-start gap-4">
-            <img src="/images/logomauve.svg" alt="MIikaty" className="h-8 mb-2" />
-            <span className="text-white/80 text-sm mb-4">La finance, simple et accessible.</span>
-            <div className="flex gap-2 mt-2">
-              <a href="https://play.google.com/store/apps/details?id=ton.app" target="_blank" rel="noopener noreferrer">
-                <img src="/images/google-play-badge.svg" alt="Google Play" className="h-10" />
-              </a>
-              <a href="https://apps.apple.com/app/idtonappid" target="_blank" rel="noopener noreferrer">
-                <img src="/images/app-store-badge.svg" alt="App Store" className="h-10" />
-              </a>
-            </div>
-            <div className="mt-2 text-xs text-white/40">MIikaty SASU<br/>12 rue de la Fintech, 75000 Paris<br/>SIRET : 123 456 789 00012</div>
-          </div>
-          {/* À propos */}
-          <div className="col-span-1">
-            <div className="font-bold mb-4 text-miikaty">À propos</div>
-            <ul className="space-y-2 text-white/80 text-sm">
-              <li><a href="/about" className="hover:text-miikaty transition">Qui sommes-nous</a></li>
-              <li><a href="/about" className="hover:text-miikaty transition">Notre mission</a></li>
-              <li><a href="/careers" className="hover:text-miikaty transition">Carrières</a></li>
-            </ul>
-          </div>
-          {/* Produits */}
-          <div className="col-span-1">
-            <div className="font-bold mb-4 text-miikaty">Produits</div>
-            <ul className="space-y-2 text-white/80 text-sm">
-              <li><a href="/services" className="hover:text-miikaty transition">Application mobile</a></li>
-              <li><a href="/tarifs" className="hover:text-miikaty transition">Tarifs</a></li>
-              <li><a href="/securite" className="hover:text-miikaty transition">Sécurité</a></li>
-              <li><a href="/faq" className="hover:text-miikaty transition">FAQ</a></li>
-            </ul>
-          </div>
-          {/* Support */}
-          <div className="col-span-1">
-            <div className="font-bold mb-4 text-miikaty">Support</div>
-            <ul className="space-y-2 text-white/80 text-sm">
-              <li><a href="/contact" className="hover:text-miikaty transition">Contact</a></li>
-              <li><a href="/aide" className="hover:text-miikaty transition">Centre d'aide</a></li>
-              <li><a href="/support" className="hover:text-miikaty transition">Assistance 24/7</a></li>
-            </ul>
-          </div>
-          {/* Légal & réseaux sociaux */}
-          <div className="col-span-1 flex flex-col gap-4 items-center md:items-start">
+      <footer className="bg-gray-900 text-white py-12">
+        <div className="max-w-6xl mx-auto px-6">
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
             <div>
-              <div className="font-bold mb-4 text-miikaty">Légal</div>
-              <ul className="space-y-2 text-white/80 text-sm">
-                <li><a href="/mentions-legales" className="hover:text-miikaty transition">Mentions légales</a></li>
-                <li><a href="/cgu" className="hover:text-miikaty transition">Conditions Générales d'Utilisation</a></li>
-                <li><a href="/termes-et-conditions" className="hover:text-miikaty transition">Termes et Conditions</a></li>
+              <img src="/images/logomauve.svg" alt="Logo Mikaty" className="h-8 mb-4" />
+              <p className="text-gray-400 text-sm">
+                Révolutionner la finance digitale en Afrique et dans le monde.
+              </p>
+            </div>
+            <div>
+              <h3 className="font-semibold mb-4">Produits</h3>
+              <ul className="space-y-2 text-sm text-gray-400">
+                <li><a href="/services" className="hover:text-white transition">Services</a></li>
+                <li><a href="/micard" className="hover:text-white transition">MiCard</a></li>
+                <li><a href="/about" className="hover:text-white transition">À propos</a></li>
+            </ul>
+          </div>
+            <div>
+              <h3 className="font-semibold mb-4">Support</h3>
+              <ul className="space-y-2 text-sm text-gray-400">
+                <li><a href="/faq" className="hover:text-white transition">FAQ</a></li>
+                <li><a href="/contact" className="hover:text-white transition">Contact</a></li>
+                <li><a href="/carrieres" className="hover:text-white transition">Carrières</a></li>
               </ul>
             </div>
-            <div className="flex gap-4 mt-4">
-              <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" aria-label="Facebook" className="hover:text-miikaty transition">
-                <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M22 12c0-5.522-4.477-10-10-10S2 6.478 2 12c0 4.991 3.657 9.128 8.438 9.877v-6.987h-2.54v-2.89h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.242 0-1.63.771-1.63 1.562v1.875h2.773l-.443 2.89h-2.33v6.987C18.343 21.128 22 16.991 22 12"/></svg>
-              </a>
-              <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" aria-label="Twitter" className="hover:text-miikaty transition">
-                <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M22.46 6c-.77.35-1.6.59-2.47.69a4.3 4.3 0 0 0 1.88-2.37 8.59 8.59 0 0 1-2.72 1.04A4.28 4.28 0 0 0 16.11 4c-2.37 0-4.29 1.92-4.29 4.29 0 .34.04.67.11.99C7.69 9.09 4.07 7.38 1.64 4.9c-.37.64-.58 1.39-.58 2.19 0 1.51.77 2.84 1.94 3.62-.72-.02-1.4-.22-1.99-.55v.06c0 2.11 1.5 3.87 3.5 4.27-.36.1-.74.16-1.13.16-.28 0-.54-.03-.8-.08.54 1.68 2.12 2.91 3.99 2.94A8.6 8.6 0 0 1 2 19.54a12.13 12.13 0 0 0 6.56 1.92c7.88 0 12.2-6.53 12.2-12.2 0-.19 0-.39-.01-.58A8.72 8.72 0 0 0 24 4.59a8.48 8.48 0 0 1-2.54.7z"/></svg>
-              </a>
-              <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" className="hover:text-miikaty transition">
-                <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.76 0-5 2.24-5 5v14c0 2.76 2.24 5 5 5h14c2.76 0 5-2.24 5-5v-14c0-2.76-2.24-5-5-5zm-11 19h-3v-9h3v9zm-1.5-10.28c-.97 0-1.75-.79-1.75-1.75s.78-1.75 1.75-1.75 1.75.79 1.75 1.75-.78 1.75-1.75 1.75zm13.5 10.28h-3v-4.5c0-1.08-.02-2.47-1.5-2.47-1.5 0-1.73 1.18-1.73 2.39v4.58h-3v-9h2.89v1.23h.04c.4-.75 1.38-1.54 2.84-1.54 3.04 0 3.6 2 3.6 4.59v4.72z"/></svg>
-              </a>
-              <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" aria-label="Instagram" className="hover:text-miikaty transition">
-                <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 1.366.062 2.633.334 3.608 1.308.974.974 1.246 2.241 1.308 3.608.058 1.266.07 1.646.07 4.85s-.012 3.584-.07 4.85c-.062 1.366-.334 2.633-1.308 3.608-.974.974-2.241 1.246-3.608 1.308-1.266.058-1.646.07-4.85.07s-3.584-.012-4.85-.07c-1.366-.062-2.633-.334-3.608-1.308-.974-.974-1.246-2.241-1.308-3.608C2.175 15.647 2.163 15.267 2.163 12s.012-3.584.07-4.85c.062-1.366.334-2.633 1.308-3.608.974-.974 2.241-1.246 3.608-1.308C8.416 2.175 8.796 2.163 12 2.163zm0-2.163C8.741 0 8.332.013 7.052.072 5.775.13 4.602.402 3.635 1.37 2.668 2.337 2.396 3.51 2.338 4.788.013 8.332 0 8.741 0 12c0 3.259.013 3.668.072 4.948.058 1.277.33 2.45 1.297 3.417.967.967 2.14 1.239 3.417 1.297C8.332 23.987 8.741 24 12 24c3.259 0 3.668-.013 4.948-.072 1.277-.058 2.45-.33 3.417-1.297.967-.967 1.239-2.14 1.297-3.417.059-1.28.072-1.689.072-4.948 0-3.259-.013-3.668-.072-4.948-.058-1.277-.33-2.45-1.297-3.417-.967-.967-2.14-1.239-3.417-1.297C15.668.013 15.259 0 12 0zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zm0 10.162a3.999 3.999 0 1 1 0-7.998 3.999 3.999 0 0 1 0 7.998zm6.406-11.845a1.44 1.44 0 1 0 0 2.88 1.44 1.44 0 0 0 0-2.88z"/></svg>
-              </a>
-              <a href="https://youtube.com" target="_blank" rel="noopener noreferrer" aria-label="YouTube" className="hover:text-miikaty transition">
-                <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M23.498 6.186a2.994 2.994 0 0 0-2.112-2.112C19.645 3.5 12 3.5 12 3.5s-7.645 0-9.386.574a2.994 2.994 0 0 0-2.112 2.112C0 7.927 0 12 0 12s0 4.073.502 5.814a2.994 2.994 0 0 0 2.112 2.112C4.355 20.5 12 20.5 12 20.5s7.645 0 9.386-.574a2.994 2.994 0 0 0 2.112-2.112C24 16.073 24 12 24 12s0-4.073-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
-              </a>
+            <div>
+              <h3 className="font-semibold mb-4">Légal</h3>
+              <ul className="space-y-2 text-sm text-gray-400">
+                <li><a href="/termes-et-conditions" className="hover:text-white transition">Termes et Conditions</a></li>
+                <li><a href="/cgu" className="hover:text-white transition">CGU</a></li>
+                <li><a href="/mentions-legales" className="hover:text-white transition">Mentions Légales</a></li>
+              </ul>
             </div>
           </div>
+          <div className="border-t border-gray-800 mt-8 pt-8 text-center text-sm text-gray-400">
+            <p>&copy; 2024 Mikaty. Tous droits réservés.</p>
         </div>
-        <div className="mt-8 border-t border-white/10 pt-4 text-center text-white/60 text-sm">
-          © {new Date().getFullYear()} MIikaty. Tous droits réservés. <a href="/mentions-legales" className="underline hover:text-miikaty">Mentions légales</a>
         </div>
       </footer>
     </div>

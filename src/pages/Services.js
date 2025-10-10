@@ -1,8 +1,27 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
+import { useTranslation } from "../translations";
 
-export default function Services() {
+export default function Services({ lang = 'fr' }) {
+  const t = useTranslation(lang);
+  // Effet pour gérer le scroll automatique vers l'ancre
+  useEffect(() => {
+    const hash = window.location.hash;
+    if (hash === '#securite') {
+      // Attendre que le composant soit monté puis scroller
+      setTimeout(() => {
+        const element = document.getElementById('securite');
+        if (element) {
+          element.scrollIntoView({ 
+            behavior: 'smooth',
+            block: 'start'
+          });
+        }
+      }, 100);
+    }
+  }, []);
+
   return (
     <>
       {/* Mini Hero Section */}
@@ -21,145 +40,12 @@ export default function Services() {
            <div className="space-y-8 relative z-10 max-w-4xl mt-16">
             <div>
                                 <h1 className="text-4xl md:text-5xl font-extrabold mb-6 text-white">
-                   Découvrez tous<br />
-                   nos services
+                   {t.services.heroTitle}<br />
+                   {t.services.heroTitleLine2}
             </h1>
                <p className="text-lg md:text-xl text-white/90 font-medium mb-8 max-w-xl">
-              Des solutions innovantes pour simplifier vos paiements, votre gestion et votre quotidien.
+              {t.services.heroSubtitle}
             </p>
-            </div>
-            
-            {/* Liste des services */}
-              <div className="grid grid-cols-2 gap-2 max-w-md">
-                {/* Micash */}
-                <div className="flex items-center space-x-2 p-2 bg-white/20 backdrop-blur-sm rounded-lg hover:bg-white/30 transition-all duration-300 border border-white/30">
-                  <div className="w-6 h-6 bg-blue-100 rounded-full flex items-center justify-center flex-shrink-0">
-                    <svg className="w-3 h-3 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7.5 21 3 16.5m0 0L7.5 12M3 16.5h13.5m0-13.5L21 7.5m0 0L16.5 12M21 7.5H7.5" />
-                  </svg>
-                </div>
-                <div className="min-w-0">
-                    <h3 className="font-semibold text-white text-xs">Micash</h3>
-                    <p className="text-xs text-white/80 truncate">Transférer vers d'autres apps</p>
-                </div>
-              </div>
-              
-                {/* Crédit mobile */}
-                <div className="flex items-center space-x-2 p-2 bg-white/20 backdrop-blur-sm rounded-lg hover:bg-white/30 transition-all duration-300 border border-white/30">
-                  <div className="w-6 h-6 bg-green-100 rounded-full flex items-center justify-center flex-shrink-0">
-                    <svg className="w-3 h-3 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6v12m-3-2.818.879.659c1.171.879 3.07.879 4.242 0 1.172-.879 1.172-2.303 0-3.182C13.536 12.219 12.768 12 12 12c-.725 0-1.45-.22-2.003-.659-1.106-.879-1.106-2.303 0-3.182s2.9-.879 4.006 0l.415.33M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
-                  </svg>
-                </div>
-                <div className="min-w-0">
-                    <h3 className="font-semibold text-white text-xs">Crédit mobile</h3>
-                    <p className="text-xs text-white/80 truncate">Acheter du crédit mobile</p>
-                </div>
-              </div>
-              
-                {/* Paiement de factures */}
-                <div className="flex items-center space-x-2 p-2 bg-white/20 backdrop-blur-sm rounded-lg hover:bg-white/30 transition-all duration-300 border border-white/30">
-                  <div className="w-6 h-6 bg-purple-100 rounded-full flex items-center justify-center flex-shrink-0">
-                    <svg className="w-3 h-3 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12h3.75M9 15h3.75M9 18h3.75m3 .75H18a2.25 2.25 0 0 0 2.25-2.25V6.108c0-1.135-.845-2.098-1.976-2.192a48.424 48.424 0 0 0-1.123-.08m-5.801 0c-.065.21-.1.433-.1.664 0 .414.336.75.75.75h4.5a.75.75 0 0 0 .75-.75 2.25 2.25 0 0 0-.1-.664m-5.8 0A2.251 2.251 0 0 1 13.5 2.25H15c1.012 0 1.867.668 2.15 1.586m-5.8 0c-.376.023-.75.05-1.124.08C9.095 4.01 8.25 4.973 8.25 6.108V19.5a2.25 2.25 0 0 0 2.25 2.25h.75m0-3H21" />
-                  </svg>
-                </div>
-                <div className="min-w-0">
-                    <h3 className="font-semibold text-white text-xs">Paiement factures</h3>
-                    <p className="text-xs text-white/80 truncate">Eau, électricité, etc.</p>
-                </div>
-              </div>
-              
-                {/* Virement bancaire */}
-                <div className="flex items-center space-x-2 p-2 bg-white/20 backdrop-blur-sm rounded-lg hover:bg-white/30 transition-all duration-300 border border-white/30">
-                  <div className="w-6 h-6 bg-indigo-100 rounded-full flex items-center justify-center flex-shrink-0">
-                    <svg className="w-3 h-3 text-indigo-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z" />
-                  </svg>
-                </div>
-                <div className="min-w-0">
-                    <h3 className="font-semibold text-white text-xs">Virement bancaire</h3>
-                    <p className="text-xs text-white/80 truncate">Vers compte bancaire</p>
-                </div>
-              </div>
-              
-                {/* Cadeaux */}
-                <div className="flex items-center space-x-2 p-2 bg-white/20 backdrop-blur-sm rounded-lg hover:bg-white/30 transition-all duration-300 border border-white/30">
-                  <div className="w-6 h-6 bg-pink-100 rounded-full flex items-center justify-center flex-shrink-0">
-                    <svg className="w-3 h-3 text-pink-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12Z" />
-                  </svg>
-                </div>
-                <div className="min-w-0">
-                    <h3 className="font-semibold text-white text-xs">Cadeaux</h3>
-                    <p className="text-xs text-white/80 truncate">Offrir de l'argent</p>
-                </div>
-              </div>
-              
-                {/* Poches */}
-                <div className="flex items-center space-x-2 p-2 bg-white/20 backdrop-blur-sm rounded-lg hover:bg-white/30 transition-all duration-300 border border-white/30">
-                  <div className="w-6 h-6 bg-yellow-100 rounded-full flex items-center justify-center flex-shrink-0">
-                    <svg className="w-3 h-3 text-yellow-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M20.25 6.375c0 2.278-3.694 4.125-8.25 4.125S3.75 8.653 3.75 6.375m16.5 0c0-2.278-3.694-4.125-8.25-4.125S3.75 4.097 3.75 6.375m16.5 0v11.25c0 2.278-3.694 4.125-8.25 4.125s-8.25-1.847-8.25-4.125V6.375m16.5 0v3.75m-16.5-3.75v3.75m16.5 0v3.75C20.25 16.153 16.556 18 12 18s-8.25-1.847-8.25-4.125v-3.75m16.5 0c0 2.278-3.694 4.125-8.25 4.125s-8.25-1.847-8.25-4.125" />
-                  </svg>
-                </div>
-                <div className="min-w-0">
-                    <h3 className="font-semibold text-white text-xs">Poches</h3>
-                    <p className="text-xs text-white/80 truncate">Garder de l'argent</p>
-                </div>
-              </div>
-              
-                {/* IBAN */}
-                <div className="flex items-center space-x-2 p-2 bg-white/20 backdrop-blur-sm rounded-lg hover:bg-white/30 transition-all duration-300 border border-white/30">
-                  <div className="w-6 h-6 bg-teal-100 rounded-full flex items-center justify-center flex-shrink-0">
-                    <svg className="w-3 h-3 text-teal-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z" />
-                  </svg>
-                </div>
-                <div className="min-w-0">
-                    <h3 className="font-semibold text-white text-xs">IBAN</h3>
-                    <p className="text-xs text-white/80 truncate">Recevoir des virements</p>
-                </div>
-              </div>
-              
-                {/* Devises */}
-                <div className="flex items-center space-x-2 p-2 bg-white/20 backdrop-blur-sm rounded-lg hover:bg-white/30 transition-all duration-300 border border-white/30">
-                  <div className="w-6 h-6 bg-orange-100 rounded-full flex items-center justify-center flex-shrink-0">
-                    <svg className="w-3 h-3 text-orange-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1" />
-                  </svg>
-                </div>
-                <div className="min-w-0">
-                    <h3 className="font-semibold text-white text-xs">Devises</h3>
-                    <p className="text-xs text-white/80 truncate">Taux de change</p>
-            </div>
-          </div>
-          
-                {/* Abonnement */}
-                <div className="flex items-center space-x-2 p-2 bg-white/20 backdrop-blur-sm rounded-lg hover:bg-white/30 transition-all duration-300 border border-white/30">
-                  <div className="w-6 h-6 bg-red-100 rounded-full flex items-center justify-center flex-shrink-0">
-                    <svg className="w-3 h-3 text-red-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z" />
-                  </svg>
-                </div>
-                  <div className="min-w-0">
-                    <h3 className="font-semibold text-white text-xs">Abonnement</h3>
-                    <p className="text-xs text-white/80 truncate">Netflix et autres</p>
-              </div>
-            </div>
-            
-                {/* Tap to Pay */}
-                <div className="flex items-center space-x-2 p-2 bg-white/20 backdrop-blur-sm rounded-lg hover:bg-white/30 transition-all duration-300 border border-white/30">
-                  <div className="w-6 h-6 bg-emerald-100 rounded-full flex items-center justify-center flex-shrink-0">
-                    <svg className="w-3 h-3 text-emerald-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z" />
-                    </svg>
-                  </div>
-                  <div className="min-w-0">
-                    <h3 className="font-semibold text-white text-xs">Tap to Pay</h3>
-                    <p className="text-xs text-white/80 truncate">Payer avec le téléphone</p>
-                </div>
-                  </div>
                   </div>
                   </div>
                   </div>
@@ -172,11 +58,10 @@ export default function Services() {
         <div className="max-w-7xl mx-auto px-6">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold text-[#563491] dark:bg-gradient-to-r dark:from-white dark:to-[#d8a5ff] dark:bg-clip-text dark:text-transparent mb-6">
-              Nos services principaux
+              {t.services.mainTitle}
             </h2>
             <p className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
-              Découvrez les fonctionnalités qui font de Mikaty<br />
-              votre partenaire financier de confiance.
+              {t.services.mainSubtitle}
             </p>
               </div>
           
@@ -525,6 +410,159 @@ export default function Services() {
         </div>
       </section>
 
+      {/* Section Sécurité */}
+      <section id="securite" className="py-20 bg-gradient-to-r from-gray-50 to-purple-50 dark:from-gray-900 dark:to-black">
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="flex flex-col lg:flex-row items-center gap-12">
+            
+            {/* Contenu texte à gauche */}
+            <div className="lg:w-1/2">
+              <motion.div
+                initial={{ opacity: 0, x: -30 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.8 }}
+                viewport={{ once: true }}
+              >
+                {/* Icône et titre */}
+                <div className="flex items-center mb-6">
+                  <div className="w-12 h-12 bg-[#563491] rounded-lg flex items-center justify-center mr-4">
+                    <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
+                    </svg>
+                  </div>
+                  <h2 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white">
+                    {t.services.security.title}
+            </h2>
+          </div>
+          
+                {/* Sous-titres */}
+                <div className="flex items-center mb-4">
+                  <div className="w-6 h-6 bg-green-500 rounded-full flex items-center justify-center mr-3">
+                    <svg className="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                </svg>
+              </div>
+                  <span className="text-green-400 text-xl font-semibold">{t.services.security.pciDss}</span>
+            </div>
+            
+                <div className="mb-8">
+                  <span className="text-[#563491] text-xl font-semibold">{t.services.security.compliance}</span>
+              </div>
+
+                {/* Paragraphes */}
+                <div className="space-y-6 text-gray-700 dark:text-white/90 text-lg leading-relaxed">
+                  <p>
+                    {t.services.security.description1}
+                  </p>
+                  <p>
+                    {t.services.security.description2}
+                  </p>
+                </div>
+              </motion.div>
+            </div>
+            
+            {/* Zone image à droite */}
+            <div className="lg:w-1/2">
+              <motion.div
+                initial={{ opacity: 0, x: 30 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.8, delay: 0.2 }}
+                viewport={{ once: true }}
+                className="relative"
+              >
+                {/* Zone vide pour l'image */}
+                <div className="relative">
+                  {/* Fond flou avec lumières */}
+                  <div className="absolute inset-0 bg-gradient-to-r from-blue-500/20 via-purple-500/20 to-pink-500/20 blur-3xl"></div>
+                  
+                  {/* Conteneur agrandi pour l'image */}
+                  <div className="relative bg-gray-100 dark:bg-gray-800 rounded-3xl p-8 w-full max-w-lg h-[350px] mx-auto flex items-center justify-center">
+                    <div className="text-center">
+                      <div className="w-16 h-16 bg-gray-200 dark:bg-gray-700 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <svg className="w-8 h-8 text-gray-400 dark:text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                </svg>
+              </div>
+                      <p className="text-gray-500 dark:text-gray-400 text-sm">Zone réservée pour l'image</p>
+                    </div>
+                  </div>
+                </div>
+              </motion.div>
+            </div>
+            </div>
+            
+          {/* Liste des certifications en bas */}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.4 }}
+            viewport={{ once: true }}
+            className="mt-16"
+          >
+            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6">
+              {/* Certifié PCI DSS */}
+              <div className="flex flex-col items-center text-center">
+                <div className="w-12 h-12 flex items-center justify-center mb-2">
+                  <svg className="w-8 h-8" fill="none" stroke="#10B981" strokeWidth={2} viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+                </svg>
+                </div>
+                <span className="text-gray-900 dark:text-white text-xs font-medium">{t.services.security.cert1}</span>
+              </div>
+
+              {/* Chiffrement sécurisé */}
+              <div className="flex flex-col items-center text-center">
+                <div className="w-12 h-12 flex items-center justify-center mb-2">
+                  <svg className="w-8 h-8" fill="none" stroke="#3B82F6" strokeWidth={2} viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M15 7a2 2 0 012 2m4 0a6 6 0 01-7.743 5.743L11 17H9v2H7v2H4a1 1 0 01-1-1v-2.586a1 1 0 01.293-.707l5.964-5.964A6 6 0 1121 9z" />
+                  </svg>
+                </div>
+                <span className="text-gray-900 dark:text-white text-xs font-medium">{t.services.security.cert2}</span>
+            </div>
+            
+              {/* Protection des données */}
+              <div className="flex flex-col items-center text-center">
+                <div className="w-12 h-12 flex items-center justify-center mb-2">
+                  <svg className="w-8 h-8" fill="none" stroke="#8B5CF6" strokeWidth={2} viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
+                </svg>
+                </div>
+                <span className="text-gray-900 dark:text-white text-xs font-medium">{t.services.security.cert4}</span>
+              </div>
+
+              {/* Surveillance 24h/24 */}
+              <div className="flex flex-col items-center text-center">
+                <div className="w-12 h-12 flex items-center justify-center mb-2">
+                  <svg className="w-8 h-8" fill="none" stroke="#F97316" strokeWidth={2} viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                  </svg>
+                </div>
+                <span className="text-gray-900 dark:text-white text-xs font-medium">{t.services.security.cert6}</span>
+            </div>
+            
+              {/* Conforme au RGPD */}
+              <div className="flex flex-col items-center text-center">
+                <div className="w-12 h-12 flex items-center justify-center mb-2">
+                  <svg className="w-8 h-8" fill="none" stroke="#14B8A6" strokeWidth={2} viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+                  </svg>
+                </div>
+                <span className="text-gray-900 dark:text-white text-xs font-medium">{t.services.security.cert5}</span>
+              </div>
+
+              {/* Authentification 2FA */}
+              <div className="flex flex-col items-center text-center">
+                <div className="w-12 h-12 flex items-center justify-center mb-2">
+                  <svg className="w-8 h-8" fill="none" stroke="#EAB308" strokeWidth={2} viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z" />
+                  </svg>
+                </div>
+                <span className="text-gray-900 dark:text-white text-xs font-medium">{t.services.security.cert3}</span>
+            </div>
+            </div>
+          </motion.div>
+          </div>
+        </section>
 
       {/* Section Essayez Mikaty dès aujourd'hui */}
       <section className="py-16 bg-white dark:bg-[#1a1a1a]">
@@ -536,10 +574,10 @@ export default function Services() {
             viewport={{ once: true }}
           >
             <h2 className="text-3xl md:text-4xl font-bold text-[#563491] dark:text-white mb-6">
-              Essayez Mikaty dès aujourd'hui
+              {t.services.cta.title}
         </h2>
             <p className="text-lg text-gray-600 dark:text-gray-300 mb-8 max-w-2xl mx-auto">
-              Rejoignez des milliers d'utilisateurs qui ont déjà transformé leur expérience financière avec Mikaty.
+              {t.services.cta.subtitle}
             </p>
             
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-8">

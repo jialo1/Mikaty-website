@@ -1,387 +1,293 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { motion } from "framer-motion";
+import { useTranslation } from "../translations";
 
-export default function About() {
-  const [isLoaded, setIsLoaded] = useState(false);
+export default function About({ lang = 'fr' }) {
+  const t = useTranslation(lang);
+  const [expandedCard, setExpandedCard] = useState(null);
 
-  useEffect(() => {
-    // Délai pour s'assurer que le composant est complètement monté
-    const timer = setTimeout(() => {
-      setIsLoaded(true);
-    }, 100);
-
-    return () => clearTimeout(timer);
-  }, []);
+  const toggleCard = (cardId) => {
+    // Si la carte est déjà ouverte, on la ferme
+    if (expandedCard === cardId) {
+      setExpandedCard(null);
+    } else {
+      // Sinon on l'ouvre
+      setExpandedCard(cardId);
+    }
+  };
   return (
-    <div className="min-h-screen bg-gradient-to-br from-gray-50 via-purple-50 to-gray-100 dark:from-gray-900 dark:via-purple-900 dark:to-gray-900">
+    <div className="bg-gradient-to-r from-[#2D0036] to-[#3c0470] dark:from-[#2D0036] dark:to-[#3c0470] from-gray-50 to-purple-50 text-purple-100 dark:text-purple-100 text-gray-800 min-h-screen font-sans">
       {/* Hero Section */}
-      <section className="relative pt-32 pb-20 px-4">
-        <div className="max-w-6xl mx-auto">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            {/* Contenu à gauche */}
-            <motion.div 
-              initial={{ opacity: 0, x: -30 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.8 }}
-              className="text-left"
-            >
-              <motion.h1 
-                initial={{ opacity: 0, y: 30 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8 }}
-                className="text-5xl md:text-7xl font-bold text-gray-900 dark:text-white mb-6"
-              >
-                À <span className="text-miikaty">propos</span>
-              </motion.h1>
-              <motion.p 
-                initial={{ opacity: 0, y: 30 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: 0.2 }}
-                className="text-xl md:text-2xl text-gray-600 dark:text-gray-300 mb-8"
-              >
-                Une fintech innovante qui révolutionne les paiements en Afrique
-              </motion.p>
-              <motion.div 
-                initial={{ opacity: 0, y: 30 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: 0.4 }}
-                className="flex flex-col sm:flex-row gap-4"
-              >
-                <button className="bg-miikaty hover:bg-miikaty-dark text-white px-8 py-4 rounded-xl font-semibold text-lg transition-all duration-300 transform hover:scale-105">
-                  Découvrir notre histoire
-                </button>
-                <button className="border-2 border-miikaty text-miikaty hover:bg-miikaty hover:text-white px-8 py-4 rounded-xl font-semibold text-lg transition-all duration-300 transform hover:scale-105">
-                  Rejoindre l'équipe
-                </button>
-              </motion.div>
-            </motion.div>
-            
-            {/* Espace pour image à droite */}
-            <motion.div 
-              initial={{ opacity: 0, x: 30 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.8, delay: 0.3 }}
-              className="flex items-center justify-center"
-            >
-              <div className="w-full h-96 bg-gradient-to-br from-miikaty/20 to-purple-600/20 rounded-2xl border-2 border-dashed border-miikaty/30 flex items-center justify-center">
-                <div className="text-center text-gray-500 dark:text-gray-400">
-                  
-                  <p className="text-lg">Votre image ici</p>
-                </div>
-              </div>
-            </motion.div>
-          </div>
-        </div>
-      </section>
-
-      {/* Notre Histoire */}
-      <section className="py-20 px-4 bg-white/50 dark:bg-white/5">
-        <div className="max-w-6xl mx-auto">
-          <motion.div 
-            initial={{ opacity: 0, y: 50 }}
-            animate={isLoaded ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-            className="grid md:grid-cols-2 gap-12 items-center"
-          >
-            <div>
-              <h2 className="text-4xl font-bold text-gray-900 dark:text-white mb-6">Notre Histoire</h2>
-              <p className="text-lg text-gray-600 dark:text-gray-300 mb-6">
-                Fondée en 2020, Mikaty est née de la vision de démocratiser l'accès aux services financiers en Afrique. 
-                Notre mission est de rendre les paiements simples, sécurisés et accessibles à tous.
-              </p>
-              <p className="text-lg text-gray-600 dark:text-gray-300 mb-6">
-                De nos débuts modestes à Dakar, nous avons grandi pour devenir une plateforme de référence 
-                dans le domaine des paiements mobiles, touchant des millions d'utilisateurs à travers l'Afrique.
-              </p>
-              <div className="grid grid-cols-3 gap-6 mt-8">
-                <div className="text-center">
-                  <div className="text-3xl font-bold text-miikaty">2020</div>
-                  <div className="text-gray-500 dark:text-gray-400">Fondation</div>
-                </div>
-                <div className="text-center">
-                  <div className="text-3xl font-bold text-miikaty">2022</div>
-                  <div className="text-gray-500 dark:text-gray-400">Expansion</div>
-                </div>
-                <div className="text-center">
-                  <div className="text-3xl font-bold text-miikaty">2024</div>
-                  <div className="text-gray-500 dark:text-gray-400">Innovation</div>
-                </div>
-              </div>
-            </div>
-            
-            <motion.div 
-              initial={{ opacity: 0, scale: 0.8 }}
-              animate={isLoaded ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.8 }}
-              transition={{ duration: 0.8, delay: 0.4 }}
-              className="relative"
-            >
-              <div className="w-full h-80 bg-gradient-to-br from-miikaty/10 to-purple-600/10 rounded-2xl border border-miikaty/20 flex items-center justify-center">
-                <div className="text-center text-gray-500 dark:text-gray-400">
-                  <div className="text-4xl mb-2">📈</div>
-                  <p className="text-lg">Graphique de croissance</p>
-                </div>
-              </div>
-            </motion.div>
-          </motion.div>
-        </div>
-      </section>
-
-      {/* Notre Mission */}
-      <section className="py-20 px-4">
-        <div className="max-w-6xl mx-auto">
-          <motion.div 
-            initial={{ opacity: 0, y: 50 }}
-            animate={isLoaded ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
-            transition={{ duration: 0.8, delay: 0.6 }}
-            className="text-center mb-16"
-          >
-            <h2 className="text-4xl font-bold text-gray-900 dark:text-white mb-6">Notre Mission</h2>
-            <p className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
-              Transformer l'expérience financière en Afrique en rendant les services bancaires 
-              accessibles, simples et sécurisés pour tous.
-            </p>
-          </motion.div>
-          
-          <div className="grid md:grid-cols-3 gap-8">
-            <motion.div 
-              initial={{ opacity: 0, y: 30 }}
-              animate={isLoaded ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
-              transition={{ duration: 0.8, delay: 0.8 }}
-              className="text-center p-6"
-            >
-              <div className="w-16 h-16 bg-miikaty/10 rounded-full flex items-center justify-center mx-auto mb-4">
-                <svg className="w-8 h-8 text-miikaty" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
-                </svg>
-              </div>
-              <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-3">Inclusion Financière</h3>
-              <p className="text-gray-600 dark:text-gray-300">
-                Rendre les services financiers accessibles aux populations non bancarisées d'Afrique.
-              </p>
-            </motion.div>
-            
-            <motion.div 
-              initial={{ opacity: 0, y: 30 }}
-              animate={isLoaded ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
-              transition={{ duration: 0.8, delay: 1.0 }}
-              className="text-center p-6"
-            >
-              <div className="w-16 h-16 bg-miikaty/10 rounded-full flex items-center justify-center mx-auto mb-4">
-                <svg className="w-8 h-8 text-miikaty" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
-                </svg>
-              </div>
-              <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-3">Innovation Technologique</h3>
-              <p className="text-gray-600 dark:text-gray-300">
-                Développer des solutions de paiement innovantes et sécurisées pour l'Afrique.
-              </p>
-            </motion.div>
-            
-            <motion.div 
-              initial={{ opacity: 0, y: 30 }}
-              animate={isLoaded ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
-              transition={{ duration: 0.8, delay: 1.2 }}
-              className="text-center p-6"
-            >
-              <div className="w-16 h-16 bg-miikaty/10 rounded-full flex items-center justify-center mx-auto mb-4">
-                <svg className="w-8 h-8 text-miikaty" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
-                </svg>
-              </div>
-              <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-3">Impact Social</h3>
-              <p className="text-gray-600 dark:text-gray-300">
-                Contribuer au développement économique et social des communautés africaines.
-              </p>
-            </motion.div>
-          </div>
-        </div>
-      </section>
-
-      {/* Nos Valeurs */}
-      <section className="py-20 px-4 bg-white/50 dark:bg-white/5">
-        <div className="max-w-6xl mx-auto">
-          <motion.div 
-            initial={{ opacity: 0, y: 50 }}
-            animate={isLoaded ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
-            transition={{ duration: 0.8, delay: 1.4 }}
-            className="text-center mb-16"
-          >
-            <h2 className="text-4xl font-bold text-gray-900 dark:text-white mb-6">Nos Valeurs</h2>
-            <p className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
-              Les principes qui guident nos actions et définissent notre culture d'entreprise.
-            </p>
-          </motion.div>
-          
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-            <motion.div 
-              initial={{ opacity: 0, scale: 0.8 }}
-              animate={isLoaded ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.8 }}
-              transition={{ duration: 0.8, delay: 1.6 }}
-              className="text-center p-6 bg-white dark:bg-gray-800 rounded-2xl shadow-lg"
-            >
-              <div className="w-16 h-16 bg-miikaty/10 rounded-full flex items-center justify-center mx-auto mb-4">
-                <svg className="w-8 h-8 text-miikaty" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
-                </svg>
-              </div>
-              <h3 className="text-lg font-bold text-gray-900 dark:text-white mb-2">Confiance</h3>
-              <p className="text-gray-600 dark:text-gray-300 text-sm">
-                Construire des relations durables basées sur la transparence et la fiabilité.
-              </p>
-            </motion.div>
-            
-            <motion.div 
-              initial={{ opacity: 0, scale: 0.8 }}
-              animate={isLoaded ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.8 }}
-              transition={{ duration: 0.8, delay: 1.8 }}
-              className="text-center p-6 bg-white dark:bg-gray-800 rounded-2xl shadow-lg"
-            >
-              <div className="w-16 h-16 bg-miikaty/10 rounded-full flex items-center justify-center mx-auto mb-4">
-                <svg className="w-8 h-8 text-miikaty" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
-                </svg>
-              </div>
-              <h3 className="text-lg font-bold text-gray-900 dark:text-white mb-2">Innovation</h3>
-              <p className="text-gray-600 dark:text-gray-300 text-sm">
-                Penser différemment et créer des solutions qui changent la donne.
-              </p>
-            </motion.div>
-            
-            <motion.div 
-              initial={{ opacity: 0, scale: 0.8 }}
-              animate={isLoaded ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.8 }}
-              transition={{ duration: 0.8, delay: 2.0 }}
-              className="text-center p-6 bg-white dark:bg-gray-800 rounded-2xl shadow-lg"
-            >
-              <div className="w-16 h-16 bg-miikaty/10 rounded-full flex items-center justify-center mx-auto mb-4">
-                <svg className="w-8 h-8 text-miikaty" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
-                </svg>
-              </div>
-              <h3 className="text-lg font-bold text-gray-900 dark:text-white mb-2">Collaboration</h3>
-              <p className="text-gray-600 dark:text-gray-300 text-sm">
-                Travailler ensemble pour atteindre des objectifs communs et créer un impact positif.
-              </p>
-            </motion.div>
-            
-            <motion.div 
-              initial={{ opacity: 0, scale: 0.8 }}
-              animate={isLoaded ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.8 }}
-              transition={{ duration: 0.8, delay: 2.2 }}
-              className="text-center p-6 bg-white dark:bg-gray-800 rounded-2xl shadow-lg"
-            >
-              <div className="w-16 h-16 bg-miikaty/10 rounded-full flex items-center justify-center mx-auto mb-4">
-                <svg className="w-8 h-8 text-miikaty" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
-                </svg>
-              </div>
-              <h3 className="text-lg font-bold text-gray-900 dark:text-white mb-2">Passion</h3>
-              <p className="text-gray-600 dark:text-gray-300 text-sm">
-                Mettre notre cœur dans tout ce que nous faisons pour servir nos utilisateurs.
-              </p>
-            </motion.div>
-          </div>
-        </div>
-      </section>
-
-      {/* Notre Équipe */}
-      <section className="py-20 px-4">
-        <div className="max-w-6xl mx-auto">
-          <motion.div 
-            initial={{ opacity: 0, y: 50 }}
-            animate={isLoaded ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
-            transition={{ duration: 0.8, delay: 2.4 }}
-            className="text-center mb-16"
-          >
-            <h2 className="text-4xl font-bold text-gray-900 dark:text-white mb-6">Notre Équipe</h2>
-            <p className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
-              Une équipe passionnée et talentueuse qui travaille ensemble pour transformer 
-              l'expérience financière en Afrique.
-            </p>
-          </motion.div>
-          
-          <div className="grid md:grid-cols-3 gap-8">
-            <motion.div 
-              initial={{ opacity: 0, y: 30 }}
-              animate={isLoaded ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
-              transition={{ duration: 0.8, delay: 2.6 }}
-              className="text-center p-6 bg-white dark:bg-gray-800 rounded-2xl shadow-lg"
-            >
-              <div className="w-24 h-24 bg-gradient-to-br from-miikaty to-purple-600 rounded-full flex items-center justify-center mx-auto mb-4">
-                <span className="text-2xl font-bold text-white">👨‍💼</span>
-              </div>
-              <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-2">Direction</h3>
-              <p className="text-gray-600 dark:text-gray-300">
-                Des leaders expérimentés qui guident notre vision et notre stratégie.
-              </p>
-            </motion.div>
-            
-            <motion.div 
-              initial={{ opacity: 0, y: 30 }}
-              animate={isLoaded ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
-              transition={{ duration: 0.8, delay: 2.8 }}
-              className="text-center p-6 bg-white dark:bg-gray-800 rounded-2xl shadow-lg"
-            >
-              <div className="w-24 h-24 bg-gradient-to-br from-miikaty to-purple-600 rounded-full flex items-center justify-center mx-auto mb-4">
-                <span className="text-2xl font-bold text-white">👨‍💻</span>
-              </div>
-              <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-2">Développement</h3>
-              <p className="text-gray-600 dark:text-gray-300">
-                Des ingénieurs talentueux qui créent nos solutions technologiques.
-              </p>
-            </motion.div>
-            
-            <motion.div 
-              initial={{ opacity: 0, y: 30 }}
-              animate={isLoaded ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
-              transition={{ duration: 0.8, delay: 3.0 }}
-              className="text-center p-6 bg-white dark:bg-gray-800 rounded-2xl shadow-lg"
-            >
-              <div className="w-24 h-24 bg-gradient-to-br from-miikaty to-purple-600 rounded-full flex items-center justify-center mx-auto mb-4">
-                <span className="text-2xl font-bold text-white">👥</span>
-              </div>
-              <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-2">Support</h3>
-              <p className="text-gray-600 dark:text-gray-300">
-                Une équipe dédiée qui accompagne nos utilisateurs au quotidien.
-              </p>
-            </motion.div>
-          </div>
-        </div>
-      </section>
-
-      {/* CTA */}
-      <section className="py-20 px-4 bg-gradient-to-br from-miikaty/10 to-purple-600/10">
+      <section className="pt-28 pb-16 px-4">
         <div className="max-w-4xl mx-auto text-center">
-          <motion.div 
-            initial={{ opacity: 0, scale: 0.8 }}
-            animate={isLoaded ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.8 }}
-            transition={{ duration: 1, delay: 3.2 }}
-            className="mb-12"
-          >
-            <h2 className="text-4xl font-bold text-gray-900 dark:text-white mb-8">
-              Prêt à nous <span className="text-miikaty">rejoindre</span> ?
-            </h2>
-            <p className="text-xl text-gray-600 dark:text-gray-300 mb-8">
-              Découvrez les opportunités de carrière chez Mikaty et participez à notre mission 
-              de transformation financière en Afrique.
-            </p>
-          </motion.div>
-          
           <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={isLoaded ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
-            transition={{ duration: 0.8, delay: 3.4 }}
-            className="flex flex-col sm:flex-row gap-4 justify-center"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
           >
-            <button className="bg-miikaty hover:bg-miikaty-dark text-white px-8 py-4 rounded-xl font-semibold text-lg transition-all duration-300 transform hover:scale-105">
-              Voir nos offres
-            </button>
-            <button className="border-2 border-miikaty text-miikaty hover:bg-miikaty hover:text-white px-8 py-4 rounded-xl font-semibold text-lg transition-all duration-300 transform hover:scale-105">
-              Nous contacter
-            </button>
+            <h1 className="text-4xl md:text-5xl font-bold text-[#563491] dark:text-white mb-6">
+              {t.about.heroTitle}
+            </h1>
+            <p className="text-lg text-[#563491]/80 dark:text-white/90 max-w-3xl mx-auto">
+              {t.about.heroDescription} 
+              Notre mission : rendre les services financiers accessibles, simples et sécurisés pour tous.
+            </p>
           </motion.div>
         </div>
       </section>
+
+      {/* Grid de navigation */}
+      <section className="py-20 px-4">
+        <div className="max-w-6xl mx-auto">
+          <div className="grid grid-cols-2 gap-6 items-start">
+            {/* À Propos de Nous */}
+            <div className="bg-white dark:bg-white/5 rounded-xl overflow-hidden shadow-lg border border-gray-200 dark:border-white/10">
+              <div 
+                className="p-6 flex items-center justify-between hover:bg-[#563491] dark:hover:bg-white/20 hover:text-white dark:hover:text-white transition-colors cursor-pointer [&:hover>div>span]:text-white [&:hover>div>svg]:stroke-white"
+                onClick={() => toggleCard('about')}
+              >
+                <div className="flex items-center">
+                  <div className="w-12 h-12 flex items-center justify-center mr-4">
+                    <svg className="w-8 h-8" fill="none" stroke="#a894ff" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                    </svg>
+                  </div>
+                  <span className="text-gray-900 dark:text-white font-bold">{t.about.cards.aboutUs.title}</span>
+                </div>
+                        <motion.div
+                          animate={{ rotate: expandedCard === 'about' ? 45 : 0 }}
+                          transition={{ duration: 0.3 }}
+                          className="text-2xl font-bold text-gray-700 dark:text-white"
+                        >
+                          {expandedCard === 'about' ? '−' : '+'}
+                        </motion.div>
+              </div>
+              <motion.div
+                initial={false}
+                animate={{ 
+                  height: expandedCard === 'about' ? 'auto' : 0,
+                  opacity: expandedCard === 'about' ? 1 : 0
+                }}
+                transition={{ duration: 0.3 }}
+                className="overflow-hidden"
+              >
+                <div className="px-6 pb-6">
+                  <p className="text-gray-600 dark:text-white/90 text-sm leading-relaxed">
+                    Chez Mikaty, nous construisons l'avenir de l'accès financier en Afrique. Notre application tout-en-un permet aux particuliers et aux entreprises d'envoyer, de dépenser et de gérer leur argent facilement — de manière sécurisée, instantanée et abordable.
+                  </p>
+                </div>
+              </motion.div>
+            </div>
+
+            {/* Carrières */}
+            <div className="bg-white dark:bg-white/5 rounded-xl overflow-hidden shadow-lg border border-gray-200 dark:border-white/10">
+              <div 
+                className="p-6 flex items-center justify-between hover:bg-[#563491] dark:hover:bg-white/20 hover:text-white dark:hover:text-white transition-colors cursor-pointer [&:hover>div>span]:text-white [&:hover>div>svg]:stroke-white"
+                onClick={() => toggleCard('careers')}
+              >
+                <div className="flex items-center">
+                  <div className="w-12 h-12 flex items-center justify-center mr-4">
+                    <svg className="w-8 h-8" fill="none" stroke="#a894ff" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2-2v2m8 0V6a2 2 0 012 2v6a2 2 0 01-2 2H8a2 2 0 01-2-2V8a2 2 0 012-2V6" />
+                    </svg>
+                  </div>
+                  <span className="text-gray-900 dark:text-white font-bold">{t.about.cards.careers.title}</span>
+                </div>
+                        <motion.div
+                          animate={{ rotate: expandedCard === 'careers' ? 45 : 0 }}
+                          transition={{ duration: 0.3 }}
+                          className="text-2xl font-bold text-gray-700 dark:text-white"
+                        >
+                          {expandedCard === 'careers' ? '−' : '+'}
+                        </motion.div>
+              </div>
+              <motion.div
+                initial={false}
+                animate={{ 
+                  height: expandedCard === 'careers' ? 'auto' : 0,
+                  opacity: expandedCard === 'careers' ? 1 : 0
+                }}
+                transition={{ duration: 0.3 }}
+                className="overflow-hidden"
+              >
+                <div className="px-6 pb-6">
+                  <p className="text-gray-600 dark:text-white/90 text-sm leading-relaxed mb-4">
+                    Nous avons pour mission de transformer la finance — et nous recrutons ! Rejoignez Mikaty pour façonner l'économie numérique de demain tout en développant votre carrière dans un environnement dynamique et axé sur un objectif.
+                  </p>
+                  <p className="text-gray-600 dark:text-white/90 text-sm leading-relaxed">
+                    Consultez notre page{' '}
+                    <a 
+                      href="https://www.linkedin.com/company/mikatyofficial/" 
+                      target="_blank" 
+                      rel="noopener noreferrer"
+                      className="text-[#563491] dark:text-white underline hover:text-[#4a2c7a] dark:hover:text-white/80 transition-colors"
+                    >
+                      LinkedIn
+                    </a>
+                  </p>
+                </div>
+              </motion.div>
+            </div>
+
+            {/* Actualités et Médias */}
+            <div className="bg-white dark:bg-white/5 rounded-xl overflow-hidden shadow-lg border border-gray-200 dark:border-white/10">
+              <div 
+                className="p-6 flex items-center justify-between hover:bg-[#563491] dark:hover:bg-white/20 hover:text-white dark:hover:text-white transition-colors cursor-pointer [&:hover>div>span]:text-white [&:hover>div>svg]:stroke-white"
+                onClick={() => toggleCard('news')}
+              >
+                <div className="flex items-center">
+                  <div className="w-12 h-12 flex items-center justify-center mr-4">
+                    <svg className="w-8 h-8" fill="none" stroke="#a894ff" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V7m2 13a2 2 0 002-2V9a2 2 0 00-2-2h-2m-4-3H9M7 16h6M7 8h6v4H7V8z" />
+                    </svg>
+                  </div>
+                  <span className="text-gray-900 dark:text-white font-bold">{t.about.cards.news.title}</span>
+                </div>
+                        <motion.div
+                          animate={{ rotate: expandedCard === 'news' ? 45 : 0 }}
+                          transition={{ duration: 0.3 }}
+                          className="text-2xl font-bold text-gray-700 dark:text-white"
+                        >
+                          {expandedCard === 'news' ? '−' : '+'}
+                        </motion.div>
+              </div>
+              <motion.div
+                initial={false}
+                animate={{ 
+                  height: expandedCard === 'news' ? 'auto' : 0,
+                  opacity: expandedCard === 'news' ? 1 : 0
+                }}
+                transition={{ duration: 0.3 }}
+                className="overflow-hidden"
+              >
+                <div className="px-6 pb-6">
+                  <p className="text-gray-600 dark:text-white/90 text-sm leading-relaxed">
+                    Restez informé des dernières étapes clés, des lancements de produits et de la couverture médiatique de Mikaty alors que nous stimulons l'inclusion financière dans la région de l'UEMOA et au-delà.
+                  </p>
+                </div>
+              </motion.div>
+            </div>
+
+            {/* Travailler chez Mikaty */}
+            <div className="bg-white dark:bg-white/5 rounded-xl overflow-hidden shadow-lg border border-gray-200 dark:border-white/10">
+              <div 
+                className="p-6 flex items-center justify-between hover:bg-[#563491] dark:hover:bg-white/20 hover:text-white dark:hover:text-white transition-colors cursor-pointer [&:hover>div>span]:text-white [&:hover>div>svg]:stroke-white"
+                onClick={() => toggleCard('work')}
+              >
+                <div className="flex items-center">
+                  <div className="w-12 h-12 flex items-center justify-center mr-4">
+                    <svg className="w-8 h-8" fill="none" stroke="#a894ff" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
+                    </svg>
+                  </div>
+                  <span className="text-gray-900 dark:text-white font-bold">{t.about.cards.workingAt.title}</span>
+                </div>
+                        <motion.div
+                          animate={{ rotate: expandedCard === 'work' ? 45 : 0 }}
+                          transition={{ duration: 0.3 }}
+                          className="text-2xl font-bold text-gray-700 dark:text-white"
+                        >
+                          {expandedCard === 'work' ? '−' : '+'}
+                        </motion.div>
+              </div>
+              <motion.div
+                initial={false}
+                animate={{ 
+                  height: expandedCard === 'work' ? 'auto' : 0,
+                  opacity: expandedCard === 'work' ? 1 : 0
+                }}
+                transition={{ duration: 0.3 }}
+                className="overflow-hidden"
+              >
+                <div className="px-6 pb-6">
+                  <p className="text-gray-600 dark:text-white/90 text-sm leading-relaxed">
+                    Chez Mikaty, l'innovation rencontre l'impact. Nous valorisons l'agilité, l'appropriation et l'inclusivité. Chaque membre de l'équipe joue un rôle essentiel dans la création de produits qui font une réelle différence dans la vie des gens.
+                  </p>
+                </div>
+              </motion.div>
+            </div>
+
+            {/* ESG */}
+            <div className="bg-white dark:bg-white/5 rounded-xl overflow-hidden shadow-lg border border-gray-200 dark:border-white/10">
+              <div 
+                className="p-6 flex items-center justify-between hover:bg-[#563491] dark:hover:bg-white/20 hover:text-white dark:hover:text-white transition-colors cursor-pointer [&:hover>div>span]:text-white [&:hover>div>svg]:stroke-white"
+                onClick={() => toggleCard('esg')}
+              >
+                <div className="flex items-center">
+                  <div className="w-12 h-12 flex items-center justify-center mr-4">
+                    <svg className="w-8 h-8" fill="none" stroke="#a894ff" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
+                    </svg>
+                  </div>
+                  <span className="text-gray-900 dark:text-white font-bold">ESG</span>
+                </div>
+                        <motion.div
+                          animate={{ rotate: expandedCard === 'esg' ? 45 : 0 }}
+                          transition={{ duration: 0.3 }}
+                          className="text-2xl font-bold text-gray-700 dark:text-white"
+                        >
+                          {expandedCard === 'esg' ? '−' : '+'}
+                        </motion.div>
+              </div>
+              <motion.div
+                initial={false}
+                animate={{ 
+                  height: expandedCard === 'esg' ? 'auto' : 0,
+                  opacity: expandedCard === 'esg' ? 1 : 0
+                }}
+                transition={{ duration: 0.3 }}
+                className="overflow-hidden"
+              >
+                <div className="px-6 pb-6">
+                  <p className="text-gray-600 dark:text-white/90 text-sm leading-relaxed">
+                    Chez Mikaty, nous construisons l'avenir de l'accès financier en Afrique. Notre application tout-en-un permet aux particuliers et aux entreprises d'envoyer, de dépenser et de gérer leur argent facilement — de manière sécurisée, instantanée et abordable.
+                  </p>
+                </div>
+              </motion.div>
+            </div>
+
+            {/* Culture */}
+            <div className="bg-white dark:bg-white/5 rounded-xl overflow-hidden shadow-lg border border-gray-200 dark:border-white/10">
+              <div 
+                className="p-6 flex items-center justify-between hover:bg-[#563491] dark:hover:bg-white/20 hover:text-white dark:hover:text-white transition-colors cursor-pointer [&:hover>div>span]:text-white [&:hover>div>svg]:stroke-white"
+                onClick={() => toggleCard('culture')}
+              >
+                <div className="flex items-center">
+                  <div className="w-12 h-12 flex items-center justify-center mr-4">
+                    <svg className="w-8 h-8" fill="none" stroke="#a894ff" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
+                    </svg>
+                  </div>
+                  <span className="text-gray-900 dark:text-white font-bold">Culture</span>
+                </div>
+                        <motion.div
+                          animate={{ rotate: expandedCard === 'culture' ? 45 : 0 }}
+                          transition={{ duration: 0.3 }}
+                          className="text-2xl font-bold text-gray-700 dark:text-white"
+                        >
+                          {expandedCard === 'culture' ? '−' : '+'}
+                        </motion.div>
+              </div>
+              <motion.div
+                initial={false}
+                animate={{ 
+                  height: expandedCard === 'culture' ? 'auto' : 0,
+                  opacity: expandedCard === 'culture' ? 1 : 0
+                }}
+                transition={{ duration: 0.3 }}
+                className="overflow-hidden"
+              >
+                <div className="px-6 pb-6">
+                  <p className="text-gray-600 dark:text-white/90 text-sm leading-relaxed">
+                    Chez Mikaty, nous construisons l'avenir de l'accès financier en Afrique. Notre application tout-en-un permet aux particuliers et aux entreprises d'envoyer, de dépenser et de gérer leur argent facilement — de manière sécurisée, instantanée et abordable.
+                  </p>
+                </div>
+              </motion.div>
+            </div>
+          </div>
+        </div>
+      </section>
+
 
       {/* Footer */}
       <footer className="bg-miikaty-dark text-white pt-12 pb-6 px-4">
@@ -406,7 +312,7 @@ export default function About() {
             <ul className="space-y-2 text-white/80 text-sm">
               <li><a href="/about" className="hover:text-miikaty transition">Qui sommes-nous</a></li>
               <li><a href="/about" className="hover:text-miikaty transition">Notre mission</a></li>
-              <li><a href="/careers" className="hover:text-miikaty transition">Carrières</a></li>
+              <li><a href="/carrieres" className="hover:text-miikaty transition">Carrières</a></li>
             </ul>
           </div>
           {/* Produits */}

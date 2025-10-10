@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
+import { useTranslation } from "../translations";
 
-export default function MiCard() {
+export default function MiCard({ lang = 'fr' }) {
+  const t = useTranslation(lang);
   const [isLoaded, setIsLoaded] = useState(false);
 
   useEffect(() => {
@@ -31,7 +33,7 @@ export default function MiCard() {
                 transition={{ duration: 0.8, delay: 0.2 }}
                 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-6"
               >
-                Votre <span className="text-miikaty">MiCard</span> dans votre poche
+                {t.micard.heroTitle}
               </motion.h1>
               
               <motion.p
@@ -40,7 +42,7 @@ export default function MiCard() {
                 transition={{ duration: 0.8, delay: 0.4 }}
                 className="text-lg md:text-xl text-gray-600 dark:text-gray-300 mb-8"
               >
-                Payez partout, tout le temps, avec votre carte virtuelle sécurisée
+                {t.micard.heroSubtitle}
               </motion.p>
               
               <motion.div

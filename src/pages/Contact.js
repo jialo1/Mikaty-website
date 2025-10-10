@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
+import { useTranslation } from "../translations";
 
-export default function Contact() {
+export default function Contact({ lang = 'fr' }) {
+  const t = useTranslation(lang);
   const [isLoaded, setIsLoaded] = useState(false);
   const [formData, setFormData] = useState({
     name: "",
@@ -34,54 +36,9 @@ export default function Contact() {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-purple-50 via-white to-pink-50 dark:from-gray-900 dark:via-purple-900 dark:to-gray-900">
-      {/* Hero Section */}
-      <section className="pt-32 pb-16 px-4 relative overflow-hidden">
-        <div className="absolute inset-0">
-          <div className="absolute top-20 left-10 w-72 h-72 bg-[#d8a5ff]/20 rounded-full blur-3xl"></div>
-          <div className="absolute bottom-20 right-10 w-96 h-96 bg-[#563491]/10 rounded-full blur-3xl"></div>
-        </div>
-        
-        <div className="max-w-6xl mx-auto relative z-10">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            {/* Contenu texte à gauche */}
-            <motion.div
-              initial={{ opacity: 0, x: -50 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.8 }}
-              className="text-left"
-            >
-                          <h1 className="text-5xl md:text-6xl font-bold text-gray-900 dark:text-white mb-6">
-              Parlons de <span className="text-[#563491]">votre projet</span> !
-            </h1>
-              <p className="text-xl md:text-2xl text-gray-600 dark:text-gray-300 mb-8">
-                Notre équipe est là pour vous accompagner. N'hésitez pas à nous contacter, 
-                nous adorons discuter avec nos utilisateurs !
-              </p>
-            </motion.div>
-
-            {/* Espace pour votre image de fond à droite */}
-            <motion.div
-              initial={{ opacity: 0, x: 50 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.8, delay: 0.2 }}
-              className="relative flex items-center justify-center"
-            >
-              {/* Placeholder pour votre image */}
-              <div className="w-full h-96 bg-gradient-to-br from-[#563491]/10 to-[#d8a5ff]/10 rounded-3xl border-2 border-dashed border-[#563491]/30 flex items-center justify-center">
-                <div className="text-center">
-                  <svg className="w-16 h-16 text-[#563491]/50 mx-auto mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
-                  </svg>
-                  <p className="text-[#563491]/70 font-medium">Votre image ici</p>
-                </div>
-              </div>
-            </motion.div>
-          </div>
-        </div>
-      </section>
 
       {/* Contact Content */}
-      <section className="py-16 px-4">
+      <section className="pt-28 pb-16 px-4">
         <div className="max-w-7xl mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
             
@@ -94,7 +51,7 @@ export default function Contact() {
             >
               <div className="text-center mb-8">
 
-                <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-2">Envoyez-nous un message</h2>
+                <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-2">{t.contact.form.title}</h2>
                 <p className="text-gray-600 dark:text-gray-300">Nous répondons en moins de 24h !</p>
               </div>
 
@@ -102,7 +59,7 @@ export default function Contact() {
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <div>
                                          <label className="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-2">
-                       Votre nom
+                       {t.contact.form.name}
                      </label>
                     <input
                       type="text"
@@ -116,7 +73,7 @@ export default function Contact() {
                   </div>
                   <div>
                                          <label className="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-2">
-                       Votre email
+                       {t.contact.form.email}
                      </label>
                     <input
                       type="email"
@@ -132,7 +89,7 @@ export default function Contact() {
                 
                 <div>
                                      <label className="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-2">
-                     Sujet
+                     {t.contact.form.subject}
                    </label>
                   <select
                     name="subject"
@@ -153,7 +110,7 @@ export default function Contact() {
 
                 <div>
                                      <label className="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-2">
-                     Votre message
+                     {t.contact.form.message}
                    </label>
                   <textarea
                     name="message"
