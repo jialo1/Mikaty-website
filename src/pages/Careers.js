@@ -4,7 +4,7 @@ import { useTranslation } from "../translations";
 
 export default function Careers({ lang = 'fr' }) {
   const t = useTranslation(lang);
-  const [isLoaded, setIsLoaded] = useState(false);
+  const [, setIsLoaded] = useState(false);
   const [selectedLocation, setSelectedLocation] = useState("all");
   const [selectedType, setSelectedType] = useState("all");
 
@@ -118,7 +118,7 @@ export default function Careers({ lang = 'fr' }) {
             <nav className="mb-3">
               <div className="text-sm text-gray-500 dark:text-gray-400">
                 <span className="hover:text-[#563491] cursor-pointer">Aperçu</span>
-                <span className="mx-2">></span>
+                <span className="mx-2">&gt;</span>
                 <span className="text-[#563491]">Toutes les offres</span>
               </div>
             </nav>

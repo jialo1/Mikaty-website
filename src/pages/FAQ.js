@@ -5,7 +5,7 @@ import { useTranslation } from "../translations";
 
 export default function FAQ({ lang = 'fr' }) {
   const t = useTranslation(lang);
-  const [isLoaded, setIsLoaded] = useState(false);
+  const [, setIsLoaded] = useState(false);
   const [activeCategory, setActiveCategory] = useState("general");
   const [openQuestions, setOpenQuestions] = useState({});
 
