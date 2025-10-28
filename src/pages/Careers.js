@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 import { useTranslation } from "../translations";
 
 export default function Careers({ lang = 'fr' }) {
-  const t = useTranslation(lang);
+  // const t = useTranslation(lang); // TODO: Ajouter les traductions
   const [, setIsLoaded] = useState(false);
   const [selectedLocation, setSelectedLocation] = useState("all");
   const [selectedType, setSelectedType] = useState("all");
