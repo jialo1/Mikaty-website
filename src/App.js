@@ -83,16 +83,33 @@ function Navbar({ isScrolled, isAfterHero, isDark, setIsDark, LanguageSwitch, la
           </button>
         </div>
 
-        {/* Bouton hamburger mobile */}
-        <button
-          className="lg:hidden flex flex-col justify-center items-center w-6 h-6 space-y-1 focus:outline-none"
-          onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-          aria-label="Menu mobile"
-        >
-          <span className={`block w-5 h-0.5 bg-white transition-all duration-300 ${isMobileMenuOpen ? 'rotate-45 translate-y-1.5' : ''}`}></span>
-          <span className={`block w-5 h-0.5 bg-white transition-all duration-300 ${isMobileMenuOpen ? 'opacity-0' : ''}`}></span>
-          <span className={`block w-5 h-0.5 bg-white transition-all duration-300 ${isMobileMenuOpen ? '-rotate-45 -translate-y-1.5' : ''}`}></span>
-        </button>
+        {/* Contrôles mobile */}
+        <div className="lg:hidden flex items-center space-x-3 flex-shrink-0">
+          <LanguageSwitch />
+          {/* Bouton mode sombre */}
+          <button
+            className={`flex items-center justify-center w-8 h-8 rounded-lg border border-gray-500 focus:outline-none transition duration-200 ${isDark ? 'bg-miikaty-dark text-white' : 'bg-white text-black'} hover:bg-gray-800 hover:border-miikaty`}
+            onClick={() => setIsDark(d => !d)}
+            aria-label="Basculer le mode sombre"
+          >
+            {isDark ? (
+              <svg className="w-5 h-5" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M21 12.79A9 9 0 1111.21 3a7 7 0 109.79 9.79z" /></svg>
+            ) : (
+              <svg className="w-5 h-5" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="5" /><path d="M12 1v2m0 18v2m11-11h-2M3 12H1m16.95 7.07l-1.41-1.41M6.34 6.34L4.93 4.93m12.02 0l-1.41 1.41M6.34 17.66l-1.41 1.41" /></svg>
+            )}
+          </button>
+          
+          {/* Bouton hamburger mobile */}
+          <button
+            className="flex flex-col justify-center items-center w-6 h-6 space-y-1 focus:outline-none"
+            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+            aria-label="Menu mobile"
+          >
+            <span className={`block w-5 h-0.5 bg-white transition-all duration-300 ${isMobileMenuOpen ? 'rotate-45 translate-y-1.5' : ''}`}></span>
+            <span className={`block w-5 h-0.5 bg-white transition-all duration-300 ${isMobileMenuOpen ? 'opacity-0' : ''}`}></span>
+            <span className={`block w-5 h-0.5 bg-white transition-all duration-300 ${isMobileMenuOpen ? '-rotate-45 -translate-y-1.5' : ''}`}></span>
+          </button>
+        </div>
       </nav>
 
       {/* Menu mobile */}

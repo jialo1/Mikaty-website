@@ -17,20 +17,20 @@ export default function Home({ lang = 'fr' }) {
   return (
     <>
       {/* Hero section */}
-      <section className="pt-8 pb-20 px-0 relative overflow-hidden font-sans min-h-screen flex flex-col bg-[radial-gradient(ellipse_at_60%_40%,#7C3AED_0%,#1a1a1a_100%)] dark:bg-[radial-gradient(ellipse_at_60%_40%,#1a1a1a_0%,#2d1a4d_100%)]">
-        <div className="container mx-auto flex flex-col md:flex-row items-center justify-between gap-12 px-6 relative z-10 flex-1">
-          <div className="md:w-1/2 flex flex-col items-start text-left gap-4">
-            <h1 className="text-3xl md:text-5xl font-bold tracking-tight text-white mb-0 leading-tight" style={{ textShadow: '0 4px 20px rgba(0,0,0,0.4)' }}>
+      <section className="pt-20 md:pt-8 pb-32 md:pb-20 px-0 relative overflow-hidden font-sans min-h-screen flex flex-col bg-[radial-gradient(ellipse_at_60%_40%,#7C3AED_0%,#1a1a1a_100%)] dark:bg-[radial-gradient(ellipse_at_60%_40%,#1a1a1a_0%,#2d1a4d_100%)]">
+        <div className="container mx-auto flex flex-col md:flex-row items-center justify-between gap-8 md:gap-12 px-4 md:px-6 relative z-10 flex-1">
+          <div className="md:w-1/2 flex flex-col items-center md:items-start text-center md:text-left gap-3 md:gap-4 w-full">
+            <h1 className="text-2xl sm:text-3xl md:text-5xl font-bold tracking-tight text-white mb-0 leading-tight px-2" style={{ textShadow: '0 4px 20px rgba(0,0,0,0.4)' }}>
               {t.home.heroTitle}
             </h1>
-            <p className="text-sm text-white/90 mb-0 -mt-4" style={{fontFamily:'Inter, sans-serif'}}>{t.home.heroSubtitle}</p>
+            <p className="text-xs sm:text-sm text-white/90 mb-0 px-2" style={{fontFamily:'Inter, sans-serif'}}>{t.home.heroSubtitle}</p>
           </div>
-          <div className="md:w-3/5 flex justify-end items-end h-full mt-0 md:mt-0 relative">
-            {/* Carte du Sénégal en fond, derrière l'image */}
+          <div className="md:w-3/5 flex justify-center md:justify-end items-end h-full mt-4 md:mt-0 relative w-full">
+            {/* Carte du Sénégal en fond, derrière l'image - Masquée sur mobile */}
             <motion.img
               src="/images/senegal-outline.png"
               alt="Carte du Sénégal"
-              className="absolute inset-0 w-[100%] h-[100%] object-contain opacity-100 pointer-events-none select-none z-0"
+              className="hidden md:block absolute inset-0 w-[100%] h-[100%] object-contain opacity-100 pointer-events-none select-none z-0"
               style={{mixBlendMode: 'lighten'}}
               initial={{ y: 0 }}
               animate={{ y: [0, 20, 0] }}
@@ -39,7 +39,7 @@ export default function Home({ lang = 'fr' }) {
             <motion.img
               src="/images/testhero.png"
               alt="Visuel Hero Mikaty"
-              className="w-2/5 h-auto object-cover object-bottom rounded-2xl m-0 p-0 mr-0 pr-0 relative z-10"
+              className="w-3/5 sm:w-2/5 md:w-2/5 h-auto object-cover object-bottom rounded-2xl m-0 p-0 relative z-10"
               initial={{ opacity: 0, y: 40 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 1, ease: 'easeOut' }}
@@ -49,10 +49,10 @@ export default function Home({ lang = 'fr' }) {
           </div>
         </div>
         
-        {/* Section de téléchargement en bas */}
-        <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-20">
-          <div className="flex flex-col items-center gap-4">
-            <div className="flex flex-row items-center gap-3 bg-white/60 backdrop-blur-md rounded-2xl shadow-lg p-3 w-auto max-w-xs border border-white/40 hover:shadow-xl transition-all duration-300 group">
+        {/* Section de téléchargement en bas - Optimisée mobile */}
+        <div className="hidden md:flex absolute bottom-8 left-1/2 transform -translate-x-1/2 z-20 w-full px-4">
+          <div className="flex flex-col items-center gap-4 max-w-xs mx-auto">
+            <div className="flex flex-row items-center gap-3 bg-white/60 backdrop-blur-md rounded-2xl shadow-lg p-3 w-full border border-white/40 hover:shadow-xl transition-all duration-300 group">
               <div className="relative flex-shrink-0">
                 <img src="/images/QR_code.png" alt="QR code télécharger l'app" className="w-20 h-20 rounded-xl border-2 border-miikaty bg-white shadow-md group-hover:scale-105 transition-transform duration-300" />
                 <span className="absolute -bottom-2 -right-2 bg-miikaty text-white rounded-full p-1 shadow-lg flex items-center justify-center">
@@ -106,16 +106,30 @@ export default function Home({ lang = 'fr' }) {
 
       {/* Section Transferts Instantanés */}
       <section className="py-12 px-4">
-        <div className="max-w-7xl mx-auto bg-white dark:bg-gray-900 rounded-3xl overflow-hidden">
-          <div className="flex flex-col lg:flex-row">
-            {/* Section image à gauche (50%) */}
-            <div className="lg:w-1/2 relative">
-              <div className="w-full h-[500px] lg:h-[600px] bg-gradient-to-br from-blue-50 to-indigo-100 dark:from-blue-900/20 dark:to-indigo-900/20 relative overflow-hidden">
+        <div className="max-w-7xl mx-auto bg-white dark:bg-black rounded-3xl overflow-hidden">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-0">
+            {/* Section image à gauche */}
+            <div className="bg-gray-100 dark:bg-black">
+              <img 
+                src="/images/photo1.png" 
+                alt="Transferts instantanés" 
+                className="w-full h-[400px] lg:h-[500px] object-cover"
+                onError={(e) => {
+                  e.target.style.display = 'none';
+                  e.target.nextSibling.style.display = 'flex';
+                }}
+              />
+              <div className="w-full h-[400px] lg:h-[500px] bg-gradient-to-br from-blue-500 to-purple-600 flex items-center justify-center" style={{display: 'none'}}>
+                <div className="text-center text-white">
+                  <div className="text-6xl mb-4">💳</div>
+                  <h3 className="text-2xl font-bold mb-2">Transferts Instantanés</h3>
+                  <p className="text-lg opacity-90">Envoyez et recevez sans frais</p>
+                </div>
             </div>
               </div>
           
-            {/* Section texte à droite (50%) */}
-            <div className="lg:w-1/2 bg-[#fafafa] dark:bg-gray-800 p-12 flex flex-col justify-center">
+            {/* Section texte à droite */}
+            <div className="bg-[#fafafa] dark:bg-black p-8 lg:p-12 flex flex-col justify-center">
               <h2 className="text-3xl lg:text-4xl font-bold text-[#563491] dark:text-[#d8a5ff] mb-6 leading-tight">
                 {t.home.instantTransfers.title} : {t.home.instantTransfers.subtitle}
             </h2>
@@ -134,10 +148,10 @@ export default function Home({ lang = 'fr' }) {
 
       {/* Section Expérience de Carte Numérique */}
       <section className="py-12 px-4">
-        <div className="max-w-7xl mx-auto bg-white dark:bg-gray-900 rounded-3xl overflow-hidden">
+        <div className="max-w-7xl mx-auto bg-white dark:bg-black rounded-3xl overflow-hidden">
           <div className="flex flex-col lg:flex-row">
             {/* Section texte à gauche (50%) */}
-            <div className="lg:w-1/2 bg-[#fafafa] dark:bg-gray-800 p-12 flex flex-col justify-center">
+            <div className="lg:w-1/2 bg-[#fafafa] dark:bg-black p-12 flex flex-col justify-center">
               <h2 className="text-3xl lg:text-4xl font-bold text-[#563491] dark:text-[#d8a5ff] mb-6 leading-tight">
                 {t.home.digitalCard.title} : {t.home.digitalCard.subtitle}
               </h2>
@@ -151,7 +165,23 @@ export default function Home({ lang = 'fr' }) {
           
             {/* Section image à droite (50%) */}
             <div className="lg:w-1/2 relative">
-              <div className="w-full h-[500px] lg:h-[600px] bg-gradient-to-br from-emerald-50 to-green-100 dark:from-emerald-900/20 dark:to-green-900/20 relative overflow-hidden">
+              <div className="w-full h-[500px] lg:h-[600px] bg-transparent relative overflow-hidden flex items-center justify-center">
+                <img 
+                  src="/images/appli.svg" 
+                  alt="Expérience de Carte Numérique" 
+                  className="w-full h-full object-contain p-8"
+                  onError={(e) => {
+                    e.target.style.display = 'none';
+                    e.target.nextSibling.style.display = 'flex';
+                  }}
+                />
+                <div className="w-full h-full bg-gradient-to-br from-emerald-500 to-green-600 flex items-center justify-center" style={{display: 'none'}}>
+                  <div className="text-center text-white">
+                    <div className="text-6xl mb-4">💳</div>
+                    <h3 className="text-2xl font-bold mb-2">Carte Numérique</h3>
+                    <p className="text-lg opacity-90">Votre carte virtuelle</p>
+            </div>
+          </div>
               </div>
             </div>
           </div>
@@ -160,16 +190,32 @@ export default function Home({ lang = 'fr' }) {
 
       {/* Section Services Bancaires Sécurisés */}
       <section className="py-12 px-4">
-        <div className="max-w-7xl mx-auto bg-white dark:bg-gray-900 rounded-3xl overflow-hidden">
+        <div className="max-w-7xl mx-auto bg-white dark:bg-black rounded-3xl overflow-hidden">
           <div className="flex flex-col lg:flex-row">
             {/* Section image à gauche (50%) */}
             <div className="lg:w-1/2 relative">
               <div className="w-full h-[500px] lg:h-[600px] bg-gradient-to-br from-green-50 to-emerald-100 dark:from-green-900/20 dark:to-emerald-900/20 relative overflow-hidden">
+                <img 
+                  src="/images/photo2.png" 
+                  alt="Services Bancaires Sécurisés" 
+                  className="w-full h-full object-cover"
+                  onError={(e) => {
+                    e.target.style.display = 'none';
+                    e.target.nextSibling.style.display = 'flex';
+                  }}
+                />
+                <div className="w-full h-full bg-gradient-to-br from-green-500 to-emerald-600 flex items-center justify-center" style={{display: 'none'}}>
+                  <div className="text-center text-white">
+                    <div className="text-6xl mb-4">🔒</div>
+                    <h3 className="text-2xl font-bold mb-2">Sécurité</h3>
+                    <p className="text-lg opacity-90">Vos données protégées</p>
+                </div>
+                </div>
               </div>
           </div>
           
             {/* Section texte à droite (50%) */}
-            <div className="lg:w-1/2 bg-[#fafafa] dark:bg-gray-800 p-12 flex flex-col justify-center">
+            <div className="lg:w-1/2 bg-[#fafafa] dark:bg-black p-12 flex flex-col justify-center">
               <h2 className="text-3xl lg:text-4xl font-bold text-[#563491] dark:text-[#d8a5ff] mb-6 leading-tight">
                 {t.home.secureBanking.title} : {t.home.secureBanking.subtitle}
               </h2>
@@ -188,10 +234,10 @@ export default function Home({ lang = 'fr' }) {
 
       {/* Section Coûts Compétitifs */}
       <section className="py-12 px-4">
-        <div className="max-w-7xl mx-auto bg-white dark:bg-gray-900 rounded-3xl overflow-hidden">
+        <div className="max-w-7xl mx-auto bg-white dark:bg-black rounded-3xl overflow-hidden">
           <div className="flex flex-col lg:flex-row">
             {/* Section texte à gauche (50%) */}
-            <div className="lg:w-1/2 bg-[#fafafa] dark:bg-gray-800 p-12 flex flex-col justify-center">
+            <div className="lg:w-1/2 bg-[#fafafa] dark:bg-black p-12 flex flex-col justify-center">
               <h2 className="text-3xl lg:text-4xl font-bold text-[#563491] dark:text-[#d8a5ff] mb-6 leading-tight">
                 {t.home.competitiveCosts.title} : {t.home.competitiveCosts.subtitle}
           </h2>
@@ -214,16 +260,32 @@ export default function Home({ lang = 'fr' }) {
 
       {/* Section Catalogue Complet de Services */}
       <section className="py-12 px-4">
-        <div className="max-w-7xl mx-auto bg-white dark:bg-gray-900 rounded-3xl overflow-hidden">
+        <div className="max-w-7xl mx-auto bg-white dark:bg-black rounded-3xl overflow-hidden">
           <div className="flex flex-col lg:flex-row">
             {/* Section image à gauche (50%) */}
             <div className="lg:w-1/2 relative">
               <div className="w-full h-[500px] lg:h-[600px] bg-gradient-to-br from-indigo-50 to-purple-100 dark:from-indigo-900/20 dark:to-purple-900/20 relative overflow-hidden">
+                <img 
+                  src="/images/services.png" 
+                  alt="Catalogue Complet de Services" 
+                  className="w-full h-full object-cover"
+                  onError={(e) => {
+                    e.target.style.display = 'none';
+                    e.target.nextSibling.style.display = 'flex';
+                  }}
+                />
+                <div className="w-full h-full bg-gradient-to-br from-indigo-500 to-purple-600 flex items-center justify-center" style={{display: 'none'}}>
+                  <div className="text-center text-white">
+                    <div className="text-6xl mb-4">📱</div>
+                    <h3 className="text-2xl font-bold mb-2">Services</h3>
+                    <p className="text-lg opacity-90">Tout ce dont vous avez besoin</p>
+                  </div>
+              </div>
               </div>
               </div>
             
             {/* Section texte à droite (50%) */}
-            <div className="lg:w-1/2 bg-[#fafafa] dark:bg-gray-800 p-12 flex flex-col justify-center">
+            <div className="lg:w-1/2 bg-[#fafafa] dark:bg-black p-12 flex flex-col justify-center">
               <h2 className="text-3xl lg:text-4xl font-bold text-[#563491] dark:text-[#d8a5ff] mb-6 leading-tight">
                 {t.home.completeCatalog.title} : {t.home.completeCatalog.subtitle}
               </h2>
