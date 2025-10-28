@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
-import { useTranslation } from "../translations";
+// import { useTranslation } from "../translations";
 
 export default function FAQ({ lang = 'fr' }) {
   // const t = useTranslation(lang); // TODO: Ajouter les traductions

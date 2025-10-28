@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
-import { useTranslation } from "../translations";
+// import { useTranslation } from "../translations";
 
 export default function Careers({ lang = 'fr' }) {
   // const t = useTranslation(lang); // TODO: Ajouter les traductions
