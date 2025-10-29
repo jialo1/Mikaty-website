@@ -332,7 +332,7 @@ export default function Contact({ lang = 'fr' }) {
                 <img src="/images/app-store-badge.svg" alt="App Store" className="h-10" />
               </a>
             </div>
-            <div className="mt-2 text-xs text-white/40">MIikaty SASU<br/>12 rue de la Fintech, 75000 Paris<br/>SIRET : 123 456 789 00012</div>
+            <div className="mt-2 text-xs text-white/40">MIikaty SASU<br/>Almadies Zone 06, Résidence jasmin 1/D, Dakar Sénégal</div>
           </div>
           {/* À propos */}
           <div className="col-span-1">
