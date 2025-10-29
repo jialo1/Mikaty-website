@@ -159,7 +159,7 @@ export const translations = {
       info: {
         title: "Informations de contact",
         address: "Adresse",
-        addressValue: "Dakar, Sénégal",
+        addressValue: "Almadies Zone 06, Résidence jasmin 1/D, Dakar Sénégal",
         email: "Email",
         phone: "Téléphone",
         support: "Support",
@@ -444,7 +444,7 @@ export const translations = {
       info: {
         title: "Contact Information",
         address: "Address",
-        addressValue: "Dakar, Senegal",
+        addressValue: "Almadies Zone 06, Résidence Jasmin 1/D, Dakar, Senegal",
         email: "Email",
         phone: "Phone",
         support: "Support",

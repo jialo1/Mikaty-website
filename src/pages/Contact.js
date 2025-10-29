@@ -221,8 +221,8 @@ export default function Contact({ lang = 'fr' }) {
                     <div>
                       <h4 className="font-semibold text-gray-900 dark:text-white">Adresse</h4>
                       <p className="text-gray-600 dark:text-gray-300">
-                        12 rue de la Fintech<br />
-                        75000 Paris, France
+                        Almadies Zone 06, Résidence jasmin 1/D,<br />
+                        Dakar Sénégal
                       </p>
                     </div>
                   </div>
