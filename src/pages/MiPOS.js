@@ -30,7 +30,7 @@ export default function MiPOS({ lang = 'fr' }) {
                 transition={{ duration: 0.8, delay: 0.2 }}
                 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-6"
               >
-                miPOS : Votre Terminal de Paiement Intelligent
+                MIPOs : Votre Terminal de Paiement Intelligent
               </motion.h1>
               
               <motion.p
@@ -51,7 +51,7 @@ export default function MiPOS({ lang = 'fr' }) {
                 className="flex flex-col sm:flex-row gap-4"
               >
                 <button className="bg-miikaty hover:bg-purple-700 text-white font-bold py-4 px-8 rounded-2xl text-lg transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1">
-                  Demander miPOS
+                  Demander MIPOs
                 </button>
                 <button className="border-2 border-miikaty text-miikaty hover:bg-miikaty hover:text-white font-bold py-4 px-8 rounded-2xl text-lg transition-all duration-300">
                   En savoir plus
@@ -69,7 +69,7 @@ export default function MiPOS({ lang = 'fr' }) {
               <div className="w-full max-w-md h-auto rounded-3xl shadow-2xl">
                 <img 
                   src="/images/Pos.png" 
-                  alt="Terminal de paiement miPOS"
+                  alt="Terminal de paiement MIPOs"
                   className="w-full h-auto object-contain rounded-3xl"
                 />
               </div>
@@ -88,7 +88,7 @@ export default function MiPOS({ lang = 'fr' }) {
             transition={{ duration: 0.8, delay: 0.2 }}
             className="text-3xl md:text-4xl font-bold text-center text-gray-900 dark:text-white mb-16"
           >
-            Pourquoi choisir <span className="text-miikaty">miPOS</span> ?
+            Pourquoi choisir <span className="text-miikaty">MIPOs</span> ?
           </motion.h2>
           
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -105,9 +105,9 @@ export default function MiPOS({ lang = 'fr' }) {
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z" />
                 </svg>
               </div>
-              <h3 className="text-xl font-bold text-[#563491] dark:text-white mb-4">Aucun matériel requis</h3>
+              <h3 className="text-xl font-bold text-[#563491] dark:text-white mb-4">Terminal physique professionnel</h3>
               <p className="text-gray-600 dark:text-gray-300">
-                Utilisez simplement votre smartphone. Pas besoin de terminal physique coûteux ni d'abonnement mensuel.
+                Terminal de paiement physique connecté à l'application Mikaty. Solution complète et professionnelle pour accepter tous les types de paiements.
               </p>
             </motion.div>
 
@@ -223,7 +223,7 @@ export default function MiPOS({ lang = 'fr' }) {
               Comment ça <span className="text-miikaty">Marche</span>
             </h2>
             <p className="text-lg text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
-              En 3 étapes simples, acceptez les paiements avec miPOS
+              En 3 étapes simples, acceptez les paiements avec MIPOs
             </p>
           </motion.div>
 
@@ -241,10 +241,10 @@ export default function MiPOS({ lang = 'fr' }) {
                   <div className="w-20 h-20 bg-gradient-to-br from-miikaty to-purple-600 rounded-full flex items-center justify-center mx-auto mb-4 shadow-lg">
                     <span className="text-3xl font-bold text-white">1</span>
                   </div>
-                  <h3 className="text-2xl font-bold text-miikaty dark:text-purple-300 mb-2">Activez miPOS</h3>
+                  <h3 className="text-2xl font-bold text-miikaty dark:text-purple-300 mb-2">Activez MIPOs</h3>
                 </div>
                 <p className="text-gray-700 dark:text-gray-200 text-center leading-relaxed">
-                  Téléchargez l'application Mikaty et activez la fonctionnalité miPOS depuis votre tableau de bord. 
+                  Téléchargez l'application Mikaty et activez la fonctionnalité MIPOs depuis votre tableau de bord. 
                   C'est gratuit et prend moins de 2 minutes !
                 </p>
               </div>
@@ -334,6 +334,176 @@ export default function MiPOS({ lang = 'fr' }) {
               </motion.div>
             ))}
           </div>
+        </div>
+      </section>
+
+      {/* Section Tarifs */}
+      <section className="py-20 px-4 bg-gradient-to-br from-purple-50 via-white to-purple-50 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900">
+        <div className="max-w-7xl mx-auto">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={isLoaded ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+            className="text-center mb-16"
+          >
+            <h2 className="text-3xl md:text-4xl font-bold text-[#563491] dark:text-white mb-6">
+              Tarifs <span className="text-miikaty">MIPOs</span>
+            </h2>
+            <p className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
+              Des tarifs transparents et compétitifs pour votre terminal de paiement physique
+            </p>
+          </motion.div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {/* Tarif Terminal */}
+            <motion.div
+              initial={{ opacity: 0, y: 50 }}
+              animate={isLoaded ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
+              transition={{ duration: 0.8, delay: 0.3 }}
+              className="bg-white dark:bg-gray-800 rounded-3xl p-8 shadow-xl hover:shadow-2xl transition-all duration-300 border-2 border-purple-100 dark:border-gray-700"
+            >
+              <div className="text-center mb-6">
+                <div className="w-16 h-16 bg-gradient-to-br from-purple-500 to-purple-600 rounded-2xl flex items-center justify-center mx-auto mb-4">
+                  <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z" />
+                  </svg>
+                </div>
+                <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-2">Terminal Physique</h3>
+                <p className="text-gray-600 dark:text-gray-300">Acquisition du terminal</p>
+              </div>
+              <div className="text-center mb-6">
+                <div className="text-4xl font-bold text-[#563491] dark:text-[#d8a5ff] mb-2">
+                  —
+                </div>
+                <p className="text-sm text-gray-500 dark:text-gray-400">Tarif sur demande</p>
+              </div>
+              <ul className="space-y-3 mb-6">
+                <li className="flex items-start gap-2">
+                  <svg className="w-5 h-5 text-green-500 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                  </svg>
+                  <span className="text-gray-700 dark:text-gray-300">Terminal connecté à l'application</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <svg className="w-5 h-5 text-green-500 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                  </svg>
+                  <span className="text-gray-700 dark:text-gray-300">Installation incluse</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <svg className="w-5 h-5 text-green-500 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                  </svg>
+                  <span className="text-gray-700 dark:text-gray-300">Support technique dédié</span>
+                </li>
+              </ul>
+            </motion.div>
+
+            {/* Tarif Commission */}
+            <motion.div
+              initial={{ opacity: 0, y: 50 }}
+              animate={isLoaded ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
+              transition={{ duration: 0.8, delay: 0.4 }}
+              className="bg-gradient-to-br from-[#563491] to-purple-600 rounded-3xl p-8 shadow-xl hover:shadow-2xl transition-all duration-300 border-2 border-purple-300 dark:border-purple-500 relative overflow-hidden"
+            >
+              <div className="absolute top-0 right-0 bg-yellow-400 text-gray-900 px-4 py-1 text-sm font-bold rounded-bl-lg">
+                Populaire
+              </div>
+              <div className="text-center mb-6 mt-4">
+                <div className="w-16 h-16 bg-white/20 rounded-2xl flex items-center justify-center mx-auto mb-4">
+                  <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1" />
+                  </svg>
+                </div>
+                <h3 className="text-2xl font-bold text-white mb-2">Commissions</h3>
+                <p className="text-white/80">Par transaction</p>
+              </div>
+              <div className="text-center mb-6">
+                <div className="text-4xl font-bold text-white mb-2">
+                  —
+                </div>
+                <p className="text-sm text-white/80">Tarif sur demande</p>
+              </div>
+              <ul className="space-y-3 mb-6">
+                <li className="flex items-start gap-2">
+                  <svg className="w-5 h-5 text-white mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                  </svg>
+                  <span className="text-white/90">Pas de frais cachés</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <svg className="w-5 h-5 text-white mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                  </svg>
+                  <span className="text-white/90">Tarif unique pour toutes les cartes</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <svg className="w-5 h-5 text-white mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                  </svg>
+                  <span className="text-white/90">Créditation instantanée</span>
+                </li>
+              </ul>
+            </motion.div>
+
+            {/* Tarif Abonnement */}
+            <motion.div
+              initial={{ opacity: 0, y: 50 }}
+              animate={isLoaded ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
+              transition={{ duration: 0.8, delay: 0.5 }}
+              className="bg-white dark:bg-gray-800 rounded-3xl p-8 shadow-xl hover:shadow-2xl transition-all duration-300 border-2 border-purple-100 dark:border-gray-700"
+            >
+              <div className="text-center mb-6">
+                <div className="w-16 h-16 bg-gradient-to-br from-blue-500 to-blue-600 rounded-2xl flex items-center justify-center mx-auto mb-4">
+                  <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+                  </svg>
+                </div>
+                <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-2">Maintenance</h3>
+                <p className="text-gray-600 dark:text-gray-300">Support et mises à jour</p>
+              </div>
+              <div className="text-center mb-6">
+                <div className="text-4xl font-bold text-[#563491] dark:text-[#d8a5ff] mb-2">
+                  —
+                </div>
+                <p className="text-sm text-gray-500 dark:text-gray-400">Tarif sur demande</p>
+              </div>
+              <ul className="space-y-3 mb-6">
+                <li className="flex items-start gap-2">
+                  <svg className="w-5 h-5 text-green-500 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                  </svg>
+                  <span className="text-gray-700 dark:text-gray-300">Mises à jour logicielles gratuites</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <svg className="w-5 h-5 text-green-500 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                  </svg>
+                  <span className="text-gray-700 dark:text-gray-300">Support client 24/7</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <svg className="w-5 h-5 text-green-500 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                  </svg>
+                  <span className="text-gray-700 dark:text-gray-300">Garantie incluse</span>
+                </li>
+              </ul>
+            </motion.div>
+          </div>
+
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={isLoaded ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
+            transition={{ duration: 0.8, delay: 0.6 }}
+            className="text-center mt-12"
+          >
+            <p className="text-gray-600 dark:text-gray-300 mb-6">
+              Pour plus d'informations sur nos tarifs ou pour commander votre terminal MIPOs
+            </p>
+            <button className="bg-[#563491] hover:bg-[#250f4d] text-white font-bold py-4 px-8 rounded-2xl text-lg transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1">
+              Contactez-nous
+            </button>
+          </motion.div>
         </div>
       </section>
 

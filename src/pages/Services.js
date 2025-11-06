@@ -38,14 +38,14 @@ export default function Services({ lang = 'fr' }) {
            {/* Services */}
            <div className="space-y-8 relative z-10 max-w-4xl mt-16">
             <div>
-                                <h1 className="text-4xl md:text-5xl font-extrabold mb-6 text-white">
-                   {t.services.heroTitle}<br />
-                   {t.services.heroTitleLine2}
-            </h1>
-               <p className="text-lg md:text-xl text-white/90 font-medium mb-8 max-w-xl">
-              {t.services.heroSubtitle}
-            </p>
-                  </div>
+              <h1 className="text-2xl md:text-3xl font-extrabold mb-4 text-white leading-tight">
+                {t.services.heroTitle}<br />
+                {t.services.heroTitleLine2}
+              </h1>
+              <p className="text-base md:text-lg text-white/90 font-medium mb-8 max-w-xl leading-relaxed">
+                {t.services.heroSubtitle}
+              </p>
+            </div>
                   </div>
                   </div>
          {/* Dégradé en bas de la section */}
@@ -604,20 +604,28 @@ export default function Services({ lang = 'fr' }) {
                 viewport={{ once: true }}
                 className="relative"
               >
-                {/* Zone vide pour l'image */}
+                {/* Image de sécurité */}
                 <div className="relative">
                   {/* Fond flou avec lumières */}
                   <div className="absolute inset-0 bg-gradient-to-r from-blue-500/20 via-purple-500/20 to-pink-500/20 blur-3xl"></div>
                   
-                  {/* Conteneur agrandi pour l'image */}
-                  <div className="relative bg-gray-100 dark:bg-gray-800 rounded-3xl p-8 w-full max-w-lg h-[350px] mx-auto flex items-center justify-center">
-                    <div className="text-center">
-                      <div className="w-16 h-16 bg-gray-200 dark:bg-gray-700 rounded-full flex items-center justify-center mx-auto mb-4">
-                        <svg className="w-8 h-8 text-gray-400 dark:text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
-                </svg>
-              </div>
-                      <p className="text-gray-500 dark:text-gray-400 text-sm">Zone réservée pour l'image</p>
+                  {/* Conteneur pour l'image */}
+                  <div className="relative bg-gray-100 dark:bg-gray-800 rounded-3xl p-4 w-full max-w-lg mx-auto">
+                    <img 
+                      src="/images/price.png" 
+                      alt="Sécurité Mikaty" 
+                      className="w-full h-auto object-contain rounded-2xl"
+                      onError={(e) => {
+                        e.target.style.display = 'none';
+                        e.target.nextSibling.style.display = 'flex';
+                      }}
+                    />
+                    <div className="w-full h-[350px] bg-gradient-to-br from-blue-500 to-purple-600 flex items-center justify-center rounded-2xl" style={{display: 'none'}}>
+                      <div className="text-center text-white">
+                        <div className="text-6xl mb-4">🔒</div>
+                        <h3 className="text-2xl font-bold mb-2">Sécurité</h3>
+                        <p className="text-lg opacity-90">Protection maximale</p>
+                      </div>
                     </div>
                   </div>
                 </div>
