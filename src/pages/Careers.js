@@ -7,6 +7,16 @@ export default function Careers({ lang = 'fr' }) {
   const [, setIsLoaded] = useState(false);
   const [selectedLocation, setSelectedLocation] = useState("all");
   const [selectedType, setSelectedType] = useState("all");
+  const [selectedJob, setSelectedJob] = useState(null);
+  const [showForm, setShowForm] = useState(false);
+  const [formData, setFormData] = useState({
+    nom: "",
+    prenom: "",
+    email: "",
+    telephone: "",
+    message: "",
+    cv: null
+  });
 
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -38,56 +48,6 @@ export default function Careers({ lang = 'fr' }) {
       description: "Rejoignez notre équipe d'ingénierie pour développer les solutions financières de demain.",
       requirements: ["3+ ans d'expérience", "React, Node.js", "Base de données", "API REST"],
       posted: "Il y a 2 jours"
-    },
-    {
-      id: 2,
-      title: "Product Manager",
-      location: "Sénégal",
-      type: "Temps plein",
-      department: "Produit",
-      description: "Dirigez la stratégie produit et l'évolution de nos services financiers.",
-      requirements: ["5+ ans d'expérience", "Gestion de produit", "Analytics", "Leadership"],
-      posted: "Il y a 1 semaine"
-    },
-    {
-      id: 3,
-      title: "UX/UI Designer",
-      location: "Télétravail",
-      type: "Temps plein",
-      department: "Design",
-      description: "Créez des expériences utilisateur exceptionnelles pour nos applications mobiles et web.",
-      requirements: ["3+ ans d'expérience", "Figma, Sketch", "Design mobile", "Prototypage"],
-      posted: "Il y a 3 jours"
-    },
-    {
-      id: 4,
-      title: "Analyste Financier",
-      location: "Sénégal",
-      type: "Temps plein",
-      department: "Finance",
-      description: "Analysez les données financières et contribuez à la stratégie de l'entreprise.",
-      requirements: ["2+ ans d'expérience", "Excel avancé", "Analyse financière", "Reporting"],
-      posted: "Il y a 5 jours"
-    },
-    {
-      id: 5,
-      title: "Spécialiste Marketing Digital",
-      location: "Télétravail",
-      type: "Temps partiel",
-      department: "Marketing",
-      description: "Développez et exécutez des campagnes marketing digital pour promouvoir Mikaty.",
-      requirements: ["2+ ans d'expérience", "Google Ads, Facebook", "Analytics", "Créativité"],
-      posted: "Il y a 1 semaine"
-    },
-    {
-      id: 6,
-      title: "Développeur Mobile",
-      location: "Sénégal",
-      type: "Contrat",
-      department: "Ingénierie",
-      description: "Développez nos applications mobiles iOS et Android avec les dernières technologies.",
-      requirements: ["4+ ans d'expérience", "React Native, Flutter", "iOS, Android", "API Integration"],
-      posted: "Il y a 2 semaines"
     }
   ];
 
@@ -103,6 +63,35 @@ export default function Careers({ lang = 'fr' }) {
     
     return locationMatch && typeMatch;
   });
+
+  const handleInputChange = (e) => {
+    const { name, value, files } = e.target;
+    if (name === "cv") {
+      setFormData({ ...formData, cv: files[0] });
+    } else {
+      setFormData({ ...formData, [name]: value });
+    }
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    // Ici vous pouvez ajouter la logique pour envoyer le formulaire
+    console.log("Formulaire soumis:", formData);
+    alert("Votre candidature a été envoyée avec succès !");
+    setShowForm(false);
+    setFormData({
+      nom: "",
+      prenom: "",
+      email: "",
+      telephone: "",
+      message: "",
+      cv: null
+    });
+  };
+
+  const handleCloseForm = () => {
+    setShowForm(false);
+  };
 
   return (
     <div className="min-h-screen bg-white dark:bg-gradient-to-b dark:from-[#1a1a1a] dark:to-[#2d1a4d]">
@@ -229,6 +218,7 @@ export default function Careers({ lang = 'fr' }) {
                     whileInView={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.5, delay: index * 0.1 }}
                     viewport={{ once: true }}
+                    onClick={() => setSelectedJob(job)}
                     className="bg-white dark:bg-white/10 rounded-xl p-6 border border-gray-200 dark:border-white/10 hover:shadow-lg transition-shadow cursor-pointer"
                   >
                     <div className="flex items-center justify-between">
@@ -248,6 +238,9 @@ export default function Careers({ lang = 'fr' }) {
                           )}
                         </div>
                       </div>
+                      <svg className="w-6 h-6 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                      </svg>
                     </div>
                   </motion.div>
                 ))}
@@ -276,6 +269,107 @@ export default function Careers({ lang = 'fr' }) {
         </div>
       </section>
 
+      {/* Modal Détails de l'offre */}
+      {selectedJob && (
+        <div 
+          className="fixed inset-0 bg-black/50 backdrop-blur-sm flex items-center justify-center z-50 p-4"
+          onClick={() => setSelectedJob(null)}
+        >
+          <motion.div
+            initial={{ opacity: 0, scale: 0.9 }}
+            animate={{ opacity: 1, scale: 1 }}
+            exit={{ opacity: 0, scale: 0.9 }}
+            onClick={(e) => e.stopPropagation()}
+            className="bg-white dark:bg-gray-800 rounded-3xl p-8 max-w-3xl w-full relative shadow-2xl max-h-[90vh] overflow-y-auto"
+          >
+            {/* Bouton de fermeture */}
+            <button
+              onClick={() => setSelectedJob(null)}
+              className="absolute top-4 right-4 text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-200 transition-colors"
+            >
+              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+              </svg>
+            </button>
+
+            {/* Contenu */}
+            <div className="pr-8">
+              <h2 className="text-3xl font-bold text-[#563491] dark:text-[#d8a5ff] mb-4">
+                {selectedJob.title}
+              </h2>
+              
+              <div className="flex flex-wrap items-center gap-4 mb-6 text-sm">
+                <span className="flex items-center gap-2 text-gray-600 dark:text-gray-300">
+                  <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+                  </svg>
+                  {selectedJob.location}
+                </span>
+                <span className="flex items-center gap-2 text-gray-600 dark:text-gray-300">
+                  <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                  </svg>
+                  {selectedJob.type}
+                </span>
+                <span className="flex items-center gap-2 text-gray-600 dark:text-gray-300">
+                  <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
+                  </svg>
+                  {selectedJob.department}
+                </span>
+                <span className="text-gray-500 dark:text-gray-400">
+                  {selectedJob.posted}
+                </span>
+              </div>
+
+              <div className="mb-6">
+                <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-3">
+                  Description
+                </h3>
+                <p className="text-gray-600 dark:text-gray-300 leading-relaxed">
+                  {selectedJob.description}
+                </p>
+              </div>
+
+              <div className="mb-6">
+                <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-3">
+                  Exigences
+                </h3>
+                <ul className="space-y-2">
+                  {selectedJob.requirements.map((req, index) => (
+                    <li key={index} className="flex items-start gap-2 text-gray-600 dark:text-gray-300">
+                      <svg className="w-5 h-5 text-[#563491] dark:text-[#d8a5ff] mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                      </svg>
+                      <span>{req}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+
+              <div className="flex gap-4 pt-4">
+                <button
+                  onClick={() => {
+                    setSelectedJob(null);
+                    setShowForm(true);
+                  }}
+                  className="flex-1 px-6 py-3 bg-[#563491] text-white rounded-lg hover:bg-[#4a2c7a] transition-colors font-medium"
+                >
+                  Postuler maintenant
+                </button>
+                <button
+                  onClick={() => setSelectedJob(null)}
+                  className="px-6 py-3 border border-gray-300 dark:border-gray-600 rounded-lg text-gray-700 dark:text-gray-300 bg-white dark:bg-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600 transition-colors font-medium"
+                >
+                  Fermer
+                </button>
+              </div>
+            </div>
+          </motion.div>
+        </div>
+      )}
+
         {/* CTA Section */}
         <section className="py-16 px-4 bg-gray-50 dark:bg-gray-900">
           <div className="max-w-3xl mx-auto text-center">
@@ -291,12 +385,161 @@ export default function Careers({ lang = 'fr' }) {
               <p className="text-gray-600 dark:text-gray-300 mb-6">
                 Vous ne trouvez pas le poste qui vous correspond ? Rejoignez notre équipe.
               </p>
-              <button className="px-6 py-3 bg-[#563491] text-white rounded-lg hover:bg-[#4a2c7a] transition-colors font-medium">
+              <button 
+                onClick={() => setShowForm(true)}
+                className="px-6 py-3 bg-[#563491] text-white rounded-lg hover:bg-[#4a2c7a] transition-colors font-medium"
+              >
                 Envoyer ma candidature
               </button>
             </motion.div>
           </div>
         </section>
+
+      {/* Formulaire de candidature spontanée */}
+      {showForm && (
+        <div 
+          className="fixed inset-0 bg-black/50 backdrop-blur-sm flex items-center justify-center z-50 p-4"
+          onClick={handleCloseForm}
+        >
+          <motion.div
+            initial={{ opacity: 0, scale: 0.9 }}
+            animate={{ opacity: 1, scale: 1 }}
+            exit={{ opacity: 0, scale: 0.9 }}
+            onClick={(e) => e.stopPropagation()}
+            className="bg-white dark:bg-gray-800 rounded-3xl p-8 max-w-2xl w-full relative shadow-2xl max-h-[90vh] overflow-y-auto"
+          >
+            {/* Bouton de fermeture */}
+            <button
+              onClick={handleCloseForm}
+              className="absolute top-4 right-4 text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-200 transition-colors"
+            >
+              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+              </svg>
+            </button>
+
+            <h2 className="text-2xl md:text-3xl font-bold text-[#563491] dark:text-[#d8a5ff] mb-6">
+              Candidature spontanée
+            </h2>
+
+            <form onSubmit={handleSubmit} className="space-y-6">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div>
+                  <label htmlFor="nom" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+                    Nom *
+                  </label>
+                  <input
+                    type="text"
+                    id="nom"
+                    name="nom"
+                    value={formData.nom}
+                    onChange={handleInputChange}
+                    required
+                    className="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:ring-2 focus:ring-[#563491] focus:border-transparent"
+                  />
+                </div>
+
+                <div>
+                  <label htmlFor="prenom" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+                    Prénom *
+                  </label>
+                  <input
+                    type="text"
+                    id="prenom"
+                    name="prenom"
+                    value={formData.prenom}
+                    onChange={handleInputChange}
+                    required
+                    className="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:ring-2 focus:ring-[#563491] focus:border-transparent"
+                  />
+                </div>
+              </div>
+
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div>
+                  <label htmlFor="email" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+                    Email *
+                  </label>
+                  <input
+                    type="email"
+                    id="email"
+                    name="email"
+                    value={formData.email}
+                    onChange={handleInputChange}
+                    required
+                    className="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:ring-2 focus:ring-[#563491] focus:border-transparent"
+                  />
+                </div>
+
+                <div>
+                  <label htmlFor="telephone" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+                    Téléphone *
+                  </label>
+                  <input
+                    type="tel"
+                    id="telephone"
+                    name="telephone"
+                    value={formData.telephone}
+                    onChange={handleInputChange}
+                    required
+                    className="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:ring-2 focus:ring-[#563491] focus:border-transparent"
+                  />
+                </div>
+              </div>
+
+              <div>
+                <label htmlFor="message" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+                  Message / Motivation *
+                </label>
+                <textarea
+                  id="message"
+                  name="message"
+                  value={formData.message}
+                  onChange={handleInputChange}
+                  required
+                  rows={5}
+                  className="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:ring-2 focus:ring-[#563491] focus:border-transparent resize-none"
+                  placeholder="Parlez-nous de vous, de votre expérience et de ce qui vous motive à rejoindre Mikaty..."
+                ></textarea>
+              </div>
+
+              <div>
+                <label htmlFor="cv" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+                  CV / Curriculum Vitae *
+                </label>
+                <input
+                  type="file"
+                  id="cv"
+                  name="cv"
+                  onChange={handleInputChange}
+                  accept=".pdf,.doc,.docx"
+                  required
+                  className="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:ring-2 focus:ring-[#563491] focus:border-transparent file:mr-4 file:py-2 file:px-4 file:rounded-lg file:border-0 file:text-sm file:font-semibold file:bg-[#563491] file:text-white hover:file:bg-[#4a2c7a] cursor-pointer"
+                />
+                <p className="mt-2 text-sm text-gray-500 dark:text-gray-400">
+                  Formats acceptés : PDF, DOC, DOCX (max 5 Mo)
+                </p>
+              </div>
+
+              <div className="flex gap-4 pt-4">
+                <button
+                  type="button"
+                  onClick={handleCloseForm}
+                  className="flex-1 px-6 py-3 border border-gray-300 dark:border-gray-600 rounded-lg text-gray-700 dark:text-gray-300 bg-white dark:bg-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600 transition-colors font-medium"
+                >
+                  Annuler
+                </button>
+                <button
+                  type="submit"
+                  className="flex-1 px-6 py-3 bg-[#563491] text-white rounded-lg hover:bg-[#4a2c7a] transition-colors font-medium"
+                >
+                  Envoyer ma candidature
+                </button>
+              </div>
+            </form>
+          </motion.div>
+        </div>
+      )}
 
       {/* Footer */}
       <footer className="bg-miikaty-dark text-white pt-12 pb-6 px-4">

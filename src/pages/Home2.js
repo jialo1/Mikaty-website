@@ -1,0 +1,722 @@
+import React, { useState, useEffect } from "react";
+import { motion } from "framer-motion";
+import { useTranslation } from "../translations";
+
+
+
+export default function Home2({ lang = 'fr' }) {
+  const t = useTranslation(lang);
+  const [showDownloadPopup, setShowDownloadPopup] = useState(false);
+  const [showScrollTop, setShowScrollTop] = useState(false);
+
+  useEffect(() => {
+    const onScroll = () => {
+      setShowScrollTop(window.scrollY > 300);
+    };
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
+    return () => window.removeEventListener('scroll', onScroll);
+  }, []);
+
+  const toggleDownloadPopup = () => {
+    setShowDownloadPopup(!showDownloadPopup);
+  };
+
+  const fadeInUp = {
+    hidden: { opacity: 0, y: 40 },
+    visible: { opacity: 1, y: 0 }
+  };
+
+  const fadeIn = {
+    hidden: { opacity: 0 },
+    visible: { opacity: 1 }
+  };
+
+  const zoomIn = {
+    hidden: { opacity: 0, scale: 0.95 },
+    visible: { opacity: 1, scale: 1 }
+  };
+
+  const viewportOnce = { once: true, amount: 0.2 };
+
+  return (
+    <>
+      {/* Hero section */}
+      <section className="pt-20 md:pt-8 pb-32 md:pb-20 px-0 relative overflow-hidden font-sans min-h-screen flex flex-col bg-[radial-gradient(ellipse_at_90%_40%,#7C3AED_0%,#1a1a1a_100%)] dark:bg-[radial-gradient(ellipse_at_90%_40%,#1a1a1a_0%,#2d1a4d_100%)]">
+        {/* Decorative animated blobs */}
+        <motion.div
+          aria-hidden
+          className="pointer-events-none absolute -top-16 -left-16 w-72 h-72 rounded-full bg-miikaty/40 blur-3xl"
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 0.6, y: [0, 20, 0] }}
+          transition={{ duration: 10, repeat: Infinity, ease: 'easeInOut' }}
+        />
+        <motion.div
+          aria-hidden
+          className="pointer-events-none absolute bottom-10 -right-16 w-96 h-96 rounded-full bg-purple-600/30 blur-3xl"
+          initial={{ opacity: 0, y: -20 }}
+          animate={{ opacity: 0.6, y: [-10, 10, -10] }}
+          transition={{ duration: 14, repeat: Infinity, ease: 'easeInOut' }}
+        />
+
+        <div className="container mx-auto flex flex-col md:flex-row items-center justify-between gap-8 md:gap-12 px-4 md:px-6 relative z-10 flex-1">
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={viewportOnce}
+            variants={fadeInUp}
+            transition={{ duration: 0.7 }}
+            className="md:w-1/2 flex flex-col items-center md:items-start text-center md:text-left gap-3 md:gap-4 w-full"
+          >
+            <h1 className="text-2xl sm:text-3xl md:text-5xl font-bold tracking-tight text-white mb-0 leading-tight px-2" style={{ textShadow: '0 4px 20px rgba(0,0,0,0.4)', whiteSpace: 'pre-line' }}>
+              {t.home.heroTitle}
+            </h1>
+            <p className="text-xs sm:text-sm text-white/90 mb-0 px-2" style={{fontFamily:'Inter, sans-serif'}}>{t.home.heroSubtitle}</p>
+          </motion.div>
+          <div className="md:w-3/5 flex justify-center md:justify-end items-end h-full mt-4 md:mt-0 relative w-full">
+            <motion.img
+              src="/images/heroim.png"
+              alt="Visuel Hero Mikaty"
+              className="w-4/5 sm:w-4/5 md:w-3/4 lg:w-2/3 h-auto object-cover object-bottom rounded-2xl m-0 p-0 relative z-10"
+              initial={{ opacity: 0, y: 40 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={viewportOnce}
+              transition={{ duration: 0.9, ease: 'easeOut' }}
+              whileHover={{ scale: 1.04, rotateZ: 0.6 }}
+              whileTap={{ scale: 0.98 }}
+            />
+          </div>
+        </div>
+        
+        {/* Section de téléchargement en bas - Optimisée mobile */}
+        <div className="hidden md:flex absolute bottom-8 left-1/2 transform -translate-x-1/2 z-20 w-full px-4">
+          <div className="flex flex-col items-center gap-4 max-w-xs mx-auto">
+            <motion.div 
+              initial="hidden" 
+              whileInView="visible" 
+              viewport={viewportOnce} 
+              variants={zoomIn} 
+              transition={{ duration: 0.5 }}
+              className="flex flex-row items-center gap-3 bg-white/60 dark:bg-white/10 backdrop-blur-md rounded-2xl shadow-lg p-3 w-full border border-white/40 dark:border-white/10 hover:shadow-xl transition-all duration-300 group"
+            >
+              <div className="relative flex-shrink-0">
+                <img src="/images/QR_code.png" alt="QR code télécharger l'app" className="w-20 h-20 rounded-xl border-2 border-miikaty bg-white shadow-md group-hover:scale-105 transition-transform duration-300" />
+                <span className="absolute -bottom-2 -right-2 bg-miikaty text-white rounded-full p-1 shadow-lg flex items-center justify-center">
+                  <svg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' strokeWidth={2} stroke='currentColor' className='w-5 h-5'>
+                    <path strokeLinecap='round' strokeLinejoin='round' d='M12 4v12m0 0l-4-4m4 4l4-4m-4 4V4' />
+                  </svg>
+                </span>
+              </div>
+              <div className="flex flex-col">
+                <span className="font-bold text-miikaty text-base">{t.home.scanToDownload}</span>
+                <span className="text-xs text-gray-700 mt-1">{t.home.scanDesc}</span>
+              </div>
+            </motion.div>
+            <div className="flex flex-row gap-3">
+              <motion.a
+                href="https://play.google.com/store/apps/details?id=ton.app"
+                target="_blank"
+                rel="noopener noreferrer"
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={viewportOnce}
+                transition={{ duration: 0.7, delay: 0.2, type: 'spring', stiffness: 300 }}
+                whileHover={{ scale: 1.08, y: -4 }}
+                whileTap={{ scale: 0.96 }}
+              >
+                <img src="/images/google-play-badge.svg" alt="Disponible sur Google Play" className="h-10" />
+              </motion.a>
+              <motion.a
+                href="https://apps.apple.com/app/idtonappid"
+                target="_blank"
+                rel="noopener noreferrer"
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={viewportOnce}
+                transition={{ duration: 0.7, delay: 0.35, type: 'spring', stiffness: 300 }}
+                whileHover={{ scale: 1.08, y: -4 }}
+                whileTap={{ scale: 0.96 }}
+              >
+                <img src="/images/app-store-badge.svg" alt="Disponible sur l'App Store" className="h-10" />
+              </motion.a>
+            </div>
+          </div>
+        </div>
+        
+      </section>
+
+
+
+
+
+      {/* Section Transferts Instantanés */}
+      <section className="py-12 px-4">
+        <motion.div
+          initial="hidden"
+          whileInView="visible"
+          viewport={viewportOnce}
+          variants={fadeIn}
+          transition={{ duration: 0.6 }}
+          className="max-w-7xl mx-auto bg-white/70 dark:bg-white/5 backdrop-blur-md border border-white/30 dark:border-white/10 rounded-3xl overflow-hidden shadow-lg"
+        >
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-0">
+            {/* Section image à gauche */}
+            <motion.div 
+              initial="hidden" 
+              whileInView="visible" 
+              viewport={viewportOnce} 
+              variants={zoomIn} 
+              transition={{ duration: 0.8 }}
+              className="bg-gray-100 dark:bg-black"
+            >
+              <motion.img 
+                src="/images/photo1.png" 
+                alt="Transferts instantanés" 
+                className="w-full h-[400px] lg:h-[500px] object-cover"
+                onError={(e) => {
+                  e.target.style.display = 'none';
+                  e.target.nextSibling.style.display = 'flex';
+                }}
+                whileHover={{ scale: 1.03 }}
+                transition={{ type: 'spring', stiffness: 200, damping: 20 }}
+              />
+              <div className="w-full h-[400px] lg:h-[500px] bg-gradient-to-br from-blue-500 to-purple-600 flex items-center justify-center" style={{display: 'none'}}>
+                <div className="text-center text-white">
+                  <div className="text-6xl mb-4">💳</div>
+                  <h3 className="text-2xl font-bold mb-2">Transferts Instantanés</h3>
+                  <p className="text-lg opacity-90">Envoyez et recevez sans frais</p>
+                </div>
+            </div>
+              </motion.div>
+          
+            {/* Section texte à droite */}
+            <motion.div 
+              initial="hidden" 
+              whileInView="visible" 
+              viewport={viewportOnce} 
+              variants={fadeInUp} 
+              transition={{ duration: 0.7 }}
+              className="bg-[#fafafa]/80 dark:bg-black/60 backdrop-blur-sm p-8 lg:p-12 flex flex-col justify-center"
+              whileHover={{ y: -2 }}
+            >
+              <h2 className="text-3xl lg:text-4xl font-bold text-[#563491] dark:text-[#d8a5ff] mb-6 leading-tight">
+                {t.home.instantTransfers.title} : {t.home.instantTransfers.subtitle}
+            </h2>
+              <p className="text-gray-700 dark:text-gray-300 mb-8 leading-relaxed">
+                {t.home.instantTransfers.description}
+              </p>
+              <button onClick={toggleDownloadPopup} className="inline-flex items-center text-gray-900 dark:text-white hover:text-[#563491] font-semibold text-lg transition-colors duration-300 cursor-pointer">
+                {t.home.instantTransfers.cta} →
+            </button>
+            </motion.div>
+          </div>
+        </motion.div>
+      </section>
+
+
+
+      {/* Section Expérience de Carte Numérique */}
+      <section className="py-12 px-4">
+        <motion.div
+          initial="hidden"
+          whileInView="visible"
+          viewport={viewportOnce}
+          variants={fadeIn}
+          transition={{ duration: 0.6 }}
+          className="max-w-7xl mx-auto bg-white/70 dark:bg-white/5 backdrop-blur-md border border-white/30 dark:border-white/10 rounded-3xl overflow-hidden shadow-lg"
+        >
+          <div className="flex flex-col lg:flex-row">
+            {/* Section texte à gauche (50%) */}
+            <motion.div 
+              initial="hidden" 
+              whileInView="visible" 
+              viewport={viewportOnce} 
+              variants={fadeInUp} 
+              transition={{ duration: 0.7 }}
+              className="lg:w-1/2 bg-[#fafafa]/80 dark:bg-black/60 backdrop-blur-sm p-12 flex flex-col justify-center"
+              whileHover={{ y: -2 }}
+            >
+              <h2 className="text-3xl lg:text-4xl font-bold text-[#563491] dark:text-[#d8a5ff] mb-6 leading-tight">
+                {t.home.digitalCard.title} : {t.home.digitalCard.subtitle}
+              </h2>
+              <p className="text-gray-700 dark:text-gray-300 mb-8 leading-relaxed">
+                {t.home.digitalCard.description}
+              </p>
+              <a href="/services" className="inline-flex items-center text-gray-900 dark:text-white hover:text-[#563491] font-semibold text-lg transition-colors duration-300">
+                {t.home.digitalCard.cta} →
+              </a>
+          </motion.div>
+          
+            {/* Section image à droite (50%) */}
+            <motion.div 
+              initial="hidden" 
+              whileInView="visible" 
+              viewport={viewportOnce} 
+              variants={zoomIn} 
+              transition={{ duration: 0.8 }}
+              className="lg:w-1/2 relative"
+            >
+              <div className="w-full h-[500px] lg:h-[600px] bg-transparent relative overflow-hidden flex items-center justify-center">
+                <motion.img 
+                  src="/images/appli.svg" 
+                  alt="Expérience de Carte Numérique" 
+                  className="w-full h-full object-contain p-8"
+                  onError={(e) => {
+                    e.target.style.display = 'none';
+                    e.target.nextSibling.style.display = 'flex';
+                  }}
+                  whileHover={{ scale: 1.03, rotateZ: 0.5 }}
+                  transition={{ type: 'spring', stiffness: 200, damping: 20 }}
+                />
+                <div className="w-full h-full bg-gradient-to-br from-emerald-500 to-green-600 flex items-center justify-center" style={{display: 'none'}}>
+                  <div className="text-center text-white">
+                    <div className="text-6xl mb-4">💳</div>
+                    <h3 className="text-2xl font-bold mb-2">Carte Numérique</h3>
+                    <p className="text-lg opacity-90">Votre carte virtuelle</p>
+            </div>
+          </div>
+              </div>
+            </motion.div>
+          </div>
+        </motion.div>
+      </section>
+
+      {/* Section Services Bancaires Sécurisés */}
+      <section className="py-12 px-4">
+        <motion.div
+          initial="hidden"
+          whileInView="visible"
+          viewport={viewportOnce}
+          variants={fadeIn}
+          transition={{ duration: 0.6 }}
+          className="max-w-7xl mx-auto bg-white/70 dark:bg-white/5 backdrop-blur-md border border-white/30 dark:border-white/10 rounded-3xl overflow-hidden shadow-lg"
+        >
+          <div className="flex flex-col lg:flex-row">
+            {/* Section image à gauche (50%) */}
+            <motion.div 
+              initial="hidden" 
+              whileInView="visible" 
+              viewport={viewportOnce} 
+              variants={zoomIn} 
+              transition={{ duration: 0.8 }}
+              className="lg:w-1/2 relative"
+            >
+              <div className="w-full h-[500px] lg:h-[600px] bg-gradient-to-br from-green-50 to-emerald-100 dark:from-green-900/20 dark:to-emerald-900/20 relative overflow-hidden">
+                <motion.img 
+                  src="/images/photo2.png" 
+                  alt="Services Bancaires Sécurisés" 
+                  className="w-full h-full object-cover"
+                  onError={(e) => {
+                    e.target.style.display = 'none';
+                    e.target.nextSibling.style.display = 'flex';
+                  }}
+                  whileHover={{ scale: 1.03 }}
+                  transition={{ type: 'spring', stiffness: 200, damping: 20 }}
+                />
+                <div className="w-full h-full bg-gradient-to-br from-green-500 to-emerald-600 flex items-center justify-center" style={{display: 'none'}}>
+                  <div className="text-center text-white">
+                    <div className="text-6xl mb-4">🔒</div>
+                    <h3 className="text-2xl font-bold mb-2">Sécurité</h3>
+                    <p className="text-lg opacity-90">Vos données protégées</p>
+                </div>
+                </div>
+              </div>
+          </motion.div>
+          
+            {/* Section texte à droite (50%) */}
+            <motion.div 
+              initial="hidden" 
+              whileInView="visible" 
+              viewport={viewportOnce} 
+              variants={fadeInUp} 
+              transition={{ duration: 0.7 }}
+              className="lg:w-1/2 bg-[#fafafa]/80 dark:bg-black/60 backdrop-blur-sm p-12 flex flex-col justify-center"
+              whileHover={{ y: -2 }}
+            >
+              <h2 className="text-3xl lg:text-4xl font-bold text-[#563491] dark:text-[#d8a5ff] mb-6 leading-tight">
+                {t.home.secureBanking.title} : {t.home.secureBanking.subtitle}
+              </h2>
+              <p className="text-gray-700 dark:text-gray-300 mb-8 leading-relaxed">
+                {t.home.secureBanking.description}
+              </p>
+              <a href="/services#securite" className="inline-flex items-center text-gray-900 dark:text-white hover:text-[#563491] font-semibold text-lg transition-colors duration-300">
+                {t.home.secureBanking.cta} →
+              </a>
+            </motion.div>
+          </div>
+        </motion.div>
+      </section>
+
+
+      {/* Section Coûts Compétitifs */}
+      <section className="py-12 px-4">
+        <motion.div
+          initial="hidden"
+          whileInView="visible"
+          viewport={viewportOnce}
+          variants={fadeIn}
+          transition={{ duration: 0.6 }}
+          className="max-w-7xl mx-auto bg-white/70 dark:bg-white/5 backdrop-blur-md border border-white/30 dark:border-white/10 rounded-3xl overflow-hidden shadow-lg"
+        >
+          <div className="flex flex-col lg:flex-row">
+            {/* Section texte à gauche (50%) */}
+            <motion.div 
+              initial="hidden" 
+              whileInView="visible" 
+              viewport={viewportOnce} 
+              variants={fadeInUp} 
+              transition={{ duration: 0.7 }}
+              className="lg:w-1/2 bg-[#fafafa]/80 dark:bg.black/60 backdrop-blur-sm p-12 flex flex-col justify-center"
+              whileHover={{ y: -2 }}
+            >
+              <h2 className="text-3xl lg:text-4xl font-bold text-[#563491] dark:text-[#d8a5ff] mb-6 leading-tight">
+                {t.home.competitiveCosts.title} : {t.home.competitiveCosts.subtitle}
+          </h2>
+              <p className="text-gray-700 dark:text-gray-300 mb-8 leading-relaxed">
+                {t.home.competitiveCosts.description}
+          </p>
+              <a href="/services" className="inline-flex items-center text-gray-900 dark:text-white hover:text-[#563491] font-semibold text-lg transition-colors duration-300">
+                {t.home.competitiveCosts.cta} →
+              </a>
+              </motion.div>
+
+            {/* Section image à droite (50%) */}
+            <motion.div 
+              initial="hidden" 
+              whileInView="visible" 
+              viewport={viewportOnce} 
+              variants={zoomIn} 
+              transition={{ duration: 0.8 }}
+              className="lg:w-1/2 relative"
+            >
+              <div className="w-full h-[500px] lg:h-[600px] bg-gradient-to-br from-yellow-50 to-orange-100 dark:from-yellow-900/20 dark:to-orange-900/20 relative overflow-hidden">
+              </div>
+              </motion.div>
+              </div>
+              </motion.div>
+      </section>
+
+      {/* Section Catalogue Complet de Services */}
+      <section className="py-12 px-4">
+        <motion.div
+          initial="hidden"
+          whileInView="visible"
+          viewport={viewportOnce}
+          variants={fadeIn}
+          transition={{ duration: 0.6 }}
+          className="max-w-7xl mx-auto bg-white/70 dark:bg.white/5 backdrop-blur-md border border-white/30 dark:border-white/10 rounded-3xl overflow-hidden shadow-lg"
+        >
+          <div className="flex flex-col lg:flex-row">
+            {/* Section image à gauche (50%) */}
+            <motion.div 
+              initial="hidden" 
+              whileInView="visible" 
+              viewport={viewportOnce} 
+              variants={zoomIn} 
+              transition={{ duration: 0.8 }}
+              className="lg:w-1/2 relative"
+            >
+              <div className="w-full h-[500px] lg:h-[600px] bg-gradient-to-br from-indigo-50 to-purple-100 dark:from-indigo-900/20 dark:to-purple-900/20 relative overflow-hidden">
+                <motion.img 
+                  src="/images/services.png" 
+                  alt="Catalogue Complet de Services" 
+                  className="w-full h-full object-cover"
+                  onError={(e) => {
+                    e.target.style.display = 'none';
+                    e.target.nextSibling.style.display = 'flex';
+                  }}
+                  whileHover={{ scale: 1.03 }}
+                  transition={{ type: 'spring', stiffness: 200, damping: 20 }}
+                />
+                <div className="w-full h-full bg-gradient-to-br from-indigo-500 to-purple-600 flex items-center justify-center" style={{display: 'none'}}>
+                  <div className="text-center text-white">
+                    <div className="text-6xl mb-4">📱</div>
+                    <h3 className="text-2xl font-bold mb-2">Services</h3>
+                    <p className="text-lg opacity-90">Tout ce dont vous avez besoin</p>
+                  </div>
+              </div>
+              </div>
+              </motion.div>
+            
+            {/* Section texte à droite (50%) */}
+            <motion.div 
+              initial="hidden" 
+              whileInView="visible" 
+              viewport={viewportOnce} 
+              variants={fadeInUp} 
+              transition={{ duration: 0.7 }}
+              className="lg:w-1/2 bg-[#fafafa]/80 dark:bg-black/60 backdrop-blur-sm p-12 flex flex-col justify-center"
+              whileHover={{ y: -2 }}
+            >
+              <h2 className="text-3xl lg:text-4xl font-bold text-[#563491] dark:text-[#d8a5ff] mb-6 leading-tight">
+                {t.home.completeCatalog.title} : {t.home.completeCatalog.subtitle}
+              </h2>
+              <p className="text-gray-700 dark:text-gray-300 mb-8 leading-relaxed">
+                {t.home.completeCatalog.description}
+              </p>
+              <a href="/services" className="inline-flex items-center text-gray-900 dark:text-white hover:text-[#563491] font-semibold text-lg transition-colors duration-300">
+                {t.home.completeCatalog.cta} →
+              </a>
+              </motion.div>
+          </div>
+        </motion.div>
+      </section>
+
+      {/* Scroll to top button */}
+      <motion.button
+        aria-label="Revenir en haut"
+        onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+        initial={false}
+        animate={{ opacity: showScrollTop ? 1 : 0, y: showScrollTop ? 0 : 20, pointerEvents: showScrollTop ? 'auto' : 'none' }}
+        transition={{ duration: 0.3 }}
+        className="fixed bottom-6 right-6 z-50 rounded-full bg-miikaty text-white shadow-xl hover:shadow-2xl w-12 h-12 flex items-center justify-center"
+      >
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-6 h-6">
+          <path d="M12 8.5l5.5 5.5-1.4 1.4L12 11.3l-4.1 4.1-1.4-1.4L12 8.5z"/>
+        </svg>
+      </motion.button>
+
+      {/* Section Partenaires */}
+      <section className="py-20 px-4 bg-white/50 dark:bg-gradient-to-b dark:from-[#2d1a4d] dark:to-[#1a1a1a]">
+        <div className="max-w-6xl mx-auto">
+          <motion.div 
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+            className="text-center mb-16"
+          >
+            <h2 className="text-4xl font-bold text-gray-900 dark:text-white mb-6">Nos Partenaires</h2>
+            <p className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
+              Des collaborations stratégiques pour un écosystème financier plus fort
+            </p>
+          </motion.div>
+          
+          <div className="flex flex-wrap justify-center gap-4 items-center">
+            {[
+              { name: "Visa", logo: "/images/Visa.svg", size: "h-8" },
+              { name: "Verestro", logo: "/images/Verestro.svg" },
+              { name: "Ecobank", logo: "/images/ecobank.png" },
+              { name: "Lam", logo: "/images/lam.png", size: "h-12" },
+              { name: "Bdk", logo: "/images/bdk.png" },
+              { name: "Orange Money", logo: "/images/Orange-Money.png" },
+              { name: "Wave", logo: "/images/Wave.png" },
+              { name: "Paymentology", logo: "/images/Paymentology.png", size: "h-8" }
+            ].map((partenaire, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, delay: index * 0.1 }}
+                viewport={{ once: true }}
+                className="p-3 flex items-center justify-center bg-white/70 dark:bg-white/5 backdrop-blur-md border border-white/30 dark:border-white/10 rounded-xl hover:shadow-md"
+                whileHover={{ y: -2 }}
+              >
+                <img 
+                  src={partenaire.logo} 
+                  alt={partenaire.name} 
+                  className={`${partenaire.size || "h-10"} max-w-full object-contain`}
+                />
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+
+
+
+      {/* Appel à l'action mobile */}
+      <section className="py-16 text-center bg-[linear-gradient(90deg,#fefefe_0%,#f8f7ff_50%,#f8f7ff_100%)] dark:bg-gradient-to-b dark:from-[#2d1a4d] dark:to-[#1a1a1a]">
+        <div className="max-w-2xl mx-auto px-4">
+          <motion.h2 
+            initial="hidden" 
+            whileInView="visible" 
+            viewport={viewportOnce} 
+            variants={fadeInUp} 
+            transition={{ duration: 0.6 }}
+            className="text-2xl md:text-3xl font-bold mb-4 bg-gradient-to-r from-[#563491] to-black dark:from-white dark:to-white bg-clip-text text-transparent"
+          >
+            Essayez MIikaty dès maintenant
+          </motion.h2>
+          <motion.p 
+            initial="hidden" 
+            whileInView="visible" 
+            viewport={viewportOnce} 
+            variants={fadeIn} 
+            transition={{ duration: 0.6, delay: 0.15 }}
+            className="text-gray-600 dark:text-gray-300 mb-6"
+          >Rejoignez la révolution du paiement mobile. Gratuit, sans engagement, pour tous.</motion.p>
+          <div className="flex flex-col md:flex-row justify-center gap-4 mt-4">
+            <motion.a
+              href="https://play.google.com/store/apps/details?id=ton.app"
+              target="_blank"
+              rel="noopener noreferrer"
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={viewportOnce}
+              transition={{ duration: 0.7, delay: 0.2, type: 'spring', stiffness: 300 }}
+              whileHover={{ scale: 1.08, y: -4 }}
+              whileTap={{ scale: 0.96 }}
+            >
+              <img src="/images/google-play-badge.svg" alt="Disponible sur Google Play" className="h-12" />
+            </motion.a>
+            <motion.a
+              href="https://apps.apple.com/app/idtonappid"
+              target="_blank"
+              rel="noopener noreferrer"
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={viewportOnce}
+              transition={{ duration: 0.7, delay: 0.35, type: 'spring', stiffness: 300 }}
+              whileHover={{ scale: 1.08, y: -4 }}
+              whileTap={{ scale: 0.96 }}
+            >
+              <img src="/images/app-store-badge.svg" alt="Disponible sur l'App Store" className="h-12" />
+            </motion.a>
+          </div>
+        </div>
+      </section>
+
+      {/* Footer */}
+      <footer className="bg-miikaty-dark text-white pt-12 pb-6 px-4">
+        <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-5 gap-8">
+          {/* Logo & baseline + app download */}
+          <div className="col-span-1 flex flex-col items-center md:items-start gap-4">
+            <img src="/images/logomauve.svg" alt="MIikaty" className="h-8 mb-2" />
+            <span className="text-white/80 text-sm mb-4">La finance, simple et accessible.</span>
+            <div className="flex gap-2 mt-2">
+              <a href="https://play.google.com/store/apps/details?id=ton.app" target="_blank" rel="noopener noreferrer">
+                <img src="/images/google-play-badge.svg" alt="Google Play" className="h-10" />
+              </a>
+              <a href="https://apps.apple.com/app/idtonappid" target="_blank" rel="noopener noreferrer">
+                <img src="/images/app-store-badge.svg" alt="App Store" className="h-10" />
+              </a>
+            </div>
+            <div className="mt-2 text-xs text-white/40">MIikaty SASU<br/>Almadies Zone 06, Résidence jasmin 1/D, Dakar Sénégal</div>
+          </div>
+          {/* À propos */}
+          <div className="col-span-1">
+            <div className="font-bold mb-4 text-miikaty">{t.footer.about}</div>
+            <ul className="space-y-2 text-white/80 text-sm">
+              <li><a href="/about" className="hover:text-miikaty transition">{t.footer.whoWeAre}</a></li>
+              <li><a href="/about" className="hover:text-miikaty transition">{t.footer.ourMission}</a></li>
+              <li><a href="/careers" className="hover:text-miikaty transition">{t.footer.careers}</a></li>
+            </ul>
+          </div>
+          {/* Produits */}
+          <div className="col-span-1">
+            <div className="font-bold mb-4 text-miikaty">{t.footer.products}</div>
+            <ul className="space-y-2 text-white/80 text-sm">
+              <li><a href="/services" className="hover:text-miikaty transition">{t.footer.mobileApp}</a></li>
+              <li><a href="/tarifs" className="hover:text-miikaty transition">{t.footer.pricing}</a></li>
+              <li><a href="/securite" className="hover:text-miikaty transition">{t.footer.security}</a></li>
+              <li><a href="/faq" className="hover:text-miikaty transition">{t.footer.faq}</a></li>
+            </ul>
+          </div>
+          {/* Support */}
+          <div className="col-span-1">
+            <div className="font-bold mb-4 text-miikaty">{t.footer.support}</div>
+            <ul className="space-y-2 text-white/80 text-sm">
+              <li><a href="/contact" className="hover:text-miikaty transition">{t.footer.contact}</a></li>
+              <li><a href="/aide" className="hover:text-miikaty transition">{t.footer.helpCenter}</a></li>
+              <li><a href="/support" className="hover:text-miikaty transition">{t.footer.support247}</a></li>
+            </ul>
+          </div>
+          {/* Légal & réseaux sociaux */}
+          <div className="col-span-1 flex flex-col gap-4 items-center md:items-start">
+            <div>
+              <div className="font-bold mb-4 text-miikaty">{t.footer.legal}</div>
+              <ul className="space-y-2 text-white/80 text-sm">
+                <li><a href="/mentions-legales" className="hover:text-miikaty transition">{t.footer.legalNotice}</a></li>
+                <li><a href="/cgu" className="hover:text-miikaty transition">{t.footer.cgu}</a></li>
+                <li><a href="/termes-et-conditions" className="hover:text-miikaty transition">{t.footer.terms}</a></li>
+              </ul>
+            </div>
+            <div className="flex gap-4 mt-4">
+              <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" aria-label="Facebook" className="hover:text-miikaty transition">
+                <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M22 12c0-5.522-4.477-10-10-10S2 6.478 2 12c0 4.991 3.657 9.128 8.438 9.877v-6.987h-2.54v-2.89h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.242 0-1.63.771-1.63 1.562v1.875h2.773l-.443 2.89h-2.33v6.987C18.343 21.128 22 16.991 22 12"/></svg>
+              </a>
+              <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" aria-label="Instagram" className="hover:text-miikaty transition">
+                <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2c2.717 0 3.056.01 4.122.06 1.065.05 1.79.217 2.428.465.66.254 1.216.598 1.772 1.153a4.908 4.908 0 0 1 1.153 1.772c.247.637.415 1.363.465 2.428.047 1.066.06 1.405.06 4.122 0 2.717-.01 3.056-.06 4.122-.05 1.065-.218 1.79-.465 2.428a4.883 4.883 0 0 1-1.153 1.772 4.915 4.915 0 0 1-1.772 1.153c-.637.247-1.363.415-2.428.465-1.066.047-1.405.06-4.122.06-2.717 0-3.056-.01-4.122-.06-1.065-.05-1.79-.218-2.428-.465a4.89 4.89 0 0 1-1.772-1.153 4.904 4.904 0 0 1-1.153-1.772c-.248-.637-.415-1.363-.465-2.428C2.013 15.056 2 14.717 2 12c0-2.717.01-3.056.06-4.122.05-1.066.217-1.79.465-2.428a4.88 4.88 0 0 1 1.153-1.772A4.897 4.897 0 0 1 5.45 2.525c.638-.248 1.362-.415 2.428-.465C8.944 2.013 9.283 2 12 2zm0 5a5 5 0 1 0 0 10 5 5 0 0 0 0-10zm6.5-.25a1.25 1.25 0 0 0-2.5 0 1.25 1.25 0 0 0 2.5 0zM12 9a3 3 0 1 1 0 6 3 3 0 0 1 0-6z"/></svg>
+              </a>
+              <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" className="hover:text-miikaty transition">
+                <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.76 0-5 2.24-5 5v14c0 2.76 2.24 5 5 5h14c2.76 0 5-2.24 5-5v-14c0-2.76-2.24-5-5-5zm-11 19h-3v-9h3v9zm-1.5-10.28c-.97 0-1.75-.79-1.75-1.75s.78-1.75 1.75-1.75 1.75.79 1.75 1.75-.78 1.75-1.75 1.75zm13.5 10.28h-3v-4.5c0-1.08-.02-2.47-1.5-2.47-1.5 0-1.73 1.18-1.73 2.39v4.58h-3v-9h2.89v1.23h.04c.4-.75 1.38-1.54 2.84-1.54 3.04 0 3.6 2 3.6 4.59v4.72z"/></svg>
+              </a>
+            </div>
+          </div>
+        </div>
+        <div className="mt-8 border-t border-white/10 pt-4 text-center text-white/60 text-sm">
+          © {new Date().getFullYear()} MIikaty. {t.footer.copyright} <a href="/mentions-legales" className="underline hover:text-miikaty">{t.footer.legalNotice}</a>
+        </div>
+      </footer>
+
+      {/* Popup de téléchargement */}
+      {showDownloadPopup && (
+        <div className="fixed inset-0 bg-black/50 backdrop-blur-sm flex items-center justify-center z-50 p-4">
+          <motion.div
+            initial={{ opacity: 0, scale: 0.9 }}
+            animate={{ opacity: 1, scale: 1 }}
+            exit={{ opacity: 0, scale: 0.9 }}
+            className="bg-white dark:bg-gray-800 rounded-3xl p-4 max-w-sm w-full relative shadow-2xl"
+          >
+            {/* Bouton de fermeture */}
+          <button
+              onClick={toggleDownloadPopup}
+              className="absolute top-4 right-4 text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-200 transition-colors"
+            >
+              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+              </svg>
+            </button>
+
+            {/* Même composant que la hero section */}
+            <div className="flex flex-col items-center gap-4">
+              <div className="flex flex-row items-center gap-3 bg-white/60 backdrop-blur-md rounded-2xl shadow-lg p-3 w-auto max-w-xs border border-white/40 hover:shadow-xl transition-all duration-300 group">
+                <div className="relative flex-shrink-0">
+                  <img src="/images/QR_code.png" alt="QR code télécharger l'app" className="w-20 h-20 rounded-xl border-2 border-miikaty bg-white shadow-md group-hover:scale-105 transition-transform duration-300" />
+                  <span className="absolute -bottom-2 -right-2 bg-miikaty text-white rounded-full p-1 shadow-lg flex items-center justify-center">
+                    <svg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' strokeWidth={2} stroke='currentColor' className='w-5 h-5'>
+                      <path strokeLinecap='round' strokeLinejoin='round' d='M12 4v12m0 0l-4-4m4 4l4-4m-4 4V4' />
+                    </svg>
+                </span>
+              </div>
+                <div className="flex flex-col">
+                  <span className="font-bold text-miikaty text-base">Scan to download</span>
+                  <span className="text-xs text-gray-700 mt-1">Scannez pour télécharger l'application.</span>
+                </div>
+              </div>
+              <div className="flex flex-row gap-3">
+                <motion.a
+                  href="https://play.google.com/store/apps/details?id=ton.app"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  initial={{ opacity: 0, y: 30 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.7, delay: 0.5, type: 'spring', stiffness: 300 }}
+                  whileHover={{ scale: 1.08, y: -4 }}
+                  whileTap={{ scale: 0.96 }}
+                >
+                  <img src="/images/google-play-badge.svg" alt="Disponible sur Google Play" className="h-10" />
+                </motion.a>
+                <motion.a
+                  href="https://apps.apple.com/app/idtonappid"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  initial={{ opacity: 0, y: 30 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.7, delay: 0.7, type: 'spring', stiffness: 300 }}
+                  whileHover={{ scale: 1.08, y: -4 }}
+                  whileTap={{ scale: 0.96 }}
+                >
+                  <img src="/images/app-store-badge.svg" alt="Disponible sur l'App Store" className="h-10" />
+                </motion.a>
+              </div>
+              </div>
+            </motion.div>
+        </div>
+      )}
+    </>
+  );
+}
+

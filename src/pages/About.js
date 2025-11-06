@@ -87,8 +87,12 @@ export default function About({ lang = 'fr' }) {
               >
                 <div className="flex items-center">
                   <div className="w-12 h-12 flex items-center justify-center mr-4">
-                    <svg className="w-8 h-8" fill="none" stroke="#a894ff" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2-2v2m8 0V6a2 2 0 012 2v6a2 2 0 01-2 2H8a2 2 0 01-2-2V8a2 2 0 012-2V6" />
+                    <svg className="w-8 h-8" fill="none" viewBox="0 0 24 24">
+                      <rect x="6" y="8" width="12" height="14" rx="2" stroke="#a894ff" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"/>
+                      <line x1="10" y1="12" x2="14" y2="12" stroke="#a894ff" strokeWidth="2.5" strokeLinecap="round"/>
+                      <line x1="10" y1="16" x2="14" y2="16" stroke="#a894ff" strokeWidth="2.5" strokeLinecap="round"/>
+                      <rect x="12" y="4" width="4" height="4" rx="1" stroke="#a894ff" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"/>
+                      <path d="M14 5l2-1v2l-2-1z" stroke="#a894ff" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"/>
                     </svg>
                   </div>
                   <span className="text-gray-900 dark:text-white font-bold">{t.about.cards.careers.title}</span>

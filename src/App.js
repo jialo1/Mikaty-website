@@ -2,10 +2,11 @@ import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { BrowserRouter as Router, Routes, Route, Link, useLocation } from "react-router-dom";
 import Home from "./pages/Home";
+import Home2 from "./pages/Home2";
 import About from "./pages/About";
 import Services from "./pages/Services";
+import MiPOS from "./pages/MiPOS";
 import Contact from "./pages/Contact";
-import MiCard from "./pages/MiCard";
 import FAQ from "./pages/FAQ";
 import TermsAndConditions from "./pages/TermsAndConditions";
 import CGU from "./pages/CGU";
@@ -33,7 +34,7 @@ function Navbar({ isScrolled, isAfterHero, isDark, setIsDark, LanguageSwitch, la
       animate={{ y: 0, opacity: 1 }}
       transition={{ duration: 0.7, ease: 'easeOut' }}
       className={`fixed top-0 left-0 w-full z-50 transition-all duration-300
-                        ${pagePath === '/about' || pagePath === '/micard' || pagePath === '/contact' || pagePath === '/faq' || pagePath === '/carrieres' || pagePath === '/mentions-legales' || pagePath === '/cgu' || pagePath === '/termes-et-conditions'
+                        ${pagePath === '/about' || pagePath === '/mipos' || pagePath === '/contact' || pagePath === '/faq' || pagePath === '/carrieres' || pagePath === '/mentions-legales' || pagePath === '/cgu' || pagePath === '/termes-et-conditions'
           ? (isScrolled 
               ? 'bg-[#563491]/90 backdrop-blur-md shadow-lg border-b border-white/10' 
               : 'bg-[#563491] shadow-lg border-b-0')
@@ -57,9 +58,8 @@ function Navbar({ isScrolled, isAfterHero, isDark, setIsDark, LanguageSwitch, la
           <ul className="flex space-x-6 items-center">
             <li><Link to="/" className={`relative font-medium text-shadow-md after:content-[''] after:block after:w-0 after:h-0.5 after:bg-miikaty after:transition-all after:duration-300 hover:after:w-full ${pagePath === '/' ? 'after:w-full' : ''} text-white`}>{t.nav.home}</Link></li>
             <li><Link to="/services" className={`relative font-medium text-shadow-md after:content-[''] after:block after:w-0 after:h-0.5 after:bg-miikaty after:transition-all after:duration-300 hover:after:w-full ${pagePath === '/services' ? 'after:w-full' : ''} text-white`}>{t.nav.services}</Link></li>
-            <li><Link to="/micard" className={`relative font-medium text-shadow-md after:content-[''] after:block after:w-0 after:h-0.5 after:bg-miikaty after:transition-all after:duration-300 hover:after:w-full ${pagePath === '/micard' ? 'after:w-full' : ''} text-white`}>{t.nav.micard}</Link></li>
-            
-                            <li><Link to="/about" className={`relative font-medium text-shadow-md after:content-[''] after:block after:w-0 after:h-0.5 after:bg-miikaty after:transition-all after:duration-300 hover:after:w-full ${pagePath === '/about' ? 'after:w-full' : ''} text-white`}>{t.nav.about}</Link></li>
+            <li><Link to="/mipos" className={`relative font-medium text-shadow-md after:content-[''] after:block after:w-0 after:h-0.5 after:bg-miikaty after:transition-all after:duration-300 hover:after:w-full ${pagePath === '/mipos' ? 'after:w-full' : ''} text-white`}>miPOS</Link></li>
+            <li><Link to="/about" className={`relative font-medium text-shadow-md after:content-[''] after:block after:w-0 after:h-0.5 after:bg-miikaty after:transition-all after:duration-300 hover:after:w-full ${pagePath === '/about' ? 'after:w-full' : ''} text-white`}>{t.nav.about}</Link></li>
             <li><Link to="/contact" className={`relative font-medium text-shadow-md after:content-[''] after:block after:w-0 after:h-0.5 after:bg-miikaty after:transition-all after:duration-300 hover:after:w-full ${pagePath === '/contact' ? 'after:w-full' : ''} text-white`}>{t.nav.contact}</Link></li>
             <li><Link to="/carrieres" className={`relative font-medium text-shadow-md after:content-[''] after:block after:w-0 after:h-0.5 after:bg-miikaty after:transition-all after:duration-300 hover:after:w-full ${pagePath === '/carrieres' ? 'after:w-full' : ''} text-white`}>{t.nav.careers}</Link></li>
             <li><Link to="/faq" className={`relative font-medium text-shadow-md after:content-[''] after:block after:w-0 after:h-0.5 after:bg-miikaty after:transition-all after:duration-300 hover:after:w-full ${pagePath === '/faq' ? 'after:w-full' : ''} text-white`}>{t.nav.faq}</Link></li>
@@ -127,7 +127,7 @@ function Navbar({ isScrolled, isAfterHero, isDark, setIsDark, LanguageSwitch, la
               <div className="space-y-3">
                 <Link to="/" className={`block font-medium py-2 transition-colors ${pagePath === '/' ? 'text-miikaty' : 'text-white hover:text-miikaty'}`}>{t.nav.home}</Link>
                 <Link to="/services" className={`block font-medium py-2 transition-colors ${pagePath === '/services' ? 'text-miikaty' : 'text-white hover:text-miikaty'}`}>{t.nav.services}</Link>
-                <Link to="/micard" className={`block font-medium py-2 transition-colors ${pagePath === '/micard' ? 'text-miikaty' : 'text-white hover:text-miikaty'}`}>{t.nav.micard}</Link>
+                <Link to="/mipos" className={`block font-medium py-2 transition-colors ${pagePath === '/mipos' ? 'text-miikaty' : 'text-white hover:text-miikaty'}`}>miPOS</Link>
                 <Link to="/about" className={`block font-medium py-2 transition-colors ${pagePath === '/about' ? 'text-miikaty' : 'text-white hover:text-miikaty'}`}>{t.nav.about}</Link>
                 <Link to="/contact" className={`block font-medium py-2 transition-colors ${pagePath === '/contact' ? 'text-miikaty' : 'text-white hover:text-miikaty'}`}>{t.nav.contact}</Link>
                 <Link to="/carrieres" className={`block font-medium py-2 transition-colors ${pagePath === '/carrieres' ? 'text-miikaty' : 'text-white hover:text-miikaty'}`}>{t.nav.careers}</Link>
@@ -255,10 +255,11 @@ function App() {
               >
                 <Routes>
                   <Route path="/" element={<Home lang={lang} />} />
+                  <Route path="/accueil-2" element={<Home2 lang={lang} />} />
                   <Route path="/about" element={<About lang={lang} />} />
                   <Route path="/services" element={<Services lang={lang} />} />
+                  <Route path="/mipos" element={<MiPOS lang={lang} />} />
                   <Route path="/contact" element={<Contact lang={lang} />} />
-                  <Route path="/micard" element={<MiCard lang={lang} />} />
                   <Route path="/faq" element={<FAQ lang={lang} />} />
                   <Route path="/termes-et-conditions" element={<TermsAndConditions lang={lang} />} />
                   <Route path="/cgu" element={<CGU lang={lang} />} />

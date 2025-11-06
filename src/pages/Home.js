@@ -20,7 +20,7 @@ export default function Home({ lang = 'fr' }) {
       <section className="pt-20 md:pt-8 pb-32 md:pb-20 px-0 relative overflow-hidden font-sans min-h-screen flex flex-col bg-[radial-gradient(ellipse_at_60%_40%,#7C3AED_0%,#1a1a1a_100%)] dark:bg-[radial-gradient(ellipse_at_60%_40%,#1a1a1a_0%,#2d1a4d_100%)]">
         <div className="container mx-auto flex flex-col md:flex-row items-center justify-between gap-8 md:gap-12 px-4 md:px-6 relative z-10 flex-1">
           <div className="md:w-1/2 flex flex-col items-center md:items-start text-center md:text-left gap-3 md:gap-4 w-full">
-            <h1 className="text-2xl sm:text-3xl md:text-5xl font-bold tracking-tight text-white mb-0 leading-tight px-2" style={{ textShadow: '0 4px 20px rgba(0,0,0,0.4)' }}>
+            <h1 className="text-2xl sm:text-3xl md:text-5xl font-bold tracking-tight text-white mb-0 leading-tight px-2" style={{ textShadow: '0 4px 20px rgba(0,0,0,0.4)', whiteSpace: 'pre-line' }}>
               {t.home.heroTitle}
             </h1>
             <p className="text-xs sm:text-sm text-white/90 mb-0 px-2" style={{fontFamily:'Inter, sans-serif'}}>{t.home.heroSubtitle}</p>
@@ -158,7 +158,7 @@ export default function Home({ lang = 'fr' }) {
               <p className="text-gray-700 dark:text-gray-300 mb-8 leading-relaxed">
                 {t.home.digitalCard.description}
               </p>
-              <a href="/micard" className="inline-flex items-center text-gray-900 dark:text-white hover:text-[#563491] font-semibold text-lg transition-colors duration-300">
+              <a href="/services" className="inline-flex items-center text-gray-900 dark:text-white hover:text-[#563491] font-semibold text-lg transition-colors duration-300">
                 {t.home.digitalCard.cta} →
               </a>
           </div>

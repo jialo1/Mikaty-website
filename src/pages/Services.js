@@ -1,6 +1,5 @@
 import React, { useEffect } from "react";
 import { motion } from "framer-motion";
-import { Link } from "react-router-dom";
 import { useTranslation } from "../translations";
 
 export default function Services({ lang = 'fr' }) {
@@ -410,6 +409,141 @@ export default function Services({ lang = 'fr' }) {
         </div>
       </section>
 
+      {/* Section Présentation La carte Mikaty */}
+      <section className="py-20 px-4 bg-gradient-to-br from-purple-50 via-white to-purple-50 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900">
+        <div className="max-w-7xl mx-auto">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+            className="text-center mb-16"
+          >
+            <h2 className="text-4xl md:text-5xl font-bold text-[#563491] dark:text-white mb-6">
+              La carte Mikaty
+            </h2>
+            <p className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto leading-relaxed">
+              Votre carte bancaire virtuelle toujours disponible sur votre smartphone. 
+              Simple, sécurisée et acceptée partout pour tous vos paiements quotidiens.
+            </p>
+          </motion.div>
+
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-16">
+            {/* Image de la carte à gauche */}
+            <motion.div
+              initial={{ opacity: 0, x: -50 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.8 }}
+              viewport={{ once: true }}
+              className="flex items-center justify-center"
+            >
+              <img
+                src="/images/Micard.png"
+                alt="La carte Mikaty - Carte virtuelle"
+                className="w-full max-w-md h-auto object-contain rounded-3xl shadow-2xl transform hover:scale-105 transition-transform duration-300"
+              />
+            </motion.div>
+
+            {/* Contenu texte à droite */}
+            <motion.div
+              initial={{ opacity: 0, x: 50 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.8 }}
+              viewport={{ once: true }}
+            >
+              <h3 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-6">
+                Une carte pour tous vos besoins
+              </h3>
+              <p className="text-lg text-gray-600 dark:text-gray-300 mb-8 leading-relaxed">
+                Avec la carte Mikaty, gérez vos paiements en toute simplicité. 
+                Que ce soit en ligne, en magasin ou pour recevoir des virements, 
+                votre carte virtuelle est toujours à portée de main.
+              </p>
+
+              <div className="space-y-4">
+                <div className="flex items-center gap-3">
+                  <div className="flex-shrink-0 w-2 h-2 bg-[#563491] rounded-full"></div>
+                  <span className="text-gray-700 dark:text-gray-300">Création instantanée en quelques secondes</span>
+                </div>
+                <div className="flex items-center gap-3">
+                  <div className="flex-shrink-0 w-2 h-2 bg-[#563491] rounded-full"></div>
+                  <span className="text-gray-700 dark:text-gray-300">Acceptée sur tous les sites e-commerce</span>
+                </div>
+                <div className="flex items-center gap-3">
+                  <div className="flex-shrink-0 w-2 h-2 bg-[#563491] rounded-full"></div>
+                  <span className="text-gray-700 dark:text-gray-300">Paiement sans contact dans les magasins</span>
+                </div>
+                <div className="flex items-center gap-3">
+                  <div className="flex-shrink-0 w-2 h-2 bg-[#563491] rounded-full"></div>
+                  <span className="text-gray-700 dark:text-gray-300">IBAN personnel pour recevoir des virements</span>
+                </div>
+                <div className="flex items-center gap-3">
+                  <div className="flex-shrink-0 w-2 h-2 bg-[#563491] rounded-full"></div>
+                  <span className="text-gray-700 dark:text-gray-300">Contrôle total de vos dépenses en temps réel</span>
+                </div>
+              </div>
+            </motion.div>
+          </div>
+          
+          {/* Grille des fonctionnalités */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-12">
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.1 }}
+              viewport={{ once: true }}
+              className="bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-200 dark:border-gray-700"
+            >
+              <div className="w-12 h-12 bg-purple-100 dark:bg-purple-900 rounded-xl flex items-center justify-center mb-4">
+                <svg className="w-6 h-6 text-purple-600 dark:text-purple-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z" />
+                </svg>
+              </div>
+              <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-3">Paiements en ligne</h3>
+              <p className="text-gray-600 dark:text-gray-300 text-sm">
+                Effectuez des achats sécurisés sur tous les sites e-commerce avec chiffrement de bout en bout.
+              </p>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              viewport={{ once: true }}
+              className="bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-200 dark:border-gray-700"
+            >
+              <div className="w-12 h-12 bg-blue-100 dark:bg-blue-900 rounded-xl flex items-center justify-center mb-4">
+                <svg className="w-6 h-6 text-blue-600 dark:text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z" />
+                </svg>
+              </div>
+              <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-3">Paiement sans contact</h3>
+              <p className="text-gray-600 dark:text-gray-300 text-sm">
+                Payez rapidement dans les magasins avec la technologie NFC. Votre téléphone devient votre portefeuille.
+              </p>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.3 }}
+              viewport={{ once: true }}
+              className="bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-200 dark:border-gray-700"
+            >
+              <div className="w-12 h-12 bg-green-100 dark:bg-green-900 rounded-xl flex items-center justify-center mb-4">
+                <svg className="w-6 h-6 text-green-600 dark:text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+                </svg>
+              </div>
+              <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-3">IBAN personnel</h3>
+              <p className="text-gray-600 dark:text-gray-300 text-sm">
+                Recevez des virements directement sur votre compte depuis n'importe quelle banque avec votre IBAN unique.
+              </p>
+            </motion.div>
+          </div>
+            </div>
+      </section>
+
       {/* Section Sécurité */}
       <section id="securite" className="py-20 bg-gradient-to-r from-gray-50 to-purple-50 dark:from-gray-900 dark:to-black">
         <div className="max-w-7xl mx-auto px-6">
@@ -490,7 +624,7 @@ export default function Services({ lang = 'fr' }) {
               </motion.div>
             </div>
             </div>
-            
+
           {/* Liste des certifications en bas */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -539,7 +673,7 @@ export default function Services({ lang = 'fr' }) {
                 </div>
                 <span className="text-gray-900 dark:text-white text-xs font-medium">{t.services.security.cert6}</span>
             </div>
-            
+
               {/* Conforme au RGPD */}
               <div className="flex flex-col items-center text-center">
                 <div className="w-12 h-12 flex items-center justify-center mb-2">
@@ -559,50 +693,6 @@ export default function Services({ lang = 'fr' }) {
                 </div>
                 <span className="text-gray-900 dark:text-white text-xs font-medium">{t.services.security.cert3}</span>
             </div>
-            </div>
-          </motion.div>
-          </div>
-        </section>
-
-      {/* Section Essayez Mikaty dès aujourd'hui */}
-      <section className="py-16 bg-white dark:bg-[#1a1a1a]">
-        <div className="max-w-7xl mx-auto px-6 text-center">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            viewport={{ once: true }}
-          >
-            <h2 className="text-3xl md:text-4xl font-bold text-[#563491] dark:text-white mb-6">
-              {t.services.cta.title}
-        </h2>
-            <p className="text-lg text-gray-600 dark:text-gray-300 mb-8 max-w-2xl mx-auto">
-              {t.services.cta.subtitle}
-            </p>
-            
-            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-8">
-              <Link
-                to="/contact"
-                className="bg-[#563491] text-white px-8 py-3 rounded-full font-semibold hover:bg-[#4a2d7a] transform hover:scale-105 transition-all duration-300"
-              >
-                Commencer maintenant
-              </Link>
-              <Link
-                to="/services"
-                className="border-2 border-[#563491] text-[#563491] dark:border-[#d8a5ff] dark:text-[#d8a5ff] px-8 py-3 rounded-full font-semibold hover:bg-[#563491] hover:text-white dark:hover:bg-[#d8a5ff] dark:hover:text-black transition-all duration-300"
-              >
-                Découvrir nos services
-              </Link>
-            </div>
-
-            {/* Badges de téléchargement */}
-            <div className="flex justify-center gap-4">
-              <a href="https://apps.apple.com/app/idtonappid" target="_blank" rel="noopener noreferrer" className="block">
-                <img src="/images/app-store-badge.svg" alt="App Store" className="h-10 hover:scale-105 transition-transform duration-300" />
-              </a>
-              <a href="https://play.google.com/store/apps/details?id=ton.app" target="_blank" rel="noopener noreferrer" className="block">
-                <img src="/images/google-play-badge.svg" alt="Google Play" className="h-10 hover:scale-105 transition-transform duration-300" />
-                  </a>
                 </div>
           </motion.div>
         </div>
