@@ -1,9 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
-import { useTranslation } from "../translations";
 
 export default function MiPOS({ lang = 'fr' }) {
-  const t = useTranslation(lang);
   const [isLoaded, setIsLoaded] = useState(false);
 
   useEffect(() => {
