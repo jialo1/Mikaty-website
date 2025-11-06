@@ -36,7 +36,7 @@ export const translations = {
     // Home Page
     home: {
       heroTitle: "Une gestion optimale de votre argent, \nnotre priorité.",
-      heroSubtitle: "Une technologie de pointe, une innovation du Sénégal pour le monde entier. Notre mission mondiale est de vous fournir des solutions financières fiables, adaptées à vos besoins — sécurisées, accessibles et compétitives.",
+      heroSubtitle: "Une technologie de pointe, une innovation du Sénégal pour le monde entier. Notre mission mondiale est de vous fournir des solutions financières fiables, adaptées à vos besoins : rapides, sécurisées, accessibles et compétitives.",
       scanToDownload: "Scan to download",
       scanDesc: "Scannez pour télécharger l'application.",
       
@@ -51,7 +51,7 @@ export const translations = {
         title: "Expérience de Carte Numérique",
         subtitle: "Votre carte virtuelle toujours disponible",
         description: "Gérez votre carte virtuelle Mikaty depuis votre smartphone. Paiements en ligne sécurisés, contrôle total de vos dépenses.",
-        cta: "En savoir plus sur MiCard"
+        cta: "Découvrir la carte Mikaty"
       },
       secureBanking: {
         title: "Services Bancaires Sécurisés",
@@ -336,7 +336,7 @@ export const translations = {
         title: "Digital Card Experience",
         subtitle: "Your virtual card always available",
         description: "Manage your Mikaty virtual card from your smartphone. Secure online payments, total control of your spending.",
-        cta: "Learn more about MiCard"
+        cta: "Discover the Mikaty card"
       },
       secureBanking: {
         title: "Secure Banking Services",

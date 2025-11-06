@@ -205,7 +205,7 @@ export default function Home2({ lang = 'fr' }) {
               <p className="text-gray-700 dark:text-gray-300 mb-8 leading-relaxed">
                 {t.home.instantTransfers.description}
               </p>
-              <button onClick={toggleDownloadPopup} className="inline-flex items-center text-gray-900 dark:text-white hover:text-[#563491] font-semibold text-lg transition-colors duration-300 cursor-pointer">
+              <button onClick={toggleDownloadPopup} className="inline-flex items-center text-gray-900 dark:text-white hover:text-[#563491] font-semibold text-lg transition-colors duration-300 cursor-pointer border-2 border-gray-300 dark:border-gray-600 hover:border-[#563491] dark:hover:border-[#563491] rounded-lg px-4 py-2">
                 {t.home.instantTransfers.cta} →
             </button>
             </motion.div>
@@ -242,7 +242,7 @@ export default function Home2({ lang = 'fr' }) {
               <p className="text-gray-700 dark:text-gray-300 mb-8 leading-relaxed">
                 {t.home.digitalCard.description}
               </p>
-              <a href="/services" className="inline-flex items-center text-gray-900 dark:text-white hover:text-[#563491] font-semibold text-lg transition-colors duration-300">
+              <a href="/services#micard" className="inline-flex items-center text-gray-900 dark:text-white hover:text-[#563491] font-semibold text-lg transition-colors duration-300 border-2 border-gray-300 dark:border-gray-600 hover:border-[#563491] dark:hover:border-[#563491] rounded-lg px-4 py-2">
                 {t.home.digitalCard.cta} →
               </a>
           </motion.div>
@@ -339,7 +339,7 @@ export default function Home2({ lang = 'fr' }) {
               <p className="text-gray-700 dark:text-gray-300 mb-8 leading-relaxed">
                 {t.home.secureBanking.description}
               </p>
-              <a href="/services#securite" className="inline-flex items-center text-gray-900 dark:text-white hover:text-[#563491] font-semibold text-lg transition-colors duration-300">
+              <a href="/services#securite" className="inline-flex items-center text-gray-900 dark:text-white hover:text-[#563491] font-semibold text-lg transition-colors duration-300 border-2 border-gray-300 dark:border-gray-600 hover:border-[#563491] dark:hover:border-[#563491] rounded-lg px-4 py-2">
                 {t.home.secureBanking.cta} →
               </a>
             </motion.div>
@@ -375,7 +375,7 @@ export default function Home2({ lang = 'fr' }) {
               <p className="text-gray-700 dark:text-gray-300 mb-8 leading-relaxed">
                 {t.home.competitiveCosts.description}
           </p>
-              <a href="/services" className="inline-flex items-center text-gray-900 dark:text-white hover:text-[#563491] font-semibold text-lg transition-colors duration-300">
+              <a href="/services" className="inline-flex items-center text-gray-900 dark:text-white hover:text-[#563491] font-semibold text-lg transition-colors duration-300 border-2 border-gray-300 dark:border-gray-600 hover:border-[#563491] dark:hover:border-[#563491] rounded-lg px-4 py-2">
                 {t.home.competitiveCosts.cta} →
               </a>
               </motion.div>
@@ -454,7 +454,7 @@ export default function Home2({ lang = 'fr' }) {
               <p className="text-gray-700 dark:text-gray-300 mb-8 leading-relaxed">
                 {t.home.completeCatalog.description}
               </p>
-              <a href="/services" className="inline-flex items-center text-gray-900 dark:text-white hover:text-[#563491] font-semibold text-lg transition-colors duration-300">
+              <a href="/services" className="inline-flex items-center text-gray-900 dark:text-white hover:text-[#563491] font-semibold text-lg transition-colors duration-300 border-2 border-gray-300 dark:border-gray-600 hover:border-[#563491] dark:hover:border-[#563491] rounded-lg px-4 py-2">
                 {t.home.completeCatalog.cta} →
               </a>
               </motion.div>

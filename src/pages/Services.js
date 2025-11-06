@@ -410,7 +410,7 @@ export default function Services({ lang = 'fr' }) {
       </section>
 
       {/* Section Présentation La carte Mikaty */}
-      <section className="py-20 px-4 bg-gradient-to-br from-purple-50 via-white to-purple-50 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900">
+      <section id="micard" className="py-20 px-4 bg-gradient-to-br from-purple-50 via-white to-purple-50 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900">
         <div className="max-w-7xl mx-auto">
           <motion.div
             initial={{ opacity: 0, y: 30 }}

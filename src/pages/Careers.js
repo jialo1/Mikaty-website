@@ -112,9 +112,17 @@ export default function Careers({ lang = 'fr' }) {
               </div>
             </nav>
             
-            <h1 className="text-3xl md:text-4xl font-bold text-[#563491] dark:text-[#d8a5ff]">
-              Toutes les offres d'emploi chez Mikaty
-            </h1>
+            <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+              <h1 className="text-3xl md:text-4xl font-bold text-[#563491] dark:text-[#d8a5ff]">
+                Toutes les offres d'emploi chez Mikaty
+              </h1>
+              <button className="inline-flex items-center gap-2 px-6 py-3 bg-[#0f172a] dark:bg-[#0a0e1a] text-white rounded-lg font-semibold hover:bg-[#1e293b] dark:hover:bg-[#0f172a] transition-colors duration-200 shadow-lg">
+                <span>Add positions</span>
+                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                </svg>
+              </button>
+            </div>
           </motion.div>
         </div>
       </div>

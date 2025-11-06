@@ -136,7 +136,7 @@ export default function Home({ lang = 'fr' }) {
               <p className="text-gray-700 dark:text-gray-300 mb-8 leading-relaxed">
                 {t.home.instantTransfers.description}
               </p>
-              <button onClick={toggleDownloadPopup} className="inline-flex items-center text-gray-900 dark:text-white hover:text-[#563491] font-semibold text-lg transition-colors duration-300 cursor-pointer">
+              <button onClick={toggleDownloadPopup} className="inline-flex items-center bg-[#563491] text-white hover:bg-[#250f4d] font-semibold text-lg transition-colors duration-300 cursor-pointer rounded-lg px-4 py-2 w-fit">
                 {t.home.instantTransfers.cta} →
             </button>
             </div>
@@ -158,7 +158,7 @@ export default function Home({ lang = 'fr' }) {
               <p className="text-gray-700 dark:text-gray-300 mb-8 leading-relaxed">
                 {t.home.digitalCard.description}
               </p>
-              <a href="/services" className="inline-flex items-center text-gray-900 dark:text-white hover:text-[#563491] font-semibold text-lg transition-colors duration-300">
+              <a href="/services#micard" className="inline-flex items-center bg-[#563491] text-white hover:bg-[#250f4d] font-semibold text-lg transition-colors duration-300 rounded-lg px-4 py-2 w-fit">
                 {t.home.digitalCard.cta} →
               </a>
           </div>
@@ -222,7 +222,7 @@ export default function Home({ lang = 'fr' }) {
               <p className="text-gray-700 dark:text-gray-300 mb-8 leading-relaxed">
                 {t.home.secureBanking.description}
               </p>
-              <a href="/services#securite" className="inline-flex items-center text-gray-900 dark:text-white hover:text-[#563491] font-semibold text-lg transition-colors duration-300">
+              <a href="/services#securite" className="inline-flex items-center bg-[#563491] text-white hover:bg-[#250f4d] font-semibold text-lg transition-colors duration-300 rounded-lg px-4 py-2 w-fit">
                 {t.home.secureBanking.cta} →
               </a>
             </div>
@@ -244,7 +244,7 @@ export default function Home({ lang = 'fr' }) {
               <p className="text-gray-700 dark:text-gray-300 mb-8 leading-relaxed">
                 {t.home.competitiveCosts.description}
           </p>
-              <a href="/services" className="inline-flex items-center text-gray-900 dark:text-white hover:text-[#563491] font-semibold text-lg transition-colors duration-300">
+              <a href="/services" className="inline-flex items-center bg-[#563491] text-white hover:bg-[#250f4d] font-semibold text-lg transition-colors duration-300 rounded-lg px-4 py-2 w-fit">
                 {t.home.competitiveCosts.cta} →
               </a>
               </div>
@@ -252,6 +252,22 @@ export default function Home({ lang = 'fr' }) {
             {/* Section image à droite (50%) */}
             <div className="lg:w-1/2 relative">
               <div className="w-full h-[500px] lg:h-[600px] bg-gradient-to-br from-yellow-50 to-orange-100 dark:from-yellow-900/20 dark:to-orange-900/20 relative overflow-hidden">
+                <img 
+                  src="/images/prices.png" 
+                  alt="Coûts Compétitifs" 
+                  className="w-full h-full object-cover"
+                  onError={(e) => {
+                    e.target.style.display = 'none';
+                    e.target.nextSibling.style.display = 'flex';
+                  }}
+                />
+                <div className="w-full h-full bg-gradient-to-br from-yellow-500 to-orange-600 flex items-center justify-center" style={{display: 'none'}}>
+                  <div className="text-center text-white">
+                    <div className="text-6xl mb-4">💰</div>
+                    <h3 className="text-2xl font-bold mb-2">Coûts Compétitifs</h3>
+                    <p className="text-lg opacity-90">Frais transparents</p>
+                  </div>
+                </div>
               </div>
               </div>
               </div>
@@ -292,7 +308,7 @@ export default function Home({ lang = 'fr' }) {
               <p className="text-gray-700 dark:text-gray-300 mb-8 leading-relaxed">
                 {t.home.completeCatalog.description}
               </p>
-              <a href="/services" className="inline-flex items-center text-gray-900 dark:text-white hover:text-[#563491] font-semibold text-lg transition-colors duration-300">
+              <a href="/services" className="inline-flex items-center bg-[#563491] text-white hover:bg-[#250f4d] font-semibold text-lg transition-colors duration-300 rounded-lg px-4 py-2 w-fit">
                 {t.home.completeCatalog.cta} →
               </a>
               </div>
