@@ -41,11 +41,11 @@ export default function Services({ lang = 'fr' }) {
               <h1 className="text-2xl md:text-3xl font-extrabold mb-4 text-white leading-tight">
                 {t.services.heroTitle}<br />
                 {t.services.heroTitleLine2}
-              </h1>
+            </h1>
               <p className="text-base md:text-lg text-white/90 font-medium mb-8 max-w-xl leading-relaxed">
                 {t.services.heroSubtitle}
               </p>
-            </div>
+                  </div>
                   </div>
                   </div>
          {/* Dégradé en bas de la section */}
@@ -543,7 +543,7 @@ export default function Services({ lang = 'fr' }) {
           </div>
             </div>
       </section>
-
+            
       {/* Section Sécurité */}
       <section id="securite" className="py-20 bg-gradient-to-r from-gray-50 to-purple-50 dark:from-gray-900 dark:to-black">
         <div className="max-w-7xl mx-auto px-6">
@@ -628,7 +628,7 @@ export default function Services({ lang = 'fr' }) {
                       </div>
                     </div>
                   </div>
-                </div>
+              </div>
               </motion.div>
             </div>
             </div>
