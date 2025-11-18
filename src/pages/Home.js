@@ -17,34 +17,34 @@ export default function Home({ lang = 'fr' }) {
   return (
     <>
       {/* Hero section */}
-      <section className="pt-20 md:pt-8 pb-32 md:pb-20 px-0 relative overflow-hidden font-sans min-h-screen flex flex-col" style={{backgroundImage: 'url(/images/hero1.png)', backgroundSize: 'cover', backgroundPosition: 'center', backgroundRepeat: 'no-repeat'}}>
-        <div className="container mx-auto flex flex-col md:flex-row items-center justify-between gap-8 md:gap-12 px-4 md:px-6 relative z-10 flex-1">
+      <section className="pt-24 md:pt-8 pb-24 md:pb-20 px-0 relative overflow-hidden font-sans min-h-[85vh] md:min-h-screen flex flex-col" style={{backgroundImage: 'url(/images/hero1.png)', backgroundSize: 'cover', backgroundPosition: 'center', backgroundRepeat: 'no-repeat'}}>
+        <div className="container mx-auto flex flex-col md:flex-row items-center justify-between gap-6 md:gap-12 px-4 md:px-6 relative z-10 flex-1 py-8 md:py-0">
           <div className="md:w-1/2 flex flex-col items-center md:items-start text-center md:text-left gap-3 md:gap-4 w-full">
-            <h1 className="text-2xl sm:text-3xl md:text-5xl font-bold tracking-tight text-white mb-0 leading-tight px-2" style={{ textShadow: '0 4px 20px rgba(0,0,0,0.4)', whiteSpace: 'pre-line' }}>
+            <h1 className="text-2xl sm:text-3xl md:text-5xl font-bold tracking-tight text-white mb-2 md:mb-0 leading-tight px-2" style={{ textShadow: '0 4px 20px rgba(0,0,0,0.4)', whiteSpace: 'pre-line' }}>
               {t.home.heroTitle}
             </h1>
-            <p className="text-xs sm:text-sm text-white/90 mb-0 px-2" style={{fontFamily:'Inter, sans-serif'}}>{t.home.heroSubtitle}</p>
+            <p className="text-xs sm:text-sm md:text-base text-white/90 mb-4 md:mb-0 px-2 leading-relaxed" style={{fontFamily:'Inter, sans-serif'}}>{t.home.heroSubtitle}</p>
           </div>
         </div>
         
         {/* Section de téléchargement en bas - Optimisée mobile */}
-        <div className="hidden md:flex absolute bottom-8 left-1/2 transform -translate-x-1/2 z-20 w-full px-4">
-          <div className="flex flex-col items-center gap-4 max-w-xs mx-auto">
-            <div className="flex flex-row items-center gap-3 bg-white/60 backdrop-blur-md rounded-2xl shadow-lg p-3 w-full border border-white/40 hover:shadow-xl transition-all duration-300 group">
+        <div className="flex relative md:absolute bottom-0 md:bottom-8 left-1/2 transform -translate-x-1/2 z-20 w-full px-4 pb-4 md:pb-0">
+          <div className="flex flex-col items-center gap-3 md:gap-4 max-w-xs mx-auto">
+            <div className="flex flex-row items-center gap-2 md:gap-3 bg-white/60 backdrop-blur-md rounded-xl md:rounded-2xl shadow-lg p-2 md:p-3 w-full border border-white/40 hover:shadow-xl transition-all duration-300 group">
               <div className="relative flex-shrink-0">
-                <img src="/images/QR_code.png" alt="QR code télécharger l'app" className="w-20 h-20 rounded-xl border-2 border-miikaty bg-white shadow-md group-hover:scale-105 transition-transform duration-300" />
-                <span className="absolute -bottom-2 -right-2 bg-miikaty text-white rounded-full p-1 shadow-lg flex items-center justify-center">
-                  <svg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' strokeWidth={2} stroke='currentColor' className='w-5 h-5'>
+                <img src="/images/QR_code.png" alt="QR code télécharger l'app" className="w-16 h-16 md:w-20 md:h-20 rounded-lg md:rounded-xl border-2 border-miikaty bg-white shadow-md group-hover:scale-105 transition-transform duration-300" />
+                <span className="absolute -bottom-1 -right-1 md:-bottom-2 md:-right-2 bg-miikaty text-white rounded-full p-1 shadow-lg flex items-center justify-center">
+                  <svg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' strokeWidth={2} stroke='currentColor' className='w-4 h-4 md:w-5 md:h-5'>
                     <path strokeLinecap='round' strokeLinejoin='round' d='M12 4v12m0 0l-4-4m4 4l4-4m-4 4V4' />
                   </svg>
                 </span>
               </div>
               <div className="flex flex-col">
-                <span className="font-bold text-miikaty text-base">{t.home.scanToDownload}</span>
-                <span className="text-xs text-gray-700 mt-1">{t.home.scanDesc}</span>
+                <span className="font-bold text-miikaty text-sm md:text-base">{t.home.scanToDownload}</span>
+                <span className="text-xs text-gray-700 mt-0.5 md:mt-1 hidden sm:block">{t.home.scanDesc}</span>
               </div>
             </div>
-            <div className="flex flex-row gap-3">
+            <div className="flex flex-row gap-2 md:gap-3">
               <motion.a
                 href="https://play.google.com/store/apps/details?id=ton.app"
                 target="_blank"
@@ -55,7 +55,7 @@ export default function Home({ lang = 'fr' }) {
                 whileHover={{ scale: 1.08, y: -4 }}
                 whileTap={{ scale: 0.96 }}
               >
-                <img src="/images/google-play-badge.svg" alt="Disponible sur Google Play" className="h-10" />
+                <img src="/images/google-play-badge.svg" alt="Disponible sur Google Play" className="h-8 md:h-10" />
               </motion.a>
               <motion.a
                 href="https://apps.apple.com/app/idtonappid"
@@ -67,7 +67,7 @@ export default function Home({ lang = 'fr' }) {
                 whileHover={{ scale: 1.08, y: -4 }}
                 whileTap={{ scale: 0.96 }}
               >
-                <img src="/images/app-store-badge.svg" alt="Disponible sur l'App Store" className="h-10" />
+                <img src="/images/app-store-badge.svg" alt="Disponible sur l'App Store" className="h-8 md:h-10" />
               </motion.a>
             </div>
           </div>
@@ -143,11 +143,11 @@ export default function Home({ lang = 'fr' }) {
           
             {/* Section image à droite (50%) */}
             <div className="lg:w-1/2 relative">
-              <div className="w-full h-[500px] lg:h-[600px] bg-transparent relative overflow-hidden flex items-center justify-center">
+              <div className="w-full min-h-[380px] lg:min-h-[520px] bg-transparent relative overflow-hidden flex items-center justify-center p-6">
                 <img 
-                  src="/images/appli.svg" 
+                  src="/images/frais1.png" 
                   alt="Expérience de Carte Numérique" 
-                  className="w-full h-full object-contain p-8"
+                  className="w-full max-w-2xl h-auto object-contain"
                   onError={(e) => {
                     e.target.style.display = 'none';
                     e.target.nextSibling.style.display = 'flex';
@@ -231,7 +231,7 @@ export default function Home({ lang = 'fr' }) {
             <div className="lg:w-1/2 relative">
               <div className="w-full h-[500px] lg:h-[600px] bg-gradient-to-br from-yellow-50 to-orange-100 dark:from-yellow-900/20 dark:to-orange-900/20 relative overflow-hidden">
                 <img 
-                  src="/images/prices.png" 
+                  src="/images/frais.png" 
                   alt="Coûts Compétitifs" 
                   className="w-full h-full object-cover"
                   onError={(e) => {
