@@ -46,7 +46,7 @@ export default function ChatAssistant({ lang = 'fr' }) {
     "sécurité": "Mikaty utilise les technologies de cryptage les plus avancées. Vos données et transactions sont protégées. Nous sommes agréés par les autorités de régulation.",
     "frais": "• Transferts entre utilisateurs : GRATUIT\n• Recharges : 50-200 FCFA\n• Paiements de factures : 100-300 FCFA\n• Pas de frais cachés !",
     "télécharger": "Téléchargez Mikaty :\n• Google Play : https://play.google.com/store/apps/details?id=ton.app\n• App Store : https://apps.apple.com/app/idtonappid",
-    "contact": "Contactez-nous :\n• Email : support@mikaty.com\n• Téléphone : +221 33 XXX XX XX\n• Page Contact : /contact\n• Support 24/7 disponible",
+    "contact": "Contactez-nous :\n• Email : support@mikaty.com\n• Téléphone : +221 33 XXX XX XX\n• Page Contact : /contact\n• Support disponible",
     "micard": "MiCard est notre carte virtuelle qui vous permet de :\n• Payer en ligne de manière sécurisée\n• Gérer vos dépenses\n• Avoir un IBAN pour recevoir des virements\n• Utiliser le tap-to-pay",
     "pays": "Mikaty est disponible dans 15 pays d'Afrique : Sénégal, Côte d'Ivoire, Mali, Burkina Faso, et d'autres pays de la région.",
     "merci": "De rien ! N'hésitez pas si vous avez d'autres questions. Bonne journée ! 😊",

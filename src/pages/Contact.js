@@ -141,7 +141,7 @@ export default function Contact({ lang = 'fr' }) {
               transition={{ duration: 0.8, delay: 0.4 }}
               className="space-y-8"
             >
-              {/* Support 24/7 */}
+              {/* Support */}
               <div className="bg-gradient-to-br from-green-50 to-emerald-50 dark:from-green-900/20 dark:to-emerald-900/20 rounded-3xl p-8 border border-green-200 dark:border-green-800">
                 <div className="flex items-center mb-4">
                   <div className="w-12 h-12 bg-green-500 rounded-xl flex items-center justify-center mr-4">
@@ -150,7 +150,7 @@ export default function Contact({ lang = 'fr' }) {
                     </svg>
                   </div>
                   <div>
-                    <h3 className="text-xl font-bold text-gray-900 dark:text-white">Support 24/7</h3>
+                    <h3 className="text-xl font-bold text-gray-900 dark:text-white">Support</h3>
                     <p className="text-green-600 dark:text-green-400 font-medium">Toujours là pour vous !</p>
                   </div>
                 </div>
@@ -179,8 +179,8 @@ export default function Contact({ lang = 'fr' }) {
                     </div>
                     <div>
                       <h4 className="font-semibold text-gray-900 dark:text-white">Email</h4>
-                      <a href="mailto:contact@miikaty.com" className="text-[#563491] hover:underline">
-                        contact@miikaty.com
+                      <a href="mailto:contact@mikaty.com" className="text-[#563491] hover:underline">
+                        contact@mikaty.com
                       </a>
                     </div>
                   </div>

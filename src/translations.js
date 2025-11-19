@@ -36,7 +36,7 @@ export const translations = {
     // Home Page
     home: {
       heroTitle: "Une gestion optimale de votre argent, \nnotre priorité.",
-      heroSubtitle: "Une technologie de pointe, une innovation du Sénégal pour le monde entier. Notre mission mondiale est de vous fournir des solutions financières fiables, adaptées à vos besoins : rapides, sécurisées, accessibles et compétitives.",
+      heroSubtitle: "Essayez Mikaty dès maintenant\n\nRejoignez la révolution du paiement mobile. Gratuit, sans engagement, pour tous.",
       scanToDownload: "Scan to download",
       scanDesc: "Scannez pour télécharger l'application.",
       
@@ -321,7 +321,7 @@ export const translations = {
     // Home Page
     home: {
       heroTitle: "Optimal management of your money, our priority.",
-      heroSubtitle: "Cutting-edge technology, an innovation from Senegal for the world. Our global mission is to provide you with reliable financial solutions, tailored to your needs — secure, accessible, and competitive.",
+      heroSubtitle: "Try Mikaty now\n\nJoin the mobile payment revolution. Free, commitment-free, for everyone.",
       scanToDownload: "Scan to download",
       scanDesc: "Scan to download the app.",
       

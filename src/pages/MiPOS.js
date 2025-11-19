@@ -30,7 +30,7 @@ export default function MiPOS({ lang = 'fr' }) {
                 transition={{ duration: 0.8, delay: 0.2 }}
                 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-6"
               >
-                MIPOs : Votre Terminal de Paiement Intelligent
+                MIPOS : Votre Terminal de Paiement Intelligent
               </motion.h1>
               
               <motion.p
@@ -51,7 +51,7 @@ export default function MiPOS({ lang = 'fr' }) {
                 className="flex flex-col sm:flex-row gap-4"
               >
                 <button className="bg-miikaty hover:bg-purple-700 text-white font-bold py-4 px-8 rounded-2xl text-lg transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1">
-                  Demander MIPOs
+                  Demander MIPOS
                 </button>
                 <button className="border-2 border-miikaty text-miikaty hover:bg-miikaty hover:text-white font-bold py-4 px-8 rounded-2xl text-lg transition-all duration-300">
                   En savoir plus
@@ -69,7 +69,7 @@ export default function MiPOS({ lang = 'fr' }) {
               <div className="w-full max-w-md h-auto rounded-3xl shadow-2xl">
                 <img 
                   src="/images/Pos.png" 
-                  alt="Terminal de paiement MIPOs"
+                  alt="Terminal de paiement MIPOS"
                   className="w-full h-auto object-contain rounded-3xl"
                 />
               </div>
@@ -88,7 +88,7 @@ export default function MiPOS({ lang = 'fr' }) {
             transition={{ duration: 0.8, delay: 0.2 }}
             className="text-3xl md:text-4xl font-bold text-center text-gray-900 dark:text-white mb-16"
           >
-            Pourquoi choisir <span className="text-miikaty">MIPOs</span> ?
+            Pourquoi choisir <span className="text-miikaty">MIPOS</span> ?
           </motion.h2>
           
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -223,7 +223,7 @@ export default function MiPOS({ lang = 'fr' }) {
               Comment ça <span className="text-miikaty">Marche</span>
             </h2>
             <p className="text-lg text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
-              En 3 étapes simples, acceptez les paiements avec MIPOs
+              En 3 étapes simples, acceptez les paiements avec MIPOS
             </p>
           </motion.div>
 
@@ -241,10 +241,10 @@ export default function MiPOS({ lang = 'fr' }) {
                   <div className="w-20 h-20 bg-gradient-to-br from-miikaty to-purple-600 rounded-full flex items-center justify-center mx-auto mb-4 shadow-lg">
                     <span className="text-3xl font-bold text-white">1</span>
                   </div>
-                  <h3 className="text-2xl font-bold text-miikaty dark:text-purple-300 mb-2">Activez MIPOs</h3>
+                  <h3 className="text-2xl font-bold text-miikaty dark:text-purple-300 mb-2">Activez MIPOS</h3>
                 </div>
                 <p className="text-gray-700 dark:text-gray-200 text-center leading-relaxed">
-                  Téléchargez l'application Mikaty et activez la fonctionnalité MIPOs depuis votre tableau de bord. 
+                  Téléchargez l'application Mikaty et activez la fonctionnalité MIPOS depuis votre tableau de bord. 
                   C'est gratuit et prend moins de 2 minutes !
                 </p>
               </div>
@@ -347,7 +347,7 @@ export default function MiPOS({ lang = 'fr' }) {
             className="text-center mb-16"
           >
             <h2 className="text-3xl md:text-4xl font-bold text-[#563491] dark:text-white mb-6">
-              Tarifs <span className="text-miikaty">MIPOs</span>
+              Tarifs <span className="text-miikaty">MIPOS</span>
             </h2>
             <p className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
               Des tarifs transparents et compétitifs pour votre terminal de paiement physique
@@ -498,7 +498,7 @@ export default function MiPOS({ lang = 'fr' }) {
             className="text-center mt-12"
           >
             <p className="text-gray-600 dark:text-gray-300 mb-6">
-              Pour plus d'informations sur nos tarifs ou pour commander votre terminal MIPOs
+              Pour plus d'informations sur nos tarifs ou pour commander votre terminal MIPOS
             </p>
             <button className="bg-[#563491] hover:bg-[#250f4d] text-white font-bold py-4 px-8 rounded-2xl text-lg transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1">
               Contactez-nous
